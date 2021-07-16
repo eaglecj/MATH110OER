@@ -268,7 +268,7 @@
 		<title> A connection to systems of linear equations </title>
 		<p> Although we introduced multiplication of a matrix and a vector for reasons connected to linear transformations, the same operation has very close ties to systems of linear equations. </p>
 		<theorem>
-			<statement>
+			<statement xml:id="thm-system-as-matrix-equation">
 				<p> Let <m>A</m> be an <m>m \times n</m> matrix, let <m>\vec{b} = \begin{bmatrix}b_1 \\ \vdots \\ b_m\end{bmatrix}</m>, and let <m>\vec{x} = \begin{bmatrix}x_1 \\ \vdots \\ x_n\end{bmatrix}</m>.  Then <m>A\vec{x} = \vec{b}</m> if and only if <m>\vec{x}</m> is a solution to the system of linear equations with augmented matrix <m>[A | \vec{b}]</m>. </p>
 			</statement>
 			<proof>
@@ -288,7 +288,7 @@
 				<p>The coefficient matrix of this system is exactly <m>A</m>, and so <m>A\vec{x}=\vec{b}</m> if and only if <m>\vec{x}</m> is a solution to the system <m>[A|\vec{b}]</m>.</p>
 			</proof>
 		</theorem>
-		<p> For the moment, this result just gives us a way of re-writing a system of linear equations as a single equation involving matrices and vectors.  After we develop more of the algebraic properties of equations involving matrices in <xref ref="sec-BasicOperations" /> and <xref ref="sec-Multiplication" /> we will return in <xref ref="sec-Inverses" /> to see how thinking of a system of linear equations as a matrix equation can sometimes be helpful. </p>
+		<p> For the moment, this result just gives us a way of re-writing a system of linear equations as a single equation involving matrices and vectors.  After we develop more of the algebraic properties of equations involving matrices in <xref ref="sec-BasicOperations" /> and <xref ref="sec-Multiplication" /> we will return in <xref ref="sec-Inverses" /> to see how thinking of a system of linear equations as a matrix equation can sometimes be helpful.</p>
 	</subsection>
 	<xi:include href="3-1-exercises.ptx" />
 </section>

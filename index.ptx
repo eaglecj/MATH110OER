@@ -75,10 +75,13 @@
 
 			</introduction>
 
-			<xi:include href="chapters/chapter2/1-linear-systems-revisited/2-1-lecture-notes.ptx" />
-			<xi:include href="chapters/chapter2/2-linear-independence/2-2-lecture-notes.ptx" />
+
+
 			<xi:include href="chapters/chapter2/3-span/2-3-lecture-notes.ptx" />
+			<xi:include href="chapters/chapter2/2-linear-independence/2-2-lecture-notes.ptx" />
+			<xi:include href="chapters/chapter2/1-linear-systems-revisited/2-1-lecture-notes.ptx" />
 			<xi:include href="chapters/chapter2/4-subspaces/2-4-lecture-notes.ptx" />
+
 		</chapter>
 
 		<chapter xml:id="chapt-3"><!--Matrices-->

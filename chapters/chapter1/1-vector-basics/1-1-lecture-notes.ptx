@@ -256,11 +256,11 @@
 
 	</subsection>
 
-	<subsection>
+	<subsection xml:id="subsec-linear-combination">
 		<title>
 			A first look at linear combinations
 		</title>
-		<definition>
+		<definition xml:id="def-linear-combination">
 			Suppose that <m>\vec{v}_1, \ldots, \vec{v}_k</m> are vectors in <m>\mathbb{R}^n</m>.  A <em>linear combination</em> of <m>\vec{v}_1, \ldots, \vec{v}_k</m> is a vector that can be written in the form <me>c_1\vec{v}_1+\cdots+c_k\vec{v}_k,</me> where <m>c_1, \ldots, c_k</m> are scalars.
 		</definition>
 		<example>
