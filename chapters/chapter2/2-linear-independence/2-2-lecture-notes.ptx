@@ -40,6 +40,8 @@
 			<p> Suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> are vectors in <m>\mathbb{R}^n</m>.  The vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly dependent if and only if there is some <m>i</m>, <m>1 \leq i \leq k</m>, such that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>. </p>
 		</statement>
 		<proof>
+			<p> First suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly dependent.  Then we can find scalars <m>a_1, \ldots, a_k</m>, not all zero, such that <m>a_1\vec{v_1} + \cdots + a_k\vec{v_k} = 0</m>.  Suppose that <m>i</m> is one of the indices such that <m>a_i \neq 0</m>.  Then we can rearrange the linear dependence relation to obtain <me> \vec{v_i} = \frac{a_1}{a_i}\vec{v_1} + \cdots + \frac{a_{i-1}}{a_i}\vec{v_{i-1}} + \frac{a_{i+1}}{a_i}\vec{v_{i+1}} + \cdots + \frac{a_k}{a_i}\vec{v_k}</me>, which shows that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>.</p>
+			<p> For the converse, suppose that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>.  Then there are scalars <m>b_1, \ldots, b_{i-1}, b_{i+1}, \ldots, b_k</m> such that <me>\vec{v_i} = b_1\vec{v_1} + \cdots + b_{i-1}\vec{v_{i-1}} + b_{i+1}\vec{v_{i+1}} + \cdots + b_k\vec{v_k}</me>, which we can rearrange to <me>b_1\vec{v_1} + \cdots + b_{i-1}\vec{v_{i-1}}+1\vec{v_i}+b_{i+1}\vec{v_{i+1}} + \cdots + b_k\vec{v_k}=\vec{0}</me>.  The coefficient of <m>\vec{v_i}</m> is non-zero, so this equation shows that the vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly dependent.</p>
 		</proof>
 	</theorem>
 

@@ -60,6 +60,16 @@
 			<p> Let <m>\vec{v_1}, \ldots, \vec{v_k}</m> be vectors in <m>\mathbb{R}^n</m>.  Then for any <m>i</m> with <m>1 \leq i \leq k</m>, <m>\span(\vec{v_1}, \ldots, \vec{v_k}) = \span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m> if and only if <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>. </p>
 		</statement>
 		<proof>
+			<p> One direction is easy: If <m>\span(\vec{v_1}, \ldots, \vec{v_k}) = \span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m> then, since <m>\vec{v_i}</m> is certainly in <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>, we also have that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>.</p>
+			<p> For the other direction, suppose that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>.  Since any linear combination of <m>\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k}</m> is also a linear combination of <m>\vec{v_1}, \ldots, \vec{v_k}</m> (by making the coefficient of <m>\vec{v_i}</m> be <m>0</m>) to prove that <m>\span(\vec{v_1}, \ldots, \vec{v_k}) = \span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m> all we need to do is show that every linear combination of <m>\vec{v_1}, \ldots, \vec{v_k}</m> can be written as a linear combination where <m>\vec{v_i}</m> does not appear.</p>
+			<p> By our assumption that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>, there are scalars <m>b_1, \ldots, b_{i-1}, b_{i+1}, \ldots, b_k</m> such that <m>\vec{v_i} = b_1\vec{v_1} + \cdots + b_{i-1}\vec{v_{i-1}} + b_{i+1}\vec{v_{i+1}}\cdots + b_k\vec{v_k}</m>.  Now given any element of <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>, say <m>a_1\vec{v_1} + \cdots + a_k\vec{v_k}</m>, we have:</p>
+			<md>
+				<mrow> a_1\amp \vec{v_1} + \cdots + a_k\vec{v_k} </mrow>
+				<mrow> \amp = a_1\vec{v_1} + \cdots + a_{i-1}\vec{v_{i-1}} + a_i\vec{v_i} + a_{i+1}\vec{v_{i+1}} + \cdots + a_k\vec{v_k}</mrow>
+				<mrow> \amp = a_1\vec{v_1} + \cdots + a_{i-1}\vec{v_{i-1}} + a_i(b_1\vec{v_1} + \cdots + b_{i-1}\vec{v_{i-1}} + b_{i+1}\vec{v_{i+1}}\cdots + b_k\vec{v_k}) + a_{i+1}\vec{v_{i+1}} + \cdots + a_k\vec{v_k}</mrow>
+				<mrow> \amp = (a_1+a_ib_1)\vec{v_1} + \cdots + (a_{i-1}+a_ib_{i-1})\vec{v_{i-1}} + (a_{i+1}+a_ib_{i+1})\vec{v_{i+1}} + \cdots + (a_k+a_ib_k)\vec{v_k}</mrow>
+			</md>
+			<p> Since the last expression is a linear combination that does not use <m>\vec{v_i}</m>, the proof is complete.</p>
 		</proof>
 	</theorem>
 
