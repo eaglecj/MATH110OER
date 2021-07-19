@@ -19,7 +19,26 @@
 	<note>
 		<p> Given any vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> if we let <m>a_1 = a_2 = \cdots = a_k = 0</m> then we certainly do get <m>a_1\vec{v_1}+\cdots+a_k\vec{v_k} = \vec{0}</m>.  We sometimes say that the expression <m>0\vec{v_1} + \cdots + 0\vec{v_k}</m> is the <em>trivial</em> way of obtaining <m>\vec{0}</m> as a linear combination of <m>\vec{v_1}, \ldots, \vec{v_k}</m>.  Saying that <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly independent is saying that there is no <em>non-trivial</em> choice of scalars that will allow us to make a linear combination of <m>\vec{v_1}, \ldots, \vec{v_k}</m> be <m>\vec{0}</m>.</p>
 	</note>
-	<example>
+	<example xml:id="ex-zero-dependent">
+		<p> Any set of vectors containing <m>\vec{0}</m> will be linearly dependent.  Indeed, if we have the vectors <m>\vec{0}, \vec{v_2}, \ldots, \vec{v_k}</m> then we can write <m>5\vec{0} + 0\vec{v_2} + \cdots + 0\vec{v_k} = \vec{0}</m>, and not all of the coefficients on the left side are <m>0</m>.</p>
+	</example>
+	<example xml:id="ex-linearly-dependent">
+		<p>
+			Let <m>\vec{v_1} = \begin{bmatrix}1\\2\\3\end{bmatrix}</m>, <m>\vec{v_2} = \begin{bmatrix}2\\1\\0\end{bmatrix}</m>, and <m>\vec{v_3} = \begin{bmatrix}0\\1\\2\end{bmatrix}</m>.  To determine whether these vectors are linearly independent or linearly dependent we need to determine the possibly scalars <m>a_1, a_2, a_3</m> such that <m>a_1\vec{v_1} + a_2\vec{v_2}+a_3\vec{v_3}=\vec{0}</m>.  That is, we need to find solutions to: <me>a_1\begin{bmatrix}1\\2\\3\end{bmatrix} + a_2\begin{bmatrix}2\\1\\0\end{bmatrix}+a_3\begin{bmatrix}0\\1\\2\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}</me>.
+		</p>
+		<p>
+			If we expand this vector equation into a system of linear equations we obtain:
+			<md>
+				<mrow> a_1 + 2a_2 + 0a_3 = 0 </mrow>
+				<mrow> 2a_1 + a_2 + a_3 = 0</mrow>
+				<mrow> 3a_1 + 0a_2 + 2a_3 = 0</mrow>
+			</md>
+			We turn this into an augmented matrix and row-reduce:
+			<me>\matr{ccc|c}{1 \amp 2 \amp 0 \amp 0 \\ 2 \amp 1 \amp 1 \amp 0 \\ 3 \amp 0 \amp 2 \amp 0} \to \matr{ccc|c}{1 \amp 0 \amp 2/3 \amp 0 \\ 0 \amp 1 \amp -1/3 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0}</me>.
+		</p>
+		<p>
+			From the reduced row echelon form we see that our system of equations has <m>a_3</m> as a free variable, and hence has infinitely many solutions.  In particular, it has solutions other than <m>a_1=a_2=a_3=0</m>, so <m>\vec{v_1}, \vec{v_2}, \vec{v_3}</m> are linearly dependent.
+		</p>
 	</example>
 	<p> The first part of the solution to the previous example occurs frequently enough to be worth recording as a theorem. </p>
 	<theorem xml:id="thm-indep-iff-unique-solution">
@@ -27,14 +46,22 @@
 			<p> Let <m>\vec{v_1}, \ldots, \vec{v_k}</m> be vectors in <m>\mathbb{R}^n</m>, and let <m>A</m> be the matrix whose columns are <m>\vec{v_1}, \ldots, \vec{v_k}</m>.  The vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly independent if and only if the linear system represented by <m>[A|\vec{0}]</m> has a unique solution.</p>
 		</statement>
 		<proof>
+			<p>The system represented by <m>[A|\vec{0}]</m> is exactly the same as the system written in vector form as <m>a_1\vec{v_1} + \cdots + a_k\vec{v_k} = \vec{0}</m>, so one has a unique solution (which must be the trivial solution) if and only if the other does.</p>
 		</proof>
 	</theorem>
+
 	<example>
-		<p> Any set of vectors containing <m>\vec{0}</m> will be linearly dependent.  Indeed, if we have the vectors <m>\vec{0}, \vec{v_2}, \ldots, \vec{v_k}</m> then we can write <m>5\vec{0} + 0\vec{v_2} + \cdots + 0\vec{v_k} = \vec{0}</m>, and not all of the coefficients on the left side are <m>0</m>.</p>
+		<p>
+			Are the vectors <m>\begin{bmatrix}1\\0\\-1\\2\end{bmatrix}, \begin{bmatrix}1\\1\\1\\1\end{bmatrix}, \begin{bmatrix}2\\4\\3\\-1\end{bmatrix}</m> linearly dependent or linearly independent?
+		</p>
+		<solution>
+			<p> We set up the appropraite augmented matrix and row reduce: 
+			<me>\matr{ccc|c}{1 \amp 1 \amp 2 \amp 0 \\ 0 \amp 1 \amp 4 \amp 0 \\ -1 \amp 1 \amp 3 \amp 0 \\ 2 \amp 1 \amp -1 \amp 0} \to \matr{ccc|c}{1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0}</me>.
+			</p>
+			<p> We see that our system has a unique solution, so the vectors are linearly independent. </p>
+		</solution>
 	</example>
-	<example>
-	</example>
-	<p> In the example we saw a set of linearly dependent vectors, and we also noticed that one of those vectors could be expressed as a linear combination of the others.  In fact, this always happens, which is why our definition of linear independence is a good notion of having no redundancies. </p>
+	<p> Our next theorem gives a reason that our definition of linear independence is a good notion of having no redundancies amongst the vectors. </p>
 	<theorem xml:id="thm-linear-dependent-redundant">
 		<statement>
 			<p> Suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> are vectors in <m>\mathbb{R}^n</m>.  The vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly dependent if and only if there is some <m>i</m>, <m>1 \leq i \leq k</m>, such that <m>\vec{v_i}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})</m>. </p>
@@ -45,8 +72,13 @@
 		</proof>
 	</theorem>
 
+	<example>
+		<p> Consider again the vectors from <xref ref="ex-linearly-dependent" />, <m>\vec{v_1} = \begin{bmatrix}1\\2\\3\end{bmatrix}</m>, <m>\vec{v_2} = \begin{bmatrix}2\\1\\0\end{bmatrix}</m>, and <m>\vec{v_3} = \begin{bmatrix}0\\1\\2\end{bmatrix}</m>.  We found that the equation <m>a_1\vec{v_1}+a_2\vec{v_2}+a_3\vec{v_3}=\vec{0}</m> is true whenever <m>a_1 = -\frac{2}{3}a_3</m> and <m>a_2 = \frac{1}{3}a_3</m>.  Let us choose a specific value of <m>a_3</m>; to make the fractions go away we can choose <m>a_3 = 3</m> (but any choice would be fine).  Then we get <m>a_1 = -2</m> and <m>a_2 = 1</m>, which gives us the equation <me>-2\begin{bmatrix}1\\2\\3\end{bmatrix} + \begin{bmatrix}2\\1\\0\end{bmatrix}+3\begin{bmatrix}0\\1\\2\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}</me>.  We could re-write this equation as <me>\begin{bmatrix}2\\1\\0\end{bmatrix} = 2\begin{bmatrix}1\\2\\3\end{bmatrix} - 3\begin{bmatrix}0\\1\\2\end{bmatrix}</me>, thus showing that <m>\span(\vec{v_1}, \vec{v_2}, \vec{v_3}) = \span(\vec{v_1}, \vec{v_3})</m>.</p>
+	</example>
+
 	<note>
-		<p> Caution!  <xref ref="thm-linear-dependent-redundant" /> says that if you have a linearly dependent set of vectors then there is <em>at least one</em> vector that is in the span of the others, but it does <em>not</em> say that <em>every</em> vector is in the span of the others.  Using <xref ref="thm-span-unchanged-removal" />, this means that if you have a linearly dependent set then there is at least one vector that you can remove without changing the span, but there may also be vectors whose removal does change their span.</p>
+		<p> Caution!  In the previous example we could have rearranged our linear dependence relation differently, and so we could have chosen to remove <m>\vec{v_1}</m> or <m>\vec{v_3}</m> instead of <m>\vec{v_2}</m>, but it is <em>not</em> always true that we can eliminate any vector we wish.</p><p><xref ref="thm-linear-dependent-redundant" /> says that if you have a linearly dependent set of vectors then there is <em>at least one</em> vector that is in the span of the others, but it does <em>not</em> say that <em>every</em> vector is in the span of the others.  Using <xref ref="thm-span-unchanged-removal" />, this means that if you have a linearly dependent set then there is at least one vector that you can remove without changing the span, but there may also be vectors whose removal does change their span.</p>
 	</note>
+
 	<xi:include href="2-2-exercises.ptx" />
 </section>
