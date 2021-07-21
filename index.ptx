@@ -29,6 +29,7 @@
 			\usetikzlibrary{arrows}
 		\usepackage{pgfplots}<!-- for coordinate systems-->
 			\usetikzlibrary{arrows.meta}
+			\usetikzlibrary{patterns}
 			\usetikzlibrary{decorations.pathreplacing}
 		\usepackage{tkz-euclide}<!-- also trying to use it for coordinate systems; also needed for some angle markers, so please don't remove!-->
 	</latex-image-preamble>

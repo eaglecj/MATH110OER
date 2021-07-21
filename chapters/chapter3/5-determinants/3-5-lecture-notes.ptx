@@ -3,6 +3,117 @@
 	<title>
 		Determinants
 	</title>
+	<introduction>
+		<p> In this section we introduce the determinant of a matrix and describe some of its properties.  The determinant is defined through a recursive process, and as a result many of the theorems in this section involve proofs by mathematical induction.  Since that technique is beyond the scope of this course we will omit most of the proofs in this section. </p>
+	</introduction>
+	<subsection>
+		<title> Cofactor expansion and the determinant </title>
+	</subsection>
+
+	<subsection>
+		<title> Properties of determinants </title>
+
+		<p>It is time to consider some properties of the determinant and how it interacts with other operations we perform on matrices.</p>
+		<theorem xml:id="thm-row-ops-det">
+			<statement>
+				<p> Suppose that <m>A</m> is an <m>n \times n</m> matrix, and <m>B</m> is obtained from <m>A</m> by a single elementary row operation.  Then:
+				<ol>
+					<li> If <m>A \to_{R_i \leftrightarrow R_j} B</m> then <m>\det(A) = -\det(B)</m>.</li>
+					<li> If <m>A \to_{kR_i} B</m> then <m>\det(A) = \frac{1}{k}\det(B)</m>.</li>
+					<li> If <m>A \to_{R_i+cR_j} B</m> then <m>\det(A) = \det(B)</m>.</li>
+				</ol>
+				</p>
+			</statement>
+		</theorem>
+
+		<example>
+		</example>
+
+		<p> For our purposes, the most important property of determinants is that they provide a numerical way to detect invertibility of matrices; specifically, a square matrix is invertible if and only if it has non-zero determinant.  We get to add another statement to the Fundamental Theorem!</p>
+		<theorem>
+			<statement><p>Fundamental theorem, with determinants.</p></statement>
+			<proof>
+				<p> The key observation for both parts of this proof is that it follows from <xref ref="thm-row-ops-det" /> that, although row operations can change determinants, they never change whether or not the determiant is zero. </p>
+				<p> <m>?? \implies ??</m>: Suppose that <m>\RREF(A) = I_n</m>.  Then there is a sequence of row operations that transforms <m>A</m> into <m>I_n</m>, and <m>\det(I_n) \neq 0</m>, so <m>\det(A) \neq 0</m>. </p>
+				<p> <m>?? \implies ??</m>: Suppose that <m>\det(A) \neq 0</m>.  Then <m>\det(\RREF(A)) \neq 0</m> as well.  In particular, <m>\RREF(A)</m> does not have a row of all zero, so every row of <m>\RREF(A)</m> has a leading <m>1</m>.  Thus <m>A</m> has <m>n</m> pivot columns.  The only <m>n \times n</m> matrix in reduced row echelon form with <m>n</m> pivot columns is <m>I_n</m>, so <m>\RREF(A) = I_n</m>.</p>
+			</proof>
+		</theorem>
+
+		<p> We will make extensive use of this method for detecting invertibility in <xref ref="sec-Eigen" />.  To wrap up this part of our discussion, here is how determinants interact with the other matrix operations we have seen. </p>
+		<theorem xml:id="thm-matrix-operations-det">
+			<statement><p> Suppose that <m>A</m> and <m>B</m> are <m>n \times n</m> matrices.  Then: 
+				<ol>
+					<li> For any scalar <m>k</m>, <m>\det(kA) = k^n\det(A)</m>. </li>
+					<li> <m>\det(AB) = \det(A)\det(B)</m>. </li>
+					<li> If <m>A</m> is invertible then <m>\det(A^{-1}) = \frac{1}{\det(A)}</m>.</li>
+					<li> <m>\det(A^t) = \det(A)</m>. </li>
+				</ol>
+			</p></statement>
+		</theorem>
+		<note><p> 
+			Conspicuously absent from the theorem above is a nice formula for computing <m>\det(A+B)</m> from <m>\det(A)</m> and <m>\det(B)</m>.  The reason for that omission is that no such formula exists: If all that you know about <m>A</m> and <m>B</m> is their determinants then you do not have enough information to compute <m>\det(A+B)</m>.
+		</p></note>
+	</subsection>
+
+
+	<subsection>
+		<title> A geometric interpretation </title>
+		<p> Recall that every <m>n \times n</m> matrix is associated with a linear transformation <m>T_A : \mathbb{R}^n \to \mathbb{R}^n</m>, where <m>T_A(\vec{v}) = A\vec{v}</m>.  The number <m>\det(A)</m> has a geometric meaning in terms of the transformation <m>T_A</m>.  The geometry is easiest to visualize in the case of <m>2 \times 2</m> matrices, so we start there.</p>
+		<p> Suppose that <m>A = \begin{bmatrix}a \amp b \\ c \amp d\end{bmatrix}</m>.  Then <m>T_A\left(\begin{bmatrix}1\\0\end{bmatrix}\right) = \begin{bmatrix}a\\c\end{bmatrix}</m> and <m>T_A\left(\begin{bmatrix}b\\d\end{bmatrix}\right)</m>.  Any point inside the square determined by <m>\begin{bmatrix}1\\0\end{bmatrix}</m> and <m>\begin{bmatrix}0\\1\end{bmatrix}</m> can be written as <m>s\begin{bmatrix}1\\0\end{bmatrix}+t\begin{bmatrix}0\\1\end{bmatrix}</m>, where <m>0 \leq s \leq 1</m> and <m>0 \leq t \leq 1</m>.  Since <m>T_A</m> is a linear transformation, we have <me> T_A\left(s\begin{bmatrix}1\\0\end{bmatrix}+t\begin{bmatrix}0\\1\end{bmatrix}\right) = sT_A\left(\begin{bmatrix}1\\0\end{bmatrix}\right) + tT_A\left(\begin{bmatrix}0\\1\end{bmatrix}\right) = s\begin{bmatrix}a\\c\end{bmatrix}+t\begin{bmatrix}b\\d\end{bmatrix}</me>.  That is, <em>points inside the square determined by <m>\begin{bmatrix}1\\0\end{bmatrix}</m> and <m>\begin{bmatrix}0\\1\end{bmatrix}</m> are sent to points inside the parallelogram determined by <m>\begin{bmatrix}a\\c\end{bmatrix}</m> and <m>\begin{bmatrix}b\\d\end{bmatrix}</m></em>.</p>
+			<figure>
+				<caption>The action of <m>T_A</m> on the unit square determined by <m>\vec{e_1}</m> and <m>\vec{e_2}</m>.</caption>
+				<image>
+					<latex-image>
+						\begin{tikzpicture}	
+							\draw[thick] (0,-2.2) -- (0,2.2);
+							\draw[thick] (-2.2,0) -- (2.2,0);
+							\draw[thick] (4.2,0) -- (8.2, 0);
+							\draw[thick] (6.1, -2.2) -- (6.1, 2.2);
+							
+							\draw[pattern=north west lines, pattern color=purple] (0, 0)--(0,1.5)--(1.5,1.5)--(1.5,0)--cycle;
+							\draw[-Triangle, blue, ultra thick] (0, 0) -- (1.5, 0) node[below]{$\vec{e_1}$};
+							\draw[-Triangle, red, ultra thick] (0, 0) -- (0, 1.5) node[left]{$\vec{e_2}$};
+							
+							\draw[pattern=north west lines, pattern color=purple] (6.1, 0)--(7,0.5)--(7.5, 2)--(6.6,1.5)--cycle;
+							\draw[-Triangle, blue, ultra thick] (6.1, 0)--(7,0.5) node[below right]{$T_A(\vec{e_1})$};
+							\draw[-Triangle, red, ultra thick] (6.1, 0)--(6.6, 1.5) node[pos=0.5, left]{$T_A(\vec{e_2})$};
+							
+							\draw[Triangle-] (4,2) arc (20:160:.8);
+							\node at (3.2, 3){$T_A$};
+
+						\end{tikzpicture}
+					</latex-image>
+				</image>
+			</figure>
+		<p> In the setting described above, the geometric interpretation of the determinant is that the parallelogram determined by <m>T_A(\vec{e_1})</m> and <m>T_A(\vec{e_2})</m> (that is, determined by the columns of <m>A</m>) has area exactly <m>\abs{\det(A)}</m>.  The sign of <m>\det(A)</m> is determined by whether <m>T_A</m> preserves or reverses the orientation between the sides of the square.  The figure above shows the situation for a positive determinant.  Here is what the image looks like if the determinant is negative - notice how the positions of <m>T_A(\vec{e_1})</m> and <m>T_A(\vec{e_2})</m> are reversed from those of <m>\vec{e_1}</m> and <m>\vec{e_2}</m>.</p>
+			<figure>
+				<caption>A negative determinant.</caption>
+				<image>
+					<latex-image>
+						\begin{tikzpicture}	
+							\draw[thick] (0,-2.2) -- (0,2.2);
+							\draw[thick] (-2.2,0) -- (2.2,0);
+							\draw[thick] (4.2,0) -- (8.2, 0);
+							\draw[thick] (6.1, -2.2) -- (6.1, 2.2);
+							
+							\draw[pattern=north west lines, pattern color=purple] (0, 0)--(0,1.5)--(1.5,1.5)--(1.5,0)--cycle;
+							\draw[-Triangle, blue, ultra thick] (0, 0) -- (1.5, 0) node[below]{$\vec{e_1}$};
+							\draw[-Triangle, red, ultra thick] (0, 0) -- (0, 1.5) node[left]{$\vec{e_2}$};
+							
+							\draw[pattern=north west lines, pattern color=purple] (6.1, 0)--(7,0.5)--(7.5, 2)--(6.6,1.5)--cycle;
+							\draw[-Triangle, red, ultra thick] (6.1, 0)--(7,0.5) node[below right]{$T_A(\vec{e_2})$};
+							\draw[-Triangle, blue, ultra thick] (6.1, 0)--(6.6, 1.5) node[pos=0.5, left]{$T_A(\vec{e_1})$};
+							
+							\draw[Triangle-] (4,2) arc (20:160:.8);
+							\node at (3.2, 3){$T_A$};
+
+						\end{tikzpicture}
+					</latex-image>
+				</image>
+			</figure>
+			<p> In higher dimensions the geometry is similar: <m>\abs{\det(A)}</m> is the volume of the image of the parallelopiped determined by the standard basis of <m>\mathbb{R}^n</m>, and the sign of <m>\det(A)</m> is determined by the the orientation of the image. </p>
+			<p> In multivariable calculus you will see that determinants appear in the formula for change-of-variables in multiple integrals.  The reason is fundamentally because of the geometric picture shown above - the determinant is giving the correction factor for how areas (or volumes, or their higher-dimensional analogues) have changed in applying a linear transformation to change coordinates.  In fact, this use of determinants was discovered before the modern notions of "matrix" and "linear transformation"!</p>
+	</subsection>
 
 	<xi:include href="3-5-exercises.ptx" />
 </section>
