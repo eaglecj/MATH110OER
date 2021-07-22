@@ -51,7 +51,7 @@
 			<p> Similarly, if we have a plane in <m>\mathbb{R}^3</m> it can be described by a single general equation.  If we think of that single equation as a system of one equation in three variables, we see that the system has rank <m>1</m> (as long as it is not the trivial equation <m>0x+0y+0z=0</m>).  By the rank-nullity theorem it therefore has <m>2</m> free variables, and those free variables correspond to the direction vectors of the plane.</p>
 		</example>
 
-		<corollary>
+		<corollary xml:id="cor-number-of-solutions-1">
 			<statement>
 				<p> Any system of linear equations has either no solution, exactly one solution, or infinitely many solutions. </p>
 			</statement>

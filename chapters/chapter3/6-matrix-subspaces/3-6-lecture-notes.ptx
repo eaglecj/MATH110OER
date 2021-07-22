@@ -3,6 +3,131 @@
 	<title>
 		Subspaces associated to matrices
 	</title>
+	<introduction>
+		<p> In <xref ref="sec-Subspaces" /> we introduced the notion of a subspace of <m>\mathbb{R}^n</m>.  In this section we will describe three important subspaces associated to any matrix, and also see how understanding these subspaces can shed light on some earlier topics from the course. </p>
+	</introduction>
 
+	<subsection>
+		<title>
+			The row space
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>row space</em> of <m>A</m>, denoted <m>\row(A)</m>, is defined to be the span of the rows of <m>A</m>. </p>
+		</definition>
+		<p> Note that <m>\row(A)</m> is a subspace of <m>\mathbb{R}^n</m>, by <xref ref="thm-span-subspace" />. </p>
+		<theorem xml:id="thm-basis-row-space">
+			<statement>
+				<p> For any matrix <m>A</m>, the non-zero rows of <m>\RREF(A)</m> form a basis for <m>\row(A)</m>. </p>
+			</statement>
+			<proof>
+
+			</proof>
+		</theorem>
+
+		<example>
+
+		</example>
+	</subsection>
+
+
+	<subsection>
+		<title>
+			The column space
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>column space</em> of <m>A</m>, denoted <m>\col(A)</m>, is defined to be the span of the columns of <m>A</m>. </p>
+		</definition>
+		<p> As with the row space, <xref ref="thm-span-subspace" /> tells us that <m>\col(A)</m> is a subspace (this time it is a subspace of <m>\mathbb{R}^m</m>). </p>
+		<p> One way that we could look for a basis for <m>\col(A)</m> is to notice that <m>\col(A) = \row(A^t)</m>, so we could apply <xref ref="thm-basis-row-space" /> to <m>A^t</m> to give us a basis for <m>\col(A)</m>.  However, doing this requires row reducing <m>A^t</m>.  It is useful to have a method for finding a basis for <m>\col(A)</m> that can be calculated from <m>\RREF(A)</m>, rather than <m>\RREF(A^t)</m>. </p>
+		<theorem>
+			<statement>
+				<p> For any matrix <m>A</m>, the pivot columns of <m>A</m> form a basis for <m>\col(A)</m>.</p>
+			</statement>
+			<proof>
+			</proof>
+		</theorem>
+
+		<example>
+
+		</example>
+	</subsection>
+
+
+	<subsection>
+		<title>
+			The null space
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>null space</em> of <m>A</m>, denoted <m>\null(A)</m>, is the collection of all vectors <m>\vec{v}</m> in <m>\mathbb{R}^n</m> such that <m>A\vec{v} = \vec{0}</m>.</p>
+		</definition>
+		<theorem>
+			<statement>
+				<p> If <m>A</m> is any <m>m \times n</m> matrix then <m>\null(A)</m> is a subspace of <m>\mathbb{R}^n</m>. </p>
+			</statement>
+			<proof>
+				<p>We check the conditions of <xref ref="def-subspace" />.</p>
+				<p>First, since <m>A\vec{0} = \vec{0}</m> the vector <m>\vec{0}</m> is in <m>\null(A)</m>, and hence <m>\null(A)</m> is not empty. </p>
+				<p>Second, suppose that <m>\vec{v}</m> and <m>\vec{w}</m> are in <m>\null(A)</m>.  Then <m>A\vec{v} = \vec{0}</m> and <m>A\vec{w} = \vec{0}</m>, so <me>A(\vec{v} + \vec{w}) = A\vec{v}+A\vec{w} = \vec{0}+\vec{0} = \vec{0}</me>.  This shows that <m>\vec{v}+\vec{w}</m> is in <m>\null(A)</m>. </p>
+				<p>Finally, suppose that <m>\vec{v}</m> is in <m>\null(A)</m> and <m>c</m> is a scalar.  Then <m>A\vec{v} = \vec{0}</m>, so <me>A(c\vec{v}) = cA\vec{v} = c\vec{0} = \vec{0}</me>.  This shows that <m>c\vec{v}</m> is in <m>\null(A)</m>.</p>
+			</proof>
+		</theorem>
+
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>nullity</em> of <m>A</m> is <m>\nullity(A) = \dim(\null(A))</m>. </p>
+		</definition>
+
+		<p> We've seen both the null space and the nullity before, under a different disguise.  Notice that, by <xref ref="thm-system-as-matrix-equation" />, we have that <m>\vec{v}</m> is in <m>\null(A)</m> if and only if <m>\vec{v}</m> is a solution to the homogeneous system <m>[A|\vec{0}]</m>.  Thus to find a basis for <m>\null(A)</m> we just take <m>[A|\vec{0}]</m> to reduced row echelon form and extract a collection of linearly independent solutions, as we have done before.  Moreover, as we have seen before, the number of free variables of the system will be the dimension of the space of solutions (see <xref ref="sec-SLERevisted" />).  These observations give us a reformulation of <xref ref="thm-rank-nullity-version-1" />:</p>
+		<theorem xml:id="thm-rank-nullity-version-2">
+			<title> Rank-Nullity Theorem (revisited) </title>
+			<statement>
+				<p> Let <m>A</m> be an <m>m \times n</m> matrix.  Then <m>\rank(A) + \nullity(A) = n</m>. </p>
+			</statement>
+		</theorem>
+		<example>
+			<p> Let <m>A = \begin{bmatrix}3 \amp 2 \amp -1 \amp 0 \\ 1 \amp 2 \amp -1 \amp 3\end{bmatrix}</m>.  Then <m>\RREF(A) = \begin{bmatrix}1 \amp 0 \amp 0 \amp -3/2 \\ 0 \amp 1 \amp -1/2 \amp 9/4\end{bmatrix}</m>, so we have that <m>\begin{bmatrix}x\\y\\z\\w\end{bmatrix}</m> is in <m>\null(A)</m> if and only if <m>x=\frac{3}{2}w</m> and <m>y = \frac{1}{2}z - \frac{9}{4}w</m>.  That is,
+			<me> \begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}\frac{3}{2}w \\ \frac{1}{2}z - \frac{9}{4}w \\ z \\ w\end{bmatrix} = z\begin{bmatrix}0\\1/2\\1\\0\end{bmatrix} + w\begin{bmatrix}3/2 \\ -9/4 \\ 0 \\1\end{bmatrix}</me>.
+			Therefore <m>\left\{\begin{bmatrix}0 \\ 1/2 \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix}3/2 \\ -9/4 \\ 0 \\ 1\end{bmatrix}\right\}</m> is a basis for <m>\null(A)</m>, and <m>\nullity(A) = 2</m>.</p>
+		</example>
+
+
+
+		<p> In <xref ref="cor-number-of-solutions-1" /> we proved that any system of linear equations has either no solution, exactly one solution, or infinitely many solutions.  The material we have developed in this chapter allows us to give a different proof, which also gives some information about what the solutions to a system look like. </p>
+		<theorem xml:id="thm-homogeneous-plus-solution">
+			<statement>
+				<p> Consider a system of linear equations written in augmented matrix form as <m>[A|\vec{b}]</m>, and suppose that <m>\vec{v}</m> is a solution to the system.  A vector <m>\vec{w}</m> is a solution to the system <m>[A|\vec{b}]</m> if and only if it can be written in the form <m>\vec{w} = \vec{v} + \vec{z}</m>, where <m>\vec{z}</m> is a vector in <m>\null(A)</m>.</p>
+			</statement>
+			<proof>
+				<p>
+					First, suppose that <m>\vec{w}</m> is a solution to <m>[A|\vec{b}]</m>.  Then by <xref ref="thm-system-as-matrix-equation" /> we have <m>A\vec{w} = \vec{b}</m>, and since <m>\vec{v}</m> is also a solution we have <m>A\vec{v} = \vec{b}</m>.  If we let <m>\vec{z} = \vec{w}-\vec{v}</m> and subtract the above equations, we get:
+					<me>\vec{0} = \vec{b}-\vec{b} = A\vec{w} - A\vec{v} = A(\vec{w}-\vec{v}) = A\vec{z}</me>.
+					Thus <m>\vec{z}</m> is in <m>\null(A)</m>, and <m>\vec{v}+\vec{z} = \vec{v} + (\vec{w}-\vec{v}) = \vec{w}</m>.
+				</p>
+				<p> 
+					For the other direction, suppose that <m>\vec{z}</m> is in <m>\null(A)</m>.  By <xref ref="thm-system-as-matrix-equation" /> we have <m>A\vec{v} = \vec{b}</m>, and so:
+					<me> A(\vec{v}+\vec{z}) = A\vec{v} + A\vec{z} = \vec{b}+\vec{0} = \vec{b}</me>, 
+					and so (again by <xref ref="thm-system-as-matrix-equation" />) we have that <m>\vec{v}+\vec{z}</m> is a solution to <m>[A|\vec{b}]</m>.
+				</p>
+			</proof>
+		</theorem>
+
+		<corollary>
+			<statement> <p> Any system of linear equations has either no solution, exactly one solution, or infinitely many solutions. </p></statement>
+			<proof>
+				<p> Suppose that a system <m>[A|\vec{b}]</m> has more than one solution, say <m>\vec{v_1}</m> and <m>\vec{v_2}</m> are two different solutions.  By <xref ref="thm-homogeneous-plus-solution" /> there is a vector <m>\vec{z}</m> in <m>\null(A)</m> such that <m>\vec{v_1} = \vec{v_2}+\vec{z}</m>.  For any scalar <m>a</m> the vector <m>a\vec{z}</m> is also in <m>\null(A)</m>, because <m>\null(A)</m> is a subspace.  Therefore, by the other direction of <xref ref="thm-homogeneous-plus-solution" />, each of the vectors <m>\vec{v_1} + a\vec{z}</m> is a solution to <m>[A|\vec{b}]</m>.  Finally, since <m>\vec{v_1} \neq \vec{v_2}</m> we have <m>\vec{z} \neq \vec{0}</m>, so if <m>a \neq b</m> then <m>\vec{v_1} + a\vec{z} \neq \vec{v_1} + b\vec{z}</m>.  Thus the vectors of the form <m>\vec{v_1}+a\vec{z}</m> are infinitely many different solutions to the system <m>[A|\vec{b}]</m>. </p>
+			</proof>
+		</corollary>
+	</subsection>
+
+	<subsection>
+		<title>
+			The Fundamental Theorem, again
+		</title>
+		<p> In this section we introduced a lot of terminology related to ideas that already appeared in the Fundamental Theorem, so we take this opportunity to re-state that theorem.  Each of the new items on this version of the theorem is just a rephrasing of something that was already on the list in <xref ref="thm-fundamental-determinant" />. </p>
+		<theorem xml:id="thm-fundamental-with-subspaces">
+			<statement>
+				<p> </p>
+			</statement>
+		</theorem>
+	</subsection>
 	<xi:include href="3-6-exercises.ptx" />
 </section>

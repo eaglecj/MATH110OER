@@ -269,7 +269,7 @@
 		<example>
 			Every vector in <m>\mathbb{R}^2</m> can be written as a linear combination of <m>\begin{bmatrix}1\\0\end{bmatrix}</m> and <m>\begin{bmatrix}0\\1\end{bmatrix}</m>, because for any <m>\begin{bmatrix}x\\y\end{bmatrix}</m> in <m>\mathbb{R}^2</m> we have <me>\begin{bmatrix}x\\y\end{bmatrix} = x\begin{bmatrix}0\\1\end{bmatrix} + y\begin{bmatrix}0\\1\end{bmatrix}.</me>
 		</example>
-		<example>
+		<example xml:id="ex-linear-combination">
 			<p>Which vectors in <m>\mathbb{R}^3</m> can be expressed as linear combinations of <m>\vec{v_1} = \begin{bmatrix}1\\1\\-1\end{bmatrix}, \vec{v_2} = \begin{bmatrix}2\\-1\\0\end{bmatrix}, \vec{v_3} = \begin{bmatrix}3\\0\\-1\end{bmatrix}</m>?</p>
 			<solution>
 				<p>Consider any vector <m>\vec{w} = \begin{bmatrix}x\\y\\z\end{bmatrix}</m> in <m>\mathbb{R}^3</m>.  We are interested in knowing what must be true about <m>x, y, z</m> in order for there to be scalars <m>a, b, c</m> such that <me>\vec{w} = a\vec{v_1} + b\vec{v_2}+c\vec{v_3},</me> that is, <me>\begin{bmatrix}x\\y\\z\end{bmatrix} = a\begin{bmatrix}1\\1\\-1\end{bmatrix}+b\begin{bmatrix}2\\-1\\0\end{bmatrix}+c\begin{bmatrix}3\\0\\-1\end{bmatrix}.</me>  By calculating the right side of this equation and then comparing first entries, second entries, and third entries, we get a system of equations:</p>
