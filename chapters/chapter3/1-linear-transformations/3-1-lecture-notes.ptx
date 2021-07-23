@@ -131,7 +131,7 @@
 			Suppose that <m>\vec{v} = \begin{bmatrix}x_1 \\ \vdots \\ x_n\end{bmatrix}</m>.  Then we can write <m>\vec{v} = x_1\vec{e_1} + \cdots + x_n\vec{e_n}</m>, so since <m>T</m> is linear we have <me>T(\vec{v}) = x_1T(\vec{e_1}) + \cdots x_nT(\vec{e_n})</me>.  Now the vectors <m>T(\vec{e_1}), \ldots, T(\vec{e_n})</m> are precisely the columns of the matrix <m>[T]</m>, so we see that <m>T(\vec{v})</m> is the linear combination of the columns of <m>[T]</m> where the coefficients of the linear combination are the entries of the vector <m>\vec{v}</m>.  This calculation is so important that it gets its own definition. 
 		</p>
 		
-		<definition>
+		<definition xml:id="def-matrix-times-vector">
 			<p> Let <m>A</m> be an <m>m \times n</m> matrix with columns <m>\vec{A_1}, \ldots, \vec{A_n}</m>, and let <m>\vec{v} = \begin{bmatrix}x_1\\ \vdots \\ x_n\end{bmatrix}</m> be a vector in <m>\mathbb{R}^n</m>.  We define the <em>product</em> of <m>A</m> and <m>\vec{v}</m> to be: <me>A\vec{v} = x_1\vec{A_1} + \cdots + x_n\vec{A_n}</me>.</p>
 		</definition>
 
