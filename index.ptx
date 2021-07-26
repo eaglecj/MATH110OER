@@ -23,6 +23,8 @@
 	\DeclareMathOperator{\span}{span}
 	\DeclareMathOperator{\RREF}{RREF}
 	\DeclareMathOperator{\proj}{proj}
+	\DeclareMathOperator{\alg}{alg}
+	\DeclareMathOperator{\geo}{geo}
 </macros>
 	<latex-image-preamble>
 		\usepackage{tikz}

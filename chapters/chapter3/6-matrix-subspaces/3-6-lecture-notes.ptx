@@ -141,7 +141,7 @@
 				<p> Let <m>A</m> be an <m>m \times n</m> matrix.  Then <m>\rank(A) + \nullity(A) = n</m>. </p>
 			</statement>
 		</theorem>
-		<example>
+		<example xml:id="ex-basis-null-space">
 			<p> Let <m>A = \begin{bmatrix}3 \amp 2 \amp -1 \amp 0 \\ 1 \amp 2 \amp -1 \amp 3\end{bmatrix}</m>.  Then <m>\RREF(A) = \begin{bmatrix}1 \amp 0 \amp 0 \amp -3/2 \\ 0 \amp 1 \amp -1/2 \amp 9/4\end{bmatrix}</m>, so we have that <m>\begin{bmatrix}x\\y\\z\\w\end{bmatrix}</m> is in <m>\null(A)</m> if and only if <m>x=\frac{3}{2}w</m> and <m>y = \frac{1}{2}z - \frac{9}{4}w</m>.  That is,
 			<me> \begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}\frac{3}{2}w \\ \frac{1}{2}z - \frac{9}{4}w \\ z \\ w\end{bmatrix} = z\begin{bmatrix}0\\1/2\\1\\0\end{bmatrix} + w\begin{bmatrix}3/2 \\ -9/4 \\ 0 \\1\end{bmatrix}</me>.
 			Therefore <m>\left\{\begin{bmatrix}0 \\ 1/2 \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix}3/2 \\ -9/4 \\ 0 \\ 1\end{bmatrix}\right\}</m> is a basis for <m>\null(A)</m>, and <m>\nullity(A) = 2</m>.</p>

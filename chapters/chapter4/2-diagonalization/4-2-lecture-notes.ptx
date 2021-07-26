@@ -3,6 +3,30 @@
 	<title>
 		Diagonalization
 	</title>
+	<subsection>
+		<title>
+			Similarity
+		</title>
+
+		<theorem>
+			<statement>
+				<p> Suppose that <m>A</m> and <m>B</m> are similar <m>n \times n</m> matrices.  Then <m>A</m> and <m>B</m> have the same characteristic polynomial, and therefore also have the same eigenvalues with the same algebraic multiplicities.</p>
+			</statement>
+			<proof>
+				<p> Suppose that <m>A = PBP^{-1}</m>.  Notice that for any scalar <m>x</m> we have <me>P(xI_n)P^{-1} = x(PI_nP^{-1}) = xPP^{-1} = xI_n</me>.  This, together with properties of the determinant that we saw in <xref ref="sec-Determinants" />, allows us to calculate as follows: </p>
+				<md>
+					<mrow>\chi_A(x) \amp = \det(A - xI_n)</mrow>
+					<mrow>\amp = \det(PBP^{-1} - xI_n)</mrow>
+					<mrow>\amp = \det(PBP^{-1} - P(xI_n)P^{-1})</mrow>
+					<mrow>\amp = \det(P(B - xI_n)P^{-1})</mrow>
+					<mrow>\amp = \det(P)\det(B-xI_n)\det(P^{-1})</mrow>
+					<mrow>\amp = \det(P)\det(B-xI_n)\frac{1}{\det(P)}</mrow>
+					<mrow>\amp = \det(B-xI_n) </mrow>
+					<mrow>\amp = \chi_B(x)</mrow>
+				</md>
+			</proof>
+		</theorem>
+	</subsection>
 
 	<xi:include href="4-2-exercises.ptx" />
 </section>

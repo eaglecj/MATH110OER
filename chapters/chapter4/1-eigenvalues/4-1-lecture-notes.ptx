@@ -3,6 +3,191 @@
 	<title>
 		Eigenvalues and eigenvectors
 	</title>
+	<introduction>
+		<p> We have seen that linear transformations (or, equivalently, matrices) can be fairly complicated.  In this chapter we will be considering what happens when a linear transformation acts on a vector in a very simple way, by stretching the vector without changing the direction.  We will see that this leads us to a powerful method for understanding some matrices in great detail. </p>
+		<p> For the material in this chapter to work out nicely it is necessary for us to allow the word "scalar" to mean "complex number", and to allow matrices and vectors with complex number entries.  In fact, we will usually start with matrices with real number entries, but sometimes complex numbers will arise even in that case.</p>
+	</introduction>
+	<subsection>
+		<title>
+			Definitions and examples
+		</title>
+		<definition>
+			<p> Let <m>T : \mathbb{R}^n \to \mathbb{R}^n</m> be a linear transformation, and let <m>\lambda</m> be a scalar.  A vector <m>\vec{v}</m> in <m>\mathbb{R}^n</m> is called an <em>eigenvector</em> for <m>T</m>, with <em>eigenvalue</em> <m>\lambda</m>, if <m>T(\vec{v}) = \lambda \vec{v}</m>.</p>
+			<p> Similarly, if <m>A</m> is an <m>n \times n</m> matrix, then <m>\vec{v}</m> is an <em>eigenvector</em> of <m>A</m> with <em>eigenvalue</em> <m>\lambda</m> if <m>A\vec{v} = \lambda \vec{v}</m>. </p>
+			<p> In both contexts, we say that <m>\vec{v}</m> is an eigenvector if it is an eigenvector for some eigenvalue <m>\lambda</m>, and similarly we say that <m>\lambda</m> is an eigenvalue if there is some eigenvector <m>\vec{v}</m> for <m>\lambda</m>. </p>
+		</definition>
 
+		<p>	 In <xref ref="sec-LinearTransformations" /> we saw how to translate back and forth between the language of linear transformations and the language of matrices.  Since most of the time it is easier to work with matrices, that is what we will focus on here.  Any time we want to talk about eigenvalues or eigenvectors of a linear transformation <m>T</m> we will instead work with the matrix <m>[T]</m>. </p>
+		<p> Notice that the equation <m>A\vec{v} = \lambda\vec{v}</m> can only have a chance of being true if <m>A</m> is a square matrix: If <m>A</m> is <m>m \times n</m> and <m>\vec{v}</m> is in <m>\mathbb{R}^n</m> then <m>A\vec{v}</m> is a vector in <m>\mathbb{R}^m</m> while <m>\lambda \vec{v}</m> is a vector in <m>\mathbb{R}^n</m>, so to have <m>A\vec{v} = \lambda\vec{v}</m> we must have <m>m=n</m>. </p>
+
+		<example>
+			
+		</example>
+
+		<example>
+
+		</example>
+		<note>
+			<p> In what follows it will be very useful to re-write the equation <m>A\vec{v} = \lambda\vec{v}</m> as an equation where the right side is <m>\vec{0}</m>.  We can subtract <m>\lambda\vec{v}</m> from both sides to get <m>A\vec{v} - \lambda\vec{v} = \vec{0}</m>.  At this point it is tempting to factor the <m>\vec{v}</m> on the left side of the equation, and write <m>(A-\lambda)\vec{v} = \vec{0}</m>.  However, <em>this is nonsense</em>, because <m>A - \lambda</m> does not make sense.  To write something that is correct we must first re-write <m>A\vec{v} - \lambda \vec{v}</m> as <m>A\vec{v} - (\lambda I_n) \vec{v}</m>.  Now both multiplications are multiplications of an <m>n \times n</m> matrix by a vector, and it is correct to factor this expression and obtain <m>(A-\lambda I_n)\vec{v} = \vec{0}</m>.</p>
+		</note>
+	</subsection>
+
+	<subsection>
+		<title> 
+			Finding eigenvalues
+		</title>
+		<p> Given a matrix <m>A</m>, we'd like to find all of the eigenvalues of <m>A</m> and their corresponding eigenvectors.  We start by finding the eigenvalues. </p>
+		<theorem>
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda</m> be a scalar.  Then <m>\lambda</m> is an eigenvalue of <m>A</m> if and only if <m>\det(A - \lambda I_n) = 0</m>. </p>
+			</statement>
+			<proof>
+				<p> By definition, <m>\lambda</m> is and eigenvalue of <m>A</m> if and only if there is some non-zero <m>\vec{v}</m> such that <m>A\vec{v} = \lambda\vec{v}</m>, or equivalently, <m>(A-\lambda I_n)\vec{v} = \vec{0}</m>.  Such a vector exists if and only if <m>\null(A-\lambda I_n)</m> contains a non-zero vector.  By <xref ref="thm-fundamental-with-subspaces" /> this happens if and only if <m>\det(A - \lambda I_n) = 0</m>. </p>
+			</proof>
+		</theorem>
+
+		<example>
+
+		</example>
+
+		<definition>
+			<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The <em>characteristic polynomial</em> of <m>A</m> is the polynomial <m>\chi_A(x) = \det(A - xI_n)</m>.</p>
+			<p> If <m>\lambda</m> is a scalar, then the <em>algebraic multiplicity</em> of <m>\lambda</m> as an eigenvalue of <m>A</m>, denoted <m>\alg_A(\lambda)</m>, is the multiplicity with which <m>\lambda</m> appears as a root of <m>\chi_A(x)</m>. </p>
+		</definition>
+
+		<fact>
+			<p> If <m>A</m> is an <m>n \times n</m> matrix then, counted according to their algebraic multiplicities, <m>A</m> has exactly <m>n</m> eigenvalues (but even if <m>A</m> has all real number entries, some of these eigenvalues might be complex!). </p>
+		</fact>
+
+		<example>
+			<p> Let <m>A = \begin{bmatrix}0 \amp -1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp -1 \amp 0\end{bmatrix}</m>.  The characteristic polynomial is <me>\chi_A(x) = \det(A-xI_4) = \det\begin{bmatrix}-x \amp -1 \amp 0 \amp 0 \\ 1 \amp -x \amp 0 \amp 0 \\ 0 \amp 0 \amp -x \amp 1 \\ 0 \amp 0 \amp -1 \amp -x\end{bmatrix} = x^4+2x^2+1 = (x-i)^2(x+i)^2</me>.  The eigenvalues are therefore <m>i</m> and <m>-i</m>, each with algebraic multiplicity <m>2</m>.  The algebraic multiplicities add up to <m>4</m>, matching the fact that <m>A</m> is <m>4\times 4</m>, but if we considered only real number eigenvalues we wouldn't find any at all.</p>
+		</example>
+
+		<p> For <xref text="custom" ref="def-triangular">triangular matrices</xref> calculating determinants is easy, and so finding eigenvalues is also easy. </p>
+		<theorem>
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> triangular matrix.  Then the eigenvalues of <m>A</m> are exactly the diagonal entries of <m>A</m>, and each eigenvalue appears on the diagonal of <m>A</m> exactly as many times as its algebraic multiplicity.</p>
+			</statement>
+			<proof>
+				<p> Suppose that <m>A</m> is upper triangular, say <m>A = \begin{bmatrix}\lambda_1 \amp * \amp * \amp \cdots \amp * \\ 0 \amp \lambda_2 \amp * \amp \cdots \amp * \\ 0 \amp 0 \amp \lambda_3 \amp \cdots \amp * \\ \vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp 0 \amp \cdots \amp \lambda_n\end{bmatrix}</m>.  Then <m>A - xI_n = \begin{bmatrix}\lambda_1 - x \amp * \amp * \amp \cdots \amp * \\ 0 \amp \lambda_2 - x\amp * \amp \cdots \amp * \\ 0 \amp 0 \amp \lambda_3 -x \amp \cdots \amp * \\ \vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp 0 \amp \cdots \amp \lambda_n - x\end{bmatrix}</m>.  By <xref ref="fact-triangular-determinant" /> we have <me>\chi_A(x) = \det(A - xI_n) = (\lambda_1 - x)(\lambda_2 - x)(\lambda_3 - x) \cdots (\lambda_n - x)</me>.</p>
+				<p> The proof when <m>A</m> is lower triangular is essentially the same. </p>
+			</proof>
+		</theorem>
+
+	</subsection>
+
+	<subsection>
+		<title>
+			Finding eigenvectors
+		</title>
+		<p> Now that we know how to find the eigenvalues of a matrix, we turn to finding the eigenvectors corresponding to each eigenvalue.  Given a matrix <m>A</m> and a scalar <m>\lambda</m>, we want to find the non-zero vectors <m>\vec{v}</m> such that <m>A\vec{v} = \lambda \vec{v}</m>.  Re-writing this equation as <m>(A-\lambda I_n)\vec{v} = \vec{0}</m> we see that we are looking for the non-zero vectors in <m>\null(A - \lambda I_n)</m>.  The space <m>\null(A - \lambda I_n)</m> appears so often in this context that it gets its own name.</p>
+		<definition>
+			<p> Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda</m> be a scalar.  Then we define the <em><m>\lambda</m>-eigenspace</em> of <m>A</m> to be <m>E_A(\lambda) = \null(A - \lambda I_n)</m>.</p>
+		</definition>
+		<note>
+			<p> The vectors in <m>E_A(\lambda)</m> are not exactly the <m>\lambda</m>-eigenvectors of <m>A</m>, because <m>\vec{0}</m> is not an eigenvector but it does appear in <m>E_A(\lambda)</m>.  However, this is the only difference.  That is, for a non-zero vector <m>\vec{v}</m>, we have <m>\vec{v}</m> in <m>E_A(\lambda)</m> if and only if <m>\vec{v}</m> is a <m>\lambda</m>-eigenvector for <m>A</m>. </p>
+		</note>
+		<example>
+			<p> Let <m>A = </m>.  Take it as given that <m>-2</m> is an eigenvalue of <m>A</m>.  Find a basis for <m>E_A(-2)</m>. </p>
+			<solution>
+				<p> We are asked to find a basis for <m>E_A(3) = \null(A - (-2)I_3)</m>.  We have already seen how to find a basis for the null space of a matrix (see <xref ref="ex-basis-null-space" />), so we apply that technique to the matrix <m>A - (-2)I_3</m>. </p>
+			</solution>
+		</example>
+
+		<definition>
+			<p> Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda</m> be an eigenvalue of <m>A</m>.  The <em>geometric multiplicity</em> of <m>\lambda</m>, written <m>\geo_A(\lambda)</m>, is defined to be <m>\geo_A(\lambda) = \dim(E_A(\lambda))</m>.</p>
+		</definition>
+
+		<p> In general, the geometric and algebraic multiplicities of an eigenvalue are not necesarily the same.  In <xref ref="sec-Diagonalization" /> we will see that marvellous things happen when they turn out to be the same for all of the eigenvalues of a matrix.  Even though these numbers may be different, they are not entirely unrelated; see <xref ref="thm-algebraic-geometric-multiplicity-inequality" />.</p>
+
+		<example>
+			<p> For good measure, let's do an example where we go through the whole process from start to finish.  Let <m>A = </m>.  Find all eigenvalues of <m>A</m>.  For each eigenvalue, find the algebraic multiplicity, a basis for the corresponding eigenspace, and the geometric multiplicity. </p>
+			<solution>
+				<p> </p>
+			</solution>
+		</example>
+	</subsection>
+
+	<subsection>
+		<title>
+			Properties of eigenvalues and eigenvectors
+		</title>
+
+		<p> Unsurprisingly, all of this talk of eigenvalues and eigenvectors adds something to the fundamental theorem! </p>
+
+		<theorem xml:id="thm-fundamental-with-eigenvalues">
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
+				<p> with 0 not an eigenvalue and with <m>E_0(A) = \{0\}</m>. </p>
+			</statement>
+			<proof>
+			</proof>
+		</theorem>
+
+		<p> We now state the promised relationship between <m>\alg_A(\lambda)</m> and <m>\geo_A(\lambda)</m>, though we won't prove it. </p>
+		<theorem xml:id="thm-algebraic-geometric-multiplicity-inequality">
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda</m> be an eigenvalue of <m>A</m>.  Then <m>1 \leq \geo_A(\lambda) \leq \alg_A(\lambda) \leq n</m>. </p>
+			</statement>
+		</theorem>
+
+		<theorem>
+			<statement>
+				<p> 
+					Let <m>A</m> be an <m>n \times n</m> matrix, and suppose that <m>\lambda</m> is an eigenvalue of <m>A</m> with corresponding eigenvector <m>\vec{v}</m>.  Then for every <m>n \geq 0</m> the vector <m>\vec{v}</m> is also an eigenvector of <m>A^n</m>, with eigenvalue <m>\lambda^n</m>. 
+				</p>
+			</statement>
+			<proof>
+				<p> A formal proof requires mathematical induction, but hopefully the following calculation (which proves the result for <m>n=2</m>) will convince you that you could continue this up to any <m>n</m>: </p>
+				<md>
+					<mrow>A^2\vec{v} \amp = A(A\vec{v})</mrow>
+					<mrow>\amp = A(\lambda\vec{v}) </mrow>
+					<mrow>\amp = \lambda(A\vec{v}) </mrow>
+					<mrow>\amp = \lambda(\lambda\vec{v})</mrow>
+					<mrow>\amp = \lambda^2\vec{v} </mrow>
+				</md>
+			</proof>
+		</theorem>
+
+		<theorem>
+			<statement>
+				<p> Let <m>A</m> be an invertible <m>n \times n</m> matrix, and suppose that <m>\lambda</m> is an eigenvalue of <m>A</m> with corresponding eigenvector <m>\vec{v}</m>.  Then <m>\vec{v}</m> is also an eigenvector of <m>A^{-1}</m>, with eigenvalue <m>1/\lambda</m>.</p>
+			</statement>
+			<proof>
+				<p>We start with a calculation:</p>
+				<md>
+					<mrow>\lambda(A^{-1}\vec{v}) \amp = A^{-1}(\lambda \vec{v}) </mrow>
+					<mrow>\amp = A^{-1}(A\vec{v})</mrow>
+					<mrow>\amp = (A^{-1}A)\vec{v}</mrow>
+					<mrow>\amp = I_n\vec{v}</mrow>
+					<mrow>\amp = \vec{v}</mrow>
+				</md>
+				<p>Now since <m>A</m> is assumed to be invertible we know that <m>\lambda \neq 0</m> (by <xref ref="thm-fundamental-with-eigenvalues" />), so we can divide both sides by <m>\lambda</m> to obtain <me>A^{-1}\vec{v} = \frac{1}{\lambda}\vec{v}</me>.</p>
+			</proof>
+		</theorem>
+
+		<p>Finally, it is will be useful in the next section to know that eigenvectors from different eigenvalues are linearly independent.  The proof technique is interesting, too!</p>
+		<theorem>
+			<statement>
+				<p>Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda_1, \ldots, \lambda_k</m> be <em>distinct</em> eigenvalues of <m>A</m>.  Suppose that <m>\vec{v_1}</m> is an eigenvector for <m>A</m> with eigenvalue <m>\lambda_1</m>, <m>\vec{v_2}</m> is an eigenvector for <m>A</m> with eigenvalue <m>\lambda_2</m>, and so on up to <m>\vec{v_k}</m> being an eigenvector for <m>A</m> with eigenvalue <m>\lambda_k</m>.  Then <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly independent.</p>
+			</statement>
+			<proof>
+				<p>
+					For a contradiction, suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly dependent.  Let <m>j</m> be the smallest number such that <m>\vec{v_1}, \ldots, \vec{v_j}</m> are linearly dependent, so <m>\vec{v_1}, \ldots, \vec{v_{j-1}}</m> are linearly independent.  Suppose that <m>a_1\vec{v_1} + \cdots + a_{j-1}\vec{v_{j-1}} + a_j\vec{v_j} = \vec{0}</m>, where at least one of the coefficients is non-zero.  Because <m>\vec{v_1}, \ldots, \vec{v_{j-1}}</m> are linearly independent we cannot have <m>a_j=0</m>, so we can rearrange this equation to say <m>\vec{v_j} = \frac{a_1}{a_j}\vec{v_1} + \cdots + \frac{a_{j-1}}{a_j}\vec{v_{j-1}}</m>.  To make this slightly easier to work with, let <m>c_1 = a_1/a_j</m>, <m>c_2 = a_2/a_j</m>, and so on.  Then the equation we have is <me>\vec{v_j} = c_1\vec{v_1} + \cdots + c_{j-1}\vec{v_{j-1}}</me>.
+				</p>
+				<p> If we multiply both sides of the above equation by <m>\lambda_j</m> we have: <me>\lambda_j\vec{v_j} = c_1\lambda_j\vec{v_1} + \cdots + c_{j-1}\lambda_j\vec{v_{j-1}}</me>.</p>
+				<p> On the other hand, we also have: 
+				<md>
+					<mrow>\lambda_j\vec{v_j} \amp = A\vec{v_j} </mrow>
+					<mrow> \amp = A(c_1\vec{v_1} + \cdots + c_{j-1}\vec{v_{j-1}}) </mrow>
+					<mrow> \amp = c_1A\vec{v_1} + \cdots + c_{j-1}A\vec{v_{j-1}}</mrow>
+					<mrow> \amp = c_1\lambda_1\vec{v_1} + \cdots + c_{j-1}\lambda_{j-1}\vec{v_{j-1}} </mrow>
+				</md>.</p>
+				<p> Now subtracting these two results, we obtain: <me>\vec{0} = c_1(\lambda_1 - \lambda_j)\vec{v_1} + \cdots + c_{j-1}(\lambda_{j-1} - \lambda_j)\vec{v_{j-1}}</me>. </p>
+				<p> By assumption, <m>\vec{v_1}, \ldots, \vec{v_{j-1}}</m> are linearly independent.  Thus all of the coefficients above must be <m>0</m>; that is, for each <m>r</m>, <m>c_r(\lambda_r - \lambda_j) = 0</m>.  The assumption of the theorem was that the eigenvalues <m>\lambda_1, \ldots, \lambda_k</m> are distinct, so we know that <m>\lambda_r - \lambda_j \neq 0</m> for all <m>r</m>.  Thus for every <m>r</m> we must have <m>c_r = 0</m>.  But then
+				<me> \vec{v_j} = c_1\vec{v_1} + \cdots + c_{j-1}\vec{v_{j-1}} = 0\vec{v_1} + \cdots + 0\vec{v_{j-1}} = \vec{0}</me>, and this contradicts the assumption that <m>\vec{v_j}</m> is an eigenvector of <m>A</m>.</p>
+			</proof>
+		</theorem>
+	</subsection>
 	<xi:include href="4-1-exercises.ptx" />
 </section>

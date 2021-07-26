@@ -51,7 +51,7 @@
 			<p> While neither of these calculations are particularly appealing, the second one is certainly much shorter, as it only requires us to compute two <m>3 \times 3</m> determinants.  Regardless of which method we choose we will get the same answer, <m>\det(A) = 77</m>. </p>
 		</example>
 
-		<definition>
+		<definition xml:id="def-triangular">
 			<p> An <m>n \times n</m> matrix <m>A</m> is called a <em>lower triangular</em> matrix if every entry above the main diagonal is <m>0</m> (that is, if <m>a_{i,j} = 0</m> whenever <m>i \lt j</m>).  It is called an <em>upper triangular</em> matrix if every entry below the main diagonal is <m>0</m> (that is, if <m>a_{i,j} = 0</m> whenever <m>i > j</m>).  In either case the matrix may also have <m>0</m> entries elsewhere.</p>
 			<p> A matrix is <em>triangular</em> if it is either upper triangular or lower triangular. </p>
 		</definition>
