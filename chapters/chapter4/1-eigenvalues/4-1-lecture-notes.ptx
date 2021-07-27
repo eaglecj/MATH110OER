@@ -21,12 +21,10 @@
 		<p> Notice that the equation <m>A\vec{v} = \lambda\vec{v}</m> can only have a chance of being true if <m>A</m> is a square matrix: If <m>A</m> is <m>m \times n</m> and <m>\vec{v}</m> is in <m>\mathbb{R}^n</m> then <m>A\vec{v}</m> is a vector in <m>\mathbb{R}^m</m> while <m>\lambda \vec{v}</m> is a vector in <m>\mathbb{R}^n</m>, so to have <m>A\vec{v} = \lambda\vec{v}</m> we must have <m>m=n</m>. </p>
 
 		<example>
-			
+			<p> Let <m>A = \begin{bmatrix}2 \amp -1 \\ -4 \amp 5\end{bmatrix}</m>, let <m>\vec{v} = \begin{bmatrix}-1 \\ 4\end{bmatrix}</m> and <m>\vec{w} = \begin{bmatrix}2\\3\end{bmatrix}</m>.  Then <me>A\vec{v} = \begin{bmatrix}2 \amp -1 \\ -4 \amp 5\end{bmatrix}\begin{bmatrix}-1 \\ 4\end{bmatrix} = \begin{bmatrix}-6 \\ 24\end{bmatrix} = 6\vec{v}</me>.  Thus <m>\vec{v}</m> is an eigenvector for <m>A</m> with eigenvalue <m>6</m>. </p>
+			<p> On the other hand, <me>A\vec{w} = \begin{bmatrix}2 \amp -1 \\ -4 \amp 5\end{bmatrix}\begin{bmatrix}2\\3\end{bmatrix} = \begin{bmatrix}1 \\ 7\end{bmatrix}</me>.  You can check that the equation <m>\begin{bmatrix}1\\7\end{bmatrix} = \lambda \begin{bmatrix}2\\3\end{bmatrix}</m> has no solutions, so there is no scalar <m>\lambda</m> such that <m>A\vec{w} = \lambda\vec{w}</m>, and thus <m>\vec{w}</m> is not an eigenvector for <m>A</m>. </p>
 		</example>
 
-		<example>
-
-		</example>
 		<note>
 			<p> In what follows it will be very useful to re-write the equation <m>A\vec{v} = \lambda\vec{v}</m> as an equation where the right side is <m>\vec{0}</m>.  We can subtract <m>\lambda\vec{v}</m> from both sides to get <m>A\vec{v} - \lambda\vec{v} = \vec{0}</m>.  At this point it is tempting to factor the <m>\vec{v}</m> on the left side of the equation, and write <m>(A-\lambda)\vec{v} = \vec{0}</m>.  However, <em>this is nonsense</em>, because <m>A - \lambda</m> does not make sense.  To write something that is correct we must first re-write <m>A\vec{v} - \lambda \vec{v}</m> as <m>A\vec{v} - (\lambda I_n) \vec{v}</m>.  Now both multiplications are multiplications of an <m>n \times n</m> matrix by a vector, and it is correct to factor this expression and obtain <m>(A-\lambda I_n)\vec{v} = \vec{0}</m>.</p>
 		</note>
@@ -37,7 +35,7 @@
 			Finding eigenvalues
 		</title>
 		<p> Given a matrix <m>A</m>, we'd like to find all of the eigenvalues of <m>A</m> and their corresponding eigenvectors.  We start by finding the eigenvalues. </p>
-		<theorem>
+		<theorem xml:id="thm-find-eigenvalues">
 			<statement>
 				<p> Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda</m> be a scalar.  Then <m>\lambda</m> is an eigenvalue of <m>A</m> if and only if <m>\det(A - \lambda I_n) = 0</m>. </p>
 			</statement>
@@ -46,9 +44,18 @@
 			</proof>
 		</theorem>
 
-		<example>
-
+		<example xml:id="ex-find-eigenvalue">
+			<p>Let <m>A = \begin{bmatrix}1 \amp 4 \amp -2 \\ 3 \amp 2 \amp 0 \\ 0 \amp 0 \amp -2\end{bmatrix}</m>.  We will find all of the eigenvalues of <m>A</m>.  Using <xref ref="thm-find-eigenvalues" /> that means that we are looking for all numbers <m>x</m> such that <m>\det(A - xI_3) = 0</m>.  So we calculate:
+			<md>
+				<mrow>\det(A - xI_3) \amp = \det\begin{bmatrix}1-x \amp 4 \amp -2 \\ 3 \amp 2-x \amp 0 \\ 0 \amp 0 \amp -2-x\end{bmatrix}</mrow>
+				<mrow>\amp = -x^3+x^2+16x+20 </mrow>
+				<mrow> \amp = -(x-5)(x+2)^2 </mrow>
+			</md>
+			We now see that there are two eigenvalues, namely <m>5</m> and <m>-2</m>. </p>
+			<p> In particular, we have shown that for any <m>\lambda</m> other than <m>5</m> and <m>-2</m> it is impossible to solve the equation <m>A\vec{v} = \lambda\vec{v}</m> with <m>\vec{v} \neq \vec{0}</m>! </p>
 		</example>
+
+		<p> You might have noticed that at the end of the previous example we needed to find the roots of a polynomial, and also that one of the eigenvalues appeared in the factorization of that polynomial more than once.  We capture those phenomena with some definitions. </p>
 
 		<definition>
 			<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The <em>characteristic polynomial</em> of <m>A</m> is the polynomial <m>\chi_A(x) = \det(A - xI_n)</m>.</p>
@@ -88,22 +95,40 @@
 			<p> The vectors in <m>E_A(\lambda)</m> are not exactly the <m>\lambda</m>-eigenvectors of <m>A</m>, because <m>\vec{0}</m> is not an eigenvector but it does appear in <m>E_A(\lambda)</m>.  However, this is the only difference.  That is, for a non-zero vector <m>\vec{v}</m>, we have <m>\vec{v}</m> in <m>E_A(\lambda)</m> if and only if <m>\vec{v}</m> is a <m>\lambda</m>-eigenvector for <m>A</m>. </p>
 		</note>
 		<example>
-			<p> Let <m>A = </m>.  Take it as given that <m>-2</m> is an eigenvalue of <m>A</m>.  Find a basis for <m>E_A(-2)</m>. </p>
+			<p> Let <m>A = \begin{bmatrix}1 \amp 4 \amp -2 \\ 3 \amp 2 \amp 0 \\ 0 \amp 0 \amp -2\end{bmatrix}</m>.  In <xref ref="ex-find-eigenvalue" /> we showed that the eigenvalues of <m>A</m> are <m>5</m> (with algebraic multiplicity <m>1</m>) and <m>-2</m> (with algebraic multiplicity <m>2</m>).  Find a basis for <m>E_A(-2)</m>. </p>
 			<solution>
-				<p> We are asked to find a basis for <m>E_A(3) = \null(A - (-2)I_3)</m>.  We have already seen how to find a basis for the null space of a matrix (see <xref ref="ex-basis-null-space" />), so we apply that technique to the matrix <m>A - (-2)I_3</m>. </p>
+				<p> We are asked to find a basis for <m>E_A(-2) = \null(A - (-2)I_3)</m>.  We have already seen how to find a basis for the null space of a matrix (see <xref ref="ex-basis-null-space" />), so we apply that technique to the matrix <m>A - (-2)I_3</m>.
+				<me>A - (-2)I_3 = \begin{bmatrix}3 \amp 4 \amp -2 \\ 3 \amp 4 \amp 0 \\ 0 \amp 0 \amp 0\end{bmatrix} \to \begin{bmatrix}1 \amp 4/3 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0\end{bmatrix}</me>. </p>
+				<p> From here we see that <m>\begin{bmatrix}x\\y\\z\end{bmatrix}</m> is in <m>E_A(-2) = \null(A-(-2)I_3)</m> if and only if <m>x = -4/3 y</m> and <m>z = 0</m>, which gives us <me> \begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}-4/3y \\ y \\ 0\end{bmatrix} = y\begin{bmatrix}-4/3 \\ 1 \\0\end{bmatrix}</me>.</p>
+				<p> Therefore the single vector <m>\begin{bmatrix}-4/3 \\ 1 \\0\end{bmatrix}</m> is a basis for <m>E_A(-2)</m>.</p>
 			</solution>
 		</example>
 
-		<definition>
+		<definition xml:id="ex-find-eigenvalues-and-eigenvectors">
 			<p> Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda</m> be an eigenvalue of <m>A</m>.  The <em>geometric multiplicity</em> of <m>\lambda</m>, written <m>\geo_A(\lambda)</m>, is defined to be <m>\geo_A(\lambda) = \dim(E_A(\lambda))</m>.</p>
 		</definition>
 
-		<p> In general, the geometric and algebraic multiplicities of an eigenvalue are not necesarily the same.  In <xref ref="sec-Diagonalization" /> we will see that marvellous things happen when they turn out to be the same for all of the eigenvalues of a matrix.  Even though these numbers may be different, they are not entirely unrelated; see <xref ref="thm-algebraic-geometric-multiplicity-inequality" />.</p>
+		<p> In general, the geometric and algebraic multiplicities of an eigenvalue are not necesarily the same, but they sometimes are.  In <xref ref="sec-Diagonalization" /> we will see that marvellous things happen when they turn out to be the same for all of the eigenvalues of a matrix.  Even though the two multiplicities of an eigenvalue may be different, they are not entirely unrelated; see <xref ref="thm-algebraic-geometric-multiplicity-inequality" />.</p>
 
 		<example>
-			<p> For good measure, let's do an example where we go through the whole process from start to finish.  Let <m>A = </m>.  Find all eigenvalues of <m>A</m>.  For each eigenvalue, find the algebraic multiplicity, a basis for the corresponding eigenspace, and the geometric multiplicity. </p>
+			<p> For good measure, let's do an example where we go through the whole process from start to finish.  Let <m>A = \begin{bmatrix} 5 \amp 3 \amp -6 \amp -5 \\ -5 \amp -11 \amp 5 \amp 0 \\ -4 \amp -12 \amp 3 \amp -5 \\ 6 \amp 18 \amp -11 \amp -1\end{bmatrix}</m>.  Find all eigenvalues of <m>A</m>.  For each eigenvalue, find the algebraic multiplicity, a basis for the corresponding eigenspace, and the geometric multiplicity. </p>
 			<solution>
-				<p> </p>
+				<p>We start by finding and factoring the characteristic polynomial.
+				<md>
+				<mrow>\chi_A(x) \amp = \det(A - xI_4) </mrow>
+				<mrow> \amp = \det\begin{bmatrix} 5-x \amp 3 \amp -6 \amp -5 \\ -5 \amp -11-x \amp 5 \amp 0 \\ -4 \amp -12 \amp 3-x \amp -5 \\ 6 \amp 18 \amp -11 \amp -1-x\end{bmatrix} </mrow>
+				<mrow> \amp = x^4 + 4x^3 -44x^2 -96x +576 </mrow>
+				<mrow> \amp = (x-4)^2(x+6)^2</mrow>
+				</md>.</p>
+				<p>Now we know that the eigenvalues are <m>4</m> and <m>-6</m>, and that each has algebraic multiplicity <m>2</m>.</p>
+				<p>Next we pick one of the eigenvalues and look for eigenvectors.  Let's start with the eigenvalue <m>4</m>.  We want to find a basis for <m>E_A(4) = \null(A - 4I_4)</m>, so we row-reduce:
+				<me>A - 4I_4 = \begin{bmatrix} 1 \amp 3 \amp -6 \amp -5 \\ -5 \amp -15 \amp 5 \amp 0 \\ -4 \amp -12 \amp -1 \amp -5 \\ 6 \amp 18 \amp -11 \amp -5\end{bmatrix} \to \begin{bmatrix}1 \amp 3 \amp 0 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \amp 0\end{bmatrix}</me>.</p>
+				<p> We've arrived at the equations <m>x+3y+w=0</m> and <m>z+w=0</m>, so vectors in this eigenspace look like: <me>\begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}-3y-w \\ y \\ -w \\ w\end{bmatrix} = y\begin{bmatrix}-3\\1\\0\\0\end{bmatrix} + w\begin{bmatrix}-1\\0\\-1\\1\end{bmatrix}</me>.  We have thus found that a basis for <m>E_4(A)</m> is <m>\left\{\begin{bmatrix}-3\\1\\0\\0\end{bmatrix}, \begin{bmatrix}-1\\0\\-1\\1\end{bmatrix}\right\}</m>.  Since this basis has <m>2</m> vectors in it we conclude that <m>\geo_A(4) = \dim(E_A(4)) = 2</m>.</p>
+				<p>Now we turn to the other eigenvalue, <m>-6</m>, and repeat the process.
+				<me>A - (-6)I_4 = \begin{bmatrix} 11 \amp 3 \amp -6 \amp -5 \\ -5 \amp -5 \amp 5 \amp 0 \\ -4 \amp -12 \amp 9 \amp -5 \\ 6 \amp 18 \amp -11 \amp 5\end{bmatrix} \to \begin{bmatrix}1 \amp 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \amp 0\end{bmatrix}</me>.</p>
+				<p> This time the equations we get are <m>x-w=0</m>, <m>y=0</m>, <m>z-w=0</m>, so vectors in <m>E_A(-6)</m> have this form:
+				<me>\begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}w\\0\\w\\w\end{bmatrix} = w\begin{bmatrix}1\\0\\1\\1\end{bmatrix}</me>.</p>
+				<p>Therefore <m>\left\{\begin{bmatrix}1\\0\\1\\1\end{bmatrix}\right\}</m> is a basis for <m>E_A(-6)</m>, and since this basis contains only one vector we have <m>\geo_A(-6) = 1</m>.</p>
 			</solution>
 		</example>
 	</subsection>
@@ -113,7 +138,7 @@
 			Properties of eigenvalues and eigenvectors
 		</title>
 
-		<p> Unsurprisingly, all of this talk of eigenvalues and eigenvectors adds something to the fundamental theorem! </p>
+		<p> In the course of the material we've developed so far about eigenvalues and eigenvectors you've seen that determinants and null spaces have played prominent roles.  You will hopefully be unsurprised that this means we're in a position to add something to the fundamental theorem! </p>
 
 		<theorem xml:id="thm-fundamental-with-eigenvalues">
 			<statement>
@@ -134,11 +159,11 @@
 		<theorem>
 			<statement>
 				<p> 
-					Let <m>A</m> be an <m>n \times n</m> matrix, and suppose that <m>\lambda</m> is an eigenvalue of <m>A</m> with corresponding eigenvector <m>\vec{v}</m>.  Then for every <m>n \geq 0</m> the vector <m>\vec{v}</m> is also an eigenvector of <m>A^n</m>, with eigenvalue <m>\lambda^n</m>. 
+					Let <m>A</m> be an <m>n \times n</m> matrix, and suppose that <m>\lambda</m> is an eigenvalue of <m>A</m> with corresponding eigenvector <m>\vec{v}</m>.  Then for every <m>k \geq 0</m> the vector <m>\vec{v}</m> is also an eigenvector of <m>A^k</m>, with eigenvalue <m>\lambda^k</m>. 
 				</p>
 			</statement>
 			<proof>
-				<p> A formal proof requires mathematical induction, but hopefully the following calculation (which proves the result for <m>n=2</m>) will convince you that you could continue this up to any <m>n</m>: </p>
+				<p> A formal proof requires mathematical induction, but hopefully the following calculation (which proves the result for <m>k=2</m>) will convince you that you could continue this up to any <m>k</m>: </p>
 				<md>
 					<mrow>A^2\vec{v} \amp = A(A\vec{v})</mrow>
 					<mrow>\amp = A(\lambda\vec{v}) </mrow>

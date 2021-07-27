@@ -8,7 +8,26 @@
 			Similarity
 		</title>
 
+		<definition>
+			<p> Let <m>A</m> and <m>B</m> be <m>n \times n</m> matrices.  We say that <m>A</m> is <em>similar to <m>B</m></em> if there is an invertible <m>n \times n</m> matrix <m>P</m> such that <m>A = PBP^{-1}</m>.  In this case we write <m>A \sim B</m> to indicate that <m>A</m> is similar to <m>B</m>. </p>
+		</definition>
+		<note><p>Caution! The word "similar" has an ordinary English meaning, and now it also has a technical meaning.  When we say <m>A</m> is similar to <m>B</m> we always mean the precise statement defined above, not the ordinary English meaning.</p></note>
+		<p> Here are some basic facts about the relation <m>\sim</m>. </p>
 		<theorem>
+			<statement>
+				<p> Suppose that <m>A</m>, <m>B</m>, and <m>C</m> are <m>n \times n</m> matrices.  Then:</p>
+				<ol>
+					<li> <m>A \sim A</m>. </li>
+					<li> If <m>A \sim B</m> then <m>B \sim A</m>. </li>
+					<li> If <m>A \sim B</m> and <m>B \sim C</m> then <m>A \sim C</m>.</li>
+				</ol>
+			</statement>
+			<proof>
+
+			</proof>
+		</theorem>
+		<p> In light of point (2) above, we sometimes say that <em><m>A</m> and <m>B</m> are similar</em> rather than saying <m>A</m> is similar to <m>B</m>, since the order doesn't actually matter.  As you would expect from the name, similar matrices share many properties.  Here are a few examples of those propertes. </p>
+		<theorem xml:id="thm-similar-same-char-poly">
 			<statement>
 				<p> Suppose that <m>A</m> and <m>B</m> are similar <m>n \times n</m> matrices.  Then <m>A</m> and <m>B</m> have the same characteristic polynomial, and therefore also have the same eigenvalues with the same algebraic multiplicities.</p>
 			</statement>
@@ -26,6 +45,38 @@
 				</md>
 			</proof>
 		</theorem>
+		<corollary>
+			<statement>
+				<p> If <m>A</m> and <m>B</m> are similar matrices then <m>\det(A) = \det(B)</m>.</p>
+			</statement>
+			<proof>
+				<p> Using <xref ref="thm-similar-same-char-poly" /> applied when <m>x=0</m> we get:
+				<me>\det(A) = \det(A - 0I_n) = \chi_A(0) = \chi_B(0) = \det(B - 0I_n) = \det(B)</me>.</p>
+			</proof>
+		</corollary>
+
+		<theorem>
+			<statement>
+				<p> Suppose that <m>A</m> and <m>B</m> are similar matrices.  Then <m>\rank(A) = \rank(B)</m> and <m>\nullity(A) = \nullity(B)</m>.</p>
+			</statement>
+			<proof>
+				<p> First, notice that by <xref ref="thm-rank-nullity-version-2" /> if we can prove that <m>\rank(A) = \rank(B)</m> then we get <m>\nullity(A) = \nullity(B)</m> for free. </p>
+			</proof>
+		</theorem>
+
+		<note><p>Warning! When <m>A</m> and <m>B</m> are similar we have <m>\rank(A) = \rank(B)</m>, which means that <m>\RREF(A)</m> and <m>\RREF(B)</m> have the same number of non-zero rows.  It does <em>not</em> mean that <m>\RREF(A) = \RREF(B)</m>, and indeed often that isn't the case. </p></note>
+	</subsection>
+
+	<subsection>
+		<title>
+			Diagonalization
+		</title>
+	</subsection>
+
+	<subsection>
+		<title>
+			A geometric interpretation of similarity
+		</title>
 	</subsection>
 
 	<xi:include href="4-2-exercises.ptx" />
