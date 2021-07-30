@@ -62,7 +62,7 @@
 			<p> If <m>\lambda</m> is a scalar, then the <em>algebraic multiplicity</em> of <m>\lambda</m> as an eigenvalue of <m>A</m>, denoted <m>\alg_A(\lambda)</m>, is the multiplicity with which <m>\lambda</m> appears as a root of <m>\chi_A(x)</m>. </p>
 		</definition>
 
-		<fact>
+		<fact xml:id="fact-enough-eigenvalues">
 			<p> If <m>A</m> is an <m>n \times n</m> matrix then, counted according to their algebraic multiplicities, <m>A</m> has exactly <m>n</m> eigenvalues (but even if <m>A</m> has all real number entries, some of these eigenvalues might be complex!). </p>
 		</fact>
 
@@ -71,7 +71,7 @@
 		</example>
 
 		<p> For <xref text="custom" ref="def-triangular">triangular matrices</xref> calculating determinants is easy, and so finding eigenvalues is also easy. </p>
-		<theorem>
+		<theorem xml:id="thm-eigenvalues-triangular">
 			<statement>
 				<p> Let <m>A</m> be an <m>n \times n</m> triangular matrix.  Then the eigenvalues of <m>A</m> are exactly the diagonal entries of <m>A</m>, and each eigenvalue appears on the diagonal of <m>A</m> exactly as many times as its algebraic multiplicity.</p>
 			</statement>
@@ -192,7 +192,7 @@
 		</theorem>
 
 		<p>Finally, it is will be useful in the next section to know that eigenvectors from different eigenvalues are linearly independent.  The proof technique is interesting, too!</p>
-		<theorem>
+		<theorem xml:id="thm-indep-eigenvectors">
 			<statement>
 				<p>Let <m>A</m> be an <m>n \times n</m> matrix, and let <m>\lambda_1, \ldots, \lambda_k</m> be <em>distinct</em> eigenvalues of <m>A</m>.  Suppose that <m>\vec{v_1}</m> is an eigenvector for <m>A</m> with eigenvalue <m>\lambda_1</m>, <m>\vec{v_2}</m> is an eigenvector for <m>A</m> with eigenvalue <m>\lambda_2</m>, and so on up to <m>\vec{v_k}</m> being an eigenvector for <m>A</m> with eigenvalue <m>\lambda_k</m>.  Then <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly independent.</p>
 			</statement>
