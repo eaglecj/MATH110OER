@@ -122,6 +122,7 @@
 			</title>
 
 			<xi:include href="chapters/chapter5/1-orthogonality/5-1-lecture-notes.ptx" />
+			<xi:include href="chapters/chapter5/2a-orthogonal-projections/5-2a-lecture-notes.ptx" />
 			<xi:include href="chapters/chapter5/2-orthogonal-matrices/5-2-lecture-notes.ptx" />
 			<xi:include href="chapters/chapter5/3-spectral-theorem/5-3-lecture-notes.ptx" />
 		</chapter>

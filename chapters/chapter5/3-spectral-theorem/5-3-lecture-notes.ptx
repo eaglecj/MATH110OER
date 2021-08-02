@@ -4,16 +4,71 @@
 		The Spectral Theorem
 	</title>
 
-	<p>You might recall that we proved that if <m>A</m> is any matrix of real numbers then <m>A^tA</m> is a symmetric matrix (<xref ref="thm-ata-symmetric" />).  At that time we promised to prove a partial converse, namely that every symmetric matrix of real numbers has the form <m>A^tA</m> for some matrix <m>A</m>, where <m>A</m> might have complex entries.  With the Spectral Theorem in hand we can now give the proof. </p>
+	<subsection>
+		<title>
+			Orthogonal diagonalizability
+		</title>
+		<p> Diagonalizable matrices are great.  If we can write <m>A = PDP^{-1}</m>, with <m>D</m> a diagonal matrix, then we can learn a lot about <m>A</m> by studying the diagonal matrix <m>D</m>, which is easier.  It would be even better if <m>P</m> could be chosen to be an orthogonal matrix, because then <m>P^{-1}</m> would be very easy to calculate (because of <xref ref="thm-orthogonal-matrix-inverse" />).</p>
+		<p>We emphasize that, except where we explicitly state otherwise, the matrices in this section have <em>real numbers</em> as their entries.  The ideas of this section can be developed for matrices with complex entries, but the results are not exactly the same, and we will not do that here. </p>
 
-	<corollary xml:id="thm-factor-symmetric">
-		<statement>
-			<p> Let <m>B</m> be a symmetric matrix of real numbers.  Then there exists a matrix <m>A</m> (whose entries may be complex) such that <m>B = A^tA</m>.</p>
-		</statement>
-		<proof>
-			<p> By the Spectral Theorem we can orthogonally diagonalize <m>B</m>, say <m>B = Q^tDQ</m> where <m>Q</m> is an orthogonal matrix and <m>D</m> is a diagonal matrix.  Let <m>\sqrt{D}</m> be the diagonal matrix whose diagonal entries are the square roots of the diagonal entries of <m>D</m>; notice that even though the entries of <m>D</m> are real numbers they could be negative, and hence the entries of <m>\sqrt{D}</m> may be complex.  Also notice that <m>\sqrt{D}^t = \sqrt{D}</m> and <m>(\sqrt{D})^2 = D</m>.</p><p>Let <m>A = \sqrt{D}Q</m>.  Then:
-			<me>A^tA = (\sqrt{D}Q)^t(\sqrt{D}Q) = Q^t\sqrt{D}^t\sqrt{D}Q = Q^t(\sqrt{D})^2Q = Q^tDQ = B</me>.</p>
-		</proof>
-	</corollary>
+		<definition>
+			<p>An <m>n \times n</m> matrix <m>A</m> is called <em>orthogonally diagonalizable</em> if there is an orthogonal matrix <m>Q</m> and a diagonal matrix <m>D</m> such that <m>A = QDQ^{t}</m>.</p>
+		</definition>
+
+		<p>Most matrices, even most diagonalizable matrices, are not orthogonally diagonalizable.  In fact, for a matrix to have a chance of being orthogonally diagonalizable, it must be <xref ref="def-symmetric" text="custom">symmetric</xref>.</p>
+		<theorem xml:id="thm-spectral-easy">
+			<statement>
+				<p>Every orthogonally diagonalizable matrix is symmetric.</p>
+			</statement>
+			<proof>
+				<p> Suppose that <m>A = QDQ^t</m>, where <m>Q</m> is an orthogonal matrix and <m>D</m> is a diagonal matrix.  Then:
+				<md>
+					<mrow> A^t \amp = (QDQ^t)^t </mrow>
+					<mrow> \amp = (Q^t)^tD^tQ^t </mrow>
+					<mrow> \amp = QDQ^t</mrow>
+					<mrow> \amp = A</mrow>
+				</md>
+				Thus <m>A</m> is symmetric.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Let <m>A = \begin{bmatrix}1 \amp 3 \\ 2 \amp 3\end{bmatrix}</m>.  We can immediately see that <m>A</m> is not symmetric, and therefore it cannot be orthogonally diagonalizable. </p>
+			<p> This matrix <m>A</m> <em>is</em> diagonalizable, but there is no way to just "see" that fact; we really need to go through the process of <xref ref="sec-Diagonalization" />. </p>
+		</example>
+
+
+		<p>In <xref ref="sec-Diagonalization" /> we saw that determining whether or not a matrix is diagonalizable is a non-trivial task: We had to find the eigenvalues and a basis for each eigenspace.  <xref ref="thm-spectral-easy"/> gives us a very fast way of showing that some matrices are <em>not</em> orthogonally diagonalizable.  Very surprisingly, the converse of <xref ref="thm-spectral-easy" /> is actually true, and so determining whether or not a matrix is orthogonally diagonalizable is actually very easy!  The price is that the proof of the next theorem is very much <em>not</em> easy, and we will not provide it here.</p>
+		<theorem xml:id="thm-spectral-thm">
+			<title>Spectral Theorem</title>
+			<statement>
+				<p>Let <m>A</m> be an <m>n \times n</m> matrix of real numbers.  Then <m>A</m> is orthogonally diagonalizable if and only if <m>A</m> is symmetric.</p>
+			</statement>
+		</theorem>
+
+		<example>
+			<p>The Spectral Theorem tells us at a glance that <m>A = </m> is orthogonally diagonalizable.  However, if we want to actually find an orthogonal matrix <m>Q</m> and a diagonal <m>D</m> such that <m>A = QDQ^t</m> then we have to do quite a lot of work!  We'll go through the process of finding <m>Q</m> and <m>D</m> for this matrix, just to illustrate how much more is involved if we need <m>Q</m> and <m>D</m> explicitly.</p>
+		</example>
+	</subsection>
+
+	<subsection>
+		<title>
+			Applications
+		</title>
+
+		<p>You might recall that we proved that if <m>A</m> is any matrix of real numbers then <m>A^tA</m> is a symmetric matrix (<xref ref="thm-ata-symmetric" />).  At that time we promised to prove a partial converse, namely that every symmetric matrix of real numbers has the form <m>A^tA</m> for some matrix <m>A</m>, where <m>A</m> might have complex entries.  With the Spectral Theorem in hand we can now give the proof. </p>
+
+		<corollary xml:id="thm-factor-symmetric">
+			<statement>
+				<p> Let <m>B</m> be a symmetric matrix of real numbers.  Then there exists a matrix <m>A</m> (whose entries may be complex) such that <m>B = A^tA</m>.</p>
+			</statement>
+			<proof>
+				<p> By the Spectral Theorem we can orthogonally diagonalize <m>B</m>, say <m>B = Q^tDQ</m> where <m>Q</m> is an orthogonal matrix and <m>D</m> is a diagonal matrix.  Let <m>\sqrt{D}</m> be the diagonal matrix whose diagonal entries are the square roots of the diagonal entries of <m>D</m>; notice that even though the entries of <m>D</m> are real numbers they could be negative, and hence the entries of <m>\sqrt{D}</m> may be complex.  Also notice that <m>\sqrt{D}^t = \sqrt{D}</m> and <m>(\sqrt{D})^2 = D</m>.</p><p>Let <m>A = \sqrt{D}Q</m>.  Again, the entries of <m>Q</m> are real numbers, but the entries of <m>\sqrt{D}</m> may not be, so <m>A</m> may have complex entries.  Then:
+				<me>A^tA = (\sqrt{D}Q)^t(\sqrt{D}Q) = Q^t\sqrt{D}^t\sqrt{D}Q = Q^t(\sqrt{D})^2Q = Q^tDQ = B</me>.</p>
+			</proof>
+		</corollary>
+	</subsection>
+
+
 	<xi:include href="5-3-exercises.ptx" />
 </section>

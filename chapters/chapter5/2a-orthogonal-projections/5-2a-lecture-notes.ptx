@@ -1,0 +1,20 @@
+<section xml:id="sec-OrthoProj" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Orthogonal projections
+	</title>
+
+	<subsection>
+		<title>
+			Orthogonal complements
+		</title>
+	</subsection>
+
+	<subsection>
+		<title>
+			Projections and the orthogonal decomposition
+		</title>
+	</subsection>
+
+	<xi:include href="5-2a-exercises.ptx" />
+</section>

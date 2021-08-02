@@ -126,9 +126,9 @@
 			Transpose
 		</title>
 		<p> Our last basic operation is a bit harder to motivate than addition and scalar multiplication, but we will see in <xref ref="chapt-5" /> that is is very important.  For this particular operation the definition in terms of linear transformations is outside the scope of this course, so we restrict ourselves to matrices. </p>
-		<definition>
+		<definition xml:id="def-symmetric">
 			<p> Suppose that <m>A</m> is an <m>m \times n</m> matrix.  The <em>transpose</em> of <m>A</m> is the <m>n \times m</m> matrix obtained by writing the columns of <m>A</m> as rows. </p>
-			<p> A matrix <m>A</m>is called <em>symmetric</em> if <m>A = A^t</m>.</p>
+			<p> A matrix <m>A</m> is called <em>symmetric</em> if <m>A = A^t</m>.</p>
 		</definition>
 		<example>
 			<p> Let <m>A = \begin{bmatrix}1 \amp 2 \amp 3 \\ 3 \amp 4 \amp 0\end{bmatrix}</m>.  Then <m>A^t = \begin{bmatrix}1 \amp 3 \\ 2 \amp 4 \\ 3 \amp 0\end{bmatrix}</m>.</p>

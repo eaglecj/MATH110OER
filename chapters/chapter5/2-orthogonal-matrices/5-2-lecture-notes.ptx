@@ -4,5 +4,29 @@
 		Orthogonal matrices
 	</title>
 
+	<subsection>
+		<title>
+			Definition and examples
+		</title>
+	</subsection>
+
+	<subsection>
+		<title>
+			Properties of orthogonal matrices
+		</title>
+
+		<theorem xml:id="thm-orthogonal-matrix-inverse">
+			<statement>
+				<p></p>
+			</statement>
+		</theorem>
+	</subsection>
+
+	<subsection>
+		<title>
+			Application: Characterizing rotations of <m>\mathbb{R}^2</m>
+		</title>
+	</subsection>
+
 	<xi:include href="5-2-exercises.ptx" />
 </section>
