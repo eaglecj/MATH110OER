@@ -1,0 +1,8 @@
+<section xml:id="sec-OrthoMatrix" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Orthogonal matrices
+	</title>
+
+	<xi:include href="5-2-exercises.ptx" />
+</section>

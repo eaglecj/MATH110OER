@@ -116,12 +116,13 @@
 			<xi:include href="chapters/chapter4/2-diagonalization/4-2-lecture-notes.ptx" />
 		</chapter>
 
-		<chapter xml:id="chapt-5"><!--Orthogonality-->
+		<chapter xml:id="chapt-5"><!--Spectral theorem-->
 			<title>
 				Vector Geometry Revisited
 			</title>
 
 			<xi:include href="chapters/chapter5/1-orthogonality/5-1-lecture-notes.ptx" />
+			<xi:include href="chapters/chapter5/2-orthogonal-matrices/5-2-lecture-notes.ptx" />
 			<xi:include href="chapters/chapter5/3-spectral-theorem/5-3-lecture-notes.ptx" />
 		</chapter>
 

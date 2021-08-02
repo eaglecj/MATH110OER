@@ -117,11 +117,27 @@
 		</example>
 		<p> As you can see from the example, row reduction can somewhat simplify the process of calculating determinants, but it remains a tedious process.  In fact, in real-life applications of linear algebra (where matrices are often very large), calculating determinants simply isn't practical - it is too time-consuming and error-prone, even when done on a computer.  Nevertheless, for certain problems the determinant can be very helpful.  For our purposes, the most important property of determinants is that they provide a numerical way to detect invertibility of matrices; specifically, a square matrix is invertible if and only if it has non-zero determinant.  We will make extensive use of this method for detecting invertibility in <xref ref="sec-Eigen" />.  For now, we get to add another statement to the Fundamental Theorem!</p>
 		<theorem xml:id="thm-fundamental-determinant">
-			<statement><p>Fundamental theorem, with determinants.</p></statement>
+			<title>Fundamental Theorem - Version 3</title>
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
+				<ol>
+					<li> <m>\RREF(A) = I_n</m>.</li>
+					<li> <m>A</m> is invertible. </li>
+					<li> The system <m>[A|\vec{0}]</m> has a unique solution. </li>
+					<li> The equation <m>A\vec{x} = \vec{0}</m> has a unique solution. </li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the system <m>[A|\vec{b}]</m> has a unique solution.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the equation <m>A\vec{x} = \vec{b}</m> has a unique solution. </li>
+					<li> The columns of <m>A</m> are linearly independent. </li>
+					<li> The span of the columns of <m>A</m> is <m>\mathbb{R}^n</m>. </li>
+					<li> <m>\rank(A) = n</m>.</li>
+					<li> <m>A</m> can be written as a product of a finite collection of elementary matrices. </li>
+					<li> <m>\det(A) \neq 0</m>.</li>
+				</ol>
+			</statement>
 			<proof>
 				<p> The key observation for both parts of this proof is that it follows from <xref ref="thm-row-ops-det" /> that, although row operations can change determinants, they never change whether or not the determiant is zero. </p>
-				<p> <m>?? \implies ??</m>: Suppose that <m>\RREF(A) = I_n</m>.  Then there is a sequence of row operations that transforms <m>A</m> into <m>I_n</m>, and <m>\det(I_n) \neq 0</m>, so <m>\det(A) \neq 0</m>. </p>
-				<p> <m>?? \implies ??</m>: Suppose that <m>\det(A) \neq 0</m>.  Then <m>\det(\RREF(A)) \neq 0</m> as well.  In particular, <m>\RREF(A)</m> does not have a row of all zero, so every row of <m>\RREF(A)</m> has a leading <m>1</m>.  Thus <m>A</m> has <m>n</m> pivot columns.  The only <m>n \times n</m> matrix in reduced row echelon form with <m>n</m> pivot columns is <m>I_n</m>, so <m>\RREF(A) = I_n</m>.</p>
+				<p> <m>1 \implies 11</m>: Suppose that <m>\RREF(A) = I_n</m>.  Then there is a sequence of row operations that transforms <m>A</m> into <m>I_n</m>, and <m>\det(I_n) \neq 0</m>, so <m>\det(A) \neq 0</m>. </p>
+				<p> <m>11 \implies 1</m>: Suppose that <m>\det(A) \neq 0</m>.  Then <m>\det(\RREF(A)) \neq 0</m> as well.  In particular, <m>\RREF(A)</m> does not have a row of all zero, so every row of <m>\RREF(A)</m> has a leading <m>1</m>.  Thus <m>A</m> has <m>n</m> pivot columns.  The only <m>n \times n</m> matrix in reduced row echelon form with <m>n</m> pivot columns is <m>I_n</m>, so <m>\RREF(A) = I_n</m>.</p>
 			</proof>
 		</theorem>
 

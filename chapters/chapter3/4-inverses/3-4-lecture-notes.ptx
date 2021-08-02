@@ -128,7 +128,7 @@
 		<theorem xml:id="thm-fundamental-version-2">
 			<title>Fundamental Theorem - Version 2</title>
 			<statement>
-				<p> Let <m>A</m> be an <m>n \times n</m> (non-augmented) matrix.  The following are equivalent: </p>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
 				<ol>
 					<li> <m>\RREF(A) = I_n</m>.</li>
 					<li> <m>A</m> is invertible. </li>

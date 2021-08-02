@@ -141,11 +141,31 @@
 		<p> In the course of the material we've developed so far about eigenvalues and eigenvectors you've seen that determinants and null spaces have played prominent roles.  You will hopefully be unsurprised that this means we're in a position to add something to the fundamental theorem! </p>
 
 		<theorem xml:id="thm-fundamental-with-eigenvalues">
+			<title>Fundamental Theorem - Final Version</title>
 			<statement>
 				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
-				<p> with 0 not an eigenvalue and with <m>E_0(A) = \{0\}</m>. </p>
+				<ol>
+					<li> <m>\RREF(A) = I_n</m>.</li>
+					<li> <m>A</m> is invertible. </li>
+					<li> The system <m>[A|\vec{0}]</m> has a unique solution. </li>
+					<li> The equation <m>A\vec{x} = \vec{0}</m> has a unique solution. </li>
+					<li> The only vector in <m>\null(A)</m> is <m>\vec{0}</m>.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the system <m>[A|\vec{b}]</m> has a unique solution.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the equation <m>A\vec{x} = \vec{b}</m> has a unique solution. </li>
+					<li> The columns of <m>A</m> are linearly independent. </li>
+					<li> The span of the columns of <m>A</m> is <m>\mathbb{R}^n</m>. </li>
+					<li> <m>\col(A) = \mathbb{R}^n</m>.</li>
+					<li> <m>\row(A) = \mathbb{R}^n</m>.</li>
+					<li> <m>\rank(A) = n</m>.</li>
+					<li> <m>\nullity(A) = 0</m>.</li>
+					<li> <m>A</m> can be written as a product of a finite collection of elementary matrices. </li>
+					<li> <m>\det(A) \neq 0</m>.</li>
+					<li> <m>0</m> is not an eigenvalue of <m>A</m>.</li>
+					<li> <m>E_A(0) = \{\vec{0}\}</m>.</li>
+				</ol>
 			</statement>
 			<proof>
+				<p> The new items are (16) and (17), which are equivalent to each other by the definitions of "eigenvalue", "eigenvector", and "eigenspace".  To connect them to the other items on the list, notice that <m>E_A(0) = \null(A-0I) = \null(A)</m>, so (17) is just a rephrasing of (5).</p>
 			</proof>
 		</theorem>
 

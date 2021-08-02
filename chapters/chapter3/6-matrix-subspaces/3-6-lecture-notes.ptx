@@ -182,9 +182,30 @@
 		</title>
 		<p> In this section we introduced a lot of terminology related to ideas that already appeared in the Fundamental Theorem, so we take this opportunity to re-state that theorem.  Each of the new items on this version of the theorem is just a rephrasing of something that was already on the list in <xref ref="thm-fundamental-determinant" />. </p>
 		<theorem xml:id="thm-fundamental-with-subspaces">
+			<title>Fundamental Theorem - Version 4</title>
 			<statement>
-				<p> </p>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
+				<ol>
+					<li> <m>\RREF(A) = I_n</m>.</li>
+					<li> <m>A</m> is invertible. </li>
+					<li> The system <m>[A|\vec{0}]</m> has a unique solution. </li>
+					<li> The equation <m>A\vec{x} = \vec{0}</m> has a unique solution. </li>
+					<li> The only vector in <m>\null(A)</m> is <m>\vec{0}</m>.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the system <m>[A|\vec{b}]</m> has a unique solution.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the equation <m>A\vec{x} = \vec{b}</m> has a unique solution. </li>
+					<li> The columns of <m>A</m> are linearly independent. </li>
+					<li> The span of the columns of <m>A</m> is <m>\mathbb{R}^n</m>. </li>
+					<li> <m>\col(A) = \mathbb{R}^n</m>.</li>
+					<li> <m>\row(A) = \mathbb{R}^n</m>.</li>
+					<li> <m>\rank(A) = n</m>.</li>
+					<li> <m>\nullity(A) = 0</m>.</li>
+					<li> <m>A</m> can be written as a product of a finite collection of elementary matrices. </li>
+					<li> <m>\det(A) \neq 0</m>.</li>
+				</ol>
 			</statement>
+			<proof>
+				<p> The new entries in this version of the theorem are (5), (10), (11),  and (13).  (5) is just a rephrasing of (4), and (10) is a rephrasing of (9).  (11) is equivalent to (2) because <m>\row(A) = \mathbb{R}^n</m> if and only if <m>\dim(\row(A)) = n</m> if and only if <m>\rank(A) = n</m> (by <xref ref="thm-rank-row-space" />).  Finally, (13) is equivalent to (12) by the <xref ref="thm-rank-nullity-version-2" text="custom">Rank-Nullity Theorem</xref>.</p>
+			</proof>
 		</theorem>
 	</subsection>
 	<xi:include href="3-6-exercises.ptx" />
