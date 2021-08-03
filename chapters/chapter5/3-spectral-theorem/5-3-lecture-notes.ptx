@@ -34,7 +34,7 @@
 
 		<example>
 			<p> Let <m>A = \begin{bmatrix}1 \amp 3 \\ 2 \amp 3\end{bmatrix}</m>.  We can immediately see that <m>A</m> is not symmetric, and therefore it cannot be orthogonally diagonalizable. </p>
-			<p> This matrix <m>A</m> <em>is</em> diagonalizable, but there is no way to just "see" that fact; we really need to go through the process of <xref ref="sec-Diagonalization" />. </p>
+			<p> This matrix <m>A</m> <em>is</em> diagonalizable, but there is no way to just "see" that fact; we really need to go through the process of <xref ref="sec-Diagonalization" />.  We won't do that here, but you are encouraged to do so as a bit of practice.</p>
 		</example>
 
 
@@ -46,14 +46,25 @@
 			</statement>
 		</theorem>
 
+		<p>In order to actually orthogonalize a diagonal matrix, the following theorem (which we will not prove) is very helpful.</p>
+		<theorem xml:id="thm-ortho-diagonalize">
+			<statement>
+				<p> Let <m>A</m> be a symmetric matrix of real numbers.  Then every eigenvalue of <m>A</m> is real, and eigenvectors corresponding to different eigenvalues are automatically orthogonal. </p>
+			</statement>
+		</theorem>
+
 		<example>
-			<p>The Spectral Theorem tells us at a glance that <m>A = </m> is orthogonally diagonalizable.  However, if we want to actually find an orthogonal matrix <m>Q</m> and a diagonal <m>D</m> such that <m>A = QDQ^t</m> then we have to do quite a lot of work!  We'll go through the process of finding <m>Q</m> and <m>D</m> for this matrix, just to illustrate how much more is involved if we need <m>Q</m> and <m>D</m> explicitly.</p>
+			<p>The Spectral Theorem tells us at a glance that <m>A = \begin{bmatrix}1 \amp -1 \amp 1 \\ -1 \amp 1 \amp -1 \\ 1 \amp -1 \amp 1\end{bmatrix}</m> is orthogonally diagonalizable.  However, if we want to actually find an orthogonal matrix <m>Q</m> and a diagonal <m>D</m> such that <m>A = QDQ^t</m> then we have to do quite a lot of work!  We'll go through the process of finding <m>Q</m> and <m>D</m> for this matrix, just to illustrate how much more is involved if we need <m>Q</m> and <m>D</m> explicitly.</p>
+			<p>To start, we find the eigenvalues of <m>A</m>.  The characteristic polynomial is <m>\det(A-xI_3) = 3x^2-x^3 = x^2(3-x)</m>, so the eigenvalues are <m>0</m>, with algebraic multiplicity <m>2</m>, and <m>3</m>, with algebraic multiplicity <m>1</m>.  We let <m>D = \begin{bmatrix}0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 3\end{bmatrix}</m>.</p>
+			<p>Next we turn to finding eigenvectors.  For the eigenvalue <m>0</m> we have <me>A-0I = A \to \begin{bmatrix}1 \amp -1 \amp 1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0\end{bmatrix}</me>.  We then write <m>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}y-z \\ y \\ z\end{bmatrix} = y\begin{bmatrix}1\\1\\0\end{bmatrix} + z\begin{bmatrix}-1\\0\\1\end{bmatrix}</m>, so for a basis of <m>E_A(0)</m> we can take the two vectors <m>\begin{bmatrix}1\\1\\0\end{bmatrix}</m> and <m>\begin{bmatrix}-1\\0\\1\end{bmatrix}</m>.  If we were just setting out to diagonalize <m>A</m> we would make these two vectors the first two columns of the matrix <m>P</m>; however, we want <m>Q</m> to be an <em>orthogonal</em> matrix, which means that we need not just a basis for <m>E_A(0)</m>, but actually an <em>orthonormal</em> basis.  We therefore need to run the <xref ref="thm-Gram-Schmidt" text="custom">Gram-Schmidt algorithm</xref> on these vectors.  Doing so produces the orthogonal basis vectors <m>\begin{bmatrix}1\\1\\0\end{bmatrix}, \begin{bmatrix}-1/2 \\ 1/2 \\ 1\end{bmatrix}</m>.  We then divide each vector by its length to get the orthonormal basis <m>\left\{\begin{bmatrix}1/\sqrt{2} \\ 1/\sqrt{2} \\ 0\end{bmatrix}, \begin{bmatrix}-1/\sqrt{6} \\ 1/\sqrt{6} \\ 2/\sqrt{6}\end{bmatrix}\right\}</m>.</p>
+			<p>Now we go to the eigenvalue <m>3</m>.  Following the same kind of process as above, we find that a basis for <m>E_A(3)</m> is the single vector <m>\begin{bmatrix}1\\-1\\1\end{bmatrix}</m>, which we normalize to get the orthonormal basis <m>\left\{\begin{bmatrix}1/\sqrt{3} \\ -1/\sqrt{3} \\ 1/\sqrt{3}\end{bmatrix}\right\}</m>.</p>
+			<p>Finally, we put the pieces together.  By <xref ref="thm-ortho-diagonalize" /> we don't need to worry about the different eigenspaces interacting, so we can just put the orthonormal bases for the eigenspaces side-by-side to form the orthogonal matrix <m>Q = \begin{bmatrix}1/\sqrt{2} \amp -1/\sqrt{6} \amp 1/\sqrt{3} \\ 1/\sqrt{2} \amp 1/\sqrt{6} \amp -1/\sqrt{3} \\ 0 \amp 2/\sqrt{6} \amp 1/\sqrt{3}\end{bmatrix}</m>.  With this matrix <m>Q</m> and the diagonal <m>D</m> found above, we have <m>A = QDQ^t</m> (as you could verify directly, if you wish).</p>
 		</example>
 	</subsection>
 
 	<subsection>
 		<title>
-			Applications
+			An application
 		</title>
 
 		<p>You might recall that we proved that if <m>A</m> is any matrix of real numbers then <m>A^tA</m> is a symmetric matrix (<xref ref="thm-ata-symmetric" />).  At that time we promised to prove a partial converse, namely that every symmetric matrix of real numbers has the form <m>A^tA</m> for some matrix <m>A</m>, where <m>A</m> might have complex entries.  With the Spectral Theorem in hand we can now give the proof. </p>
@@ -67,6 +78,8 @@
 				<me>A^tA = (\sqrt{D}Q)^t(\sqrt{D}Q) = Q^t\sqrt{D}^t\sqrt{D}Q = Q^t(\sqrt{D})^2Q = Q^tDQ = B</me>.</p>
 			</proof>
 		</corollary>
+
+		<p> The same kind of idea used in the proof of <xref ref="thm-factor-symmetric" /> allow us to apply any function <m>f : \mathbb{R} \to \mathbb{R}</m> to a symmetric matrix: Write <m>A = QDQ^t</m>, define <m>f(D)</m> to be the diagonal matrix where we apply <m>f</m> to each diagonal entry of <m>D</m>, and then define <m>f(A) = Qf(D)Q^t</m>.  This idea is the beginning of an area known as <em>functional calculus</em>, which plays an important role in application of linear algebra, especially to quantum physics. </p>
 	</subsection>
 
 
