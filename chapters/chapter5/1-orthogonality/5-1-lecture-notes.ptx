@@ -21,7 +21,13 @@
 		</definition>
 
 		<example>
-			<p> Some orthogonal sets, some orthonormal sets, some neither </p>
+			<p>
+				<ul>
+					<li> The set <m>\left\{\begin{bmatrix}1\\1\\1\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}, \begin{bmatrix}0\\1\\-1\end{bmatrix}\right\}</m> is not an orthogonal set, because the dot product of the last two vectors is not <m>0</m>. </li>
+					<li> The set <m>\left\{\begin{bmatrix}1\\1\\1\end{bmatrix}, \begin{bmatrix}-2\\1\\1\end{bmatrix}, \begin{bmatrix}0\\-1\\1\end{bmatrix}\right\}</m> is an orthogonal set.  To verify this you need to calculate the dot product of every pair of vectors listed here, and see that they all give <m>0</m>.  This set is not orthonormal, because <m>\norm{\begin{bmatrix}1\\1\\1\end{bmatrix}} = \sqrt{3} \neq 1</m>.</li>
+					<li> The set <m>\left\{\begin{bmatrix}1/\sqrt{2} \\ -1\sqrt{2}\end{bmatrix}, \begin{bmatrix}1/\sqrt{2} \\ 1/\sqrt{2}\end{bmatrix}\right\}</m> is an orthonormal set.  To verify this you need to check that it is an orthogonal set, and that each vector in the set has length <m>1</m>, both of which are true. </li>
+				</ul>
+			</p>
 		</example>
 
 		<note><p>If <m>\vec{v_1}, \ldots, \vec{v_k}</m> are an orthogonal set of vectors, and none of them is <m>\vec{0}</m>, then <m>\frac{1}{\norm{\vec{v_1}}}\vec{v_1}, \ldots, \frac{1}{\norm{\vec{v_k}}}\vec{v_k}</m> is an orthonormal set with the same span as <m>\vec{v_1}, \ldots, \vec{v_k}</m>.</p></note>
@@ -74,7 +80,17 @@
 		</theorem>
 
 		<example>
-			<p>An example of finding coordinates, both the hard way adn the fast way. </p>
+			<p>
+				Let <m>\vec{v_1} = \begin{bmatrix}1\\0\\1\\0\end{bmatrix}</m>, <m>\vec{v_2} = \begin{bmatrix}1\\1\\-1\\0\end{bmatrix}</m>, and <m>\vec{v_3} = \begin{bmatrix}0\\0\\0\\1\end{bmatrix}</m>, and let <m>S = \span(\vec{v_1}, \vec{v_2}, \vec{v_3})</m>.  Since <m>\{\vec{v_1}, \vec{v_2}, \vec{v_3}\}</m> is an orthogonal set of non-zero vectors, and it certainly spans <m>S</m>, by <xref ref="thm-orthogonal-indep" /> it is an orthogonal basis for <m>S</m>.
+			</p>
+			<p> Now consider the vector <m>\vec{w} = \begin{bmatrix}1\\-2\\5\\2\end{bmatrix}</m>.  For the purposes of this example, take it as a given fact that <m>\vec{w}</m> is in <m>S</m>.  Since <m>\vec{w}</m> is in <m>S</m> it is possible to write <me>\begin{bmatrix}1\\-2\\5\\2\end{bmatrix} = c_1\begin{bmatrix}1\\0\\1\\0\end{bmatrix} + c_2\begin{bmatrix}1\\1\\-1\\0\end{bmatrix} + c_3\begin{bmatrix}0\\0\\0\\1\end{bmatrix}</me>.  Without using anything about orthogonality we can find <m>c_1, c_2, c_3</m> by converting this vector equation into a system of four linear equations in variables <m>c_1, c_2, c_3</m>, and then solving.  Doing that, we have <me>\matr{ccc|c}{1 \amp 1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \amp -2 \\ 1 \amp -1 \amp 0 \amp 5 \\ 0 \amp 0 \amp 1 \amp 2} \to \matr{ccc|c}{1 \amp 0 \amp 0 \amp 3 \\ 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 0 \amp 1 \amp 2 \\ 0 \amp 0 \amp 0 \amp 0}</me>.  Thus we see that <m>c_1 = 3</m>, <m>c_2 = -2</m>, and <m>c_3 = 2</m>.</p>
+			<p>On the other hand, by <xref ref="thm-coordinates-orthogonal" />,
+			<md>
+				<mrow>c_1 \amp = \frac{\vec{w}\cdot\vec{v_1}}{\vec{v_1}\cdot\vec{v_1}} = \frac{6}{2} = 3</mrow>
+				<mrow>c_2 \amp = \frac{\vec{w}\cdot\vec{v_2}}{\vec{v_2}\cdot\vec{v_2}} = \frac{-6}{3} = -2</mrow>
+				<mrow>c_3 \amp = \frac{\vec{w}\cdot\vec{v_3}}{\vec{v_3}\cdot\vec{v_3}} = \frac{2}{1} = 2</mrow>
+			</md>
+			We obtained the same answer using very different techniques.  Which one is more appropriate in a particular situation depends on what data is given.  In this example both options work well.</p>
 		</example>
 
 		<note><p>If our basis <m>\vec{v_1}, \ldots, \vec{v_k}</m> is not just an orthogonal basis, but is actually an orthonormal basis, then the denominators in <xref ref="thm-coordinates-orthogonal" /> are all <m>1</m>, which makes the formulas for the coefficients in that case even simpler. </p></note>
@@ -101,7 +117,19 @@
 		</theorem>
 
 		<example>
-
+			<p> Let <m>P</m> be the plane in <m>\mathbb{R}^3</m> with general equation <m>2x-y-z=0</m>.  Find an orthonormal basis for <m>P</m>.</p>
+			<solution>
+				<p> We start by finding any basis for <m>S</m>.  To do this, we solve for one of the variables, say writing <m>z = 2x-y</m>.  Thus vectors on the plane have the form <me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x\\y\\2x-y\end{bmatrix} = x\begin{bmatrix}1\\0\\2\end{bmatrix} + y\begin{bmatrix}0\\1\\-1\end{bmatrix}</me>.  Let <m>\vec{v_1} = \begin{bmatrix}1\\0\\2\end{bmatrix}</m> and <m>\vec{v_2} = \begin{bmatrix}0\\1\\-1\end{bmatrix}</m>.  So far we have that <m>\{\vec{v_1}, \vec{v_2}\}</m> is a basis for <m>P</m>. </p>
+				<p> Now we apply the Gram-Schmidt algorithm.  It begins by setting <m>\vec{w_1} = \vec{v_1} = \begin{bmatrix}1\\0\\2\end{bmatrix}</m>.  Next, we have 
+				<md>
+					<mrow> \vec{w_2} \amp = \vec{v_2} - \left(\frac{\vec{w_1}\cdot\vec{v_2}}{\vec{w_1}\cdot\vec{w_1}}\right)\vec{w_1} </mrow>
+					<mrow> \amp = \begin{bmatrix}0\\1\\-1\end{bmatrix} - \frac{\begin{bmatrix}0\\1\\-1\end{bmatrix}\cdot\begin{bmatrix}1\\0\\2\end{bmatrix}}{\begin{bmatrix}1\\0\\2\end{bmatrix}\cdot\begin{bmatrix}1\\0\\2\end{bmatrix}}\begin{bmatrix}1\\0\\2\end{bmatrix}</mrow>
+					<mrow> \amp = \begin{bmatrix}0\\1\\-1\end{bmatrix} - \frac{-2}{5}\begin{bmatrix}1\\0\\2\end{bmatrix}</mrow>
+					<mrow> \amp = \begin{bmatrix}2/5 \\ 1 \\ -1/5\end{bmatrix}</mrow>
+				</md>
+				Now <m>\{\vec{w_1}, \vec{w_2}\}</m> is an orthogonal basis for <m>P</m>.  It's slightly annoying to work with <m>\vec{w_2}</m> in its current form, and replacing a vector by a scalar multiple of that vector doesn't change anything about orthogonality, so there is no harm in replacing our original <m>\vec{w_2}</m> by a multiply of it to clear out fractions.  We therefore instead choose to take <m>\vec{w_2} = \begin{bmatrix}2\\5\\-1\end{bmatrix}</m>.</p>
+				<p> Finally, to obtain an orthonormal basis, just divide each vector in an orthogonal basis by its length.  We have <m>\norm{\vec{w_1}} = \sqrt{\vec{w_1} \cdot \vec{w_1}} = \sqrt{5}</m> and <m>\norm{\vec{w_2}} = \sqrt{30}</m>, so our final orthonormal basis is <me>\left\{\begin{bmatrix}1/\sqrt{5} \\ 0 \\ 2/\sqrt{5}\end{bmatrix}, \begin{bmatrix}2/\sqrt{30} \\ 5/\sqrt{30} \\ -1/\sqrt{30}\end{bmatrix}\right\}</me>.</p>
+			</solution>
 		</example>
 	</subsection>
 
