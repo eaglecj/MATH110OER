@@ -23,6 +23,7 @@
 	\DeclareMathOperator{\span}{span}
 	\DeclareMathOperator{\RREF}{RREF}
 	\DeclareMathOperator{\proj}{proj}
+	\DeclareMathOperator{\perr}{perp}
 	\DeclareMathOperator{\alg}{alg}
 	\DeclareMathOperator{\geo}{geo}
 </macros>
