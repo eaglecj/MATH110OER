@@ -92,7 +92,7 @@
 			<mrow> \amp = [S]\vec{T_1} </mrow>
 		</md>
 		<p> What we have just shown is that the first column of <m>[S \circ T]</m> is the product of <m>[S]</m> with the first column of <m>[T]</m>.  Repeating the calculation using <m>\vec{e_2}</m> similarly shows that the second column of <m>[S \circ T]</m> is <m>[S]</m> times the second column of <m>[T]</m>.  These calculations motivate a definition. </p>
-		<definition>
+		<definition xml:id="def-matrix-multiply">
 			<p> Let <m>A</m> be an <m>k \times m</m> matrix and let <m>B</m> be an <m>m \times n</m> matrix.  The <em>product</em> <m>AB</m> is the <m>k \times n</m> matrix where, for each <m>i</m> with <m>1 \leq i \leq n</m>, the <m>i</m>th column of <m>AB</m> is the product of the matrix <m>A</m> with the vector that is the <m>i</m>th column of <m>B</m>.</p>
 		</definition>
 		<example>
