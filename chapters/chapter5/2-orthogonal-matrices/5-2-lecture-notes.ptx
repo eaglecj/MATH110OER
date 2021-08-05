@@ -18,11 +18,11 @@
 		</note>
 
 		<example>
-
+			<p> The matrix <m>\begin{bmatrix}1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \\ 1 \amp -1 \amp 0\end{bmatrix}</m> is <em>not</em> an orthogonal matrix.  It has orthogonal, but not orthonormal, columns. </p>
 		</example>
 
 		<example>
-
+			<p> The matrix <m>\begin{bmatrix}2/\sqrt{6} \amp 0 \amp 1/\sqrt{3} \\ 1/\sqrt{6} \amp 1/\sqrt{2} \amp -1/\sqrt{3} \\ -1/\sqrt{6} \amp 1/\sqrt{2} \amp 1/\sqrt{3}\end{bmatrix}</m> is an orthogonal matrix.  To verify this, calculate the dot product of each pair of columns and see that the answer is <m>0</m>, and then calculate the dot product of each column with itself and see that the answer is <m>1</m>. </p>
 		</example>
 	</subsection>
 
@@ -43,10 +43,11 @@
 		</theorem>
 
 		<example>
-
+			<p> Consider the matrix <m>A = \begin{bmatrix}2/\sqrt{6} \amp 0 \amp 1/\sqrt{3} \\ 1/\sqrt{6} \amp 1/\sqrt{2} \amp -1/\sqrt{3} \\ -1/\sqrt{6} \amp 1/\sqrt{2} \amp 1/\sqrt{3}\end{bmatrix}</m>, which we have already seen is an orthogonal matrix.  <xref ref="thm-orthogonal-matrix-inverse" /> tells us that
+			<me>A^{-1} = A^t = \begin{bmatrix}2/\sqrt{6} \amp 1/\sqrt{6} \amp -1/\sqrt{6} \\ 0 \amp 1/\sqrt{2} \amp 1/\sqrt{2} \\ 1/\sqrt{3} \amp -1/\sqrt{3} \amp 1/\sqrt{3}\end{bmatrix}</me>.  That was a lot faster than our usual methods of finding an inverse - it makes you wish that all matrices could be inverted this easily!</p>
 		</example>
 
-		<corollary>
+		<corollary xml:id="cor-rows-orthogonal">
 			<statement>
 				<p> Suppose that <m>Q</m> is an orthogonal matrix.  Then the rows of <m>Q</m> form an orthonormal set of vectors.</p>
 			</statement>
@@ -56,19 +57,16 @@
 		</corollary>
 
 		<p>Recall that when we introduced linear transformations we asked that a linear transformation should interact nicely with vector addition and scalar multiplication, but we did not require that it interact well with the more "geometric" notions of dot products or lengths.  It turns out that orthogonal matrices are precisely the matrices of linear transformations that do preserve these geometric features of <m>\mathbb{R}^n</m>.</p>
-		<theorem>
+		<theorem xml:id="thm-geometric-orthogonal-matrices">
 			<statement>
 				<p> Let <m>Q</m> be an <m>n \times n</m> matrix.  The following are equivalent:
 					<ol>
 						<li><m>Q</m> is an orthogonal matrix.</li>
-						<li>For every vector <m>\vec{v}</m> in <m>\mathbb{R}^n</m>, <m>\norm{Q\vec{v}} = \norm{\vec{v}}</m>.</li>
 						<li>For all vectors <m>\vec{v}</m> and <m>\vec{w}</m> in <m>\mathbb{R}^n</m>, <m>(Q\vec{v}) \cdot (Q \vec{w}) = \vec{v} \cdot \vec{w}</m>.</li>
+						<li>For every vector <m>\vec{v}</m> in <m>\mathbb{R}^n</m>, <m>\norm{Q\vec{v}} = \norm{\vec{v}}</m>.</li>
 					</ol>
 				</p>
 			</statement>
-			<proof>
-
-			</proof>
 		</theorem>
 
 		<corollary xml:id="cor-orthogonal-preserve-angle">
@@ -76,7 +74,12 @@
 				<p> Let <m>Q</m> be an orthogonal <m>n \times n</m> matrix.  Then for all vectors <m>\vec{v}</m> and <m>\vec{w}</m> in <m>\mathbb{R}^n</m>, the angle between <m>Q\vec{v}</m> and <m>Q\vec{w}</m> is the same as the angle between <m>\vec{v}</m> and <m>\vec{w}</m>.</p>
 			</statement>
 			<proof>
-
+				<p> Let <m>\theta</m> be the angle between <m>Q\vec{v}</m> and <m>Q\vec{w}</m>, and let <m>\phi</m> be the angle between <m>\vec{v}</m> and <m>\vec{w}</m>.  Then, using <xref ref="def-angle-between-vectors" /> and <xref ref="thm-geometric-orthogonal-matrices" />, we calculate: </p>
+				<md>
+					<mrow> \theta \amp= \arccos\left(\frac{Q\vec{v}\cdot Q\vec{w}}{\norm{Q\vec{v}}\norm{Q\vec{w}}}\right) </mrow>
+					<mrow> \amp= \arccos\left(\frac{\vec{v}\cdot\vec{w}}{\norm{\vec{v}}\norm{\vec{w}}}\right) </mrow>
+					<mrow> \amp= \phi </mrow>
+				</md>
 			</proof>
 		</corollary>
 
@@ -84,7 +87,7 @@
 			<p>It is possible for a matrix to preserve all angles (in the sense of <xref ref="cor-orthogonal-preserve-angle" />) without being an orthogonal matrix.  One easy example of such a matrix is <m>\begin{bmatrix}2 \amp 0 \\ 0 \amp 2\end{bmatrix}</m>.</p>
 		</note>
 
-		<p> Finally, here are some additional properties that orthogonal matrices have.  The properties in this next theorem are not <em>equivalent</em> to a matrix being orthogonal, they are only <em>consequences</em> of a matrix being orthogonal. </p>
+		<p> Finally, here are some additional properties that orthogonal matrices have. </p>
 
 		<theorem>
 			<statement>
@@ -100,7 +103,15 @@
 			</statement>
 
 			<proof>
-
+				<p>
+				<ol>
+					<li>We have <m>(AB)^t = B^tA^t = B^{-1}A^{-1} = (AB)^{-1}</m>, so <m>AB</m> is orthogonal by <xref ref="thm-orthogonal-matrix-inverse" />.</li>
+					<li>Calculate <m>(A^{-1})^t = (A^t)^t = A = (A^{-1})^{-1}</m>, so <m>A^{-1}</m> is orthogonal by <xref ref="thm-orthogonal-matrix-inverse" />.</li>
+					<li>By <xref ref="cor-rows-orthogonal" /> the rows of <m>A</m> are orthonormal, so the columns of <m>A^t</m> are orthonormal. </li>
+					<li>Recall from <xref ref="thm-matrix-operations-det" /> that <m>\det(A^t) = \det(A)</m> and <m>\det(A^{-1}) = 1/\det(A)</m>.  Since <m>A^t = A^{-1}</m> we get <m>\det(A) = 1/\det(A)</m>, so <m>\det(A)^2 = 1</m>, and thus <m>\det(A) = \pm 1</m>.</li>
+					<li>If <m>A\vec{v} = \lambda\vec{v}</m> with <m>\vec{v} \neq \vec{0}</m>, then <m>\norm{A\vec{v}} = \norm{\lambda\vec{v}}</m>, so by <xref ref="thm-geometric-orthogonal-matrices" /> we have <m>\norm{\vec{v}} = \abs{\lambda}\norm{\vec{v}}</m>.  Since <m>\norm{\vec{v}} \neq 0</m> we conclude that <m>\abs{\lambda} = 1</m>.</li>
+				</ol>
+				</p>
 			</proof>
 		</theorem>
 
@@ -139,7 +150,7 @@
 		</theorem>
 
 		<example>
-
+			<p> Let <m>A = \frac{1}{2\sqrt{2}}\begin{bmatrix}1+\sqrt{3} \amp 1-\sqrt{3} \\ \sqrt{3} - 1\amp 1+\sqrt{3}\end{bmatrix}</m>.  By calculating the dot products of the columns we find that <m>A</m> is an orthogonal matrix, and another direct calculation shows that <m>\det(A) = 1</m>.  Therefore there is some angle such that <m>A = [T_\theta]</m>.  In fact, <m>\theta = \pi/12</m>, which we can find by knowing that <m>\cos(\theta) = \frac{1+\sqrt{3}}{2\sqrt{2}}</m> and <m>\sin(\theta) = \frac{\sqrt{3}-1}{2\sqrt{2}}</m>.</p>
 		</example>
 	</subsection>
 
