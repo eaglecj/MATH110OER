@@ -1,5 +1,5 @@
 				<exercises>
- 					<p><exercise xml:id="ex-vec-betw-pts"><!-- Replacement for Poole's Section 1.1, Exercise 5. -->
+ 					<p><exercise xml:id="ex-vec-betw-pts">
 						<statement>	<aside><p>(Source: <xref ref="ref-PS" />, Section 2.1, Exercise 2.1.2)</p></aside>	
 							Given the points <m>P = (2,0,4)</m> and <m>Q= (5,-2,1)</m>, find <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{QP}</m>.
 						</statement>
@@ -67,7 +67,7 @@
 							</me>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-pt-vec-direction"><!-- Replacement for Poole's Section 1.1, Exercise 5.-->
+					<p><exercise xml:id="ex-pt-vec-direction">
 						<statement>	<aside><p>(Source: <xref ref="ref-KN"/>, Section 4.1, Exercise 4.1.10)</p></aside>
 							In each case, find a point <m>Q</m> such that <m>\overrightarrow{PQ}</m> has
 							<ol label="(i)" cols="2">
@@ -321,7 +321,7 @@
 							</p>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-equality-of-vects"><!-- Replacement for Poole's Section 1.1, Exercise 5-->
+					<p><exercise xml:id="ex-equality-of-vects">
 						<statement>	<aside><p>(Source: <xref ref="ref-JH"/>, Chapter II, Section "Vectors in Space", Problem 2)</p></aside>
 							Decide if the two vectors are equal.
 							  <ol> 
@@ -373,7 +373,7 @@
 							</ol>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-sums-of-vecs1"><!-- Replacement for Poole's Section 1.1, Exercise 5.-->
+					<p><exercise xml:id="ex-sums-of-vecs1">
 						<statement>	<aside><p>(Source: <xref ref="ref-KN"/>, Section 4.1, Exercise 4.1.8)</p></aside>
 							Let <m>\mathbf{p}</m> and <m>\mathbf{q}</m> be the vectors of points <m>P</m> and <m>Q</m>, respectively, and let <m>R</m> be the point whose vector is <m>\mathbf{p+q}</m>. Express the following in terms of <m>\mathbf{p}</m> and <m>\mathbf{q}</m>:
 								<ol cols="2"> 
@@ -488,7 +488,7 @@
 						</ol>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-sums-of-vecs4"><!-- Replacement for Poole's Section 1.1, Exercise 11.-->
+					<p><exercise xml:id="ex-sums-of-vecs4">
 						<statement>	<aside><p>(Source: <xref ref="ref-PS"/>, from Section 2.2, Exercise 2.2.1.)</p></aside>
 							Find 
 							<me>
@@ -540,7 +540,7 @@
 							</me>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-draw-vects"><!-- Replacement for Poole's Section 1.1, Exercises 7 and 9.-->
+					<p><exercise xml:id="ex-draw-vects">
 						<statement><aside><p>(Source: <xref ref="ref-PS"/>, from Section 2.3, Exercise 2.3.1<!-- and Dina's brain. (Anna: haha!)-->)</p></aside>
 							Draw the vectors <m>\mathbf{u} =\begin{bmatrix} 2 \\ 1 \end{bmatrix} </m> and <m>\mathbf{v}=\begin{bmatrix} 1 \\ -1 \end{bmatrix} </m>.
 							Then draw <m>-\mbf{u}, 2\mbf{v}, -1/2\mbf{v}, \mbf{u}+\mbf{v},</m> and <m> -\mbf{u}+\mbf{v}</m> on the same set of coordinate axes.
@@ -608,7 +608,7 @@
 						<!--<answer>
 						</answer> -->
 					</exercise></p>
-					<p><exercise xml:id="ex-vertices-of-hexagon"><!-- Replacement for Poole's Section 1.1, Exercise 14.-->
+					<p><exercise xml:id="ex-vertices-of-hexagon">
 						<statement>	<aside><p> (Source: <xref ref="ref-KN"/>, from Section 4.1, Exercise 4.1.30.) </p></aside>
 
 							Let <m>A, B, C, D, E,</m> and <m>F</m> be the vertices of a regular hexagon, taken in order. Show that
@@ -705,358 +705,8 @@
 
 						</solution>
 					</exercise></p>
-					<p><exercise xml:id="ex-sums-of-vecs2"><!-- Replacement for Poole's Section 1.1, Exercise 15.-->
-						<statement>	<aside><p> (Source: <xref ref="ref-PS"/>, from Section 2.3, Exercise 2.2.2.) </p></aside>
-							Use the properties of vector addition to show the following equalities. Justify every step.
-							<ol cols="2"> 
-								<li>									
-										<m>(\mathbf{u}+\mathbf{v})+\mathbf{w} =(\mathbf{v}+\mathbf{w})+\mathbf{u}</m>									
-								</li>
-								<li>									
-										<m>(\mathbf{u}+\mathbf{0})+(\mathbf{v}+(-\mathbf{u})) =\mathbf{v}.</m>									
-								</li>
-							</ol>	 
-						</statement>
-						<hint xml:id="ex-sums-of-vecs2-axioms-for-vector-addition">
-							Recall the properties of vector addition: for any vectors <m>\mbf{x}, \mbf{y}, \mbf{z}</m> with the same number of components, and <m>c,d</m> any real numbers, we have
-							<mdn>
-								<mrow xml:id="axioms-vector-addition-associativity">
-									\text{Associativity:}
-									\amp\amp
-									\mbf{x} + (\mbf{y} + \mbf{z})
-									\amp =
-									(\mbf{x} + \mbf{y}) + \mbf{z}
-								</mrow>
-								<mrow xml:id="axioms-vector-addition-commutativity">
-									\text{Commutativity:}
-									\amp\amp
-									\mbf{x} + \mbf{y} 
-									\amp =
-									\mbf{y} + \mbf{x}
-								</mrow>
-								<mrow xml:id="axioms-vector-addition-neutral-elt">
-									\text{Neutral element } \mbf{0} \text{ of addition}:
-									\amp\amp
-									\mbf{0} + \mbf{x}
-									\amp =
-									\mbf{x}
-								</mrow>
-								<mrow xml:id="axioms-vector-addition-inverses">
-									\text{Existence of inverse elements:} 
-									\amp\amp
-									\mbf{x} + (-\mbf{x})
-									\amp =
-									\mbf{0}
-								</mrow>
-							<!--
-								<mrow>
-									\amp\amp
-									\amp =
-									(-\mbf{x}) + \mbf{x}
-								</mrow>
-							-->
-								<mrow xml:id="axioms-vector-addition-scalar-1">
-									\text{Identity of scalar multiplication:}
-									\amp\amp
-									1\mbf{x}
-									\amp =
-									\mbf{x}
-								</mrow>
-								<mrow xml:id="axioms-vector-addition-compatibility">
-									\text{Compatibility:}
-									\amp\amp
-									c(d\mbf{x})
-									\amp =
-									(cd)\mbf{x}
-								</mrow>
-								<mrow xml:id="axioms-vector-addition-distributivity-1">
-									\text{Distributivity 1:}
-									\amp\amp
-									c(\mbf{x} + \mbf{y})
-									\amp =
-									c\mbf{x} + c\mbf{y}
-								</mrow>
-								<mrow xml:id="axioms-vector-addition-distributivity-2">
-									\text{Distributivity 2:}
-									\amp\amp
-									(c+d)\mbf{x}
-									\amp =
-									c\mbf{x} + d\mbf{x}
-								</mrow>
-							</mdn>
-						</hint>
-						<hint>
-							For this question, you will only need the following axioms:
-							<xref text="type-hybrid" ref="axioms-vector-addition-associativity">Associativity</xref>,
-							<xref text="type-hybrid" ref="axioms-vector-addition-commutativity">Commutativity</xref>,
-							<xref text="type-hybrid" ref="axioms-vector-addition-neutral-elt">Neutral element</xref>,
-							<xref text="type-hybrid" ref="axioms-vector-addition-inverses">Inverse element</xref>.
-						</hint>
-						<solution>
-							<ol> 
-								<li>									
-									<md>
-										<mrow>
-											(\mathbf{u}+\mathbf{v})+\mathbf{w}
-											\amp =
-											\mathbf{u}+(\mathbf{v}+\mathbf{w})
-											\amp (<xref text="type-hybrid" ref="axioms-vector-addition-associativity">Associativity</xref>)
-										</mrow>
-										<mrow>
-											\amp =
-											(\mathbf{v}+\mathbf{w})+\mathbf{u}
-											\amp (<xref text="type-hybrid" ref="axioms-vector-addition-commutativity">Commutativity</xref>)
-										</mrow>
-									</md>									
-								</li>
-								<li>
-									<p>First, notice that</p>
-									<p><md>
-										<mrow>
-											\mathbf{u}+\mathbf{0}
-											\amp =
-											\mathbf{0}+\mathbf{u}
-											\amp (<xref text="type-hybrid" ref="axioms-vector-addition-commutativity">Commutativity</xref>)
-										</mrow>
-										<mrow>
-											\amp =
-											\mathbf{u}
-											\amp (<xref text="type-hybrid" ref="axioms-vector-addition-neutral-elt">Neutral element</xref>)
-										</mrow>
-									</md></p>
-									<p>Therefore,</p>
-									<p><md>
-										<mrow>
-											(\mathbf{u}+\mathbf{0})+(\mathbf{v}+(-\mathbf{u}))
-											\amp =
-											\mathbf{u}+(\mathbf{v}+(-\mathbf{u}))
-											\amp \text{ (above argument)}
-										</mrow>
-										<mrow>
-											\amp =
-											\mathbf{u}+((-\mathbf{u})+\mathbf{v})
-											\amp (<xref text="type-hybrid" ref="axioms-vector-addition-commutativity">Commutativity</xref>)
-										</mrow>										
-										<mrow>
-											\amp =
-											(\mathbf{u}+(-\mathbf{u}))+\mathbf{v}
-											\amp  (<xref text="type-hybrid" ref="axioms-vector-addition-associativity">Associativity</xref>)
-										</mrow>																			
-										<mrow>
-											\amp =
-											\mathbf{0}+\mathbf{v}
-											\amp (<xref text="type-hybrid" ref="axioms-vector-addition-inverses">Inverse element</xref>)
-										</mrow>
-										<mrow>
-											\amp =
-											\mathbf{v}
-											\amp (<xref text="type-local" ref="axioms-vector-addition-neutral-elt">Neutral Element</xref>)
-										</mrow>
-									</md></p>								
-								</li>
-							</ol>	
-						</solution>
-					</exercise></p>
-					<p><exercise xml:id="ex-sums-of-vecs3"><!-- Replacement for Poole's Section 1.1, Exercise 15.-->
-						<statement>	<aside><p> (Source: <xref ref="ref-PS"/>, from Section 2.3, Exercise 2.3.3.) </p></aside>
-							Use the properties of vector addition to show the following equalities, where <m>k, l</m> are scalars.  Justify every step.
-							<ol> 
-							 	<li>							 		
-								 	<m>(k+l)(\mathbf{u}+\mathbf{v}) = k \mathbf{u} +k \mathbf{v} + l\mathbf{u} + l \mathbf{v}</m>.							 		
-							 	</li>
-							 	<li xml:id="ex-sums-of-vecs3-item-neutral">							 		
-							 		<m>0 \mathbf{u} = \mathbf{0}</m>							 
-							 	</li>
-							 	<li xml:id="ex-sums-of-vecs3-item-inverse">							 		
-							 		<m>(-1)\mathbf{u} =-\mathbf{u}</m>							 		
-							 	</li>
-							 	<li>							 		
-							 		<m>-(k\mathbf{u}) = k(-\mathbf{u}) =(-k)\mathbf{u}</m>									
-								</li>
-							</ol>
-						</statement>
-						<hint>
-							It might help to look back to <xref ref="ex-sums-of-vecs2-axioms-for-vector-addition"/>.
-						</hint>
-						<hint>
-							Once you have proved one of the statements, you may use it to prove another statement.
-						</hint>
-						<solution>
-							<ol> 
-							 	<li>							 		
-								 	<p><md>
-									 	<mrow>
-									 		(k+l)(\mathbf{u}+\mathbf{v})
-									 		\amp =
-											(k+l)\mathbf{u}+ (k+l)\mathbf{v}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-distributivity-1">Distributivity 1</xref>)
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-											k\mathbf{u}+l\mathbf{u}+ k\mathbf{v}+l\mathbf{v}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-distributivity-2">Distributivity 2</xref>)
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		k \mathbf{u} +k \mathbf{v} + l\mathbf{u} + l \mathbf{v}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-commutativity">Commutativity</xref>)
-									 	</mrow>
-								 	</md></p>
-								 	<p>Notice that one could also first have used <xref text="type-hybrid" ref="axioms-vector-addition-distributivity-2">Distributivity 2</xref> and only then <xref text="type-hybrid" ref="axioms-vector-addition-distributivity-1">Distributivity 1</xref>.</p>
-							 	</li>
-							 	<li>
-							 		<p>First, we compute:</p>						 								 		
-							 		<p><md>
-								 		<mrow>
-								 			0 \mathbf{u}
-									 		\amp =
-									 		(0 \cdot 2)\mathbf{u}
-									 		\amp
-									 		\text{ because } 0=0\cdot 2
-									 	</mrow>
-									 	<mrow>
-										 	\amp =
-									 		0 ( 2  \mathbf{u})
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-compatibility">Compatibility</xref>)
-									 	</mrow>
-									 	<mrow>
-										 	\amp =
-									 		0 (\mathbf{u}+\mathbf{u})
-									 		\amp \text{(Definition)}
-									 	</mrow>
-									 	<mrow>
-										 	\amp =
-									 		0\mathbf{u} + 0\mathbf{u}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-distributivity-2">Distributivity 2</xref>)
-									 	</mrow>									 	
-							 		</md></p>
-							 		<p>To sum up, we have proved:</p>	
-							 		<p><me>
-							 			0 \mathbf{u}
-								 		=
-								 		0\mathbf{u} + 0\mathbf{u}
-									</me></p>
-									<p> If we add <m>- 0\mathbf{u}</m> on both sides, we get:</p>
-									<p><me>
-							 			0 \mathbf{u} +(-0\mathbf{u}) 
-								 		=
-								 		(0\mathbf{u} + 0\mathbf{u}) + (-0\mathbf{u})
-									</me></p>
-									<p>For the left-hand side, note that</p>
-									<p><me>
-							 			0 \mathbf{u} +(-0\mathbf{u}) 
-								 		=
-								 		\mbf{0}
-								 	</me></p>
-								 	<p>by the axiom of the <xref text="type-hybrid" ref="axioms-vector-addition-inverses">inverse element</xref>. For the right-hand side, we have</p>
-									<p><md>
-								 		<mrow>
-								 			(0\mathbf{u} + 0\mathbf{u}) + (-0\mathbf{u})
-								 			\amp =
-								 			0\mathbf{u} + (0\mathbf{u} + (-0\mathbf{u}))
-								 			\amp (<xref text="type-hybrid" ref="axioms-vector-addition-associativity">Associativity</xref>)
-								 		</mrow>
-								 		<mrow>
-								 			\amp =
-								 			0\mathbf{u} + \mbf{0}
-								 			\amp (<xref text="type-hybrid" ref="axioms-vector-addition-inverses">Inverse elements</xref>)
-								 		</mrow>
-								 		<mrow>
-								 			\amp =
-								 			0\mathbf{u}
-								 			\amp (<xref text="type-hybrid" ref="axioms-vector-addition-neutral-elt">Neutral element</xref>)
-								 		</mrow>
-								 	</md></p>
-								 	<p>All in all, we have shown</p>
-								 	<p><me>
-								 		\mbf{0}
-								 		=
-							 			0 \mathbf{u} +(-0\mathbf{u}) 
-								 		=
-								 		(0\mathbf{u} + 0\mathbf{u}) + (-0\mathbf{u})
-								 		=
-								 		0\mbf{u},
-									</me></p>
-									<p>as claimed.</p>
-							 	</li>
-							 	<li>
-							 		We have to show that <m>(-1)\mathbf{u}</m> behaves like the inverse elements <m>-\mathbf{u}</m> whose existence is claimed in  <xref text="type-hybrid" ref="axioms-vector-addition-inverses">this axiom</xref>. In other words, it suffices to show that
-							 		<me>
-							 			\mbf{u} + (-1)\mbf{u}
-							 			=
-							 			\mbf{0}.
-							 		</me> 		
-							 		We compute:
-							 		<md>
-								 		<mrow>
-								 			\mbf{u} + (-1)\mbf{u}
-									 		\amp =
-									 		1\mbf{u} + (-1)\mbf{u}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-scalar-1">Identity of scalar multiplication</xref>)
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		(1+ (-1))\mbf{u}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-distributivity-2">Distributivity 2</xref>)
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		0\mbf{u}
-									 		\amp
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		\mathbf{0}
-									 		\amp (<xref text="type-hybrid" ref="ex-sums-of-vecs3-item-neutral"/>)
-									 	</mrow>
-							 		</md>							 		
-							 	</li>
-							 	<li>
-							 		<p>First of all,</p>						 		
-							 		<p><md>
-								 		<mrow>
-								 			-(k\mathbf{u})
-									 		\amp =
-									 		(-1)(k\mathbf{u})	
-									 		\amp (<xref text="type-hybrid" ref="ex-sums-of-vecs3-item-inverse"/>)
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		((-1)k)\mathbf{u}
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-compatibility">Compatibility</xref>)
-									 	</mrow>
-							 		</md></p>
-							 		<p>We can now do two things: on the one hand, <m>(-1)k=-k</m>, which proves that <m>-(k\mathbf{u}) = -k \mbf{u}</m>. On the other hand, <m>(-1)k = k(-1)</m>, so that:</p>
-							 		<p><md>
-								 		<mrow>
-								 			-(k\mathbf{u})
-									 		\amp =
-									 		((-1)k)\mathbf{u}
-									 		\amp \text{ as argued above}
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		(k(-1))\mathbf{u}
-									 		\amp							 		
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		k((-1)\mathbf{u})
-									 		\amp (<xref text="type-hybrid" ref="axioms-vector-addition-compatibility">Compatibility</xref>)
-									 	</mrow>
-									 	<mrow>
-									 		\amp =
-									 		k(-\mathbf{u})
-									 		\amp (<xref text="type-hybrid" ref="ex-sums-of-vecs3-item-inverse"/>)
-									 	</mrow>
-							 		</md></p>
-								</li>
-							</ol>
-						</solution>
-						<!--<answer>
-						</answer> -->
-					</exercise></p>
-					<p><exercise xml:id="ex-find-vec-for-eqns"><!-- Replacement for Poole's Section 1.1, Exercise 17.-->
+					
+					<p><exercise xml:id="ex-find-vec-for-eqns">
 						<statement>
 						<aside><p> (Source: <xref ref="ref-KN"/>, from Section 4.1, Exercise 4.1.11.) </p></aside>
 							Let <m>\mathbf{u} = \begin{bmatrix} 3 \\ -1 \\ 0 \end{bmatrix} </m>, <m>\mathbf{v} = \begin{bmatrix} 4 \\ 0 \\ 1 \end{bmatrix} </m>, and <m>\mathbf{w} = \begin{bmatrix} -1 \\ 1 \\ 5 \end{bmatrix} </m>.  In each case, find <m>\mathbf{x}</m> such that:
@@ -1074,10 +724,10 @@
 							</ol>
 						</statement>
 						<hint>
-							Because of <xref ref="ex-sums-of-vecs3-item-inverse"/> in <xref ref="ex-sums-of-vecs3"/>, substracting some vector <m>\mbf{y}</m> from a vector <m>\mbf{z}</m> is the same as adding the vector <m>-\mbf{y}</m> to <m>\mbf{z}</m>.
+							Substracting some vector <m>\mbf{y}</m> from a vector <m>\mbf{z}</m> is the same as adding the vector <m>-\mbf{y}</m> to <m>\mbf{z}</m>.
 						</hint>
 						<solution>
-							We will make extensive use of <xref text="local" ref="ex-sums-of-vecs2-axioms-for-vector-addition">the axioms of vector addition</xref> and the things we have proved in <xref ref="ex-sums-of-vecs2,ex-sums-of-vecs3"/>.
+							We will make extensive use of basic properties of vector addition.
 							<ol> 
 								<li>
 									<p><md>
@@ -1216,7 +866,7 @@
 							</ol>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-lin-comb-of-vecs1"><!-- Replacement for Poole's Section 1.1, Exercise 19.-->
+					<p><exercise xml:id="ex-lin-comb-of-vecs1">
 						<statement><aside><p> (Source: <xref ref="ref-PS"/>, from Section 2.4, Exercise 2.4.2.) </p></aside>
 							Decide whether 
 							<me>
@@ -1349,7 +999,7 @@
 							</me>
 						</answer>
 					</exercise></p>
-					<p><exercise xml:id="ex-lin-comb-of-vecs2"><!-- Replacement for Poole's Section 1.1, Exercise 21.-->
+					<p><exercise xml:id="ex-lin-comb-of-vecs2">
 						<statement>	<aside><p> (Source: <xref ref="ref-PS"/>, from Section 2.4, Exercise 2.4.2.) </p></aside>
 							Decide whether
 							<me>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-06T12:39:15-07:00       *-->
+<!--*       on 2021-08-06T13:15:04-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,35 +13,128 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="solution solution-like">
-<p>By <a class="xref" data-knowl="./knowl/thm-orthogonal-decomposition-v1.html" title="Theorem 2.2.26">Theorem 2.2.26</a> there is only one way to do this, namely:</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\begin{bmatrix}1\\3\\-1\end{bmatrix} = \proj_{\begin{bmatrix}1\\1\\0\end{bmatrix}}\left(\begin{bmatrix}-1\\3\\1\end{bmatrix}\right) + \operatorname{perp}_{\begin{bmatrix}1\\1\\0\end{bmatrix}}\left(\begin{bmatrix}1\\3\\-1\end{bmatrix}\right)\text{.}
-\end{equation*}
-</div>
-<p>Now it's just a matter of calculating those two vectors.</p>
+<body><div class="solution solution-like"><ol class="lower-alpha">
+<li>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\proj_{\begin{bmatrix}1\\1\\0\end{bmatrix}}\left(\begin{bmatrix}1\\3\\-1\end{bmatrix}\right) \amp = \left(\frac{\begin{bmatrix}1\\3\\-1\end{bmatrix} \cdot \begin{bmatrix}1\\1\\0\end{bmatrix}}{\begin{bmatrix}1\\1\\0\end{bmatrix}\cdot\begin{bmatrix}1\\1\\0\end{bmatrix}}\right)\begin{bmatrix}1\\1\\0\end{bmatrix}\\
-\amp = \frac{4}{2}\begin{bmatrix}1\\1\\0\end{bmatrix} \\
-\amp = \begin{bmatrix}2\\2\\0\end{bmatrix}
+\norm{\mbf{v}}^2
+\amp =
+\begin{bmatrix} 2 \\ -1 \\ 2\end{bmatrix} 
+\cdot
+\begin{bmatrix} 2 \\ -1 \\ 2\end{bmatrix} \\
+\amp =
+2\cdot 2 + (-1)\cdot (-1)+ 2\cdot 2
+=
+4 +1+4=9
+.
 \end{align*}
 </div>
-<p>And</p>
+<p>Therefore, \(\norm{\mbf{v}}=\sqrt{\mbf{v}\cdot\mbf{v}} = 3\text{.}\)</p>
+</li>
+<li>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\operatorname{perp}_{\begin{bmatrix}1\\1\\0\end{bmatrix}}\left(\begin{bmatrix}1\\3\\-1\end{bmatrix}\right) \amp = \begin{bmatrix}1\\3\\-1\end{bmatrix} - \proj_{\begin{bmatrix}1\\1\\0\end{bmatrix}}\left(\begin{bmatrix}1\\3\\-1\end{bmatrix}\right)\\
-\amp = \begin{bmatrix}1\\3\\-1\end{bmatrix} - \begin{bmatrix}2\\2\\0\end{bmatrix}\\
-\amp = \begin{bmatrix}-1\\1\\-1\end{bmatrix}
+\norm{\mbf{v}}^2
+\amp =
+\begin{bmatrix} 1 \\ -1 \\ 2\end{bmatrix} 
+\cdot
+\begin{bmatrix} 1 \\ -1 \\ 2\end{bmatrix} \\
+\amp =
+1\cdot 1+(-1)\cdot (-1)+2\cdot 2
+=
+1+1+4
+=
+6
+.
 \end{align*}
 </div>
-<p>Here is the desired expression:</p>
+<p>Therefore, \(\norm{\mbf{v}}=\sqrt{\mbf{v}\cdot\mbf{v}} =\sqrt{6}\text{.}\)</p>
+</li>
+<li>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\begin{bmatrix}-1\\3\\1\end{bmatrix} = \begin{bmatrix}2\\2\\0\end{bmatrix} + \begin{bmatrix}-1\\1\\-1\end{bmatrix}\text{.}
-\end{equation*}
+\begin{align*}
+\norm{\mbf{v}}^2
+\amp =
+\begin{bmatrix} 1 \\ 0 \\ -1\end{bmatrix} 
+\cdot
+\begin{bmatrix} 1 \\ 0 \\ -1\end{bmatrix} 									\\
+\amp =
+1\cdot 1+0\cdot 0+(-1)\cdot (-1)
+=
+1+0+1
+=2
+.
+\end{align*}
 </div>
-<p>You could verify directly that \(\begin{bmatrix}-1\\1\\-1\end{bmatrix} \perp \begin{bmatrix}1\\1\\0\end{bmatrix}\text{,}\) but we don't actually need to, because in <a class="xref" data-knowl="./knowl/thm-orthogonal-decomposition-v1.html" title="Theorem 2.2.26">Theorem 2.2.26</a> we proved that the method we used here always works.</p>
-</div></body>
+<p>Therefore, \(\norm{\mbf{v}}=\sqrt{\mbf{v}\cdot\mbf{v}} =\sqrt{2}\text{.}\)</p>
+</li>
+<li>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\norm{\mbf{v}}^2
+\amp =
+\begin{bmatrix} -1 \\ 0 \\ 2\end{bmatrix} 
+\cdot
+\begin{bmatrix} -1 \\ 0 \\ 2\end{bmatrix} \\
+\amp =
+(-1)\cdot (-1) + 0\cdot 0 + 2\cdot 2
+=
+1+0+4
+=
+5
+.
+\end{align*}
+</div>
+<p>Therefore, \(\norm{\mbf{v}}=\sqrt{\mbf{v}\cdot\mbf{v}} =\sqrt{5}\text{.}\)</p>
+</li>
+<li>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\norm{\mbf{v}}^2
+\amp =
+\left(
+2\begin{bmatrix} 1 \\ -1 \\ 2\end{bmatrix} 
+\right)
+\cdot
+\left(
+2\begin{bmatrix} 1 \\ -1 \\ 2\end{bmatrix} 
+\right)\\
+\amp =
+\begin{bmatrix} 2 \\ -2 \\ 4\end{bmatrix} 
+\cdot
+\begin{bmatrix} 2 \\ -2 \\ 4\end{bmatrix} \\
+\amp =
+2\cdot 2 + (-2)\cdot (-2) + 4\cdot 4
+=
+4+4+16
+=
+24
+.
+\end{align*}
+</div>
+<p>Therefore, \(\norm{\mbf{v}}=\sqrt{\mbf{v}\cdot\mbf{v}} =\sqrt{4\cdot 6}=2\sqrt{6}\text{.}\)</p>
+</li>
+<li>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\norm{\mbf{v}}^2
+\amp =
+\left(-3\begin{bmatrix} 1 \\ 1 \\ 2\end{bmatrix} \right)
+\cdot
+\left(-3\begin{bmatrix} 1 \\ 1 \\ 2\end{bmatrix} \right)\\
+\amp =
+\begin{bmatrix} -3 \\ -3 \\ -6\end{bmatrix} 
+\cdot
+\begin{bmatrix} -3 \\ -3 \\ -6\end{bmatrix} \\
+\amp =
+(-3)\cdot (-3) + (-3)\cdot (-3) + (-6)\cdot (-6)
+=
+9+9+36
+=
+54
+\end{align*}
+</div>
+<p>Therefore, \(\norm{\mbf{v}}=\sqrt{\mbf{v}\cdot\mbf{v}} =\sqrt{54}\text{.}\)</p>
+</li>
+</ol></div></body>
 </html>

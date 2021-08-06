@@ -1,6 +1,6 @@
 
 				<exercises>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 3-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement><aside><p> (Source: <xref ref="ref-KN"/>, Section 4.2, Exercise 4.2.1.) </p></aside>
 							Compute <m>\mathbf{u \cdot v}</m>  where:
 							<ol label="[a]" cols="2">
@@ -177,7 +177,7 @@
 					</exercise></p>
 
 					<p>
-					<exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 9-->
+					<exercise><!-- xml:id="ex-" -->
 						<statement>	<aside><p> (Source: <xref ref="ref-KN"/>, Section 4.1, Exercise 4.1.1.) </p></aside>
 							Compute <m>\norm{\mathbf{v}}</m> if <m>\mathbf{v}</m> equals:						 
 						 	<ol label="[a]" cols="3">
@@ -375,7 +375,7 @@
 						</answer>
 					</exercise></p>
 
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 9-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>	<aside><p> (Source: <xref ref="ref-KN"/>, Section 4.1, Exercise 4.1.2.) </p></aside>
 							Find a unit vector in the direction of:		 	
 						 	<ol label="[a]" cols="2">
@@ -468,7 +468,7 @@
 						</answer>
 					</exercise></p>
 
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 15-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement> <aside><p> (Source: <xref ref="ref-KN"/>, Section 4.1, Exercise 4.1.4.) </p></aside>
 							Find the distance between the following pairs of points:
 							<ol label="[a]" cols="2">
@@ -588,7 +588,7 @@
 						</answer>
 					</exercise></p>
 
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 19, 21-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement> <aside><p> (Source: <xref ref="ref-JH"/>, Section 2.6, Exercise 2.6.4.) </p></aside>
 							Find <m>\cos(\theta)</m> where <m>\theta</m> is the angle between the vectors
 							<me>
@@ -664,7 +664,7 @@
 						</answer>
 					</exercise></p>
 
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 23, 25-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement> <aside><p> (Source: <xref ref="ref-KK"/>, Section 4.7, Exercise 4.7.9.) </p></aside>
 							Find the angle between the vectors
 								<me>
@@ -898,7 +898,7 @@
 						</answer>
 					</exercise></p>
 
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 41-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>	<aside><p> (Source: <xref ref="ref-KK"/>, Section 4.7, Exercise 4.7.10.) </p></aside>
 							Find the <m>\operatorname{proj}_{\mathbf{v}}(\mathbf{w})</m> where
 								<me> \mathbf{w} = \begin{bmatrix} 1 \\ 0 \\ -2 \end{bmatrix} , \mathbf{v} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} </me>
@@ -1084,7 +1084,7 @@
 						</answer>
 					</exercise></p>
 
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 1.2, Exercise 33-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement><aside><p> (Source: <xref ref="ref-KN"/>, Section 4.2, Exercise 4.2.26.) </p></aside>
 							<ol> 
 								<li>
@@ -1103,48 +1103,7 @@
 						</answer> -->
 					</exercise></p>
 
-
-					<p><exercise><!-- xml:id="ex-" -->
-						<statement>	<aside><p> (Source: <xref ref="ref-KN"/>, Section 4.2, Exercise 4.2.45.) </p></aside>
-							Prove that the triangle inequality <m>\mathbf{\|u+v\| \le \|u\| + \|v\|}</m> holds for all vectors <m>\mathbf{u}</m> and <m>\mathbf{v}</m>.
-						</statement>
-						<hint>
-							Consider the triangle with <m>\mathbf{u}</m> and <m>\mathbf{v}</m> as two sides.
-						</hint>
-						<solution>
-							First, let us draw the triangle as suggested by the hint:
-							<p>
-							<figure> <!-- the <figure> container isn't strictly necessary, but it's nice if you want the figure to be numbered, or if you want to xref it later-->
-									<caption>A triangle with <m>\mathbf{u}</m> and <m>\mathbf{v}</m> as two sides</caption> <!-- also not necessary -->
-									<image>
-									<latex-image>
-										\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1.0cm,y=1.0cm]
-										\begin{axis}[
-											anchor=origin,  % Align the origins
-											x=1cm, y=1cm, % Set the same unit vectors
-											hide axis
-													]
-												\addplot [-latex] table {
-													0 0
-													1 2
-													}
-											node[near end, above] {\scriptsize $\mathbf{u}$};
-													\addplot [-latex] table {
-													0 0
-													3 1
-													} node[near end, below] {\scriptsize $\mathbf{v}$};
-											\end{axis}
-											\end{tikzpicture}
-									</latex-image>
-								</image>
-							</figure>
-							</p>
-						</solution>
-						<!--<answer>
-						</answer> -->
-					</exercise></p>
-
-					<p><exercise xml:id="ex-same-norm-iff-two-things-are-perp"><!-- Replacement for Poole's Section 1.2, Exercise 65-->
+					<p><exercise xml:id="ex-same-norm-iff-two-things-are-perp">
 						<statement>	<aside><p> (Source: <xref ref="ref-JH"/>, for Chapter II, Section "Length and Angle Measures",  Problem 24.) </p></aside>
 							Show that <m>\norm{\mathbf{u}} = \norm{\mathbf{v}}</m> if and only if <m>\mathbf{u} + \mathbf{v}</m> and <m>\mathbf{u} - \mathbf{v}</m> are perpendicular. Give an example in <m>\mathbb{R}^2</m>.
 						</statement>
@@ -1261,7 +1220,7 @@
 						</solution>
 					</exercise></p>
 
-					<p><exercise xml:id="ex-parallelogram-diagonals-rectangle"><!-- Replacement for Poole's Section 1.2, Exercise 59-->
+					<p><exercise xml:id="ex-parallelogram-diagonals-rectangle">
 						<statement>	<aside><p> (Source: <xref ref="ref-KN"/>, Section 4.2, Exercise 4.2.30.) </p></aside>
 							If the diagonals of a parallelogram have equal length, show that the parallelogram is a rectangle.
 						</statement>
