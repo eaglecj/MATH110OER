@@ -1,5 +1,5 @@
 			<exercises>
- 					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 3.2, Exercise 39-->
+ 					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 						<aside><p> (Source: <xref ref="ref-PS" />, Chapter 4, Exercise 4.5.4) </p></aside>
 						For each of the following matrices, find the inverse if possible.  If it doesn't exist, explain why.

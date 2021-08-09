@@ -1,5 +1,5 @@
 				<exercises>
- 					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercises 1, 3, 5, 7-->
+ 					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p>(Source: <xref ref="ref-KN"/> in Section 1.2, Exercise 1.2.1.)</p></aside>
 							Which of the following matrices are in reduced row-echelon form?  Which are in row-echelon form?		
@@ -89,7 +89,7 @@
 							</ol>
 						</solution>
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercise 9-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: <xref ref="ref-JH"/>,  Chapter 3, Section 1 (Gauss-Jordan Reduction) Problem 4.) </p></aside>
 							Give two distinct echelon form versions of this matrix.
@@ -222,7 +222,7 @@
 							(There are many other solutions, since the REF is <em>not</em> unique.)
 						</answer>
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercise 9-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: <xref ref="ref-KK"/>, Section 1.2, Exercise 1.2.20.) </p></aside>
 							Row reduce the following matrix to obtain a row-echelon form. Then continue to obtain the reduced row-echelon form.
@@ -536,7 +536,7 @@
 						<!--<answer>
 						</answer> -->
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercises 23-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: <xref ref="ref-KN"/> in Section 1.2.) </p></aside>
 							Find the rank of each of the matrices in Problem 1, that is:
@@ -612,7 +612,7 @@
 							</ol>
 						</answer>
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercises 25, 27, 29, 33-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: <xref ref="ref-KN"/> in Section 1.2, Exercise 1.2.5.) </p></aside>
 							Find all solutions (if any) to each of the following systems of linear equations.
@@ -1418,7 +1418,7 @@
 						<!--<answer>
 						</answer> -->
 					</exercise></p>
-			<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercise 35-->
+			<p><exercise><!-- xml:id="ex-" -->
 					<statement>
 						<aside><p>(Source: <xref ref="ref-KK"/>, Chapter 1, Exercise 1.2.7.) </p></aside>
 							Consider the following augmented matrix in which <m>*</m> denotes an arbitrary number and <m>\blacksquare</m> denotes a nonzero number.  Determine whether the given augmented matrix is consistent.  If consistent, is the solution unique?
@@ -1519,7 +1519,7 @@
 							No, it does not have to be consistent.
 						</answer>
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercise 37.  Not exactly the same question, but I think this one is better-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: <xref ref="ref-JH"/>, Section 1.4, Exercise 1.4.22.) </p></aside>
 							Suppose a system of equations has fewer equations than variables and you have found a solution to this system of equations.  Is it possible that your solution is the only one?  Explain.
@@ -1532,7 +1532,7 @@
 						<!--<answer>
 						</answer> -->
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercise 43-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: <xref ref="ref-KK"/>, Section 1.2, Exercise 1.2.15.) </p></aside>
 							Choose <m>h</m> and <m>k</m> such that the augmented matrix shown has each of the following:
@@ -1622,7 +1622,7 @@
 							</ol>
 						</answer>
 					</exercise></p>
-					<p><exercise><!-- xml:id="ex-" --><!-- Replacement for Poole's Section 2.2, Exercise 43-->
+					<p><exercise><!-- xml:id="ex-" -->
 						<statement>
 							<aside><p> (Source: "ref-KN" Section 1.2, Exercise 1.2.9)) </p></aside>
 							In each of the following, find (if possible) conditions on <m>a,b,</m> and <m>c</m> such that the system has one solution, no solution or infinitely many solutions.		 
