@@ -162,7 +162,7 @@
 				<p>If <m>A</m> is an <m>m \times n</m> matrix then <m>I_mA = A</m> and <m>AI_n = A</m>.</p>
 			</statement>
 		</theorem>
-		<p>Now we turn to several examples that show how matrix multiplication can behave differently from multiplication of numbers.  Perhaps the most striking thing is that, very often, <m>AB\neq BA</m> - we say that matrix multiplication is <em>non-commutative</em>.</p>
+		<p>Now we turn to several examples that show how matrix multiplication can behave differently from multiplication of numbers.  Perhaps the most striking thing is that, very often, <m>AB\neq BA</m> - we say that matrix multiplication is <em>non-commutative</em>.  When it does happen that <m>AB=BA</m> for some matrices <m>A</m> and <m>B</m> we say that <m>A</m> and <m>B</m> <em>commute</em>.</p>
 		<example>
 			<p>If <m>A = \begin{bmatrix}1 \amp 2 \\ 3 \amp 4\end{bmatrix}</m> and <m>B = \begin{bmatrix}1 \amp 1 \\ 2 \amp 0\end{bmatrix}</m> then <m>AB = \begin{bmatrix}5 \amp 1 \\ 11 \amp 3\end{bmatrix}</m> and <m>BA = \begin{bmatrix}4 \amp 6 \\ 2 \amp 4\end{bmatrix}</m>.</p>
 		</example>

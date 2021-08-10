@@ -110,7 +110,7 @@
 		</example>
 
 		<definition>
-			<p> A matrix with <m>m</m> rows and <m>n</m> columns is said to be an <m>m \times n</m> matrix, and <m>m \times n</m> is referred to as the <em>size</em> of the matrix.  If <m>1 \leq i \leq m</m> and <m>1 \leq j \leq n</m> then the entry in row <m>i</m> and column <m>j</m> of a matrix is called the <m>(i, j)</m> entry.</p>
+			<p> A matrix with <m>m</m> rows and <m>n</m> columns is said to be an <m>m \times n</m> matrix, and <m>m \times n</m> is referred to as the <em>size</em> of the matrix.  If <m>1 \leq i \leq m</m> and <m>1 \leq j \leq n</m> then the entry in row <m>i</m> and column <m>j</m> of a matrix is called the <m>(i, j)</m> entry.  We sometimes write <m>A = [a_{i,j}]</m> to mean that for each <m>i,j</m> the <m>(i,j)</m> entry of <m>A</m> is <m>a_{i,j}</m>.</p>
 			<p> If <m>A</m> and <m>B</m> are matrices then we say <m>A = B</m> if <m>A</m> and <m>B</m> have the same size, and for all <m>i, j</m> the <m>(i, j)</m> entry of <m>A</m> is the same as the <m>(i, j)</m> entry of <m>B</m>. </p>
 		</definition>
 

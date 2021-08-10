@@ -9,13 +9,13 @@
 	<subsection>
 		<title> Cofactor expansion </title>
 		<p> The definition we are about to give will seem quite strange and unmotivated.  You might want to look ahead to <xref ref="thm-fundamental-determinant" /> and <xref ref="subsec-geometric-determinant" /> to see why determinants are important before you work through the details of the definition. </p>
-		<definition>
+		<definition xml:id="def-2x2-determinant">
 			<p> If <m>A = \begin{bmatrix}a\end{bmatrix}</m> is a <m>1 \times 1</m> matrix then <m>\det(A) = a</m>.</p>
 			<p> If <m>A = \begin{bmatrix}a \amp b \\ c \amp d\end{bmatrix}</m> is a <m>2 \times 2</m> matrix then <m>\det(A) = ad-bc</m>.</p>
 		</definition>
 		<p> Notice that in both cases of the definition <m>\det(A)</m> is a <em>number</em>.  There are formulas for determinants of larger matrices, but they are quite unpleasant, so instead we will describe a method for the computation of the determinant.</p>
 		<definition>
-			<p> Let <m>A</m> be an <m>n \times n</m> matrix, and suppose that <m>1 \leq i \leq n</m> and <m>1 \leq j \leq n</m>.  The <em><m>(i,j)</m>-cofactor</em> of <m>A</m> is the <m>(n-1) \times (n-1)</m> matrix <m>A_{i,j}</m> defined by deleting row <m>i</m> and column <m>j</m> of <m>A</m>.</p>
+			<p> Let <m>A</m> be an <m>n \times n</m> matrix, and suppose that <m>1 \leq i \leq n</m> and <m>1 \leq j \leq n</m>.  The <em><m>(i,j)</m>-minor</em> of <m>A</m> is the <m>(n-1) \times (n-1)</m> matrix <m>A_{i,j}</m> defined by deleting row <m>i</m> and column <m>j</m> of <m>A</m>.</p>
 		</definition>
 		<example>
 			<p> If <m>A = \begin{bmatrix}3 \amp 6 \amp -2 \\ 2 \amp -3 \amp 0 \\ 1 \amp 2 \amp 3\end{bmatrix}</m> then <m>A_{1,2} = \begin{bmatrix}2 \amp 0 \\ 1 \amp 3\end{bmatrix}</m>.</p>
@@ -24,6 +24,8 @@
 			<p>If <m>A = \begin{bmatrix}a_{1,1} \amp a_{1,2} \amp a_{1,3} \amp \cdots \amp a_{1,n} \\ a_{2,1} \amp a_{2,2} \amp a_{2,3} \amp \cdots \amp a_{2,n} \\ a_{3,1} \amp a_{3,2} \amp a_{3,3} \amp \cdots \amp a_{3,n} \\ \vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\ a_{n,1} \amp a_{n,2} \amp a_{n,3} \amp \cdots \amp a_{n,n}\end{bmatrix}</m> is an <m>n \times n</m> matrix then <me>\det(A) = a_{1,1}\det(A_{1,1}) - a_{1,2}\det(A_{1,2}) + a_{1,3}\det(A_{1,3}) - \cdots \pm a_{1,n}\det(A_{1,n})</me>.</p>
 			<p> This method of computing <m>\det(A)</m> is referred to as <em>cofactor expansion</em>.</p>
 		</definition>
+
+		<note><p>Some authors use the symbol <m>\abs{A}</m> to refer to the determinant of <m>A</m>.  Since we already have plenty of things denoted by vertical bars, we will always use the notation <m>\det(A)</m>.</p></note>
 		<example>
 			<p> Let <m>A = \begin{bmatrix}3 \amp 6 \amp -2 \\ 2 \amp -3 \amp 0 \\ 1 \amp 2 \amp 3\end{bmatrix}</m>.  Then:</p>
 			<md>
@@ -36,11 +38,11 @@
 
 		<p> As you can see, computing the determinant of a <m>3 \times 3</m> matrix involves computing <m>3</m> determinants of <m>2 \times 2</m> matrices.  Similarly, computing the determinant of a <m>4 \times 4</m> matrix involves computing <m>4</m> determinants of <m>3 \times 3</m> matrices, for a total of <m>4\cdot 3 = 12</m> computations of <m>2 \times 2</m> determinants.  For a <m>5 \times 5</m> matrix we need to compute <m>5</m> determinants of <m>4 \times 4</m> matrices, for a total of <m>60</m> determinants of <m>2 \times 2</m> matrices.  This very quickly gets out of hand!</p>
 		<p> If we are lucky and <m>a_{1,j} = 0</m> for some <m>j</m> then we can skip computing <m>\det(A_{1,j})</m>, because in the cofactor expansion the term <m>a_{1,j}\det(A_{1,j})</m> will be <m>0</m>.  Fortunately, it is possible to do cofactor expansion along <em>any</em> row, or indeed any column, of <m>A</m>, so we can "target" rows and columns that have many <m>0</m> entries.</p>
-		<p>
+		<fact xml:id="fact-determinant-signs"><p>
 		The only difference in using a row or column other than row <m>1</m> is that the sign pattern in the cofactor expansion may change.  Specifically, if we do cofactor expansion along an <em>odd-numbered row or column</em> then the sign of the first term of the expansion will be positive (and alternating signs thereafter), while if we do cofactor expansion along an <em>even-numbered row or column</em> then the sign of the first term of the expansion will be negative (and again, alternating signs thereafter). 
-		</p>
+		</p></fact>
 
-		<example>
+		<example xml:id="ex-determinant-signs">
 			<p> Let <m>A = \begin{bmatrix}1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 0 \amp 2 \amp 1 \\ 5 \amp 0 \amp 4 \amp 4 \\ -2 \amp 1 \amp 3 \amp 7\end{bmatrix}</m>.  If we do cofactor expansion along the first row, we find:</p>
 			<me> \det(A) = 1\det\begin{bmatrix}0 \amp 2 \amp 1 \\ 0 \amp 4 \amp 0 \\ 1 \amp 3 \amp 7\end{bmatrix} -2\det\begin{bmatrix}1 \amp 2 \amp 1 \\ 5 \amp 4 \amp 0 \\ -2 \amp 3 \amp 7\end{bmatrix} + 3\det\begin{bmatrix}1 \amp 0 \amp 1 \\ 5 \amp 0 \amp 0 \\ -2 \amp 1 \amp 7\end{bmatrix} -4\det\begin{bmatrix}1 \amp 0 \amp 2 \\ 5 \amp 0 \amp 4 \\ -2 \amp 1 \amp 3\end{bmatrix}</me>.
 			<p>On the other hand, if we do cofactor expansion along the second column (and remember the sign convention described above!) then we get:</p>

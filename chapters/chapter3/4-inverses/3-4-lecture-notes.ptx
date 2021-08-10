@@ -4,7 +4,7 @@
 		Matrix inverses
 	</title>
 	<introduction>
-		<p> In <xref ref="thm-system-as-matrix-equation" /> we saw that the system of linear equations <m>[A|\vec{b}]</m> can be equivalently expressed as a matrix equation <m>A\vec{x} = \vec{b}</m>.  If this equation was about numbers instead of matrices and vectors then we would easily solve the equation <m>ax=b</m> by dividing to get <m>x = \frac{b}{a}</m> (as long as <m>a \neq 0</m>).  Dividing by <m>a</m> is really the same as multiplying by <m>a^{-1}</m>.  Since we know how to multiply matrices, this brings up a natural question: Is there a matrix <m>A^{-1}</m> so that the equations <m>A\vec{x}=\vec{b}</m> and <m>\vec{x} = A^{-1}\vec{b}</m> are equivalent?  Solving this problem is the goal of this section. </p>
+		<p> In <xref ref="thm-system-as-matrix-equation" /> we saw that the system of linear equations <m>[A|\vec{b}]</m> can be equivalently expressed as a matrix equation <m>A\vec{x} = \vec{b}</m>.  If this equation was about numbers instead of matrices and vectors then we would easily solve the equation <m>ax=b</m> by dividing to get <m>x = \frac{b}{a}</m> (as long as <m>a \neq 0</m>).  Dividing by <m>a</m> is really the same as multiplying by <m>a^{-1}</m>, so we could write our solution as <m>x=a^{-1}b</m>.  Since we know how to multiply matrices, this brings up a natural question: Is there a matrix <m>A^{-1}</m> so that the equations <m>A\vec{x}=\vec{b}</m> and <m>\vec{x} = A^{-1}\vec{b}</m> are equivalent?  Solving this problem is the goal of this section. </p>
 	</introduction>
 
 	<subsection>
