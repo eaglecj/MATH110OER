@@ -1,0 +1,170 @@
+<section xml:id="sec-OrthoProj" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Orthogonal projections
+	</title>
+
+	<subsection>
+		<title>
+			Orthogonal complements
+		</title>
+		<definition>
+			<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  The <em>orthogonal complement</em> of <m>S</m>, written as <m>S^\perp</m>, is the set of vectors that are orthogonal to all vectors in <m>S</m>.  That is, for any vector <m>\vec{w}</m>, we have that <m>\vec{w}</m> is in <m>S^\perp</m> if and only if <m>\vec{w} \cdot \vec{v} = 0</m> for every <m>\vec{v}</m> in <m>S</m>. </p>
+		</definition>
+
+		<p> Before we give an example of finding <m>S^\perp</m> for a given <m>S</m> it is useful to list some properties of orthogonal complements; part (4) of the following theorem is especially useful. </p>
+		<theorem xml:id="thm-complement-properties">
+			<statement>
+				<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  Then:
+				<ol>
+					<li><m>S^\perp</m> is also a subspace of <m>\mathbb{R}^n</m>.</li>
+					<li><m>(S^\perp)^\perp = S</m>.</li>
+					<li>The only vector that is in both <m>S</m> and <m>S^\perp</m> is <m>\vec{0}</m>.</li>
+					<li>If <m>S = \span(\vec{v_1}, \ldots, \vec{v_k})</m> then for any vector <m>\vec{w}</m>, the vector <m>\vec{w}</m> is in <m>S^\perp</m> if and only if <m>\vec{w} \cdot \vec{v_j} = 0</m> for all <m>j</m>.</li>
+				</ol>
+				</p>
+			</statement>
+		</theorem>
+
+		<example>
+			<p> Let <m>L</m> be the line in <m>\mathbb{R}^2</m> described by <m>y = 2x</m>.  Then <m>L</m> is a subspace of <m>\mathbb{R}^2</m>.  To describe <m>L^\perp</m> it is useful to notice that <m>L = \span\left(\begin{bmatrix}1\\2\end{bmatrix}\right)</m>.  Thus, by <xref ref="thm-complement-properties"/>, a vector <m>\begin{bmatrix}x\\y\end{bmatrix}</m> is in <m>L^\perp</m> if and only if <m>\begin{bmatrix}x\\y\end{bmatrix} \cdot \begin{bmatrix}1\\2\end{bmatrix} = 0</m>.  Expanding out this dot product we get the equation <m>x+2y=0</m>, or equivalently, <m>y = -\frac{1}{2}x</m>.</p>
+			<p>Thus the orthogonal complement of the line <m>y=2x</m> in <m>\mathbb{R}^2</m> is the line <m>y=-\frac{1}{2}x</m>, as you might have expected from your prior knowledge of lines in <m>\mathbb{R}^2</m>.</p>
+		</example>
+
+		<example xml:id="ex-ortho-complement-plane">
+			<p> Let <m>P</m> be the plane <m>x-2y+3z=0</m> in <m>\mathbb{R}^3</m>.  Then <m>P = \span\left(\begin{bmatrix}2\\1\\0\end{bmatrix}, \begin{bmatrix}-3\\0\\1\end{bmatrix}\right)</m>.  Therefore the vectors in <m>P^\perp</m> are those <m>\begin{bmatrix}x\\y\\z\end{bmatrix}</m> where <m>\begin{bmatrix}x\\y\\z\end{bmatrix}\cdot\begin{bmatrix}2\\1\\0\end{bmatrix} = 0 = \begin{bmatrix}x\\y\\z\end{bmatrix}\cdot\begin{bmatrix}-3\\0\\1\end{bmatrix}</m>.  Expanding the dot product gives two equations: <md><mrow>2x+y=0</mrow><mrow>-3x+z=0</mrow></md>.</p>
+			<p>If we write these equations as <m>y = -2x</m> and <m>z=3x</m>, we see that <m>P^\perp</m> is vectors of the form: <me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x\\-2x\\3x\end{bmatrix} = x\begin{bmatrix}1\\-2\\3\end{bmatrix}</me>.  That is, we have shown that <m>P^\perp</m> is the line with direction vector <m>\begin{bmatrix}1\\-2\\3\end{bmatrix}</m>.  From our work in <xref ref="sec-Lines-and-Planes" /> we can see that <m>\begin{bmatrix}1\\-2\\3\end{bmatrix}</m> is the normal vector of our plane <m>P</m>.</p>
+		</example>
+
+		<p> The two examples above let us see the connection between orthogonal complements and the material we saw about lines and planes in <xref ref="sec-Lines-and-Planes"/>.  Specifically, in <m>\mathbb{R}^3</m> the orthogonal complement of a plane through <m>\vec{0}</m> is the line through <m>\vec{0}</m> that is normal to the plane, and vice versa.  When we studied lines and planes we noticed that a plane in <m>\mathbb{R}^3</m> has two direction vectors, while it has only one normal direction.  Another way of saying that is that we noticed that if <m>P</m> is a plane in <m>\mathbb{R}^3</m> then <m>\dim(P) + \dim(P^\perp) = 3</m>.  In <xref ref="thm-rank-nullity-orthogonal" /> we will show that these observations are not just applicable to lines and planes in <m>\mathbb{R}^3</m>, but in fact apply to any subspace of any <m>\mathbb{R}^n</m>.</p>
+
+
+		<p> In <xref ref="sec-Matrix-Subspaces" /> we saw that every matrix brings with it several important subspaces, namely the row space, the column space, and the null space.  These subspaces are related to each other through orthogonality relations.  We first need a lemma stating the connection between matrix multiplication and the dot product, then we will be ready for the theorem about subspaces associated to matrices. </p>
+
+		<lemma xml:id="lem-multiply-dot-product">
+			<statement>
+				<p> Let <m>A</m> be an <m>m \times n</m> matrix with rows <m>A_1, \ldots, A_m</m> (written as column vectors), and let <m>\vec{v}</m> be a vector in <m>\mathbb{R}^n</m>.  Then <me>A\vec{v} = \begin{bmatrix}A_1\cdot \vec{v} \\ \vdots \\ A_m \cdot \vec{v}\end{bmatrix}</me>.</p>
+			</statement>
+			<proof>
+				<p> Let <m>\vec{v} = \begin{bmatrix}v_1 \\ \vdots \\ v_n</m>, and let <m>A = \begin{bmatrix}a_{1,1} \amp a_{1, 2} \amp \cdots \amp a_{1,n} \\ a_{2, 1} \amp a_{2,2} \amp \cdots \amp a_{2,n} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ a_{m,1} \amp a_{m,2} \amp \cdots \amp a_{m,n}</m>.  For any <m>j</m>, with <m>1 \leq j \leq m</m>, the <m>j</m>th row of <m>A</m>, written as a column vector, is thus <m>A_j = \begin{bmatrix} a_{j,1} \\ a_{j,2} \\ \vdots \\ a_{j,n}\end{bmatrix}</m>.</p>
+				<p> By definition of matrix multiplication,
+				<me> A\vec{v} = v_1\begin{bmatrix}a_{1,1} \\ a_{2,1} \\ \vdots \\ a_{m,1}\end{bmatrix} + \cdots + v_n\begin{bmatrix}a_{1,n} \\ a_{2,n} \\ \vdots \\ a_{m,n}\end{bmatrix}</me>,
+				and the <m>j</m>th component of <m>A\vec{v}</m> is therefore
+				<me> v_1a_{j,1} + v_2a_{j,2} + \cdots + v_na_{j,n} = \begin{bmatrix}a_{j,1} \\ a_{j,2} \\ \vdots \\ a_{j,n} \end{bmatrix} \cdot \begin{bmatrix}v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = A_j\cdot \vec{v}</me>.</p>
+			</proof>
+		</lemma>
+
+		<theorem xml:id="thm-fundamental-subspaces-orthogonal">
+			<statement>
+				<p>For any matrix <m>A</m>:<ol><li><m>\row(A)^\perp = \null(A)</m>.</li><li><m>\col(A)^\perp = \null(A^t)</m>.</li></ol></p>
+			</statement>
+			<proof>
+				<p> Suppose that the rows of <m>A</m> are <m>A_1, \ldots, A_m</m> (written as column vectors), so <m>\row(A) = \span(A_1, \ldots, A_m)</m>.  Consider any vector <m>\vec{v}</m> in <m>\mathbb{R}^m</m>.  We have <m>\vec{v}</m> in <m>\row(A)^\perp</m> if and only if <m>A_j \cdot \vec{v} = 0</m> for every <m>j</m> (by <xref ref="thm-complement-properties"/>), and by <xref ref="lem-multiply-dot-product" /> this happens if and only if <m>A\vec{v} = \vec{0}</m>, i.e., if and only if <m>\vec{v}</m> is in <m>\null(A)</m>.  This proves that <m>\row(A)^\perp = \null(A)</m>.</p>
+				<p> For the second statement, applying the first statement to <m>A^t</m> we have <m>\col(A)^\perp = \row(A^t)^\perp = \null(A^t)</m>.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Let <m>S = \span\left(\begin{bmatrix}1\\2\\1\end{bmatrix}, \begin{bmatrix}2\\0\\-3\end{bmatrix}\right)</m>.  Find a basis for <m>W^\perp</m>.</p>
+			<solution>
+				<p> We could use exactly the technique that we used in <xref ref="ex-ortho-complement-plane" />, but now we have a more efficient way.  Let <m>A = \begin{bmatrix}1 \amp 2 \amp 1 \\ 2 \amp 0 \amp -3\end{bmatrix}</m>.  Then <m>S = \row(A)</m>, so <m>S^\perp = \row(A)^\perp = \null(A)</m>.  We already know how to find a basis for <m>\null(A)</m> - just row reduce!</p>
+				<me>\begin{bmatrix}1 \amp 2 \amp 1 \\ 2 \amp 0 \amp -3\end{bmatrix} \to \begin{bmatrix}1 \amp 0 \amp -3/2 \\ 0 \amp 1 \amp 5/4\end{bmatrix}</me>.
+				<p> Therefore vectors in <m>\null(A)</m> have the form <me>\begin{bmatrix}x\\y\\z\end{bmatrix} = z\begin{bmatrix}3/2 \\ -5/4 \\ 1\end{bmatrix}</me>, and so <m>\left\{\begin{bmatrix}3/2\\-5/4\\1\end{bmatrix}\right\}</m> is a basis for <m>S^\perp</m>.  If you don't like fractions we could always re-scale our answer and obtain the basis <m>\left\{\begin{bmatrix}6\\-5\\4\end{bmatrix}\right\}</m> instead. </p>
+			</solution>
+		</example>
+	</subsection>
+
+
+
+
+
+
+	<subsection>
+		<title>
+			Projections and the orthogonal decomposition
+		</title>
+
+		<p> In <xref ref="sec-DotProd" /> we worked out a formula for the orthogonal projection of a vector <m>\vec{v}</m> on a vector <m>\vec{w}</m>, and described <m>\proj_\vec{w}(\vec{v})</m> as the closest vector to <m>\vec{v}</m> in the direction of <m>\vec{w}</m>, or the component of <m>\vec{v}</m> lying along <m>\vec{w}</m>.  A slight rephrasing is that <m>\proj_{\vec{w}}(\vec{v})</m> is the closest vector to <m>\vec{v}</m> that is in <m>\span(\vec{w})</m>.  This way of looking at it opens the door to asking, for any subspace <m>S</m>, what is the closest vector to <m>\vec{v}</m> that lies in <m>S</m>? </p>
+
+		<definition xml:id="def-ortho-proj-subspace">
+			<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>, and let <m>\{\vec{w_1}, \ldots, \vec{w_k}\}</m> be an orthogonal basis for <m>S</m>.  For any vector <m>\vec{v}</m> in <m>\mathbb{R}^n</m>, the <em>orthogonal projection of <m>\vec{v}</m> on <m>S</m></em> is defined to be <me>\proj_S(\vec{v}) = \proj_{\vec{w_1}}(\vec{v}) + \cdots + \proj_{\vec{w_k}}(\vec{v}) = \left(\frac{\vec{w_1}\cdot\vec{v}}{\vec{w_1}\cdot\vec{w_1}}\right)\vec{w_1} + \cdots + \left(\frac{\vec{w_k}\cdot\vec{v}}{\vec{w_k}\cdot\vec{w_k}}\right)\vec{w_k}</me>.</p>
+			<p>The <em>component of <m>\vec{v}</m> orthogonal to <m>S</m></em> is defined to be <me>\perr_S(\vec{v}) = \vec{v} - \proj_S(\vec{v})</me>.</p>
+		</definition>
+
+		<note>
+			<p> From the formula it appears that <m>\proj_S(\vec{v})</m> depends on the orthogonal basis for <m>S</m> that we choose.  Fortunately that is not the case - no matter which orthogonal basis you pick for <m>S</m> you will always get the same answer for <m>\proj_S(\vec{v})</m> for each given <m>\vec{v}</m>. </p>
+		</note>
+
+		<note>
+			<p> For the formula defining <m>\proj_S(\vec{v})</m> to work, we <em>must</em> use an <em>orthogonal</em> basis for <m>S</m> - if we tried to use the same formula with some basis that is not an orthogonal basis it will not correctly calculate <m>\proj_S(\vec{v})</m>.  Fortunately, we already know how to produce an orthogonal basis for a subspace out of an arbitrary basis (<xref ref="thm-Gram-Schmidt" />).</p>
+		</note>
+
+		<p>While we won't prove it, it is a fact that <m>\proj_S(\vec{v})</m> is the closest vector in <m>S</m> to <m>\vec{v}</m>, in the sense that if <m>\vec{w}</m> is any vector in <m>S</m> then <m>\norm{\vec{v} - \proj_S(\vec{v})} \leq \norm{\vec{v} - \vec{w}}</m>.</p>
+
+		<lemma xml:id="lem-perr-in-perp">
+			<statement>
+				<p> For any subspace <m>S</m>, and any <m>\vec{v}</m>, the vector <m>\perr_S(\vec{v})</m> is in <m>S^\perp</m>.</p>
+			</statement>
+			<proof>
+				<p>
+					Suppose that <m>\{\vec{w_1}, \ldots, \vec{w_k}\}</m> is an orthogonal basis for <m>S</m>.  To show that <m>\perr_S(\vec{v})</m> is in <m>S^\perp</m> it suffices (by <xref ref="thm-complement-properties" />) to prove that <m>S^\perp \cdot \vec{w_j} = 0</m> for every <m>j</m>.  Notice that for any <m>i</m> the vector <m>\proj_{\vec{w_i}}(\vec{v})</m> is a scalar multiple of <m>\vec{w_i}</m>.  Since <m>\vec{w_j} \perp \vec{w_i}</m> when <m>i \neq j</m> this also implies that <m>\vec{w_j} \perp \proj_{\vec{w_i}}(\vec{v})</m> for all <m>i \neq j</m>.  Now we calculate:
+				</p>
+				<md>
+					<mrow> \vec{w_j} \cdot \perr_S(\vec{v}) \amp = \vec{w_j} \cdot \left(\vec{v} - \proj_S(\vec{v})\right) </mrow>
+					<mrow> \amp = \vec{w_j} \cdot \left(\vec{v} - \proj_{\vec{w_1}}(\vec{v}) + \cdots + \proj_{\vec{w_k}}(\vec{v})\right) </mrow>
+					<mrow> \amp = \vec{w_j} \cdot \vec{v} - \vec{w_j} \cdot \proj_{\vec{w_1}}(\vec{v}) - \cdots - \vec{w_j}\cdot \proj_{\vec{w_k}}(\vec{v}) </mrow>
+					<mrow> \amp = \vec{w_j} \cdot \vec{v} - \vec{w_j}\cdot\proj_{\vec{w_j}}(\vec{v}) </mrow>
+					<mrow> \amp = \vec{w_j} \cdot \vec{v} - \vec{w_j}\cdot\left(\frac{\vec{w_j}\cdot\vec{v}}{\vec{w_j}\cdot\vec{w_j}}\right)\vec{w_j} </mrow>
+					<mrow> \amp = \vec{w_j} \cdot \vec{v} -  \left(\frac{\vec{w_j}\cdot\vec{v}}{\vec{w_j}\cdot\vec{w_j}}\right)(\vec{w_j} \cdot \vec{w_j})</mrow>
+					<mrow> \amp = 0 </mrow>
+				</md>
+			</proof>
+		</lemma>
+
+
+		<theorem xml:id="thm-ortho-decomposition">
+			<title>Orthogonal Decomposition Theorem</title>
+			<statement>
+				<p>Suppose that <m>S</m> is a subspace of <m>\mathbb{R}^n</m> and <m>\vec{v}</m> is a vector in <m>\mathbb{R}^n</m>.  Then it is possible to express <m>\vec{v}</m> as the sum of a vector in <m>S</m> and a vector in <m>S^\perp</m>, and moreover the only way to do so is <m>\vec{v} = \proj_S(\vec{v}) + \perr_S(\vec{v})</m>.</p>
+			</statement>
+			<proof>
+				<p> It follows from <xref ref="def-ortho-proj-subspace"/> and <xref ref="lem-perr-in-perp"/> that <m>\proj_S(\vec{v})</m> is in <m>S</m> and <m>\perr_S(\vec{v})</m> is in <m>S^\perp</m>, and <me>\vec{v} = \proj_S(\vec{v}) + (\vec{v} - \proj_S(\vec{v})) = \proj_S(\vec{v}) + \perr_S(\vec{v})</me>, so we have proved that this expression does work.  It remains to be proved that there is no other way to write <m>\vec{v}</m> as the sum of a vector in <m>S</m> and a vector in <m>S^\perp</m>.</p>
+				<p> Suppose that <m>\vec{v} = \vec{w_1} + \vec{z_1}</m> and <m>\vec{v} = \vec{w_2} + \vec{z_2}</m>, where <m>\vec{w_1}</m> and <m>\vec{w_2}</m> are in <m>S</m> and <m>\vec{z_1}</m> and <m>\vec{z_2}</m> are in <m>S^\perp</m>.  Then <m>\vec{w_1} - \vec{w_2} = \vec{z_2} - \vec{z_1}</m>.  The vector on the left side of this equation, <m>\vec{w_1}-\vec{w_2}</m>, is the difference of two vectors in <m>S</m>, so since <m>S</m> is a subspace we have that <m>\vec{w_1} - \vec{w_2}</m> is in <m>S</m>.  A similar reasoning shows that <m>\vec{z_2} - \vec{z_1}</m> is in <m>S^\perp</m>.  But since <m>\vec{w_1} - \vec{w_2} = \vec{z_2} - \vec{z_1}</m> this means that <m>\vec{w_1} - \vec{w_2}</m> is in both <m>S</m> and <m>S^\perp</m>.  By <xref ref="thm-complement-properties" /> we conclude that <m>\vec{w_1} - \vec{w_2} = \vec{0}</m>, so <m>\vec{w_1} = \vec{w_2}</m>.  Similarly, <m>\vec{z_1} = \vec{z_2}</m>.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Let <m>P</m> be the plane in <m>\mathbb{R}^3</m> with general equation <m>2x+y-3z=0</m>, and let <m>\vec{v} = \begin{bmatrix}1\\2\\3\end{bmatrix}</m>.  Write <m>\vec{v}</m> as the sum of a vector in <m>P</m> and a vector orthogonal to <m>P</m>. </p>
+			<solution>
+				<p> By <xref ref="thm-ortho-decomposition" /> the only way to answer this question is with <m>\vec{v} = \proj_P(\vec{v}) + \perr_P(\vec{v})</m>.  To find <m>\proj_P(\vec{v})</m> we need to start with an orthogonal basis for <m>P</m>.  To find one, we start by re-writing the equation for <m>P</m> as <m>y=-2x+3z</m>.  Substituting this in to a vector <m>\begin{bmatrix}x\\y\\z\end{bmatrix}</m> shows us that <m>\left\{\begin{bmatrix}1\\-2\\0\end{bmatrix}, \begin{bmatrix}0\\3\\1\end{bmatrix}\right\}</m> is a basis for <m>P</m>.  Sadly, this basis is not an orthogonal basis, so we use the <xref ref="thm-Gram-Schmidt" text="custom">Gram-Schmidt Algorithm</xref> to produce an orthogonal basis.  We get <m>\vec{w_1} = \begin{bmatrix}1\\-2\\0\end{bmatrix}</m> and <me>\vec{w_2} = \begin{bmatrix}0\\3\\1\end{bmatrix} - \left(\frac{\begin{bmatrix}0\\3\\1\end{bmatrix} \cdot \begin{bmatrix}1\\-2\\0\end{bmatrix}}{\begin{bmatrix}1\\-2\\0\end{bmatrix}\cdot\begin{bmatrix}1\\-2\\0\end{bmatrix}}\right)\begin{bmatrix}1\\-2\\0\end{bmatrix} = \begin{bmatrix}6/5 \\ 3/5 \\ 1\end{bmatrix}</me>.  As usual, rescaling is harmless, so we multiply by <m>5</m> and take <m>\vec{w_2} = \begin{bmatrix}6\\3\\5\end{bmatrix}</m>.
+				</p>
+				<p> Now we can use the definition of <m>\proj_P(\vec{v})</m> to calculate: </p>
+				<me> \proj_P\left(\begin{bmatrix}1\\2\\3\end{bmatrix}\right) = \left(\frac{\begin{bmatrix}1\\2\\3\end{bmatrix} \cdot \begin{bmatrix}1\\-2\\0\end{bmatrix}}{\begin{bmatrix}1\\-2\\0\end{bmatrix}\cdot\begin{bmatrix}1\\-2\\0\end{bmatrix}}\right)\begin{bmatrix}1\\-2\\0\end{bmatrix} + \left(\frac{\begin{bmatrix}1\\2\\3\end{bmatrix} \cdot \begin{bmatrix}6\\3\\5\end{bmatrix}}{\begin{bmatrix}6\\3\\5\end{bmatrix}\cdot\begin{bmatrix}6\\3\\5\end{bmatrix}}\right)\begin{bmatrix}6\\3\\5\end{bmatrix} = \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix}</me>.
+				<p> Here we must be careful - it would be incorrect to rescale this vector.  We are just stuck with the fractions.  Finally, we calculate: </p>
+				<me>\perr_P\left(\begin{bmatrix}1\\2\\3\end{bmatrix}\right) = \begin{bmatrix}1\\2\\3\end{bmatrix} - \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix} = \begin{bmatrix}-10/7 \\ -5/14 \\ 15/14\end{bmatrix}</me>.
+				<p> We now have the desired way of writing <m>\begin{bmatrix}1\\2\\3\end{bmatrix}</m> as a sum of a vector in <m>P</m> (the first vector below) and a vector in <m>P^\perp</m> (the second vector below).</p>
+				<me>\begin{bmatrix}1\\2\\3\end{bmatrix} = \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix} + \begin{bmatrix}-10/7 \\ -5/14 \\ 15/14\end{bmatrix}</me>.
+			</solution>
+		</example>
+
+		<p> The next result is very closely related to the <xref ref="thm-rank-nullity-version-2" text="custom">Rank-Nullity Theorem</xref>.  In fact, we will give two proofs: One using the Rank-Nullity Theorem, and the other using the Orthogonal Decomposition Theorem.</p>
+
+		<theorem xml:id="thm-rank-nullity-orthogonal">
+			<statement>
+				<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  Then <m>\dim(S) + \dim(S^\perp) = n</m>.</p>
+			</statement>
+			<proof>
+				<p>  This will be the proof using the Rank-Nullity Theorem.</p>
+				<p> Suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> form a basis for <m>S</m>.  Let <m>A</m> be the matrix with rows <m>\vec{v_1}, \ldots, \vec{v_k}</m>, so <m>A</m> is a <m>k \times n</m> matrix.  Then <m>S = \row(A)</m>, so <m>\dim(S) = \dim(\row(A)) = \rank(A)</m> by <xref ref="thm-rank-row-space" />.  Also, by <xref ref="thm-fundamental-subspaces-orthogonal"/>, <m>S^\perp = \row(A)^\perp = \null(A)</m>, so <m>\dim(S^\perp) = \nullity(A)</m>.  Thus, by <xref ref="thm-rank-nullity-version-2" /> we get <me>\dim(S) + \dim(S^\perp) = \rank(A) + \nullity(A) = n</me>.</p>
+			</proof>
+			<proof>
+				<p> This will be the proof using the Orthogonal Decomposition Theorem.</p>
+				<p> Let <m>\{\vec{v_1}, \ldots, \vec{v_k}\}</m> be an orthogonal basis for <m>S</m>, and let <m>\{\vec{w_1}, \ldots, \vec{w_\ell}\}</m> be an orthogonal basis for <m>S^\perp</m> (we know that these exist by the <xref ref="thm-Gram-Schmidt" text="custom">Gram-Schmidt Algorithm</xref>).  We claim that <m>\{\vec{v_1}, \ldots, \vec{v_k},\vec{w_1}, \ldots, \vec{w_\ell}\}</m> is a basis for <m>\mathbb{R}^n</m>.  Notice that once we prove this claim we are done, since then we get <m>n = k+\ell = \dim(S) + \dim(S^\perp)</m>.</p>
+				<p> The set <m>\{\vec{v_1}, \ldots, \vec{v_k},\vec{w_1}, \ldots, \vec{w_\ell}\}</m> is an orthogonal set, and it does not contain <m>\vec{0}</m>, so by <xref ref="thm-orthogonal-indep" /> it is a linearly independent set.</p>
+				<p> Given any vector <m>\vec{x}</m> in <m>\mathbb{R}^n</m>, by the <xref ref="thm-ortho-decomposition" text="custom">Orthogonal Decomposition Theorem</xref> we can write <m>\vec{x} = \proj_{S}(\vec{x}) + \perr_{S}(\vec{x})</m>, with <m>\proj_S(\vec{x})</m> in <m>S</m> and <m>\perr_S(\vec{x})</m> in <m>S^\perp</m>.  In particular, this means that <m>\vec{x} \in \span(\vec{v_1}, \ldots, \vec{v_k}, \vec{w_1}, \ldots, \vec{w_\ell})</m>.  Therefore <m>\span(\vec{v_1}, \ldots, \vec{v_k}, \vec{w_1}, \ldots, \vec{w_\ell}) = \mathbb{R}^n</m>.</p>
+			</proof>
+		</theorem>
+	</subsection>
+
+	<xi:include href="5-2a-exercises.ptx" />
+</section>

@@ -2,7 +2,11 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
+<<<<<<< HEAD
 <!--*       on 2021-03-13T12:22:12-08:00       *-->
+=======
+<!--*       on 2021-08-10T15:14:13-07:00       *-->
+>>>>>>> e908676b3c1760d18ccbd5c111a86ec4c2207c4d
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,84 +17,47 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="solution solution-like">We start by row reducing from top to botteom:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<body><div class="solution solution-like">A normal vector to the plane is given by<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mbf{n} = \begin{bmatrix} 4 \\ 7\\ 4 \end{bmatrix}.
+\end{equation*}
+</div>The angle \(\theta\) between this vector and the directional vector \(\mbf{d} = \begin{bmatrix} 1 \\ 1\\ 4 \end{bmatrix}\) of the line can be computed using the <a class="xref" data-knowl="./knowl/cosine-formula.html" title="Hint 2.2.5.5.1">Cosine Formula 2.2.5.5.1</a>:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\cos (\theta)
+=
+\frac{ \mbf{n} \cdot \mbf{d}}{ \norm{\mbf{n}}\cdot \norm{\mbf{d}}}
+,
+\end{equation*}
+</div>so we compute<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\begin{bmatrix}
-2 \amp  1 \amp  1 \amp  3
-\\
-6 \amp  4 \amp  1 \amp  2
-\\ 
-1 \amp  5 \amp  1 \amp  5
-\end{bmatrix}
-\overset{-3R_{1}+R_{2}}{\underset{-R_{1}+2R_{3}}{\longrightarrow}}
-\amp\begin{bmatrix}
-2 \amp  1 \amp  1 \amp  3
-\\
-0 \amp  1 \amp  -2 \amp  -7
-\\ 
-0 \amp  9 \amp  1 \amp  7
-\end{bmatrix}\\
-\overset{-9R_{2} + R_{3}}{\underset{\frac{1}{2}R_{1}}{\longrightarrow}}
-\amp\begin{bmatrix}
-1 \amp  \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{3}{2}
-\\
-0 \amp  1 \amp  -2 \amp  -7
-\\ 
-0 \amp  0 \amp  19 \amp  70
-\end{bmatrix}\\
-\overset{\frac{1}{19}R_{3}}{\longrightarrow}
-\amp\begin{bmatrix}
-1 \amp  \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{3}{2}
-\\
-0 \amp  1 \amp  -2 \amp  -7
-\\ 
-0 \amp  0 \amp  1 \amp  \frac{70}{19}
-\end{bmatrix}.
+\mbf{n}\cdot \mbf{d}
+\amp =
+4\cdot 1 + 7\cdot 1 + 4\cdot 4
+=
+27\\
+\norm{\mbf{n}}
+\amp =
+\sqrt{ 4^2 + 7^2 + 4^2}
+=
+\sqrt{81}
+=
+9\\
+\norm{\mbf{d}}
+\amp =
+\sqrt{ 1^2 + 1^2 + 4^2}
+=
+\sqrt{18}
+=
+3\sqrt{2}.
 \end{align*}
-</div>We have arrived at a matrix in REF. (We recall that some books do not require the leading entries to be \(1\) for a matrix to be in REF, in which case the second to last matrix in the above computation would also be considered to be in REF.) Since we are supposed to give <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">two</em> answers, we continue:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\begin{bmatrix}
-1 \amp  \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{3}{2}
-\\
-0 \amp  1 \amp  -2 \amp  -7
-\\ 
-0 \amp  0 \amp  1 \amp  \frac{70}{19}
-\end{bmatrix}									
-\overset{2R_{3}+R_{2}}{\longrightarrow}
-\begin{bmatrix}
-1 \amp  \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{3}{2}
-\\
-0 \amp  1 \amp  0 \amp  \frac{7}{19}
-\\ 
-0 \amp  0 \amp  1 \amp  \frac{70}{19}
-\end{bmatrix}.	
-\end{align*}
-</div>Since we were not asked for a matrix in RREF, we could stop here and have our second answer. But instead, we might as well continue to manipulate our matrix to arrive at RREF:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\begin{bmatrix}
-1 \amp  \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{3}{2}
-\\
-0 \amp  1 \amp  0 \amp  \frac{7}{19}
-\\ 
-0 \amp  0 \amp  1 \amp  \frac{70}{19}
-\end{bmatrix}	
-\overset{-\frac{1}{2}R_{2}+R_{1}}{\longrightarrow}
-\amp\begin{bmatrix}
-1 \amp  0 \amp  \frac{1}{2} \amp  \frac{25}{19}
-\\
-0 \amp  1 \amp  0 \amp  \frac{7}{19}
-\\ 
-0 \amp  0 \amp  1 \amp  \frac{70}{19}
-\end{bmatrix}\\
-\overset{-\frac{1}{2}R_{3} + R_{1}}{\longrightarrow}
-\amp\begin{bmatrix}
-1 \amp  0 \amp  0 \amp  \frac{-10}{19}
-\\
-0 \amp  1 \amp  0 \amp \frac{7}{19}
-\\ 
-0 \amp  0 \amp  1 \amp  \frac{70}{19}
-\end{bmatrix}.
-\end{align*}
-</div>
-</div></body>
+</div>It follows that<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\cos (\theta)
+=
+\frac{ 27}{ 9\cdot 3\sqrt{2}} = \frac{\sqrt{2}}{2}
+,
+\text{ i.e. }
+\theta=\tfrac{\pi}{4}.
+\end{equation*}
+</div>The angle \(\alpha\) between the line and the plane is then given by \(\alpha = \tfrac{\pi}{2} - \theta = \tfrac{\pi}{4}.\)</div></body>
 </html>

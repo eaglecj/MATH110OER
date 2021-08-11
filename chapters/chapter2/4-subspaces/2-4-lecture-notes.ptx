@@ -1,0 +1,173 @@
+<section xml:id="sec-Subspaces" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Subspaces of <m>\mathbb{R}^n</m>
+	</title>
+
+	<introduction>
+		<p> In this section we will explore the <em>subspaces</em> of <m>\mathbb{R}^n</m>.  The formal definition is below, but informally you should think of a subspace of <m>\mathbb{R}^n</m> as a "copy" of some <m>\mathbb{R}^k</m> sitting inside <m>\mathbb{R}^n</m>, in much the same way as a plane is a "copy" of <m>\mathbb{R}^2</m> sitting inside <m>\mathbb{R}^3</m>.  Another good informal way of thinking about subspaces of <m>\mathbb{R}^n</m> is that they are collections of vectors in <m>\mathbb{R}^n</m> that we cannot "escape" using our fundamental operations of vector addition and scalar multiplication. </p>
+	</introduction>
+	<subsection>
+		<title>
+			Subspaces
+		</title>
+		<definition xml:id="def-subspace">
+			<p> Let <m>S</m> be a collection of vectors in <m>\mathbb{R}^n</m>.  We say that <m>S</m> is a <em>subspace</em> of <m>\mathbb{R}^n</m> if it has all three of the following properties:
+			<ol>
+				<li><m>S</m> is not empty (that is, there is at least one vector in <m>S</m>).</li>
+				<li>Whenever <m>\vec{v}</m> and <m>\vec{w}</m> are vectors in <m>S</m> then <m>\vec{v}+\vec{w}</m> is a vector in <m>S</m>.  (We say that <m>S</m> is <em>closed under addition</em>.)</li>
+				<li>Whenever <m>\vec{v}</m> is a vector in <m>S</m> and <m>c</m> is a scalar then <m>c\vec{v}</m> is a vector in <m>S</m>.  (We say that <m>S</m> is <em>closed under scalar multiplication</em>.)</li>
+			</ol>
+			</p>
+		</definition>
+		<example>
+			<p> The collection of all vectors on the line <m>y=x+1</m> <em>is not</em> a subspace of <m>\mathbb{R}^2</m>, because <m>\begin{bmatrix}0\\1\end{bmatrix}</m> is on the line <m>y=x+1</m> but <m>2\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}0\\2\end{bmatrix}</m> is not on that line, so property (3) of the definition of subspace is not satisfied. </p>
+		</example>
+		<example xml:id="ex-not-subspace-has-zero">
+			<p> The collection of all vectors on the curve <m>y = x^2</m> <em>is not</em> a subspace of <m>\mathbb{R}^2</m>.  The vectors <m>\begin{bmatrix}1\\1\end{bmatrix}</m> and <m>\begin{bmatrix}2\\4\end{bmatrix}</m> are both on the curve <m>y=x^2</m>, but their sum <m>\begin{bmatrix}3\\5\end{bmatrix}</m> is not, so condition (2) of the definition of subspace is not satisfied. </p>
+		</example>
+		<example>
+			<p> The collection of all vectors on the line <m>y=3x</m> <em>is</em> a subspace of <m>\mathbb{R}^2</m>.  To prove this we need to verify all three conditions in the definition of "subspace".  Let <m>S</m> denote the collection of all vectors <m>\begin{bmatrix}x\\y\end{bmatrix}</m> where <m>y=3x</m>.
+			<ol>
+				<li>The collection <m>S</m> is not empty because it contains the vector <m>\begin{bmatrix}0\\0\end{bmatrix}</m>.</li>
+				<li>Suppose that <m>\begin{bmatrix}x_1\\y_1\end{bmatrix}</m> and <m>\begin{bmatrix}x_2\\y_2\end{bmatrix}</m> are in <m>S</m>.  Then <m>y_1 = 3x_1</m> and <m>y_2=3x_2</m> (by definition of <m>S</m>), so <m>y_1+y_2 = 3x_1+3x_2 = 3(x_1+x_2)</m>.  Therefore the vector <m>\begin{bmatrix}x_1\\y_1\end{bmatrix} + \begin{bmatrix}x_2\\y_2\end{bmatrix} = \begin{bmatrix}x_1+x_2\\y_1+y_2\end{bmatrix}</m> is in <m>S</m>.</li>
+				<li>Suppose that <m>\begin{bmatrix}x\\y\end{bmatrix}</m> is in <m>S</m> and <m>c</m> is a scalar.  Then by definition of <m>S</m> we have <m>y=3x</m>, so <m>cy=c(3x) = 3(cx)</m>.  Therefore the vector <m>c\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}cx\\cy\end{bmatrix}</m> is in <m>S</m>.</li>
+			</ol>
+			Since all three condition in the definition of subspace are satisfied we can conclude that <m>S</m> is a subspace of <m>\mathbb{R}^2</m>.</p>
+		</example>
+		<example xml:id="ex-trivial-subspace">
+			<p> Let <m>S</m> be the collection that contains only the vector <m>\vec{0}</m>.  Then <m>S</m> is not empty (it has the zero vector in it!), and because <m>\vec{0}+\vec{0} = \vec{0}</m> and <m>c\vec{0}=\vec{0}</m> it is closed under addition and scalar multiplication.  Thus <m>S</m> is a subspace of <m>\mathbb{R}^n</m>.  This subspace is sometimes called the <em>trivial subspace</em>.</p>
+		</example>
+
+		<lemma>
+			<statement><p>Suppose that <m>S</m> is a subspace of <m>\mathbb{R}^n</m>.  Then <m>\vec{0}</m> is in <m>S</m>.</p></statement>
+			<proof><p>By definition of "subspace", <m>S</m> is not empty.  Therefore we can find some vector <m>\vec{v}</m> in <m>S</m>.  Since <m>S</m> is closed under scalar multiplication and <m>0\vec{v} = \vec{0}</m> we conclude that <m>\vec{0}</m> is in <m>S</m>.</p></proof>
+		</lemma>
+		<p>The lemma sometimes gives a very quick way of checking that a collection is <em>not</em> a subspace of <m>\mathbb{R}^n</m> - any collection that does not contain <m>\vec{0}</m> cannot be a subspace.  On the other hand, it does not help us to prove that a collection <em>is</em> a subspace, because there are collection that do contain <m>\vec{0}</m> yet are not subspaces (such as the one in <xref ref="ex-not-subspace-has-zero" />).</p>
+		<theorem xml:id="thm-span-subspace">
+			<statement>
+				<p> Let <m>\vec{v_1}, \ldots, \vec{v_k}</m> be any vectors in <m>\mathbb{R}^n</m>.  Then <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m> is a subspace of <m>\mathbb{R}^n</m>. </p>
+			</statement>
+			<proof>
+				<p> We check the three conditions of <xref ref="def-subspace" />
+					<ol>
+						<li> The vector <m>\vec{v_1}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>, so <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m> is not empty.</li>
+						<li> Suppose that <m>\vec{v}</m> and <m>\vec{w}</m> are in <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>.  Then there are scalars <m>a_1, \ldots, a_k, b_1, \ldots, b_k</m> such that <m>\vec{v}=a_1\vec{v_1}+\cdots+a_k\vec{v_k}</m> and <m>\vec{w} = b_1\vec{v_1}+\cdots+b_k\vec{v_k}</m>.  Then <md><mrow>\vec{v}+\vec{w} \amp = (a_1\vec{v_1}+\cdots+a_k\vec{v_k}) + (b_1\vec{v_1}+\cdots+b_k\vec{v_k})</mrow><mrow>\amp = (a_1+b_1)\vec{v_1} + \cdots + (a_k+b_k)\vec{v_k}</mrow></md>.  This shows that <m>\vec{v}+\vec{w}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>.</li>
+						<li> Suppose that <m>\vec{v}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>, and <m>c</m> is a scalar.  Find scalars <m>a_1, \ldots, a_k</m> such that <m>\vec{v} = a_1\vec{v_1} + \cdots + a_k\vec{v_k}</m>.  Then <md><mrow>c\vec{v} \amp = c(a_1\vec{v_1}+\cdots+a_k\vec{v_k})</mrow><mrow>\amp = (ca_1)\vec{v_1} + \cdots + (ca_k)\vec{v_k}</mrow></md>.  This shows that <m>c\vec{v}</m> is in <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m>.</li>
+					</ol>
+				</p>
+			</proof>
+		</theorem>
+		<example>
+			<p> Any line through the origin in <m>\mathbb{R}^2</m> is a subspace of <m>\mathbb{R}^2</m>.  To see this, recall from <xref ref="sec-Lines-and-Planes" /> that a line in <m>\mathbb{R}^2</m> can be described in vector form as <m>\vec{v} = t\vec{d}+\vec{p}</m>, where <m>\vec{d}</m> is a direction vector for the line and <m>\vec{p}</m> is a point on the line.  Since our line goes through the origin we can choose <m>\vec{p}=\vec{0}</m>, in which case we see that the vectors on our line are exactly those in <m>\span(\vec{d})</m>.  The line is therefore a subspace of <m>\mathbb{R}^2</m> by <xref ref="thm-span-subspace" />. </p>
+			<p> Nearly identical reasoning shows that a line through the origin in <m>\mathbb{R}^3</m> is a subspace of <m>\mathbb{R}^3</m>.  Similarly, a plane through the origin in <m>\mathbb{R}^3</m> can be described as <m>\span(\vec{d_1}, \vec{d_2})</m> where <m>\vec{d_1}, \vec{d_2}</m> are non-parallel direction vectors for the plane, so every plane through the origin of <m>\mathbb{R}^3</m> is a subspace of <m>\mathbb{R}^3</m>. </p>
+		</example>
+	</subsection>
+
+	<subsection>
+		<title>
+			Basis
+		</title>
+		<p> In light of <xref ref="thm-span-subspace" /> we might ask whether <em>every</em> subspace of <m>\mathbb{R}^n</m> can be written as <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m> for some vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m>.  The answer is "yes", but we will not give a  rigorous proof of this fact, because it uses tools beyond the scope of this course.  The idea is (roughly) to start with a vector <m>\vec{v_1}</m> from your subspace <m>S</m>, then check whether <m>S = \span(\vec{v_1})</m>.  If so, then you are done.  If not, find a vector <m>\vec{v_2}</m> in <m>S</m> but not in <m>\span(\vec{v_1})</m>, and check if <m>S = \span(\vec{v_1}, \vec{v_2})</m>.  Continue in this way until you eventually stop because <m>S = \span(\vec{v_1}, \ldots, \vec{v_k})</m> (the fact that you do eventually get to stop is the part of this proof that is beyond the scope of our course). </p>
+		<p> Once we know that our subspace can be described as <m>\span(\vec{v_1}, \ldots, \vec{v_k})</m> it is natural to want to do so with as few vectors as possible (that is, with the smallest possible value of <m>k</m>), so that our description has no redundencies.  Fortunately, we already know (from <xref ref="sec-LinearIndependence" />) that this happens exactly when <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly independent.  We therefore have the following definition: </p>
+		<definition xml:id="def-basis">
+			<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  A <em>basis</em> for <m>S</m> is a collection <m>B</m> of vectors in <m>S</m> such that <m>\span(B) = S</m> and the vectors in <m>B</m> are linearly independent.</p>
+		</definition>
+
+		<p> The definition of "basis" that we have given is the easiest to use in most situations.  For the sake of helping to understand what makes a basis special, it is worth seeing the following theorem, which we state without proof. </p>
+		<theorem>
+			<statement>
+				<p>
+					Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m> and let <m>B</m> be a collection of vectors in <m>S</m>.  The following are equivalent:
+					<ol>
+						<li> <m>B</m> is a basis for <m>S</m>.</li>
+						<li> <m>B</m> is a linearly independent set, but if we take <m>B</m> together with any other vector in <m>S</m> we will no longer have a linearly independent set.</li>
+						<li> <m>\span(B) = S</m>, but if we remove any vector from <m>B</m> then the span will no longer be all of <m>S</m>.</li>
+					</ol>
+				</p>
+			</statement>
+		</theorem>
+
+		<theorem xml:id="thm-bases-exist">
+			<statement><p>Every subspace of <m>\mathbb{R}^n</m> has a basis.</p></statement>
+			<proof>
+				<p>Start by writing the subspace as <m>S = \span(\vec{v_1}, \ldots, \vec{v_k})</m>.  If <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly independent then they are a basis for <m>S</m> and we are done.  If not then by <xref ref="thm-linear-dependent-redundant" /> there is some <m>i</m> such that <m>\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k}</m> still span <m>S</m>.  If these are linearly independent then they are a basis for <m>S</m> and we are done.  If not, repeat the process of using <xref ref="thm-linear-dependent-redundant" /> to remove vectors from the list until we do reach a linearly independent set. </p>
+			</proof>
+		</theorem>
+		<note>
+			<p>In order to make the previous theorem statement completely true, and make the proof we provided correct, we need to deal with a minor annoyance concerning the trivial subspace (that is, the subspace which contains only the zero vector, <xref ref="ex-trivial-subspace" />).  The problem is that the set containing only the zero vector is already linearly dependent (<xref ref="ex-zero-dependent" />).  To resolve the problem we need to consider the empty collection of vectors, which we denote <m>\emptyset</m>, and it's span, <m>\span(\emptyset)</m>.  We declare that <m>\span(\emptyset)</m> is the set containing only the zero vector (symbolically, <m>\span(\emptyset) = \{\vec{0}\}</m>).  You can check that <m>\emptyset</m> satisfies the definition of being linearly independent, so with this new convention <m>\emptyset</m> is a basis for the trivial subspace of <m>\mathbb{R}^n</m> (and the proof of the previous theorem does work, because at worst we end up eliminating all of the vectors and arriving at the independent set <m>\emptyset</m>).  We emphasize that for our purposes this is just a minor inconvenience to make the rest of our theorems about subspaces and bases true, and we will rarely encounter it.</p>
+		</note>
+		<example xml:id="ex-find-basis">
+			<p>Let <m>S = \span\left(\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}4\\2\\2\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}, \begin{bmatrix}0\\1\\3\end{bmatrix}\right)</m>.  Find a basis for <m>S</m>.</p>
+			<solution>
+					<p> We are told that the vectors <m>\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}4\\2\\2\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}, \begin{bmatrix}0\\1\\3\end{bmatrix}</m> are a spanning set for <m>S</m>, so following the idea of the proof of <xref ref="thm-bases-exist" /> we check whether or not these vectors are linearly independent.  In fact, we know that they are not independent, because of <xref ref="thm-more-vectors-than-dimension" />, but we still need to do the calculations to find out which vector we can remove without changing the span (you might be able to see by observation that the second vector is a multiple of the first; we will pretend that we did not notice this, in order to give a full demonstration of the method).
+					<me>\matr{cccc|c}{2 \amp 4 \amp 1 \amp 0 \amp 0 \\ 1 \amp 2 \amp 0 \amp 1 \amp 0 \\ 1 \amp 2 \amp -1 \amp 3 \amp 0} \to \matr{cccc|c}{1 \amp 2 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \amp -2 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0}</me>.
+				</p>
+				<p> 
+					The reduced row echelon form tells is that if we want to write 
+						<me>a_1\begin{bmatrix}2\\1\\1\end{bmatrix} + a_2\begin{bmatrix}4\\2\\2\end{bmatrix} +a_3\begin{bmatrix}1\\0\\-1\end{bmatrix} + a_4\begin{bmatrix}0\\1\\3\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}</me>
+					, then we must have <m>a_1 + 2a_2 +a_4 = 0</m> and <m>a_3 -2a_4 = 0</m>.  One specific solution is <m>a_1 = 1, a_2 = 0, a_3 = -2, a_4 = -1</m>, which gives us the equation
+						<me> \begin{bmatrix}2\\1\\1\end{bmatrix} + -2\begin{bmatrix}1\\0\\-1\end{bmatrix} -\begin{bmatrix}0\\1\\3\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}</me>,
+					or equivalently,
+						<me> \begin{bmatrix}0\\1\\3\end{bmatrix} = \begin{bmatrix}2 \\ 1 \\ 1\end{bmatrix} - 2\begin{bmatrix}1\\0\\-1\end{bmatrix}</me>.
+					From here we see that <m>\begin{bmatrix}0\\1\\3\end{bmatrix}</m> is in the span of the other vectors, so by <xref ref="thm-span-unchanged-removal" /> we can remove it without changing the span.  That is, we have that <m>S = \span\left(\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}4\\2\\2\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}\right)</m>.
+				</p>
+				<p>
+					At this point we have reduced the size of our spanning set, but we don't know if we have done enough.  So we repeat the entire process that we just went through, this time starting with our new, smaller, spanning set.
+						<me>\matr{ccc|c}{2 \amp 4 \amp 1 \amp 0 \\ 1 \amp 2 \amp 0 \amp 0 \\ 1 \amp 2 \amp -1 \amp 0} \to \matr{ccc|c}{1 \amp 2 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0}</me>.
+					This time we see that to have
+						<me>a_1\begin{bmatrix}2\\1\\1\end{bmatrix} + a_2\begin{bmatrix}4\\2\\2\end{bmatrix} +a_3\begin{bmatrix}1\\0\\-1\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}</me>,
+					we must have <m>a_1 +2a_2 = 0</m> and <m>a_3=0</m>.  By choosing a specific solution, say <m>a_1 = -2, a_2=1, a_3=0</m>. we get
+						<me> -2\begin{bmatrix}2\\1\\1\end{bmatrix} + \begin{bmatrix}4\\2\\2\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}</me>,
+					or equivalently,
+						<me> \begin{bmatrix}4\\2\\2\end{bmatrix} = 2\begin{bmatrix}2\\1\\1\end{bmatrix}</me>.
+					As before, this shows us that we can remove the vector <m>\begin{bmatrix}4\\2\\2\end{bmatrix}</m> without changing the span, so we now know that <m>S = \span\left(\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}\right)</m>.
+				</p>
+				<p> 
+					We've got a smaller spanning set again, so we repeat the process of checking if they are linearly independent.
+						<me> \matr{cc|c}{2 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 1 \amp -1 \amp 0} \to \matr{cc|c}{1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0}</me>.
+					Here we see that the system has a unique solution, so by <xref ref="thm-indep-iff-unique-solution" /> the columns of the coefficient matrix are linearly independent.  We therefore conclude that <m>\left\{\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}\right\}</m> forms a basis for <m>S</m>.
+				</p>
+			</solution>
+		</example>
+		<note>
+			<p> You might have noticed in the solution to <xref ref="ex-find-basis" /> we ended up essentially repeating the same row reduction several times, having just removed a column from the matrix each time.  Later (in <xref ref="sec-Matrix-Subspaces" />) we will see a more efficient way to find a basis for a subspace of <m>\mathbb{R}^n</m> by studying some specific subspaces associated to matrices. </p>
+		</note>
+	</subsection>
+	<subsection>
+		<title>
+			Dimension
+		</title>
+		<p> Aside from the trivial subspace, every subspace of <m>\mathbb{R}^n</m> has many different bases.  For example, you can check that <m>\left\{\begin{bmatrix}1\\0\end{bmatrix}, \begin{bmatrix}0\\1\end{bmatrix}\right\}</m>, <m>\left\{\begin{bmatrix}1\\1\end{bmatrix}, \begin{bmatrix}1\\-1\end{bmatrix}\right\}</m>, and <m>\left\{\begin{bmatrix}2\\4\end{bmatrix}, \begin{bmatrix}17 \\ \pi/3\end{bmatrix}\right\}</m> are three different examples of bases for <m>\mathbb{R}^2</m>.  Given a subspace <m>S</m> and two bases <m>B_1</m> and <m>B_2</m> there may be no vectors in common between <m>B_1</m> and <m>B_2</m>, but it turns out that the <em>number</em> of vectors in the two bases will always be the same.  That is, for example, it is impossible to find a basis for <m>\mathbb{R}^2</m> that has three vectors in it. </p>
+		<theorem>
+			<statement><p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  There is a number <m>d</m>, with <m>0 \leq d \leq n</m>, such that every basis of <m>S</m> contains exactly <m>d</m> vectors.</p></statement>
+		</theorem>
+		<definition>
+			<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  The number of vectors in any basis for <m>S</m> is called the <em>dimension</em> of <m>S</m>, and is denoted by <m>\dim(S)</m>.</p>
+		</definition>
+		<example>
+			<p> For any <m>n \geq 1</m> the standard unit vectors <m>\vec{e_1}, \ldots, \vec{e_n}</m> form a basis for <m>\mathbb{R}^n</m>, and thus <m>\dim(\mathbb{R}^n) = n</m> (as you would hope!). </p>
+		</example>
+
+		<example>
+			<p> In <xref ref="ex-find-basis" /> we considered <m>S = \span\left(\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}4\\2\\2\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}, \begin{bmatrix}0\\1\\3\end{bmatrix}\right)</m>, which is a subspace of <m>\mathbb{R}^3</m>.  In that example we found that <m>\left\{\begin{bmatrix}2\\1\\1\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}\right\}</m> is a basis for <m>S</m>.  Therefore <m>\dim(S) = 2</m>.</p>
+		</example>
+
+		<example>
+			<p> Consider a subspace <m>S</m> of <m>\mathbb{R}^2</m>.  There are three possibilities:
+				<ul>
+					<li> <m>\dim(S) = 0</m>: In this case, <m>S = \{\vec{0}\}</m>, i.e., <m>S</m> contains only the origin. </li>
+					<li> <m>\dim(S) = 1</m>: Let <m>B = \{\vec{d}\}</m> be a basis for <m>S</m>.  Then <m>S = \span(\vec{d})</m>, so any vector <m>\vec{v}</m> in <m>S</m> can be expressed as <m>\vec{v} = t\vec{d}</m> for some scalar <m>t</m>.  We recognize this (from <xref ref="sec-Lines-and-Planes" />) as the vector equation of a line through the origin, so <m>S</m> is a line through the origin. </li>
+					<li> <m>\dim(S) = 2</m>: In this case <m>S = \mathbb{R}^2</m>.</li>
+				</ul>
+				We thus have a complete description of all subspaces of <m>\mathbb{R}^2</m>: Any subspace of <m>\mathbb{R}^2</m> is either the trivial subspace, a line through the origin, or all of <m>\mathbb{R}^2</m>.</p>
+				<p> You can similarly check that any subspace of <m>\mathbb{R}^3</m> is either the trivial subspace (dimension <m>0</m>), a line through the origin (dimension <m>1</m>), a plane through the origin (dimension <m>2</m>), or all of <m>\mathbb{R}^3</m> (dimension <m>3</m>). </p>
+		</example>
+	</subsection>
+	<!--<subsection>
+		<title>
+			Coordinates
+		</title>
+	</subsection>-->
+	<xi:include href="2-4-exercises.ptx" />
+</section>

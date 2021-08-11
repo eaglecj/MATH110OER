@@ -2,7 +2,11 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
+<<<<<<< HEAD
 <!--*       on 2021-03-13T12:22:06-08:00       *-->
+=======
+<!--*       on 2021-08-10T15:13:59-07:00       *-->
+>>>>>>> e908676b3c1760d18ccbd5c111a86ec4c2207c4d
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,46 +20,114 @@
 <body>
 <div class="solution solution-like">
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">1.2.5.1</span><span class="period">.</span>
-</h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">According to the <a class="xref" data-knowl="./knowl/cosine-formula.html" title="Hint 1.2.5.1">Cosine Formula 1.2.5.1</a>, we have to compute the norm of the vectors and their dot product:</p>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.1.5.8.1</span><span class="period">.</span>
+</h6>We will make extensive use of basic properties of vector addition. <ol class="lower-alpha">
+<li>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\norm{\mbf{u}}
-\amp =
-\sqrt{\mbf{u}\cdot\mbf{u}}
-=
-\sqrt{ 3^2 + (-1)^2 + (-1)^2}
-=
-\sqrt{11}\\
-\norm{\mbf{v}}
-\amp =
-\sqrt{\mbf{v}\cdot\mbf{v}}
-=
-\sqrt{ 1^2 + 4^2 + 2^2}
-=
-\sqrt{21}\\
-\mbf{u}\cdot\mbf{v}
-\amp =
-3\cdot 1 + (-1)\cdot 4 + (-1)\cdot 2
-=
--3
+\amp\amp
+3(2\mathbf{u}+ \mathbf{x}) + \mathbf{w}
+\amp
+= 2\mathbf{x} -\mathbf{v}
+\amp\\
+\iff \amp\amp
+6\mathbf{u}+ 3\mathbf{x} + \mathbf{w}
+\amp
+= 2\mathbf{x} -\mathbf{v}
+\amp\\
+\iff \amp\amp
+6\mathbf{u}+ 3\mathbf{x} + \mathbf{w} - 2\mathbf{x}
+\amp
+= 2\mathbf{x} -\mathbf{v} - 2\mathbf{x}
+\amp
+(-2\mathbf{x} \text{ on both sides})\\
+\iff \amp\amp
+6\mathbf{u}+ 1\mathbf{x} + \mathbf{w}
+\amp
+= -\mathbf{v}
+\amp\\
+\iff \amp\amp
+\mathbf{x}
+\amp
+= -\mathbf{v}- 6\mathbf{u}  -\mathbf{w}
+\amp
 \end{align*}
 </div>
-<p xmlns:svg="http://www.w3.org/2000/svg">Therefore,</p>
+<p>Using that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\cos (\theta)
+-6\mathbf{u}
 =
-\frac{ \mbf{u}\cdot \mbf{v}}{ \norm{\mbf{u}}\cdot \norm{\mbf{v}}}
+(-6)
+\begin{bmatrix} 3 \\ -1 \\ 0 \end{bmatrix} 
 =
-\frac{-3}{ \sqrt{11}\cdot \sqrt{21}}
+\begin{bmatrix} (-6)3 \\ (-6)(-1) \\ (-6)0 \end{bmatrix} 
 =
-\frac{-3}{ \sqrt{231}}
-.
+\begin{bmatrix} -18 \\ 6 \\ 0 \end{bmatrix} 
 \end{equation*}
 </div>
+<p>and so forth, we can now just plug in the values in the equation for \(\mbf{x}\text{:}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathbf{x}
+=
+-\mathbf{v}- 6\mathbf{u}  -\mathbf{w}
+\amp =
+\begin{bmatrix} -4 \\ 0 \\ -1 \end{bmatrix} 
++
+\begin{bmatrix} (-6)3 \\ (-6)(-1) \\ 0 \end{bmatrix} 
++
+\begin{bmatrix} (-1)(-1) \\ (-1)1 \\ (-1)5 \end{bmatrix} \\
+\amp =
+\begin{bmatrix} -4+(-18)+1 \\ 0+6+(-1) \\ -1+0+(-5) \end{bmatrix} \\
+\amp =
+\begin{bmatrix} -21 \\ 5 \\ -6 \end{bmatrix} 
+\end{align*}
 </div>
-<span class="incontext"><a href="sec-DotProd.html#solution-17">in-context</a></span>
+</li>
+<li>
+<p>First, we compute:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\amp\amp
+2(3\mathbf{v}- \mathbf{x})
+\amp =
+5\mathbf{w} +\mathbf{u} - 3\mathbf{x}\\
+\iff\amp\amp
+6\mathbf{v} - 2\mathbf{x}
+\amp =
+5\mathbf{w} +\mathbf{u} - 3\mathbf{x}\\
+\iff\amp\amp
+- 2\mathbf{x}+3\mathbf{x}
+\amp =
+5\mathbf{w} +\mathbf{u}-6\mathbf{v}\\
+\iff\amp\amp
+\mathbf{x}
+\amp =
+5\mathbf{w} +\mathbf{u}-6\mathbf{v}
+\end{align*}
+</div>
+<p>Plugging in the vectors, we get:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathbf{x}
+\amp =
+5\begin{bmatrix} -1 \\ 1 \\ 5 \end{bmatrix} 
++\begin{bmatrix} 3 \\ -1 \\ 0 \end{bmatrix} 
+-6\begin{bmatrix} 4 \\ 0 \\ 1 \end{bmatrix} \\
+\amp =
+\begin{bmatrix} -5 \\ 5 \\ 25 \end{bmatrix} 
++\begin{bmatrix} 3 \\ -1 \\ 0 \end{bmatrix} 
++\begin{bmatrix} -24 \\ 0 \\ -6 \end{bmatrix} \\
+\amp =
+\begin{bmatrix} -5+3-24 \\ 5-1+0 \\ 25+0-6 \end{bmatrix} 
+=
+\begin{bmatrix} -26 \\ 4 \\ 19 \end{bmatrix} 
+\end{align*}
+</div>
+</li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-Geom-and-Alg-of-Vects.html#solution-17">in-context</a></span>
 </body>
 </html>

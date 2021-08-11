@@ -1,0 +1,272 @@
+<section xml:id="sec-Inverses" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Matrix inverses
+	</title>
+	<introduction>
+		<p> In <xref ref="thm-system-as-matrix-equation" /> we saw that the system of linear equations <m>[A|\vec{b}]</m> can be equivalently expressed as a matrix equation <m>A\vec{x} = \vec{b}</m>.  If this equation was about numbers instead of matrices and vectors then we would easily solve the equation <m>ax=b</m> by dividing to get <m>x = \frac{b}{a}</m> (as long as <m>a \neq 0</m>).  Dividing by <m>a</m> is really the same as multiplying by <m>a^{-1}</m>, so we could write our solution as <m>x=a^{-1}b</m>.  Since we know how to multiply matrices, this brings up a natural question: Is there a matrix <m>A^{-1}</m> so that the equations <m>A\vec{x}=\vec{b}</m> and <m>\vec{x} = A^{-1}\vec{b}</m> are equivalent?  Solving this problem is the goal of this section. </p>
+	</introduction>
+
+	<subsection>
+		<title>
+			The inverse of a square matrix
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>n \times n</m> matrix.  An <em>inverse</em> of <m>A</m> is an <m>n \times n</m> matrix <m>B</m> such that <m>AB=I_n</m> and <m>BA = I_n</m>.</p>
+			<p> If there is an inverse of <m>A</m> then we say that <m>A</m> is <em>invertible</em>.</p>
+		</definition>
+		<p>Notice that in the definition we require that multiplication <em>in both orders</em> gives us the identity matrix.  Remember that, in general, <m>AB \neq BA</m>!  Nevertheless, later (<xref ref="thm-one-sided-inverse" />) we will see that it turns out that if <m>A</m> and <m>B</m> are square matrices and <m>AB=I_n</m> then <m>BA=I_n</m> happens automatically.</p>
+		<p> Observe that if <m>B</m> is an inverse for <m>A</m> then we can accomplish the goal described in the introduction to this section: Multiplying both sides of <m>A\vec{x}=\vec{b}</m> by <m>B</m> on the left will give <m>BA\vec{x} = B\vec{b}</m>, and <m>BA=I_n</m>, so we get <m>I_n\vec{x} = B\vec{b}</m>, which is the same as <m>\vec{x} = B\vec{b}</m></p>
+
+		<example>
+			<p>Let <m>A = \begin{bmatrix}1 \amp 1 \\ 1 \amp 0\end{bmatrix}</m> and <m>B = \begin{bmatrix}0 \amp 1 \\ 1 \amp -1\end{bmatrix}</m>.  By direct calculation you can find that <m>AB = BA = I_2</m>, so <m>B</m> is an inverse of <m>A</m>, and the matrix <m>A</m> is invertible.</p><p>In <xref ref="subsec-calculate-inverse" /> we will see the techniques needed to find this <m>B</m> when given <m>A</m>.</p>
+		</example>
+
+		<example>
+			<p> You will probably not be surprised to learn that the zero matrix is not invertible.  Indeed, for any <m>n \times n</m> matrix <m>B</m> we have <m>0_{n \times n}B = 0_{n\times n} \neq I_n</m>, so <m>B</m> cannot be an inverse for <m>0_{n \times n}</m>. </p>
+		</example>
+
+		<example>
+			<p> Let <m>A = \begin{bmatrix}2 \amp 1 \\ 6 \amp 3\end{bmatrix}</m>.  We will show that <m>A</m> is not invertible - this is more surprising than the previous example, because not only is <m>A</m> not the zero matrix, it doesn't even have any zero entries!  Suppose that we did have an inverse, say <m>B = \begin{bmatrix}a \amp b \\ c \amp d\end{bmatrix}</m>.  Then we would have <m>AB = I_2</m>.  When we carry out the multiplication on the left side of this equation it becomes <me>\begin{bmatrix}2a+c \amp 2b+d \\ 6a+3c \amp 6b+3d\end{bmatrix} = \begin{bmatrix}1 \amp 0 \\ 0 \amp 1\end{bmatrix}</me>.  Setting corresponding entries equal, we obtain a system of four linear equations in four variables. </p>
+			<md>
+				<mrow>2a+c=1</mrow>
+				<mrow>2b+d=0</mrow>
+				<mrow>6a+3c=0</mrow>
+				<mrow>6b+3d=1</mrow>
+			</md>
+			<p> If we attempt to solve this system we find that there are no solutions - you could do this by setting up an augmented matrix, or by noticing that the third equation is <m>3(2a+c)=0</m>, which contradicts the first equation.  In any case, there are no <m>a, b, c, d</m> satisfying the requirements we have found, so there is no matrix <m>B</m> that is an inverse for <m>A</m>.  The matrix <m>A</m> is not invertible.</p>
+		</example>
+
+		<p> The last example gives us a method for trying to check if a matrix is invertible: Multiply it by an arbitrary matrix, set the result equal to the identity matrix, and try to solve.  Unfortunately, this method is horrendously inefficient.  Even for a <m>2 \times 2</m> matrix we ended up with a system of <m>4</m> equations in <m>4</m> variables.  For a <m>3 \times 3</m> matrix the system would have had <m>9</m> equations and <m>9</m> variables!  Fortunately, after we develop a bit more machinery, in <xref ref="subsec-calculate-inverse" /> we will be able to describe a much more efficient method for testing if a matrix is invertible (and if so, calculating the inverse). </p>
+
+		<p> So far we have been careful to speak of <em>an</em> inverse for a matrix <m>A</m>, because as far as we know it is possible that a single matrix could have many different inverses.  In fact, that isn't true, as we now prove. </p>
+		<theorem>
+			<statement>
+				<p> Any <m>n \times n</m> matrix has at most one inverse. </p>
+			</statement>
+			<proof>
+				<p> Suppose that <m>A</m> is an <m>n \times n</m> matrix and that both <m>B_1</m> and <m>B_2</m> are inverses for <m>A</m>.  We will prove that <m>B_1 = B_2</m>.  By definition of being inverses for <m>A</m> we have <m>AB_1 = B_1A = AB_2 = B_2A = I_n</m>.  We calculate as follows: </p>
+				<md>
+					<mrow> B_1 \amp = B_1I_n </mrow>
+					<mrow> \amp = B_1(AB_2) </mrow>
+					<mrow> \amp = (B_1A)B_2 </mrow>
+					<mrow> \amp = I_nB_2 </mrow>
+					<mrow> \amp = B_2 </mrow>
+				</md>
+				<p> Therefore any two inverses of <m>A</m> are actually equal, so <m>A</m> has at most one inverse. </p>
+			</proof>
+		</theorem>
+
+		<p> Since we have shown that any given square matrix has at most one inverse, when <m>A</m> is invertible we will speak of <em>the</em> inverse of <m>A</m>, and we will name it <m>A^{-1}</m>.</p>
+		<p> Here are some elementary properties of inverses.  We will use these frequently, and usually without explicitly referring back to this theorem. </p>
+
+		<theorem xml:id="thm-inverse-properties">
+			<statement>
+				<p> Suppose that <m>A</m> and <m>B</m> are invertible <m>n \times n</m> matrices.  Then:
+				<ol>
+					<li><m>A^{-1}</m> is invertible, and <m>(A^{-1})^{-1} = A</m>.</li>
+					<li><m>AB</m> is invertible, and <m>(AB)^{-1} = B^{-1}A^{-1}</m>.</li>
+					<li><m>A^t</m> is invertible, and <m>(A^t)^{-1} = (A^{-1})^t</m>.</li>
+				</ol>
+				</p>
+			</statement>
+			<proof>
+				<p> We prove only the second claim, leaving the first and third as exercises.  We just need to calculate: <me>(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AI_nA^{-1} = AA^{-1} = I_n</me>, and <me>(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}I_nB = B^{-1}B = I_n</me>.  Therefore <m>B^{-1}A^{-1} = (AB)^{-1}</m>. </p>
+			</proof>
+		</theorem>
+
+		<p> Just like with numbers, knowing that <m>A</m> and <m>B</m> are invertible tells you nothing about whether or not <m>A+B</m> is invertible. </p>
+	</subsection>
+
+	<subsection>
+		<title>
+			Elementary matrices
+		</title>
+		<p> Our next major goal is to find an efficient way of determining whether or not a matrix is invertible, and if so, finding the inverse.  Both of those goals will be accomplished in <xref ref="subsec-calculate-inverse" />, but in order to do so we need some preliminary material that gives us a way of connecting row operations to matrix multiplication. </p>
+		<definition>
+			<p> An <m>n\times n</m> <em>elementary matrix</em> is any matrix that can be obtained from <m>I_n</m> by performing exactly one row operation. </p>
+		</definition>
+
+		<example>
+			<p> Here are some elementary matrices (see if you can work out which row operation was performed on <m>I_2</m> to get each of these!): </p>
+			<ul>
+				<li><m>\begin{bmatrix}0 \amp 1 \\ 1 \amp 0\end{bmatrix}</m></li>
+				<li><m>\begin{bmatrix}-2 \amp 0 \\ 0 \amp 1\end{bmatrix}</m></li>
+				<li><m>\begin{bmatrix}1 \amp 0 \\ 5 \amp 1\end{bmatrix}</m></li>
+			</ul>
+			<p> By contrast, the matrix <m>A = \begin{bmatrix}1 \amp 1 \\ 2 \amp 1\end{bmatrix}</m> is not an elementary matrix, because there is no single row operation that takes <m>I_2</m> to <m>A</m> (we could do several row operations to get from <m>I_2</m> to <m>A</m>, but the definition of elementary matrices requires that we only use <em>one</em> operation).</p>
+		</example>
+
+		<theorem xml:id="thm-multiply-elementary-matrix">
+			<statement>
+				<p> Suppose that <m>A</m> is any <m>n \times n</m> matrix, and <m>E</m> is an <m>n \times n</m> elementary matrix.  Then <m>EA</m> is the same as the matrix obtained from <m>A</m> by performing the same row operation used to obtain <m>E</m> from <m>I_n</m>.</p>
+			</statement>
+		</theorem>
+
+		<example>
+			<p> Let <m>A = \begin{bmatrix}1 \amp 2 \\ 3 \amp 4\end{bmatrix}</m>.  If we perform the row operation <m>R_1 - 2R_2</m> on <m>A</m> then we get <m>B = \begin{bmatrix}-5 \amp -6 \\ 2 \amp 3\end{bmatrix}</m>.  If we do the same row operation to <m>I_2</m> then we get the elementary matrix <m>E = \begin{bmatrix}1 \amp -2 \\ 0 \amp 1\end{bmatrix}</m>.  If we calculate the product <m>EA</m>, we get: <me>EA = \begin{bmatrix}1 \amp -2 \\ 0 \amp 1\end{bmatrix}\begin{bmatrix}1 \amp 2 \\ 3 \amp 4\end{bmatrix} = \begin{bmatrix}-5 \amp -6 \\ 3 \amp 4 \end{bmatrix} = B</me>, as predicted by the theorem. </p>
+		</example>
+
+		<p> The purpose of elementary matrices is that they allow us to transform questions about row operations into questions about matrix multiplication, which allows us to use the tools of matrix algebra that we have been developing. </p>
+
+		<theorem xml:id="thm-elementary-matrix-inverse">
+			<statement>
+				<p> Every elementary matrix is invertible, and the inverse of an elementary matrix is another elementary matrix.</p>
+			</statement>
+			<proof>
+				<p>  Suppose that <m>E</m> is an elementary matrix, so <m>E</m> was obtained from <m>I_n</m> by a single row operation.  We know that every row operation can be reversed, that is, there is some row operation that takes <m>E</m> back to <m>I_n</m>.  Let <m>F</m> be the elementary matrix corresponding to this "reversing" row operation.  By <xref ref="thm-multiply-elementary-matrix" /> the matrix <m>FE</m> is the matrix obtained from <m>E</m> by the row operation that created <m>F</m>; by our choice of <m>F</m> this means that <m>FE = I_n</m>. </p>
+				<p> On the other hand, the row operation that created <m>E</m> is also the "reverse" of the operation that created <m>F</m>, so by a very similar argument we also have that <m>EF = I_n</m>.  Thus <m>F = E^{-1}</m>. </p>
+			</proof>
+		</theorem>
+	</subsection>
+
+	<subsection>
+		<title>
+			The fundamental theorem
+		</title>
+		<p> Recall <xref ref="thm-fundamental-version-1" />, which gave us several equivalences relating to solving systems of linear equations.  We are now prepared to add some very important items to that list of equivalences. </p>
+		<theorem xml:id="thm-fundamental-version-2">
+			<title>Fundamental Theorem - Version 2</title>
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
+				<ol>
+					<li> <m>\RREF(A) = I_n</m>.</li>
+					<li> <m>A</m> is invertible. </li>
+					<li> The system <m>[A|\vec{0}]</m> has a unique solution. </li>
+					<li> The equation <m>A\vec{x} = \vec{0}</m> has a unique solution. </li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the system <m>[A|\vec{b}]</m> has a unique solution.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the equation <m>A\vec{x} = \vec{b}</m> has a unique solution. </li>
+					<li> The columns of <m>A</m> are linearly independent. </li>
+					<li> The span of the columns of <m>A</m> is <m>\mathbb{R}^n</m>. </li>
+					<li> <m>\rank(A) = n</m>.</li>
+					<li> <m>A</m> can be written as a product of a finite collection of elementary matrices. </li>
+				</ol>
+			</statement>
+			<proof>
+				<p> In <xref ref="thm-fundamental-version-1" /> we proved the equivalences between (1), (3), (5), (7), (8), and (9).  The equivalences of (3) with (4) and (5) with (6) both follow immediately from <xref ref="thm-system-as-matrix-equation" />.  To complete the proof we will prove that (1) implies (10), (10) implies (2), and (2) implies (4).</p>
+				<figure>
+					<caption>A diagram of the implications to be proved.</caption>
+					<image>
+						<latex-image>
+							\begin{tikzpicture}
+								  \matrix[column sep={4em,between origins}, row sep={3em}] at (0,0) {
+								    \node(8) {$8$}; \amp \node(9){$9$}; \amp \node(1) {$1$}; \amp \node(10) {$10$}; \\
+								    \node(7) {$7$}; \amp \node(5){$5$}; \amp \node(3) {$3$}; \amp \node(2) {$2$};\\
+								    \node(){}; \amp \node(6){$6$}; \amp\node(4){$4$};\\
+								  };
+								  \draw[->] (5) -- (6);
+								  \draw[->] (6) -- (5);
+								  \draw[->] (3) -- (4);
+								  \draw[->] (4) -- (3);
+								  \draw[->] (1) -- (10);
+								  \draw[->] (10) -- (2);
+								  \draw[->] (2) -- (4);			  
+								  
+								  \draw (-0.7,0.7) ellipse (2.2cm and 1.5cm);
+							\end{tikzpicture}
+						</latex-image>
+					</image>
+				</figure>
+				<p><m>1 \implies 10</m>: Suppose that <m>\RREF(A) = I_n</m>.  Then there is a sequence of row operations that takes <m>A</m> to <m>I_n</m>.  Let <m>E_1</m> be the elementary matrix corresponding to the first row operation used, <m>E_2</m> the elementary matrix for the second row operation used, and so on, up to <m>E_k</m> for the last row operation.  Then by <xref ref="thm-multiply-elementary-matrix" /> we have <m>E_k\cdots E_2E_1A = I_n</m>.  By <xref ref="thm-elementary-matrix-inverse" /> each <m>E_j</m> is invertible, and each <m>E_j^{-1}</m> is also an elementary matrix.  By <xref ref="thm-inverse-properties" /> <m>(E_k\cdots E_2E_1)^{-1} = E_1^{-1}E_2^{-1} \cdots E_k^{-1}</m>, so multiplying both sides of <m>E_k\cdots E_2E_1A = I_n</m> on the left by this expression we obtain <me>A = E_1^{-1}E_2^{-1}\cdots E_k^{-1}</me>, which is a product of elementary matrices. </p>
+				<p><m>10 \implies 2</m>: If <m>A</m> can be written as a product of elementary matrices then since each elementary matrix is invertible (<xref ref="thm-elementary-matrix-inverse" />) and products of invertible matrices are invertible (<xref ref="thm-inverse-properties" />) we conclude that <m>A</m> is invertible. </p>
+				<p><m>2 \implies 4</m>: Suppose that <m>A</m> is invertible.  Then the equation <m>A\vec{x} = \vec{0}</m> is equivalent to the equation <m>\vec{x} = A^{-1}\vec{0} = \vec{0}</m>, meaning that the unique solution to <m>A\vec{x} = \vec{0}</m> is <m>\vec{x}=\vec{0}</m>.</p>
+			</proof>
+		</theorem>
+	</subsection>
+
+	<subsection xml:id="subsec-calculate-inverse">
+		<title>
+			Calculating matrix inverses
+		</title>
+
+		<p> It might not be obvious at first glance, but the <xref text="custom" ref="thm-fundamental-version-2">Fundamental Theorem</xref> can be used to give us a method for finding the inverse of a matrix.  We will need a preliminary result, which is helpful in its own right. </p>
+
+		<theorem xml:id="thm-one-sided-inverse">
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix, and suppose that <m>B</m> is an <m>n \times n</m> matrix such that <m>BA = I_n</m>.  Then <m>A</m> is invertible, and <m>B = A^{-1}</m>.</p>
+			</statement>
+			<proof>
+				<p> Consider the equation <m>A\vec{x} = \vec{0}</m>.  Multiplying both sides on the left by <m>B</m> we obtain <m>BA\vec{x} = B\vec{0} = \vec{0}</m>, and since <m>BA = I_n</m> this gives us <m>\vec{x} = \vec{0}</m>.  That is, the equation <m>A\vec{x} = \vec{0}</m> has a unique solution.  By <xref ref="thm-fundamental-version-2" /> the matrix <m>A</m> is invertible.  Now, to show that <m>B = A^{-1}</m>, we calculate:</p>
+				<me>B = BI_n = B(AA^{-1}) = (BA)A^{-1} = I_nA^{-1} = A^{-1}</me>.
+			</proof>
+		</theorem>
+
+		<theorem xml:id="thm-inverse-algorithm">
+			<statement>
+				<p> Suppose that <m>A</m> is an <m>n \times n</m> matrix.  If a sequence of row operations takes <m>A</m> to <m>I_n</m> then the same sequence of row operations takes <m>I_n</m> to <m>A^{-1}</m>.</p>
+			</statement>
+			<proof>
+				<p> Suppose that <m>E_1, \ldots, E_k</m> are the elementary matrices corresponding to the sequence of row operations taking <m>A</m> to <m>I_n</m>, so we have <me>E_k \cdots E_1 A = I_n</me>.  If we let <m>B = E_k \cdots E_1</m> then this equation says <m>BA=I_n</m>, which by <xref ref="thm-one-sided-inverse" /> is enough to let us conclude that <m>B = A^{-1}</m>.  That is, <me>A^{-1} = E_k \cdots E_1 = E_k \cdots E_1 I_n</me>, which means that performing the sequence of row operations on <m>I_n</m> gives us <m>A^{-1}</m>.</p>
+			</proof>
+		</theorem>
+
+		<p> Combining <xref ref="thm-fundamental-version-2" /> with <xref ref="thm-inverse-algorithm" /> yields an algorithm for both checking the invertibility of a matrix and finding its inverse: Set up the large augmented matrix <m>[A|I_n]</m> and row reduce, aiming to get the left side into reduced row echelon form.  If <m>\RREF(A) = I_n</m> then (since we are performing the same row operations on <m>I_n</m>), we will have <m>[A|I_n] \to [I_n|A^{-1}]</m>.  On the other hand, if <m>\RREF(A) \neq I_n</m> then <m>A</m> is not invertible. </p>
+
+		<example>
+			<p> Let <m>A = \begin{bmatrix}3 \amp 3 \amp 1 \\ 0 \amp 0 \amp 1 \\ 2 \amp 2 \amp 1\end{bmatrix}</m>.  Determine whether or not <m>A</m> is invertible, and if it is, find <m>A^{-1}</m>. </p>
+			<solution>
+				<p>We set up the augmented matrix <m>[A|I_3]</m> and row reduce.</p>
+				<md>
+					<mrow>[A|I_3] \amp = \matr{ccc|ccc}{3 \amp 3 \amp 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \amp 1 \amp 0 \\ 2 \amp 2 \amp 1 \amp 0 \amp 0 \amp 1}</mrow>
+					<mrow>\amp \to_{R_1 - R_3} \matr{ccc|ccc}{1 \amp 1 \amp 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 0 \amp 1 \amp 0 \\ 2 \amp 2 \amp 1 \amp 0 \amp 0 \amp 1}</mrow>
+					<mrow>\amp \to_{R_3 - 2R_1} \matr{ccc|ccc}{1 \amp 1 \amp 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \amp -2 \amp 0 \amp 3}</mrow>
+					<mrow>\amp \to_{R_3-R_2}\matr{ccc|ccc}{1 \amp 1 \amp 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp -2 \amp -1 \amp -3}</mrow>
+				</md>
+				<p>We see that <m>\RREF(A) \neq I_3</m>, so <m>A</m> is not invertible.  The matrix appearing on the right side of the augmentation line has no particular meaning for us in this case.</p>
+			</solution>
+		</example>
+
+		<example>
+			<p> Let <m>A = \begin{bmatrix}1 \amp 1 \amp 1 \\ 1 \amp 2 \amp 1 \\ 0 \amp 0 \amp 1\end{bmatrix}</m>.  Determine whether or not <m>A</m> is invertible, and if it is, find <m>A^{-1}</m>. </p>
+			<solution>
+				<p>We set up the augmented matrix <m>[A|I_3]</m> and row-reduce.</p>
+				<md>
+					<mrow>[A|I_3] \amp = \matr{ccc|ccc}{1 \amp 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp 2 \amp 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 1}</mrow>
+					<mrow>\amp \to_{R_2 - R_1} \matr{ccc|ccc}{1 \amp 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 1}</mrow>
+					<mrow>\amp \to_{R_1-R_2} \matr{ccc|ccc}{1 \amp 0 \amp 1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 1 \amp 0 \amp -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 1}</mrow>
+					<mrow>\amp \to_{R_1-R_3}\matr{ccc|ccc}{1 \amp 0 \amp 0 \amp 2 \amp -1 \amp -1 \\ 0 \amp 1 \amp 0 \amp -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 1}</mrow>
+				</md>
+				<p> This calculation shows that <m>\RREF(A) = I_3</m>, so <m>A</m> is invertible.  It also shows that <m>A^{-1} = \begin{bmatrix}2 \amp -1 \amp -1 \\ -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{bmatrix}</m>.</p>
+			</solution>
+		</example>
+	</subsection>
+
+	<subsection>
+		<title>
+			The inverse of a linear transformation
+		</title>
+
+		<definition>
+			<p> Let <m>T : \mathbb{R}^n \to \mathbb{R}^n</m> be a linear transformation.  The <em>inverse</em> for <m>T</m>, if it exists, is a function <m>T^{-1} : \mathbb{R}^n \to \mathbb{R}^n</m> such that for every <m>\vec{v}</m> in <m>\mathbb{R}^n</m>, <me>(T \circ T^{-1})(\vec{v}) = \vec{v} = (T^{-1} \circ T)(\vec{v})</me>.</p>
+		</definition>
+
+		<p> This is the same definition of "inverse function" that you have likely encountered in other mathematics courses.  If you have believed the slogan that linear transformations and matrices are fundamentally the same thing, then the next result is probably not surprising. </p>
+
+		<theorem xml:id="thm-transformation-inverse">
+			<statement>
+				<p> Let <m>T : \mathbb{R}^n \to \mathbb{R}^n</m> be a linear transformation.  The transformation <m>T</m> is invertible if and only if the matrix <m>[T]</m> is invertible.  In that case <m>T^{-1}</m> is a linear transformation, and <m>[T^{-1}] = [T]^{-1}</m>.</p>
+			</statement>
+			<proof>
+				<p> Suppose first that <m>[T]</m> is invertible, and let <m>S : \mathbb{R}^n \to \mathbb{R}^n</m> be defined by <m>S(\vec{v}) = [T]^{-1}\vec{v}</m>.  By <xref ref="thm-matrix-transform" /> <m>S</m> is a linear transformation, and <m>[S] = [T]^{-1}</m>.  Using <xref ref="thm-matrix-times-vector-implements-transformation" /> we have, for any <m>\vec{v}</m>,
+				<me>(S \circ T)(\vec{v}) = S(T(\vec{v})) = S([T]\vec{v}) = [S][T]\vec{v} = [T]^{-1}[T]\vec{v} = \vec{v}</me>, and likewise <me>(T \circ S)(\vec{v}) = [T][S]\vec{v} = [T][T]^{-1}\vec{v} = \vec{v}</me>.  Thus <m>T</m> is invertible. </p>
+				<p> Now suppose that <m>T</m> is invertible, with inverse function <m>T^{-1}</m>.  To show that <m>T^{-1}</m> is a linear transformation, suppose that <m>\vec{v}</m> and <m>\vec{w}</m> are vectors in <m>\mathbb{R}^n</m>, and <m>c</m> is a scalar.  Then: <me>\vec{v}+\vec{w} = T(T^{-1}(\vec{v})) + T(T^{-1}(\vec{w})) = T(T^{-1}(\vec{v}) + T^{-1}(\vec{w}))</me>, and applying <m>T^{-1}</m> on both sides then gives us <me>T^{-1}(\vec{v}+\vec{w}) = T^{-1}(\vec{v}) + T^{-1}(\vec{w})</me>.  Similarly, <me>c\vec{v} = cT(T^{-1}(\vec{v})) = T(cT^{-1}(\vec{v}))</me>, and applying <m>T^{-1}</m> to both sides gives <me>T^{-1}(c\vec{v}) = cT^{-1}(\vec{v})</me>.</p>
+				<p> Now since we have shown that <m>T^{-1}</m> is a linear transformation it has a matrix <m>[T^{-1}]</m>.  By <xref ref="thm-matrix-times-vector-implements-transformation" />, for any <m>\vec{v}</m>,
+				<me>[T^{-1}][T]\vec{v} = [T^{-1}]T(\vec{v}) = T^{-1}(T(\vec{v})) = \vec{v}</me>, from which it follows that <m>[T^{-1}][T] = I_n</m>.  This is enough to prove that <m>[T]</m> is invertible, and also that <m>[T^{-1}] = [T]^{-1}</m>, by <xref ref="thm-one-sided-inverse" />.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Let <m>T : \mathbb{R}^3 \to \mathbb{R}^3</m> be given by <m>T\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right) = \begin{bmatrix}x+y+z\\x-y\\x\end{bmatrix}</m>.  Show that <m>T</m> is invertible, and find a formula for <m>T^{-1}\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right)</m>. </p>
+			<solution>
+				<p>
+					The matrix of <m>T</m> is <m>[T] = \begin{bmatrix}1 \amp 1 \amp 1 \\ 1 \amp -1 \amp 0 \\ 1 \amp 0 \amp 0\end{bmatrix}</m>.  Using our method for finding the inverse, <me>\matr{ccc|ccc}{1 \amp 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp -1 \amp 0 \amp 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1} \to \matr{ccc|ccc}{1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \amp 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \amp 1 \amp -2}</me>.  Thus <m>[T]^{-1} = \begin{bmatrix}0 \amp 0 \amp 1 \\ 0 \amp -1 \amp 1 \\ 1 \amp 1 \amp -2\end{bmatrix}</m>.  By <xref ref="thm-transformation-inverse" /> we see that <m>T</m> is invertible, and moreover that <m>[T^{-1}] = [T]^{-1}</m>.  Thus, using <xref ref="thm-matrix-times-vector-implements-transformation" /> we have that for any <m>\begin{bmatrix}x\\y\\z\end{bmatrix}</m> in <m>\mathbb{R}^3</m>,
+					<me>T^{-1}\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right) = [T^{-1}]\begin{bmatrix}x\\y\\z\end{bmatrix} = [T]^{-1}\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}0 \amp 0 \amp 1 \\ 0 \amp -1 \amp 1 \\ 1 \amp 1 \amp -2\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}z \\ -y+z \\ x+y-2z\end{bmatrix}</me>.
+				</p>
+			</solution>
+		</example>
+
+	</subsection>
+
+
+	<xi:include href="3-4-exercises.ptx" />
+</section>

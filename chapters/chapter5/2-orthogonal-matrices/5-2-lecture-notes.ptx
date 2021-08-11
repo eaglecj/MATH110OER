@@ -1,0 +1,158 @@
+<section xml:id="sec-OrthoMatrix" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Orthogonal matrices
+	</title>
+
+	<subsection>
+		<title>
+			Definition and examples
+		</title>
+
+		<definition>
+			<p> A square matrix <m>Q</m> is called an <em>orthogonal matrix</em> if the columns of <m>Q</m> are an orthonormal set.</p>
+		</definition>
+
+		<note>
+			<p>Be careful: Despite the name, a matrix that has orthogonal columns is not necessarily an orthogonal matrix.  The definition of "orthogonal matrix" requires that the columns be <em>orthonormal</em>.</p>
+		</note>
+
+		<example>
+			<p> The matrix <m>\begin{bmatrix}1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \\ 1 \amp -1 \amp 0\end{bmatrix}</m> is <em>not</em> an orthogonal matrix.  It has orthogonal, but not orthonormal, columns. </p>
+		</example>
+
+		<example>
+			<p> The matrix <m>\begin{bmatrix}2/\sqrt{6} \amp 0 \amp 1/\sqrt{3} \\ 1/\sqrt{6} \amp 1/\sqrt{2} \amp -1/\sqrt{3} \\ -1/\sqrt{6} \amp 1/\sqrt{2} \amp 1/\sqrt{3}\end{bmatrix}</m> is an orthogonal matrix.  To verify this, calculate the dot product of each pair of columns and see that the answer is <m>0</m>, and then calculate the dot product of each column with itself and see that the answer is <m>1</m>. </p>
+		</example>
+	</subsection>
+
+	<subsection>
+		<title>
+			Properties of orthogonal matrices
+		</title>
+
+		<theorem xml:id="thm-orthogonal-matrix-inverse">
+			<statement>
+				<p> An <m>n \times n</m> matrix <m>Q</m> is an orthogonal matrix if and only if it is invertible and <m>Q^{-1} = Q^t</m>.</p>
+			</statement>
+			<proof>
+				<p> Suppose first that <m>Q</m> is an orthogonal matrix.  By <xref ref="lem-multiply-dot-product" /> and <xref ref="def-matrix-multiply" /> the <m>(i,j)</m> entry of <m>Q^tQ</m> is the dot product of row <m>i</m> of <m>Q^t</m> and column <m>j</m> of <m>Q</m>.  Since row <m>i</m> of <m>Q^t</m> is column <m>i</m> of <m>Q</m>, and the columns of <m>Q</m> form an orthonormal set, we have that the <m>(i,j)</m> entry of <m>Q^tQ</m> is <m>1</m> when <m>i=j</m> and <m>0</m> when <m>i\neq j</m>.  That is, <m>Q^tQ = I_n</m>.  By <xref ref="thm-one-sided-inverse" /> this is enough to allow us to conclude that <m>Q</m> is invertible and <m>Q^{-1} = Q^t</m>. </p>
+
+				<p> Now suppose that <m>Q^t = Q^{-1}</m>.  Then <m>Q^tQ = I_n</m>, so the <m>(i,j)</m> entry of <m>Q^tQ</m> is <m>1</m> when <m>i=j</m> and <m>0</m> when <m>i \neq j</m>.  As in the previous part of this proof, the <m>(i,j)</m> entry of <m>Q^tQ</m> is the dot product of column <m>i</m> of <m>Q</m> with column <m>j</m> of <m>Q</m>.  Thus the columns of <m>Q</m> are orthonormal, so <m>Q</m> is an orthogonal matrix.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Consider the matrix <m>A = \begin{bmatrix}2/\sqrt{6} \amp 0 \amp 1/\sqrt{3} \\ 1/\sqrt{6} \amp 1/\sqrt{2} \amp -1/\sqrt{3} \\ -1/\sqrt{6} \amp 1/\sqrt{2} \amp 1/\sqrt{3}\end{bmatrix}</m>, which we have already seen is an orthogonal matrix.  <xref ref="thm-orthogonal-matrix-inverse" /> tells us that
+			<me>A^{-1} = A^t = \begin{bmatrix}2/\sqrt{6} \amp 1/\sqrt{6} \amp -1/\sqrt{6} \\ 0 \amp 1/\sqrt{2} \amp 1/\sqrt{2} \\ 1/\sqrt{3} \amp -1/\sqrt{3} \amp 1/\sqrt{3}\end{bmatrix}</me>.  That was a lot faster than our usual methods of finding an inverse - it makes you wish that all matrices could be inverted this easily!</p>
+		</example>
+
+		<corollary xml:id="cor-rows-orthogonal">
+			<statement>
+				<p> Suppose that <m>Q</m> is an orthogonal matrix.  Then the rows of <m>Q</m> form an orthonormal set of vectors.</p>
+			</statement>
+			<proof>
+				<p> If <m>Q</m> is orthogonal then <m>Q^{-1} = Q^t</m> by <xref ref="thm-orthogonal-matrix-inverse" />, so by <xref ref="thm-inverse-properties"/>, <me> (Q^t)^{-1} = (Q^{-1})^t = (Q^t)^t</me>.  By <xref ref="thm-orthogonal-matrix-inverse" /> again this implies that <m>Q^t</m> is an orthogonal matrix.  Hence by definition the columns of <m>Q^t</m> form an orthonormal set.  Since the columns of <m>Q^t</m> are the rows of <m>Q</m>, we have that the rows of <m>Q</m> form an orthonormal set.</p>
+			</proof>
+		</corollary>
+
+		<p>Recall that when we introduced linear transformations we asked that a linear transformation should interact nicely with vector addition and scalar multiplication, but we did not require that it interact well with the more "geometric" notions of dot products or lengths.  It turns out that orthogonal matrices are precisely the matrices of linear transformations that do preserve these geometric features of <m>\mathbb{R}^n</m>.</p>
+		<theorem xml:id="thm-geometric-orthogonal-matrices">
+			<statement>
+				<p> Let <m>Q</m> be an <m>n \times n</m> matrix.  The following are equivalent:
+					<ol>
+						<li><m>Q</m> is an orthogonal matrix.</li>
+						<li>For all vectors <m>\vec{v}</m> and <m>\vec{w}</m> in <m>\mathbb{R}^n</m>, <m>(Q\vec{v}) \cdot (Q \vec{w}) = \vec{v} \cdot \vec{w}</m>.</li>
+						<li>For every vector <m>\vec{v}</m> in <m>\mathbb{R}^n</m>, <m>\norm{Q\vec{v}} = \norm{\vec{v}}</m>.</li>
+					</ol>
+				</p>
+			</statement>
+		</theorem>
+
+		<corollary xml:id="cor-orthogonal-preserve-angle">
+			<statement>
+				<p> Let <m>Q</m> be an orthogonal <m>n \times n</m> matrix.  Then for all vectors <m>\vec{v}</m> and <m>\vec{w}</m> in <m>\mathbb{R}^n</m>, the angle between <m>Q\vec{v}</m> and <m>Q\vec{w}</m> is the same as the angle between <m>\vec{v}</m> and <m>\vec{w}</m>.</p>
+			</statement>
+			<proof>
+				<p> Let <m>\theta</m> be the angle between <m>Q\vec{v}</m> and <m>Q\vec{w}</m>, and let <m>\phi</m> be the angle between <m>\vec{v}</m> and <m>\vec{w}</m>.  Then, using <xref ref="def-angle-between-vectors" /> and <xref ref="thm-geometric-orthogonal-matrices" />, we calculate: </p>
+				<md>
+					<mrow> \theta \amp= \arccos\left(\frac{Q\vec{v}\cdot Q\vec{w}}{\norm{Q\vec{v}}\norm{Q\vec{w}}}\right) </mrow>
+					<mrow> \amp= \arccos\left(\frac{\vec{v}\cdot\vec{w}}{\norm{\vec{v}}\norm{\vec{w}}}\right) </mrow>
+					<mrow> \amp= \phi </mrow>
+				</md>
+			</proof>
+		</corollary>
+
+		<note>
+			<p>It is possible for a matrix to preserve all angles (in the sense of <xref ref="cor-orthogonal-preserve-angle" />) without being an orthogonal matrix.  One easy example of such a matrix is <m>\begin{bmatrix}2 \amp 0 \\ 0 \amp 2\end{bmatrix}</m>.</p>
+		</note>
+
+		<p> Finally, here are some additional properties that orthogonal matrices have. </p>
+
+		<theorem>
+			<statement>
+				<p> Let <m>A</m> and <m>B</m> be orthogonal matrices.  Then:
+				<ol>
+					<li><m>AB</m> is an orthogonal matrix.</li>
+					<li><m>A^{-1}</m> is an orthogonal matrix.</li>
+					<li><m>A^t</m> is an orthogonal matrix.</li>
+					<li><m>\det(A) = \pm 1</m>.</li>
+					<li>Every eigenvalue <m>\lambda</m> of <m>A</m> in <m>\mathbb{C}</m> has <m>\abs{\lambda} = 1</m>.</li>
+				</ol>
+				</p>
+			</statement>
+
+			<proof>
+				<p>
+				<ol>
+					<li>We have <m>(AB)^t = B^tA^t = B^{-1}A^{-1} = (AB)^{-1}</m>, so <m>AB</m> is orthogonal by <xref ref="thm-orthogonal-matrix-inverse" />.</li>
+					<li>Calculate <m>(A^{-1})^t = (A^t)^t = A = (A^{-1})^{-1}</m>, so <m>A^{-1}</m> is orthogonal by <xref ref="thm-orthogonal-matrix-inverse" />.</li>
+					<li>By <xref ref="cor-rows-orthogonal" /> the rows of <m>A</m> are orthonormal, so the columns of <m>A^t</m> are orthonormal. </li>
+					<li>Recall from <xref ref="thm-matrix-operations-det" /> that <m>\det(A^t) = \det(A)</m> and <m>\det(A^{-1}) = 1/\det(A)</m>.  Since <m>A^t = A^{-1}</m> we get <m>\det(A) = 1/\det(A)</m>, so <m>\det(A)^2 = 1</m>, and thus <m>\det(A) = \pm 1</m>.</li>
+					<li>If <m>A\vec{v} = \lambda\vec{v}</m> with <m>\vec{v} \neq \vec{0}</m>, then <m>\norm{A\vec{v}} = \norm{\lambda\vec{v}}</m>, so by <xref ref="thm-geometric-orthogonal-matrices" /> we have <m>\norm{\vec{v}} = \abs{\lambda}\norm{\vec{v}}</m>.  Since <m>\norm{\vec{v}} \neq 0</m> we conclude that <m>\abs{\lambda} = 1</m>.</li>
+				</ol>
+				</p>
+			</proof>
+		</theorem>
+
+
+	</subsection>
+
+	<subsection>
+		<title>
+			Application: Characterizing rotations of <m>\mathbb{R}^2</m>
+		</title>
+
+		<p> We have seen already that rotations of <m>\mathbb{R}^2</m> are linear transformations, and we have seen what their matrices look like.  As an application of the ideas of this chapter we give an abstract way of detecting whether or not a given <m>2 \times 2</m> matrix is the matrix of a rotation.  For any angle <m>\theta</m>, let <m>T_\theta</m> denote the linear transformation of <m>\mathbb{R}^2</m> that rotates vectors counter-clockwise by <m>\theta</m> radians.</p>
+		
+		<theorem>
+			<statement>
+				<p> Let <m>A</m> be a <m>2 \times 2</m> matrix.  The following are equivalent:
+				<ol>
+					<li>There is an angle <m>\theta</m> such that <m>A = [T_\theta]</m>.</li>
+					<li><m>A</m> is an orthogonal matrix and <m>\det(A) = 1</m>.</li>
+				</ol>
+				</p>
+			</statement>
+			<proof>
+				<p> First, suppose that (1) holds, so <m>A = [T_\theta] = \begin{bmatrix}\cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta)\end{bmatrix}</m>.  Then the dot product of the columns of <m>A</m> is <me>\begin{bmatrix}\cos(\theta) \\ \sin(\theta)\end{bmatrix}\cdot \begin{bmatrix}-\sin(\theta)\\ \cos(\theta)\end{bmatrix} = \cos(\theta)(-\sin(\theta))+\sin(\theta)\cos(\theta) = 0</me>, and the lengths are <me>\norm{\begin{bmatrix}\cos(\theta) \\ \sin(\theta)\end{bmatrix}} = \sqrt{\cos^2(\theta) + \sin^2(\theta)} = 1</me> and <me>\norm{\begin{bmatrix}-\sin(\theta) \\ \cos(\theta)\end{bmatrix}} = \sqrt{(-\sin(\theta))^2 + \cos^2(\theta)} = 1</me>.  Thus <m>A</m> is an orthogonal matrix.  The determinant is <me>\det(A) = \det\begin{bmatrix}\cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta)\end{bmatrix} = \cos^2(\theta) + \sin^2(\theta) = 1</me>.  We've thus shown that (2) holds. </p>
+
+				<p> Now suppose that (2) holds, and that <m>A = \begin{bmatrix}a \amp b \\ c \amp d\end{bmatrix}</m>.  Since <m>A</m> is an orthogonal matrix, the vectors <m>\begin{bmatrix}a\\c\end{bmatrix}</m> and <m>\begin{bmatrix}b\\d\end{bmatrix}</m> are unit vectors in <m>\mathbb{R}^2</m>, which means that (in standard position) they end at points on the unit circle.  There are therefore angles <m>\phi</m> and <m>\psi</m> such that <m>\begin{bmatrix}a\\c\end{bmatrix} = \begin{bmatrix}\cos(\phi) \\ \sin(\phi)\end{bmatrix}</m> and <m>\begin{bmatrix}b\\d\end{bmatrix} = \begin{bmatrix}\cos(\psi) \\ \sin(\psi)\end{bmatrix}</m>.  More than this, the vectors <m>\begin{bmatrix}a\\c\end{bmatrix}</m> and <m>\begin{bmatrix}b\\d\end{bmatrix}</m> must be orthogonal, so <m>\psi = \phi \pm \pi/2</m>.</p>
+
+				<p>If <m>\psi = \phi+\pi/2</m> then <m>\cos(\psi) = \cos(\phi+\pi/2) = -\sin(\phi)</m> and <m>\sin(\psi) = \sin(\phi+\pi/2) = \cos(\phi)</m>.  In this case we get 
+				<me>A = \begin{bmatrix}\cos(\phi) \amp \cos(\psi) \\ \sin(\phi) \amp \sin(\psi)\end{bmatrix} = \begin{bmatrix}\cos(\phi) \amp -\sin(\phi) \\ \sin(\phi) \amp \cos(\phi)\end{bmatrix} = [T_\phi]</me>.
+				</p>
+
+				<p> The other case is <m>\psi = \phi-\pi/2</m>.  In this case <m>\cos(\psi) = \cos(\phi-\pi/2) = \sin(\phi)</m> and <m>\sin(\psi) = \sin(\phi - \pi/2) = -\cos(\phi)</m>.  Then we have
+				<me>A = \begin{bmatrix}\cos(\phi) \amp \cos(\psi) \\ \sin(\phi) \amp \sin(\psi) \end{bmatrix} = \begin{bmatrix}\cos(\phi) \amp \sin(\phi) \\ \sin(\phi) \amp -\cos(\phi)\end{bmatrix}</me>. 
+				This does not look like the matrix of a rotation, but there's also a part of the hypothesis (2) that we haven't used yet: <m>\det(A) = 1</m>.  If we calculate the determinant of the matrix we obtained in this case we get <me>\det\begin{bmatrix}\cos(\phi) \amp \sin(\phi) \\ \sin(\phi) \amp -\cos(\phi)\end{bmatrix} = -\cos^2(\phi) - \sin^2(\phi) = -1</me>.  Since this contradicts the assumption (2), this case (<m>\psi = \phi-\pi/2)</m>) is impossible.  We therefore were in the previous case, and we have <m>A = [T_\phi]</m>. </p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Let <m>A = \frac{1}{2\sqrt{2}}\begin{bmatrix}1+\sqrt{3} \amp 1-\sqrt{3} \\ \sqrt{3} - 1\amp 1+\sqrt{3}\end{bmatrix}</m>.  By calculating the dot products of the columns we find that <m>A</m> is an orthogonal matrix, and another direct calculation shows that <m>\det(A) = 1</m>.  Therefore there is some angle such that <m>A = [T_\theta]</m>.  In fact, <m>\theta = \pi/12</m>, which we can find by knowing that <m>\cos(\theta) = \frac{1+\sqrt{3}}{2\sqrt{2}}</m> and <m>\sin(\theta) = \frac{\sqrt{3}-1}{2\sqrt{2}}</m>.</p>
+		</example>
+	</subsection>
+
+	<xi:include href="5-2-exercises.ptx" />
+</section>

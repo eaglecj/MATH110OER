@@ -1,0 +1,39 @@
+<p><exercise><!-- xml:id="ex-" -->
+						<statement>	<aside><p> (Source: <xref ref="ref-KN"/>, Section 4.2, Exercise 4.2.45.) </p></aside>
+							Prove that the triangle inequality <m>\mathbf{\|u+v\| \le \|u\| + \|v\|}</m> holds for all vectors <m>\mathbf{u}</m> and <m>\mathbf{v}</m>.
+						</statement>
+						<hint>
+							Consider the triangle with <m>\mathbf{u}</m> and <m>\mathbf{v}</m> as two sides.
+						</hint>
+						<solution>
+							First, let us draw the triangle as suggested by the hint:
+							<p>
+							<figure> <!-- the <figure> container isn't strictly necessary, but it's nice if you want the figure to be numbered, or if you want to xref it later-->
+									<caption>A triangle with <m>\mathbf{u}</m> and <m>\mathbf{v}</m> as two sides</caption> <!-- also not necessary -->
+									<image>
+									<latex-image>
+										\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1.0cm,y=1.0cm]
+										\begin{axis}[
+											anchor=origin,  % Align the origins
+											x=1cm, y=1cm, % Set the same unit vectors
+											hide axis
+													]
+												\addplot [-latex] table {
+													0 0
+													1 2
+													}
+											node[near end, above] {\scriptsize $\mathbf{u}$};
+													\addplot [-latex] table {
+													0 0
+													3 1
+													} node[near end, below] {\scriptsize $\mathbf{v}$};
+											\end{axis}
+											\end{tikzpicture}
+									</latex-image>
+								</image>
+							</figure>
+							</p>
+						</solution>
+						<!--<answer>
+						</answer> -->
+					</exercise></p>

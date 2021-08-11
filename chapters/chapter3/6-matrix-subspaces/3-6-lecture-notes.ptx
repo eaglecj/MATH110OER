@@ -1,0 +1,212 @@
+<section xml:id="sec-Matrix-Subspaces" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Subspaces associated to matrices
+	</title>
+	<introduction>
+		<p> In <xref ref="sec-Subspaces" /> we introduced the notion of a subspace of <m>\mathbb{R}^n</m>.  In this section we will describe three important subspaces associated to any matrix, and also see how understanding these subspaces can shed light on some earlier topics from the course. </p>
+	</introduction>
+
+	<subsection>
+		<title>
+			The row space
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>row space</em> of <m>A</m>, denoted <m>\row(A)</m>, is defined to be the span of the rows of <m>A</m>. </p>
+		</definition>
+		<p> Note that <m>\row(A)</m> is a subspace of <m>\mathbb{R}^n</m>, by <xref ref="thm-span-subspace" />. </p>
+		<theorem xml:id="thm-basis-row-space">
+			<statement>
+				<p> For any matrix <m>A</m>, the non-zero rows of <m>\RREF(A)</m> form a basis for <m>\row(A)</m>. </p>
+			</statement>
+			<proof>
+				<p> It follows from the definition of the reduced row echelon form that the non-zero rows of <m>\RREF(A)</m> form a basis for <m>\row(\RREF(A))</m>, so all we need to show is that <m>\row(\RREF(A)) = \row(A)</m>.  To do that, it suffices to show that if we perform one row operation on <m>A</m> then we do not change the span of the rows.  The verification that this is true is left as an exercise. </p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Find a basis for <m>\row(A)</m>, where <m>A = \begin{bmatrix}1 \amp 3 \amp -2 \amp 4 \\ 4 \amp -4 \amp 3 \amp 2 \\ 3 \amp -7 \amp 5 \amp -2 \\ 1 \amp -1 \amp 2 \amp -2\end{bmatrix}</m>. </p>
+			<solution>
+				<p>
+					We row reduce:
+					<me> A = \begin{bmatrix}1 \amp 3 \amp -2 \amp 4 \\ 4 \amp -4 \amp 3 \amp 2 \\ 3 \amp -7 \amp 5 \amp -2 \\ 1 \amp -1 \amp 2 \amp -2\end{bmatrix} \to \begin{bmatrix}1 \amp 0 \amp 0 \amp 3/2 \\ 0 \amp 1 \amp 0 \amp -1/2 \\ 0 \amp 0 \amp 1 \amp -2 \\ 0 \amp 0 \amp 0 \amp 0\end{bmatrix}</me>.
+					By <xref ref="thm-basis-row-space" /> a basis for <m>\row(A)</m> is <m>\left\{\begin{bmatrix}1 \\ 0 \\ 0 \\ 3/2\end{bmatrix}, \begin{bmatrix}0 \\ 1 \\ 0 \\ -1/2\end{bmatrix}, \begin{bmatrix}0 \\ 0\\ 1 \\-2\end{bmatrix}\right\}</m>.
+				</p>
+			</solution>
+		</example>
+		<note>
+			<p>Warning: The rows of <m>A</m> corresponding to the non-zero rows of <m>\RREF(A)</m> are <em>not necessarily</em> a basis for <m>\row(A)</m>.  Indeed, in the example above, the first three rows of <m>A</m> itself are <m>not</m> a basis for <m>\row(A)</m>. </p>
+		</note>
+
+		<theorem xml:id="thm-rank-row-space">
+			<statement>
+				<p> For any matrix <m>A</m>, <m>\dim(\row(A)) = \rank(A)</m>. </p>
+			</statement>
+			<proof>
+				<p> By <xref ref="thm-basis-row-space" />, <m>\dim(\row(A))</m> is equal to the number of non-zero rows of <m>\RREF(A)</m>.  On the other hand, <m>\rank(A)</m> is also equal to the number of non-zero rows of <m>\RREF(A)</m>, by <xref ref="lem-pivot-nonzero-row" />. </p>
+			</proof>
+		</theorem>
+	</subsection>
+
+
+	<subsection>
+		<title>
+			The column space
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>column space</em> of <m>A</m>, denoted <m>\col(A)</m>, is defined to be the span of the columns of <m>A</m>. </p>
+		</definition>
+		<p> As with the row space, <xref ref="thm-span-subspace" /> tells us that <m>\col(A)</m> is a subspace (this time it is a subspace of <m>\mathbb{R}^m</m>). </p>
+		<p> One way that we could look for a basis for <m>\col(A)</m> is to notice that <m>\col(A) = \row(A^t)</m>, so we could apply <xref ref="thm-basis-row-space" /> to <m>A^t</m> to give us a basis for <m>\col(A)</m>.  However, doing this requires row reducing <m>A^t</m>.  It is useful to have a method for finding a basis for <m>\col(A)</m> that can be calculated from <m>\RREF(A)</m>, rather than <m>\RREF(A^t)</m>. </p>
+		<theorem xml:id="thm-basis-col-space">
+			<statement>
+				<p> For any matrix <m>A</m>, the pivot columns of <m>A</m> form a basis for <m>\col(A)</m>.</p>
+			</statement>
+			<proof>
+				<p> We won't give a complete proof of this fact, but the key idea is that when we do row operations we do not change the linear dependency relations between the columns.  Thus, for instance, if in <m>\RREF(A)</m> the third column is equal to the sum of the first two then also in <m>A</m> the third column is the sum of the first two, and vice versa.  From the definition of the reduced row echelon form we see that the pivot columns of <m>\RREF(A)</m> form a basis for <m>\col(\RREF(A))</m>, and therefore the corresponding columns of <m>A</m> form a basis for <m>\col(A)</m>.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> Find a basis for <m>\row(A)</m>, where <m>A = \begin{bmatrix} 2 \amp -1 \amp 5 \amp 3 \\ 1 \amp 1 \amp -2 \amp 1 \\ 4 \amp 0 \amp 4 \amp -1 \\ -1 \amp 1 \amp -4 \amp 0\end{bmatrix}</m>. </p>
+			<solution>
+				<p> 
+					Start by row reducing: 
+					<me> A =  \begin{bmatrix} 2 \amp -1 \amp 5 \amp 3 \\ 1 \amp 1 \amp -2 \amp 1 \\ 4 \amp 0 \amp 4 \amp -1 \\ -1 \amp 1 \amp -4 \amp 0\end{bmatrix} \to \begin{bmatrix} 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 1 \amp -3 \amp 0 \\ 0 \amp 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \amp 0\end{bmatrix}</me>.
+					We see that columns <m>1</m>, <m>2</m>, and <m>4</m> are the pivot columns.  Therefore, by <xref ref="thm-basis-col-space" />, a basis for <m>\col(A)</m> is <m>\left\{\begin{bmatrix}2\\1\\4\\-1\end{bmatrix}, \begin{bmatrix}-1\\1\\0\\1\end{bmatrix}, \begin{bmatrix}3\\1\\-1\\0\end{bmatrix}\right\}</m>.
+				</p>
+			</solution>
+		</example>
+
+		<note>
+			<p>Warning: It usually happens that <m>\col(A) \neq \col(\RREF(A))</m>, so the pivot columns of <m>\RREF(A)</m> are <em>not necessarily</em> a basis for <m>\col(A)</m>.</p>
+			<p>Notice that the process for the row and column spaces are different, even though both use the reduced row echelon form.  When finding a basis for the row space we use the rows of <m>\RREF(A)</m>.  When finding a basis for the column space we use the columns of <m>A</m>, and use <m>\RREF(A)</m> to determine which columns to take.</p>
+		</note>
+
+		<theorem xml:id="thm-rank-col-space">
+			<statement>
+				<p> For any matrix <m>A</m>, <m>\dim(\col(A)) = \rank(A)</m>, and therefore also <m>\dim(\col(A)) = \dim(\row(A))</m>. </p>
+			</statement>
+			<proof>
+				<p> From <xref ref="thm-basis-col-space" /> we have that <m>\dim(\col(A))</m> is the number of pivot columns of <m>A</m>, which is by definition <m>\rank(A)</m>.  Using <xref ref="thm-rank-row-space" /> we therefore have <me>\dim(\col(A)) = \rank(A) = \dim(\row(A))</me>. </p>
+			</proof>
+		</theorem>
+
+		<note>
+			<p> The conclusion of the above theorem is surprising!  For instance, if <m>A</m> is a <m>17 \times 3</m> matrix then <m>\col(A)</m> is a subspace of <m>\mathbb{R}^{17}</m> and <m>\row(A)</m> is a subspace of <m>\mathbb{R}^{3}</m>.  A priori it is surprising that these two subspaces should have anything to do with each other - they certainly do not contain the same vectors!  Yet <xref ref="thm-rank-col-space" /> tells us that they do have the same dimension.  In particular, even though <m>\col(A)</m> is a subspace of <m>\mathbb{R}^{17}</m>, we know that <m>\dim(\col(A)) = \dim(\row(A)) \leq 3</m>.</p>
+		</note>
+
+		<corollary>
+			<statement>
+				<p> For any matrix <m>A</m>, <m>\rank(A) = \rank(A^t)</m>. </p>
+			</statement>
+			<proof>
+				<me> \rank(A) = \dim(\col(A)) = \dim(\row(A^t)) = \rank(A^t)</me>.
+			</proof>
+		</corollary>
+
+		<p> The column space of a matrix has a nice geometric interpretation, though we won't spend much time on this point.</p>
+		<p>Suppose that <m>T : \mathbb{R}^n \to \mathbb{R}^m</m> is a linear transformation.  The <em>image</em> of <m>T</m> is the collection of all of the vectors in <m>\mathbb{R}^m</m> that actually appear as outputs of <m>T</m>; that is, it is the set of all vectors of the form <m>T(\vec{v})</m> where <m>\vec{v}</m> is a vector in <m>\mathbb{R}^n</m>.  Using the fact that <m>T(\vec{v}) = [T]\vec{v}</m> (<xref ref="thm-matrix-times-vector-implements-transformation" />) and the fact that multiplying a matrix by a vector gives a linear combination of the columns (<xref ref="def-matrix-times-vector" />), one can show that the image of <m>T</m> is exactly the same as the column space of <m>[T]</m>.
+		</p>
+	</subsection>
+
+
+	<subsection>
+		<title>
+			The null space
+		</title>
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>null space</em> of <m>A</m>, denoted <m>\null(A)</m>, is the collection of all vectors <m>\vec{v}</m> in <m>\mathbb{R}^n</m> such that <m>A\vec{v} = \vec{0}</m>.</p>
+		</definition>
+		<theorem>
+			<statement>
+				<p> If <m>A</m> is any <m>m \times n</m> matrix then <m>\null(A)</m> is a subspace of <m>\mathbb{R}^n</m>. </p>
+			</statement>
+			<proof>
+				<p>We check the conditions of <xref ref="def-subspace" />.</p>
+				<p>First, since <m>A\vec{0} = \vec{0}</m> the vector <m>\vec{0}</m> is in <m>\null(A)</m>, and hence <m>\null(A)</m> is not empty. </p>
+				<p>Second, suppose that <m>\vec{v}</m> and <m>\vec{w}</m> are in <m>\null(A)</m>.  Then <m>A\vec{v} = \vec{0}</m> and <m>A\vec{w} = \vec{0}</m>, so <me>A(\vec{v} + \vec{w}) = A\vec{v}+A\vec{w} = \vec{0}+\vec{0} = \vec{0}</me>.  This shows that <m>\vec{v}+\vec{w}</m> is in <m>\null(A)</m>. </p>
+				<p>Finally, suppose that <m>\vec{v}</m> is in <m>\null(A)</m> and <m>c</m> is a scalar.  Then <m>A\vec{v} = \vec{0}</m>, so <me>A(c\vec{v}) = cA\vec{v} = c\vec{0} = \vec{0}</me>.  This shows that <m>c\vec{v}</m> is in <m>\null(A)</m>.</p>
+			</proof>
+		</theorem>
+
+		<definition>
+			<p> Let <m>A</m> be an <m>m \times n</m> matrix.  The <em>nullity</em> of <m>A</m> is <m>\nullity(A) = \dim(\null(A))</m>. </p>
+		</definition>
+
+		<p> We've seen both the null space and the nullity before, under a different disguise.  Notice that, by <xref ref="thm-system-as-matrix-equation" />, we have that <m>\vec{v}</m> is in <m>\null(A)</m> if and only if <m>\vec{v}</m> is a solution to the homogeneous system <m>[A|\vec{0}]</m>.  Thus to find a basis for <m>\null(A)</m> we just take <m>[A|\vec{0}]</m> to reduced row echelon form and extract a collection of linearly independent solutions, as we have done before.  Moreover, as we have seen before, the number of free variables of the system will be the dimension of the space of solutions (see <xref ref="sec-SLERevisted" />).  These observations give us a reformulation of <xref ref="thm-rank-nullity-version-1" />:</p>
+		<theorem xml:id="thm-rank-nullity-version-2">
+			<title> Rank-Nullity Theorem (revisited) </title>
+			<statement>
+				<p> Let <m>A</m> be an <m>m \times n</m> matrix.  Then <m>\rank(A) + \nullity(A) = n</m>. </p>
+			</statement>
+		</theorem>
+		<example xml:id="ex-basis-null-space">
+			<p> Let <m>A = \begin{bmatrix}3 \amp 2 \amp -1 \amp 0 \\ 1 \amp 2 \amp -1 \amp 3\end{bmatrix}</m>.  Then <m>\RREF(A) = \begin{bmatrix}1 \amp 0 \amp 0 \amp -3/2 \\ 0 \amp 1 \amp -1/2 \amp 9/4\end{bmatrix}</m>, so we have that <m>\begin{bmatrix}x\\y\\z\\w\end{bmatrix}</m> is in <m>\null(A)</m> if and only if <m>x=\frac{3}{2}w</m> and <m>y = \frac{1}{2}z - \frac{9}{4}w</m>.  That is,
+			<me> \begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}\frac{3}{2}w \\ \frac{1}{2}z - \frac{9}{4}w \\ z \\ w\end{bmatrix} = z\begin{bmatrix}0\\1/2\\1\\0\end{bmatrix} + w\begin{bmatrix}3/2 \\ -9/4 \\ 0 \\1\end{bmatrix}</me>.
+			Therefore <m>\left\{\begin{bmatrix}0 \\ 1/2 \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix}3/2 \\ -9/4 \\ 0 \\ 1\end{bmatrix}\right\}</m> is a basis for <m>\null(A)</m>, and <m>\nullity(A) = 2</m>.</p>
+		</example>
+
+
+
+		<p> In <xref ref="cor-number-of-solutions-1" /> we proved that any system of linear equations has either no solution, exactly one solution, or infinitely many solutions.  The material we have developed in this chapter allows us to give a different proof, which also gives some information about what the solutions to a system look like. </p>
+		<theorem xml:id="thm-homogeneous-plus-solution">
+			<statement>
+				<p> Consider a system of linear equations written in augmented matrix form as <m>[A|\vec{b}]</m>, and suppose that <m>\vec{v}</m> is a solution to the system.  A vector <m>\vec{w}</m> is a solution to the system <m>[A|\vec{b}]</m> if and only if it can be written in the form <m>\vec{w} = \vec{v} + \vec{z}</m>, where <m>\vec{z}</m> is a vector in <m>\null(A)</m>.</p>
+			</statement>
+			<proof>
+				<p>
+					First, suppose that <m>\vec{w}</m> is a solution to <m>[A|\vec{b}]</m>.  Then by <xref ref="thm-system-as-matrix-equation" /> we have <m>A\vec{w} = \vec{b}</m>, and since <m>\vec{v}</m> is also a solution we have <m>A\vec{v} = \vec{b}</m>.  If we let <m>\vec{z} = \vec{w}-\vec{v}</m> and subtract the above equations, we get:
+					<me>\vec{0} = \vec{b}-\vec{b} = A\vec{w} - A\vec{v} = A(\vec{w}-\vec{v}) = A\vec{z}</me>.
+					Thus <m>\vec{z}</m> is in <m>\null(A)</m>, and <m>\vec{v}+\vec{z} = \vec{v} + (\vec{w}-\vec{v}) = \vec{w}</m>.
+				</p>
+				<p> 
+					For the other direction, suppose that <m>\vec{z}</m> is in <m>\null(A)</m>.  By <xref ref="thm-system-as-matrix-equation" /> we have <m>A\vec{v} = \vec{b}</m>, and so:
+					<me> A(\vec{v}+\vec{z}) = A\vec{v} + A\vec{z} = \vec{b}+\vec{0} = \vec{b}</me>, 
+					and so (again by <xref ref="thm-system-as-matrix-equation" />) we have that <m>\vec{v}+\vec{z}</m> is a solution to <m>[A|\vec{b}]</m>.
+				</p>
+			</proof>
+		</theorem>
+
+		<corollary>
+			<statement> <p> Any system of linear equations has either no solution, exactly one solution, or infinitely many solutions. </p></statement>
+			<proof>
+				<p> Suppose that a system <m>[A|\vec{b}]</m> has more than one solution, say <m>\vec{v_1}</m> and <m>\vec{v_2}</m> are two different solutions.  By <xref ref="thm-homogeneous-plus-solution" /> there is a vector <m>\vec{z}</m> in <m>\null(A)</m> such that <m>\vec{v_1} = \vec{v_2}+\vec{z}</m>.  For any scalar <m>a</m> the vector <m>a\vec{z}</m> is also in <m>\null(A)</m>, because <m>\null(A)</m> is a subspace.  Therefore, by the other direction of <xref ref="thm-homogeneous-plus-solution" />, each of the vectors <m>\vec{v_1} + a\vec{z}</m> is a solution to <m>[A|\vec{b}]</m>.  Finally, since <m>\vec{v_1} \neq \vec{v_2}</m> we have <m>\vec{z} \neq \vec{0}</m>, so if <m>a \neq b</m> then <m>\vec{v_1} + a\vec{z} \neq \vec{v_1} + b\vec{z}</m>.  Thus the vectors of the form <m>\vec{v_1}+a\vec{z}</m> are infinitely many different solutions to the system <m>[A|\vec{b}]</m>. </p>
+			</proof>
+		</corollary>
+	</subsection>
+
+	<subsection>
+		<title>
+			The Fundamental Theorem, again
+		</title>
+		<p> In this section we introduced a lot of terminology related to ideas that already appeared in the Fundamental Theorem, so we take this opportunity to re-state that theorem.  Each of the new items on this version of the theorem is just a rephrasing of something that was already on the list in <xref ref="thm-fundamental-determinant" />. </p>
+		<theorem xml:id="thm-fundamental-with-subspaces">
+			<title>Fundamental Theorem - Version 4</title>
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> matrix.  The following are equivalent: </p>
+				<ol>
+					<li> <m>\RREF(A) = I_n</m>.</li>
+					<li> <m>A</m> is invertible. </li>
+					<li> The system <m>[A|\vec{0}]</m> has a unique solution. </li>
+					<li> The equation <m>A\vec{x} = \vec{0}</m> has a unique solution. </li>
+					<li> The only vector in <m>\null(A)</m> is <m>\vec{0}</m>.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the system <m>[A|\vec{b}]</m> has a unique solution.</li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the equation <m>A\vec{x} = \vec{b}</m> has a unique solution. </li>
+					<li> The columns of <m>A</m> are linearly independent. </li>
+					<li> The span of the columns of <m>A</m> is <m>\mathbb{R}^n</m>. </li>
+					<li> <m>\col(A) = \mathbb{R}^n</m>.</li>
+					<li> <m>\row(A) = \mathbb{R}^n</m>.</li>
+					<li> <m>\rank(A) = n</m>.</li>
+					<li> <m>\nullity(A) = 0</m>.</li>
+					<li> <m>A</m> can be written as a product of a finite collection of elementary matrices. </li>
+					<li> <m>\det(A) \neq 0</m>.</li>
+				</ol>
+			</statement>
+			<proof>
+				<p> The new entries in this version of the theorem are (5), (10), (11),  and (13).  (5) is just a rephrasing of (4), and (10) is a rephrasing of (9).  (11) is equivalent to (2) because <m>\row(A) = \mathbb{R}^n</m> if and only if <m>\dim(\row(A)) = n</m> if and only if <m>\rank(A) = n</m> (by <xref ref="thm-rank-row-space" />).  Finally, (13) is equivalent to (12) by the <xref ref="thm-rank-nullity-version-2" text="custom">Rank-Nullity Theorem</xref>.</p>
+			</proof>
+		</theorem>
+	</subsection>
+	<xi:include href="3-6-exercises.ptx" />
+</section>
