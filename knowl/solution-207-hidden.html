@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-08-11T16:56:29-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<p>By <a class="xref" data-knowl="./knowl/thm-ortho-decomposition.html" title="Theorem 6.2.12: Orthogonal Decomposition Theorem">Theorem 6.2.12</a> the only way to answer this question is with \(\vec{v} = \proj_P(\vec{v}) + \perr_P(\vec{v})\text{.}\)  To find \(\proj_P(\vec{v})\) we need to start with an orthogonal basis for \(P\text{.}\)  To find one, we start by re-writing the equation for \(P\) as \(y=-2x+3z\text{.}\)  Substituting this in to a vector \(\begin{bmatrix}x\\y\\z\end{bmatrix}\) shows us that \(\left\{\begin{bmatrix}1\\-2\\0\end{bmatrix}, \begin{bmatrix}0\\3\\1\end{bmatrix}\right\}\) is a basis for \(P\text{.}\)  Sadly, this basis is not an orthogonal basis, so we use the <a class="xref" data-knowl="./knowl/thm-Gram-Schmidt.html" title="Theorem 6.1.9: Gram-Schmidt Algorithm">Gram-Schmidt Algorithm</a> to produce an orthogonal basis.  We get \(\vec{w_1} = \begin{bmatrix}1\\-2\\0\end{bmatrix}\) and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vec{w_2} = \begin{bmatrix}0\\3\\1\end{bmatrix} - \left(\frac{\begin{bmatrix}0\\3\\1\end{bmatrix} \cdot \begin{bmatrix}1\\-2\\0\end{bmatrix}}{\begin{bmatrix}1\\-2\\0\end{bmatrix}\cdot\begin{bmatrix}1\\-2\\0\end{bmatrix}}\right)\begin{bmatrix}1\\-2\\0\end{bmatrix} = \begin{bmatrix}6/5 \\ 3/5 \\ 1\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p data-braille="continuation">As usual, rescaling is harmless, so we multiply by \(5\) and take \(\vec{w_2} = \begin{bmatrix}6\\3\\5\end{bmatrix}\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Now we can use the definition of \(\proj_P(\vec{v})\) to calculate:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\proj_P\left(\begin{bmatrix}1\\2\\3\end{bmatrix}\right) = \left(\frac{\begin{bmatrix}1\\2\\3\end{bmatrix} \cdot \begin{bmatrix}1\\-2\\0\end{bmatrix}}{\begin{bmatrix}1\\-2\\0\end{bmatrix}\cdot\begin{bmatrix}1\\-2\\0\end{bmatrix}}\right)\begin{bmatrix}1\\-2\\0\end{bmatrix} + \left(\frac{\begin{bmatrix}1\\2\\3\end{bmatrix} \cdot \begin{bmatrix}6\\3\\5\end{bmatrix}}{\begin{bmatrix}6\\3\\5\end{bmatrix}\cdot\begin{bmatrix}6\\3\\5\end{bmatrix}}\right)\begin{bmatrix}6\\3\\5\end{bmatrix} = \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Here we must be careful - it would be incorrect to rescale this vector.  We are just stuck with the fractions.  Finally, we calculate:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\perr_P\left(\begin{bmatrix}1\\2\\3\end{bmatrix}\right) = \begin{bmatrix}1\\2\\3\end{bmatrix} - \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix} = \begin{bmatrix}-10/7 \\ -5/14 \\ 15/14\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">We now have the desired way of writing \(\begin{bmatrix}1\\2\\3\end{bmatrix}\) as a sum of a vector in \(P\) (the first vector below) and a vector in \(P^\perp\) (the second vector below).</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{bmatrix}1\\2\\3\end{bmatrix} = \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix} + \begin{bmatrix}-10/7 \\ -5/14 \\ 15/14\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+</div></body>
+</html>

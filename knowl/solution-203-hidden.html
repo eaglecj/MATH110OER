@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-08-11T16:56:25-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<p>The first step is again to find the eigenvalues of \(A\text{.}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\chi_A(x) = \det(A-xI_3) = \det\begin{bmatrix}1-x \amp 2 \amp 0 \\ -1 \amp 4-x \amp 0 \\ 1 \amp -1 \amp 3-x\end{bmatrix} = -x^3+8x^2-21x+18 = -(x-2)(x-3)^2\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">The eigenvalues are \(2\text{,}\) with algebraic multiplicity \(1\text{,}\) and \(3\text{,}\) with algebraic multiplicity \(2\text{.}\)</p>
+<p>We next find a basis for \(E_A(3)\text{,}\) by row-reducing:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A-3I_3 = \begin{bmatrix}-2 \amp 2 \amp 0 \\-1 \amp 1 \amp 0 \\ 1 \amp -1 \amp 0\end{bmatrix} \to \begin{bmatrix}1 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">We see that vectors in \(E_A(3)\) look like \(\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}y\\y\\z\end{bmatrix} = y\begin{bmatrix}1\\1\\0\end{bmatrix} + z\begin{bmatrix}0\\0\\1\end{bmatrix}\text{.}\)  Therefore \(\left\{\begin{bmatrix}1\\1\\0\end{bmatrix}, \begin{bmatrix}0\\0\\1\end{bmatrix}\right\}\) is a basis for \(E_A(3)\text{.}\)  In particular, \(\geo_A(3) = 2\text{.}\)  This matches with \(\alg_A(3) = 2\text{,}\) so we move on to the next eigenvalue.</p>
+<p>We look for a baiss for \(E_A(2)\text{:}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A-2I_3 = \begin{bmatrix}-1 \amp 2 \amp 0 \\ -1 \amp 2 \amp 0 \\ 1 \amp -1 \amp 1\end{bmatrix} \to \begin{bmatrix}1 \amp 0 \amp 2 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Therefore vectors in \(E_A(2)\) have the form \(\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}-2z \\ -z \\ z\end{bmatrix} = z\begin{bmatrix}-2\\-1\\1\end{bmatrix}\text{.}\)  This shows that a basis for \(E_A(2)\) is \(\left\{\begin{bmatrix}-2\\-1\\1\end{bmatrix}\right\}\text{.}\)  It also shows that \(\geo_A(2) = 1\text{,}\) which matches with \(\alg_A(2) = 1\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Since \(\geo_A(\lambda) = \alg_A(\lambda)\) for every eigenvalue \(\lambda\text{,}\) it follows from <a class="xref" data-knowl="./knowl/thm-diagonalization-main.html" title="Theorem 5.2.15">Theorem 5.2.15</a> that \(A\) is diagonalizable.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">To find the matrices \(P\) and \(D\text{,}\) we start by choosing an order to write the eigenvalues on the diagonal of \(D\text{.}\)  Any order is fine; we choose \(D = \begin{bmatrix}3 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3\end{bmatrix}\text{.}\)  Next we need to make the columns of \(P\) to be eigenvectors in the corresponding order to the order we used for \(D\text{.}\)  Using the bases found above, we choose \(P = \begin{bmatrix}1 \amp -2 \amp 0\\ 1 \amp -1 \amp 0\\ 0 \amp 1 \amp 1\end{bmatrix}\text{.}\)  With these choices we have \(A = PDP^{-1}\) - that this equation is correct follows form <a class="xref" data-knowl="./knowl/thm-diagonalization-main.html" title="Theorem 5.2.15">Theorem 5.2.15</a>, but you could check it by hand if you wish.</p>
+</div></body>
+</html>

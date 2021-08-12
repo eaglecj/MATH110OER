@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-08-11T16:56:23-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><div class="solution solution-like">
+<p>We start by finding and factoring the characteristic polynomial.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\chi_A(x) \amp = \det(A - xI_4) \\
+\amp = \det\begin{bmatrix} 5-x \amp 3 \amp -6 \amp -5 \\ -5 \amp -11-x \amp 5 \amp 0 \\ -4 \amp -12 \amp 3-x \amp -5 \\ 6 \amp 18 \amp -11 \amp -1-x\end{bmatrix} \\
+\amp = x^4 + 4x^3 -44x^2 -96x +576 \\
+\amp = (x-4)^2(x+6)^2\text{.}
+\end{align*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Now we know that the eigenvalues are \(4\) and \(-6\text{,}\) and that each has algebraic multiplicity \(2\text{.}\)</p>
+<p>Next we pick one of the eigenvalues and look for eigenvectors.  Let's start with the eigenvalue \(4\text{.}\)  We want to find a basis for \(E_A(4) = \null(A - 4I_4)\text{,}\) so we row-reduce:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A - 4I_4 = \begin{bmatrix} 1 \amp 3 \amp -6 \amp -5 \\ -5 \amp -15 \amp 5 \amp 0 \\ -4 \amp -12 \amp -1 \amp -5 \\ 6 \amp 18 \amp -11 \amp -5\end{bmatrix} \to \begin{bmatrix}1 \amp 3 \amp 0 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \amp 0\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p>We've arrived at the equations \(x+3y+w=0\) and \(z+w=0\text{,}\) so vectors in this eigenspace look like:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}-3y-w \\ y \\ -w \\ w\end{bmatrix} = y\begin{bmatrix}-3\\1\\0\\0\end{bmatrix} + w\begin{bmatrix}-1\\0\\-1\\1\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p data-braille="continuation">We have thus found that a basis for \(E_4(A)\) is \(\left\{\begin{bmatrix}-3\\1\\0\\0\end{bmatrix}, \begin{bmatrix}-1\\0\\-1\\1\end{bmatrix}\right\}\text{.}\)  Since this basis has \(2\) vectors in it we conclude that \(\geo_A(4) = \dim(E_A(4)) = 2\text{.}\)</p>
+<p>Now we turn to the other eigenvalue, \(-6\text{,}\) and repeat the process.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A - (-6)I_4 = \begin{bmatrix} 11 \amp 3 \amp -6 \amp -5 \\ -5 \amp -5 \amp 5 \amp 0 \\ -4 \amp -12 \amp 9 \amp -5 \\ 6 \amp 18 \amp -11 \amp 5\end{bmatrix} \to \begin{bmatrix}1 \amp 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \amp 0\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p>This time the equations we get are \(x-w=0\text{,}\) \(y=0\text{,}\) \(z-w=0\text{,}\) so vectors in \(E_A(-6)\) have this form:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}w\\0\\w\\w\end{bmatrix} = w\begin{bmatrix}1\\0\\1\\1\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Therefore \(\left\{\begin{bmatrix}1\\0\\1\\1\end{bmatrix}\right\}\) is a basis for \(E_A(-6)\text{,}\) and since this basis contains only one vector we have \(\geo_A(-6) = 1\text{.}\)</p>
+</div></body>
+</html>

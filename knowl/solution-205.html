@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-08-11T16:56:27-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.1.10.1</span><span class="period">.</span>
+</h6>
+<p>We start by finding any basis for \(S\text{.}\)  To do this, we solve for one of the variables, say writing \(z = 2x-y\text{.}\)  Thus vectors on the plane have the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x\\y\\2x-y\end{bmatrix} = x\begin{bmatrix}1\\0\\2\end{bmatrix} + y\begin{bmatrix}0\\1\\-1\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p data-braille="continuation">Let \(\vec{v_1} = \begin{bmatrix}1\\0\\2\end{bmatrix}\) and \(\vec{v_2} = \begin{bmatrix}0\\1\\-1\end{bmatrix}\text{.}\)  So far we have that \(\{\vec{v_1}, \vec{v_2}\}\) is a basis for \(P\text{.}\)</p>
+<p>Now we apply the Gram-Schmidt algorithm.  It begins by setting \(\vec{w_1} = \vec{v_1} = \begin{bmatrix}1\\0\\2\end{bmatrix}\text{.}\)  Next, we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\vec{w_2} \amp = \vec{v_2} - \left(\frac{\vec{w_1}\cdot\vec{v_2}}{\vec{w_1}\cdot\vec{w_1}}\right)\vec{w_1} \\
+\amp = \begin{bmatrix}0\\1\\-1\end{bmatrix} - \frac{\begin{bmatrix}0\\1\\-1\end{bmatrix}\cdot\begin{bmatrix}1\\0\\2\end{bmatrix}}{\begin{bmatrix}1\\0\\2\end{bmatrix}\cdot\begin{bmatrix}1\\0\\2\end{bmatrix}}\begin{bmatrix}1\\0\\2\end{bmatrix}\\
+\amp = \begin{bmatrix}0\\1\\-1\end{bmatrix} - \frac{-2}{5}\begin{bmatrix}1\\0\\2\end{bmatrix}\\
+\amp = \begin{bmatrix}2/5 \\ 1 \\ -1/5\end{bmatrix}
+\end{align*}
+</div>
+<p data-braille="continuation">Now \(\{\vec{w_1}, \vec{w_2}\}\) is an orthogonal basis for \(P\text{.}\)  It's slightly annoying to work with \(\vec{w_2}\) in its current form, and replacing a vector by a scalar multiple of that vector doesn't change anything about orthogonality, so there is no harm in replacing our original \(\vec{w_2}\) by a multiply of it to clear out fractions.  We therefore instead choose to take \(\vec{w_2} = \begin{bmatrix}2\\5\\-1\end{bmatrix}\text{.}\)</p>
+<p>Finally, to obtain an orthonormal basis, just divide each vector in an orthogonal basis by its length.  We have \(\norm{\vec{w_1}} = \sqrt{\vec{w_1} \cdot \vec{w_1}} = \sqrt{5}\) and \(\norm{\vec{w_2}} = \sqrt{30}\text{,}\) so our final orthonormal basis is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\left\{\begin{bmatrix}1/\sqrt{5} \\ 0 \\ 2/\sqrt{5}\end{bmatrix}, \begin{bmatrix}2/\sqrt{30} \\ 5/\sqrt{30} \\ -1/\sqrt{30}\end{bmatrix}\right\}\text{.}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="sec-Ortho.html#solution-205">in-context</a></span>
+</body>
+</html>
