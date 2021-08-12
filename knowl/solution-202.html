@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-03-13T12:22:22-08:00       *-->
+<!--*       on 2021-08-11T16:56:25-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,8 +16,24 @@
 <body>
 <div class="solution solution-like">
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.2.1.d.1</span><span class="period">.</span>
-</h6>\(cof(A)_{11}=(-1)^{1+1}minor(A)_{11} = -14\)</div>
-<span class="incontext"><a href="sec-determinants.html#solution-202">in-context</a></span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.2.16.1</span><span class="period">.</span>
+</h6>
+<p>We start by finding the eigenvalues of \(A\text{.}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\chi_A(x) = \det(A - xI_3) = \det\begin{bmatrix}-x \amp 1 \amp 3 \\ 2 \amp -1-x \amp 3 \\ -2 \amp 5 \amp 1-x\end{bmatrix} = -x^3 +12x +16 = -(x-4)(x+2)^2\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Now we know that the eigenvalues are \(4\text{,}\) with algebraic multiplicitiy \(1\text{,}\) and \(-2\text{,}\) with algebraic multiplicity \(2\text{.}\)</p>
+<p>Next we need to find out the geometric multiplicities of the eigenvalues, to see if we have enough linearly independent eigenvectors.  Let's start with the eigenvalue \(-2\text{.}\)  To find a basis for the eigenspace, we row-reduce:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A-(-2)I_3 = \begin{bmatrix}2 \amp 1 \amp 3 \\ 2 \amp 1 \amp 3 \\ -2 \amp 5 \amp 3\end{bmatrix} \to \begin{bmatrix}1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">From here we see that vectors in \(E_A(-2)\) have the form \(\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}-z\\-z\\z\end{bmatrix} = z\begin{bmatrix}-1\\-1\\1\end{bmatrix}\text{.}\)  Therefore \(\left\{\begin{bmatrix}-1\\-1\\1\end{bmatrix}\right\}\) is a basis for \(E_A(-2)\text{,}\) and so \(\geo_A(-2) = 1\text{.}\)  We thus have \(\geo_A(-2) = 1 \lt 2 = \alg_A(-2)\text{,}\) so by <a class="xref" data-knowl="./knowl/thm-diagonalization-main.html" title="Theorem 5.2.15">Theorem 5.2.15</a> the matrix \(A\) is not diagonalizable.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Notice that since we already found one eigenvalue with \(\alg_A(\lambda) \neq \geo_A(\lambda)\) there is no reason for us to consider any other eigenvalues.</p>
+</div>
+<span class="incontext"><a href="sec-Diagonalization.html#solution-202">in-context</a></span>
 </body>
 </html>

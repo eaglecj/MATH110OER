@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-03-13T12:22:22-08:00       *-->
+<!--*       on 2021-08-11T16:56:29-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,44 +16,34 @@
 <body>
 <div class="solution solution-like">
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.2.4.1</span><span class="period">.</span>
-</h6>We choose the third row because this choice gives us the most amount of zeros, which means we have less cofactors to compute. For a \(4\times 4 \) matrix,\(A \text{,}\) expanding along the \(3\)rd row,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\det(A) = a_{31}cof(A)_{31}+a_{32}cof(A)_{32}+a_{33}cof(A)_{33}+a_{34}cof(A)_{34}
-\end{equation*}
-</div>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.2.13.1</span><span class="period">.</span>
+</h6>
+<p>By <a class="xref" data-knowl="./knowl/thm-ortho-decomposition.html" title="Theorem 6.2.12: Orthogonal Decomposition Theorem">Theorem 6.2.12</a> the only way to answer this question is with \(\vec{v} = \proj_P(\vec{v}) + \perr_P(\vec{v})\text{.}\)  To find \(\proj_P(\vec{v})\) we need to start with an orthogonal basis for \(P\text{.}\)  To find one, we start by re-writing the equation for \(P\) as \(y=-2x+3z\text{.}\)  Substituting this in to a vector \(\begin{bmatrix}x\\y\\z\end{bmatrix}\) shows us that \(\left\{\begin{bmatrix}1\\-2\\0\end{bmatrix}, \begin{bmatrix}0\\3\\1\end{bmatrix}\right\}\) is a basis for \(P\text{.}\)  Sadly, this basis is not an orthogonal basis, so we use the <a class="xref" data-knowl="./knowl/thm-Gram-Schmidt.html" title="Theorem 6.1.9: Gram-Schmidt Algorithm">Gram-Schmidt Algorithm</a> to produce an orthogonal basis.  We get \(\vec{w_1} = \begin{bmatrix}1\\-2\\0\end{bmatrix}\) and</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\det(A) = (0)cof(A)_{31}+(0)cof(A)_{32}+(0)cof(A)_{33}+(2)cof(A)_{34}
+\vec{w_2} = \begin{bmatrix}0\\3\\1\end{bmatrix} - \left(\frac{\begin{bmatrix}0\\3\\1\end{bmatrix} \cdot \begin{bmatrix}1\\-2\\0\end{bmatrix}}{\begin{bmatrix}1\\-2\\0\end{bmatrix}\cdot\begin{bmatrix}1\\-2\\0\end{bmatrix}}\right)\begin{bmatrix}1\\-2\\0\end{bmatrix} = \begin{bmatrix}6/5 \\ 3/5 \\ 1\end{bmatrix}\text{.}
 \end{equation*}
 </div>
+<p data-braille="continuation">As usual, rescaling is harmless, so we multiply by \(5\) and take \(\vec{w_2} = \begin{bmatrix}6\\3\\5\end{bmatrix}\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Now we can use the definition of \(\proj_P(\vec{v})\) to calculate:</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-cof(A)_{34} = (-1)^{3+4}\begin{vmatrix} 1 \amp 0 \amp 0 \\ 2 \amp 1 \amp 1 \\ 2 \amp 1 \amp 3 \end{vmatrix} 
-\end{equation*}
-</div>Let \(B = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 2 \amp 1 \amp 1 \\ 2 \amp 1 \amp 3 \end{bmatrix} \text{.}\) To find the determinant of \(B \) we will expand along the first row, since it has the most amount of zeros.<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-det(B) = b_{11}cof(B)_{11} + b_{12}cof(B)_{12} + b_{13}cof(B)_{13} 
+\proj_P\left(\begin{bmatrix}1\\2\\3\end{bmatrix}\right) = \left(\frac{\begin{bmatrix}1\\2\\3\end{bmatrix} \cdot \begin{bmatrix}1\\-2\\0\end{bmatrix}}{\begin{bmatrix}1\\-2\\0\end{bmatrix}\cdot\begin{bmatrix}1\\-2\\0\end{bmatrix}}\right)\begin{bmatrix}1\\-2\\0\end{bmatrix} + \left(\frac{\begin{bmatrix}1\\2\\3\end{bmatrix} \cdot \begin{bmatrix}6\\3\\5\end{bmatrix}}{\begin{bmatrix}6\\3\\5\end{bmatrix}\cdot\begin{bmatrix}6\\3\\5\end{bmatrix}}\right)\begin{bmatrix}6\\3\\5\end{bmatrix} = \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix}\text{.}
 \end{equation*}
 </div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Here we must be careful - it would be incorrect to rescale this vector.  We are just stuck with the fractions.  Finally, we calculate:</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-det(B) = (1)cof(B)_{11} + (0)cof(B)_{12} + (0)cof(B)_{13} = (1)(-1)^{1+1}\begin{vmatrix}1 \amp 1 \\ 1 \amp 3 \end{vmatrix} = 2 
+\perr_P\left(\begin{bmatrix}1\\2\\3\end{bmatrix}\right) = \begin{bmatrix}1\\2\\3\end{bmatrix} - \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix} = \begin{bmatrix}-10/7 \\ -5/14 \\ 15/14\end{bmatrix}\text{.}
 \end{equation*}
 </div>
+<p xmlns:svg="http://www.w3.org/2000/svg">We now have the desired way of writing \(\begin{bmatrix}1\\2\\3\end{bmatrix}\) as a sum of a vector in \(P\) (the first vector below) and a vector in \(P^\perp\) (the second vector below).</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-cof(A)_{34} = -2 
+\begin{bmatrix}1\\2\\3\end{bmatrix} = \begin{bmatrix}24/14 \\ 33/14 \\ 27/14\end{bmatrix} + \begin{bmatrix}-10/7 \\ -5/14 \\ 15/14\end{bmatrix}\text{.}
 \end{equation*}
 </div>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\det(A) \amp = (0)cof(A)_{31}+(0)cof(A)_{32}+(0)cof(A)_{33}+(2)cof(A)_{34} \\
-\amp = (2)(-2) \\
-\amp = -4 
-\end{align*}
 </div>
-</div>
-<span class="incontext"><a href="sec-determinants.html#solution-207">in-context</a></span>
+<span class="incontext"><a href="sec-OrthoProj.html#solution-207">in-context</a></span>
 </body>
 </html>

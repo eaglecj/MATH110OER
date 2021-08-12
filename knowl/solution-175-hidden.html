@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-03-13T12:22:20-08:00       *-->
+<!--*       on 2021-08-11T16:56:17-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,36 +13,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="solution solution-like">We will write the vectors as rows of a matrix and then use <a class="xref" data-knowl="./knowl/hint-equivalent-matrices-same-row-and-null.html" title="Hint 3.4.4.3">Hint 3.4.4.3</a> to determine a basis of its row space. We row-reduce:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\matr{cccc}{
-2 \amp 1 \amp 0 \amp -1
-\\
--1 \amp 1 \amp 1 \amp 1
-\\
-2 \amp 7 \amp 4 \amp 1
-}
-\overset{-R_{1}+R_{2}}{\underset{R_{1}+2R_{3}}{\longrightarrow}}
-\amp\matr{cccc}{
-2 \amp 1 \amp 0 \amp -1
-\\
-0 \amp 3 \amp 2 \amp 1
-\\
-0 \amp 6 \amp 4 \amp 2
-}\\
-\overset{-2R_{2}+R_{3}}{\longrightarrow}
-\amp\matr{cccc}{
-2 \amp 1 \amp 0 \amp -1
-\\
-0 \amp 3 \amp 2 \amp 1
-\\
-0 \amp 0 \amp 0 \amp 0
-}.
-\end{align*}
-</div>We see that the rank of the matrix and thus the dimension of the subspace is \(2\text{.}\) Moreover, a basis for the space in question is given by<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\left\{ (2 , 1 , 0 , -1), (0 , 3 , 2 , 1)\right\}.
-\end{equation*}
-</div>
-</div></body>
+<body><div class="solution solution-like">By assumption, \(A^{-1}\) exists. In particular, we can multiply the equation \(AB = AC \) on the left by \(A^{-1}\) and we get \(A^{-1}AB = A^{-1}AC \text{.}\) Recall that \(A^{-1}\) has the property that \(A^{-1}A=I\text{,}\) so our equation can be rewritten as \(IB=IC\text{.}\) Since \(I\) has the property \(B=IB\) and \(C=IC\text{,}\) we conclude that, indeed, \(B = C. \)</div></body>
 </html>

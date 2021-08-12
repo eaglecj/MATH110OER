@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-03-13T12:22:17-08:00       *-->
+<!--*       on 2021-08-11T16:56:11-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,38 +14,23 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body><div class="solution solution-like">
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">True:</em> We will prove that \(B^t A^t=(AB)^t\text{,}\) which will imply our claim because<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+(A^t)^3 = (A^t)(A^t)(A^t) = A^t(AA)^t = ((AA)A)^t = (A^3)^t.
+\end{equation*}
+</div>For this proof, let us write \(A_{i,j}\) for the \((i,j)\)-entry of \(A\text{.}\) Thus, we know from <a class="xref" data-knowl="./knowl/hint-matrix-product.html" title="Hint 4.3.4.1.1">Hint 4.3.4.1.1</a> that the \((i,k)\)-entry of \(AB\) is given by:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+(AB)_{i,k} = A_{i,1}B_{1,k}+A_{i,2}B_{2,k}+...+A_{i,n}B_{n,k}.
+\end{equation*}
+</div>Recall further from <a class="xref" data-knowl="./knowl/hint-matrix-transpose.html" title="Hint 4.2.4.1.3">Hint 4.2.4.1.3</a> that \((B^t)_{k,j}=B_{j k}\) and \((A^{T})_{j,i}=A_{i j}\text{,}\) so that \(B^t A^t\) has \((k,i)\)-entry<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\matr{cc|cc}
-{
-2 \amp 1 \amp 1 \amp 0
-\\
-3 \amp 0 \amp 0 \amp 1
-}
-\overset{R_{1}\leftrightarrow R_{2}}{\longrightarrow}
-\amp
-\matr{cc|cc}
-{
-3 \amp 0 \amp 0 \amp 1
-\\
-2 \amp 1 \amp 1 \amp 0
-}\\
-\overset{-2R_{1}+3R_{2}}{\longrightarrow}
-\amp
-\matr{cc|cc}
-{
-3 \amp 0 \amp 0 \amp 1
-\\
-0 \amp 3 \amp 3 \amp -2
-}\\
-\overset{\frac{1}{3}R_{1}}{\underset{\frac{1}{3}R_{2}}{\longrightarrow}}
-\amp
-\matr{cc|cc}
-{
-1 \amp 0 \amp 0 \amp \frac{1}{3}
-\\
-0 \amp 1 \amp 1 \amp -\frac{2}{3}
-}
+(B^t A^t)_{k,i} \amp= (B^t)_{k,1}(A^t)_{1,i}+(B^t)_{k,2}(A^t)_{2,i}+...+(B^t)_{k,n}(A^t)_{n,i}\\
+\amp = B{1,k}A_{i,1}+B_{2,k}A_{i,2}+...+B_{n,k}A_{i,n}\\
+\amp = (AB)_{i,k}.
 \end{align*}
-</div>We conclude that \(\begin{bmatrix} 2 \amp 1 \\ 3 \amp 0 \end{bmatrix}^{-1} = \frac{1}{3}\begin{bmatrix} 0 \amp 1 \\ 3 \amp -2 \end{bmatrix}\text{.}\)</div></body>
+</div>Again by <a class="xref" data-knowl="./knowl/hint-matrix-transpose.html" title="Hint 4.2.4.1.3">Hint 4.2.4.1.3</a>, \((i,k)\)-entry of \(AB\) is the same as the \((k,i)\)-entry of \((AB)^t\text{,}\) so that<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+(B^t A^t)_{k,i}= (AB)_{i,k} = ((AB)^t)_{k,i} .
+\end{equation*}
+</div>We have shown that the \((k,i)\)-entry of \(B^t A^t\) and of \((AB)^t\) are identical. This means that \(B^t A^t=(AB)^t\text{.}\)</div></body>
 </html>

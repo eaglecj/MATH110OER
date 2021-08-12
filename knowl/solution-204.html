@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-03-13T12:22:22-08:00       *-->
+<!--*       on 2021-08-11T16:56:26-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,8 +16,20 @@
 <body>
 <div class="solution solution-like">
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.2.1.f.1</span><span class="period">.</span>
-</h6>\(cof(A)_{32}=(-1)^{3+2}\text{minor}(A)_{21} = -3\)</div>
-<span class="incontext"><a href="sec-determinants.html#solution-204">in-context</a></span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.2.19.1</span><span class="period">.</span>
+</h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">We model the situation using the <em class="emphasis">transition matrix</em> \(A = \begin{bmatrix}0.6 \amp 0.1 \\ 0.4 \amp 0.9\end{bmatrix}\text{.}\)  We think of the first coordinates of vectors as the probability of studying, and the second coordinate as the probability of not studying.  The key fact we need from probability is that if a given student has an \(x\%\) chance of studying at one minute then at the next minute their chance of studying is the top entry of \(A\begin{bmatrix}x\\1-x\end{bmatrix}\text{.}\)  Therefore the probability that the student is studying \(2\) minutes later is the top entry of \(A\left(A\begin{bmatrix}x\\1-x\end{bmatrix}\right) = A^2\begin{bmatrix}x\\1-x\end{bmatrix}\text{,}\) and in general the probability that the student is studying \(k\) minutes later is the top entry of \(A^k\begin{bmatrix}x\\1-x\end{bmatrix}\text{.}\)</p>
+<p>Our student is observed to be studying, so our starting state has \(x = 1\text{.}\)  We are thus interested in the top entry of \(A^{60}\begin{bmatrix}1\\0\end{bmatrix}\text{.}\)  We could multiply \(A\) by itself \(60\) times, but doing that would take quite a lot of calculation.  Instead, we diagonalize \(A\text{.}\)  Using the method of <a class="xref" data-knowl="./knowl/ex-diagonalizable-2.html" title="Example 5.2.17">Example 5.2.17</a> we find that \(A = PDP^{-1}\) where \(P=\begin{bmatrix}-1 \amp 1\\ 1 \amp 4\end{bmatrix}\) and \(D = \begin{bmatrix}0.5 \amp 0 \\ 0 \amp 1\end{bmatrix}\text{.}\)  We also calculate \(P^{-1} = \begin{bmatrix}-0.8 \amp 0.2 \\ 0.2 \amp 0.2\end{bmatrix}\) using the techniques for finding matrix inverses from <a href="sec-Inverses.html" class="internal" title="Section 4.4: Matrix inverses">Section 4.4</a>. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+A^{60} \amp = PD^{60}P^{-1}\\
+\amp = \begin{bmatrix}-1 \amp 1 \\ 1 \amp 4\end{bmatrix}\begin{bmatrix}0.5^{60} \amp 0 \\ 0 \amp 1^{60}\end{bmatrix}\begin{bmatrix}-0.8 \amp 0.2 \\ 0.2 \amp 0.2\end{bmatrix} \\
+\amp = \begin{bmatrix}-1 \amp 1 \\ 1 \amp 4\end{bmatrix}\begin{bmatrix}0.5^{60} \amp 0 \\ 0 \amp 1 \end{bmatrix}\begin{bmatrix}-0.8 \amp 0.2 \\ 0.2 \amp 0.2\end{bmatrix}\\
+\amp = \begin{bmatrix}0.8/2^{60}+0.2 \amp 0.2-0.2/2^{60} \\ 0.8-0.8/2^{60} \amp 0.2/2^{60} +0.8\end{bmatrix}\text{.}
+\end{align*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Now the probability we are interested in is the top entry of \(A^{60}\begin{bmatrix}1\\0\end{bmatrix}\text{,}\) which is \(0.8/2^{60}+0.2 \approx 0.200000000000000000694\text{.}\)  Thus there is approximately a \(20\%\) chance that the student will be studying one hour from now.</p>
+</div>
+<span class="incontext"><a href="sec-Diagonalization.html#solution-204">in-context</a></span>
 </body>
 </html>
