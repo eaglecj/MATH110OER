@@ -5,20 +5,21 @@
 	</title>
 	<introduction>
 		<p> We have seen that linear transformations (or, equivalently, matrices) can be fairly complicated.  In this chapter we will be considering what happens when a linear transformation acts on a vector in a very simple way, by stretching the vector without changing the direction.  We will see that this leads us to a powerful method for understanding some matrices in great detail. </p>
-		<p> For the material in this chapter to work out nicely it is necessary for us to allow the word "scalar" to mean "complex number", and to allow matrices and vectors with complex number entries.  In fact, we will usually start with matrices with real number entries, but sometimes complex numbers will arise even in that case.</p>
+		<p> For the material in this chapter to work out nicely it is necessary for us to allow the word "scalar" to mean "complex number", and to allow matrices and vectors with complex number entries.  For that reason we will often speak of vectors in <m>\mathbb{C}^n</m> rather than <m>\mathbb{R}^n</m>.  In fact, we will very often start with matrices with real number entries, but sometimes complex numbers will arise even in that case.</p>
+		<p> Everything that we have done so far in the course works equally well using complex numbers as it did using real numbers, <em>except for anything involving the dot product</em>.  Fortunately, we will have no use for the material based on the dot product in this chapter.</p>
 	</introduction>
 	<subsection>
 		<title>
 			Definitions and examples
 		</title>
 		<definition>
-			<p> Let <m>T : \mathbb{R}^n \to \mathbb{R}^n</m> be a linear transformation, and let <m>\lambda</m> be a scalar.  A vector <m>\vec{v}</m> in <m>\mathbb{R}^n</m> is called an <em>eigenvector</em> for <m>T</m>, with <em>eigenvalue</em> <m>\lambda</m>, if <m>T(\vec{v}) = \lambda \vec{v}</m>.</p>
+			<p> Let <m>T : \mathbb{C}^n \to \mathbb{C}^n</m> be a linear transformation, and let <m>\lambda</m> be a scalar.  A vector <m>\vec{v}</m> in <m>\mathbb{C}^n</m> is called an <em>eigenvector</em> for <m>T</m>, with <em>eigenvalue</em> <m>\lambda</m>, if <m>T(\vec{v}) = \lambda \vec{v}</m>.</p>
 			<p> Similarly, if <m>A</m> is an <m>n \times n</m> matrix, then <m>\vec{v}</m> is an <em>eigenvector</em> of <m>A</m> with <em>eigenvalue</em> <m>\lambda</m> if <m>A\vec{v} = \lambda \vec{v}</m>. </p>
 			<p> In both contexts, we say that <m>\vec{v}</m> is an eigenvector if it is an eigenvector for some eigenvalue <m>\lambda</m>, and similarly we say that <m>\lambda</m> is an eigenvalue if there is some eigenvector <m>\vec{v}</m> for <m>\lambda</m>. </p>
 		</definition>
 
 		<p>	 In <xref ref="sec-LinearTransformations" /> we saw how to translate back and forth between the language of linear transformations and the language of matrices.  Since most of the time it is easier to work with matrices, that is what we will focus on here.  Any time we want to talk about eigenvalues or eigenvectors of a linear transformation <m>T</m> we will instead work with the matrix <m>[T]</m>. </p>
-		<p> Notice that the equation <m>A\vec{v} = \lambda\vec{v}</m> can only have a chance of being true if <m>A</m> is a square matrix: If <m>A</m> is <m>m \times n</m> and <m>\vec{v}</m> is in <m>\mathbb{R}^n</m> then <m>A\vec{v}</m> is a vector in <m>\mathbb{R}^m</m> while <m>\lambda \vec{v}</m> is a vector in <m>\mathbb{R}^n</m>, so to have <m>A\vec{v} = \lambda\vec{v}</m> we must have <m>m=n</m>. </p>
+		<p> Notice that the equation <m>A\vec{v} = \lambda\vec{v}</m> can only have a chance of being true if <m>A</m> is a square matrix: If <m>A</m> is <m>m \times n</m> and <m>\vec{v}</m> is in <m>\mathbb{C}^n</m> then <m>A\vec{v}</m> is a vector in <m>\mathbb{C}^m</m> while <m>\lambda \vec{v}</m> is a vector in <m>\mathbb{C}^n</m>, so to have <m>A\vec{v} = \lambda\vec{v}</m> we must have <m>m=n</m>. </p>
 
 		<example>
 			<p> Let <m>A = \begin{bmatrix}2 \amp -1 \\ -4 \amp 5\end{bmatrix}</m>, let <m>\vec{v} = \begin{bmatrix}-1 \\ 4\end{bmatrix}</m> and <m>\vec{w} = \begin{bmatrix}2\\3\end{bmatrix}</m>.  Then <me>A\vec{v} = \begin{bmatrix}2 \amp -1 \\ -4 \amp 5\end{bmatrix}\begin{bmatrix}-1 \\ 4\end{bmatrix} = \begin{bmatrix}-6 \\ 24\end{bmatrix} = 6\vec{v}</me>.  Thus <m>\vec{v}</m> is an eigenvector for <m>A</m> with eigenvalue <m>6</m>. </p>

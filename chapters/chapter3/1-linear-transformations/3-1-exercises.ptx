@@ -873,4 +873,23 @@
 							</md>
 						</answer>
 					</exercise></p>
+
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-PS" />, Chapter 6, Exercise 6.3.7) </p></aside>
+									For each of the following matrices, describe the linear transformation <m>T</m> that has <m>[T]</m> equal to the given matrix.  Draw a before-and-after picture for each.  
+									<ol cols = "2">
+									<li> <m> A = \begin{bmatrix} 1 \amp -1 \\ 1 \amp 1 \end{bmatrix}.</m> </li>
+									<li> <m> B = \begin{bmatrix} 0 \amp 2 \\ 1 \amp 0 \end{bmatrix}.</m> </li>  
+									<li> <m> C = \begin{bmatrix} 1 \amp 0 \\ -1 \amp 1 \end{bmatrix}.</m> </li>		
+									<li> <m> D = \begin{bmatrix} 1 \amp 0\\ 0 \amp 0 \end{bmatrix}.</m> </li>
+									</ol>	
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
 	</exercises>
