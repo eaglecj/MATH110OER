@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-31T11:11:48-07:00       *-->
+<!--*       on 2021-09-01T15:05:15-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,13 +13,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><div class="solution solution-like">
-<p>We set up the appropraite augmented matrix and row reduce:</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<body><div class="solution solution-like">By definition of \(2\vec{v}\) being in \(\span(\vec{w}, \vec{z})\text{,}\) there are scalars \(a, b\) such that<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\matr{ccc|c}{1 \amp 1 \amp 2 \amp 0 \\ 0 \amp 1 \amp 4 \amp 0 \\ -1 \amp 1 \amp 3 \amp 0 \\ 2 \amp 1 \amp -1 \amp 0} \to \matr{ccc|c}{1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0}\text{.}
+2\vec{v} = a\vec{w} + b\vec{z}\text{.}
 \end{equation*}
-</div>
-<p>We see that our system has a unique solution, so the vectors are linearly independent.</p>
-</div></body>
+</div>Therefore<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vec{v} = \frac{a}{2}\vec{w} + \frac{b}{2}\vec{z}\text{,}
+\end{equation*}
+</div>so \(\vec{v}\) is in \(\span(\vec{w}, \vec{z})\text{.}\)  Therefore \(\span(\vec{v}, \vec{w}, \vec{z}) = \span(\vec{w}, \vec{z})\) by <a class="xref" data-knowl="./knowl/thm-span-unchanged-removal.html" title="Theorem 3.1.7">Theorem 3.1.7</a>.</div></body>
 </html>
