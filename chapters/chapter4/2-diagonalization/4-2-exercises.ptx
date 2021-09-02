@@ -1,5 +1,48 @@
 				<exercises>
- 					<p>
- 					</p>
+ 					<p><exercise>
+ 						<statement>
+ 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.2)</aside>
+ 							Find the eigenvalues and eigenvectors of the matrix <m>\begin{bmatrix}-13 \amp -28 \amp 28 \\ 4 \amp 9 \amp -8 \\ -4 \amp -8 \amp 9\end{bmatrix}</m>.  Diagonalize if possible.
+ 						</statement>
+ 					</exercise></p>
+
+ 					 					<p><exercise>
+ 						<statement>
+ 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.3)</aside>
+ 							Find the eigenvalues and eigenvectors of the matrix <m>\begin{bmatrix}5 \amp -18 \amp -32 \\ 0 \amp 5 \amp 4 \\ 2 \amp -5 \amp -11\end{bmatrix}</m>.  Diagonalize if possible.
+ 						</statement>
+ 					</exercise></p>
+
+ 					 					<p><exercise>
+ 						<statement>
+ 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.4)</aside>
+ 							Find the eigenvalues and eigenvectors of the matrix <m>\begin{bmatrix}8 \amp 0 \amp 10 \\ -6 \amp -3 \amp -6 \\ -5 \amp 0 \amp -7\end{bmatrix}</m>.  Diagonalize if possible.
+ 						</statement>
+ 					</exercise></p>
+
+ 					 <p><exercise>
+ 						<statement>
+ 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.5.3)</aside>
+ 							Let <m>A = \begin{bmatrix}1 \amp -2 \amp -1 \\ 2 \amp -1 \amp 1 \\ -2 \amp 3 \amp 1\end{bmatrix}</m>.  Find <m>A^{100}</m> by diagonalization.
+ 						</statement>
+ 					</exercise></p>
+
+ 					 <p><exercise>
+ 						<statement>
+ 							<aside> (Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.12)</aside>
+ 							Give an example of two diagonalizable matrices <m>A</m> and <m>B</m> whose sum <m>A+B</m> is not diagonalizable.
+ 						</statement>
+ 					</exercise></p>
+
+ 					<p><exercise>
+ 						<statement>
+ 							<aside> (Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.12)</aside>
+ 							If <m>A</m> is diagonalizable and <m>1</m> and <m>-1</m> are the only eigenvalues of <m>A</m>, show that <m>A^{-1} = A</m>.
+ 						</statement>
+ 						<solution>
+ 							<p> Write <m>A = PDP^{-1}</m>.  Then <me>A^{-1} = (PDP^{-1})^{-1} = (P^{-1})^{-1}D^{-1}P^{-1} = PD^{-1}P^{-1}</me>.  Since <m>D</m> is diagonal, <m>D^{-1}</m> is also diagonal, and for each <m>j</m> if the <m>(j,j)</m> entry of <m>D</m> is <m>d_{j,j}</m> then the <m>(j,j)</m> entry of <m>D^{-1}</m> is <m>1/d_{j,j}</m>.  We know that the diagonal entries of <m>D</m> are the eigenvalues of <m>A</m>, so by hypothesis they are all <m>\pm 1</m>, and hence <m>1/d_{j,j} = d_{j,j}</m> for all <m>j</m>.  Thus <m>D = D^{-1}</m>, so <me>A^{-1} = PD^{-1}P^{-1} = PDP^{-1} = A</me>.</p>
+ 						</solution>
+ 					</exercise></p>
+
 				</exercises>
 		
