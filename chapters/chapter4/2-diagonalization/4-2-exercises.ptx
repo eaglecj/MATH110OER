@@ -1,42 +1,42 @@
 				<exercises>
  					<p><exercise>
  						<statement>
- 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.2)</aside>
+ 							<aside><p>(Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.2)</p></aside>
  							Find the eigenvalues and eigenvectors of the matrix <m>\begin{bmatrix}-13 \amp -28 \amp 28 \\ 4 \amp 9 \amp -8 \\ -4 \amp -8 \amp 9\end{bmatrix}</m>.  Diagonalize if possible.
  						</statement>
  					</exercise></p>
 
- 					 					<p><exercise>
+ 					 <p><exercise>
  						<statement>
- 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.3)</aside>
+ 							<aside><p>((Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.3)</p></aside>
  							Find the eigenvalues and eigenvectors of the matrix <m>\begin{bmatrix}5 \amp -18 \amp -32 \\ 0 \amp 5 \amp 4 \\ 2 \amp -5 \amp -11\end{bmatrix}</m>.  Diagonalize if possible.
  						</statement>
  					</exercise></p>
 
  					 					<p><exercise>
  						<statement>
- 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.4)</aside>
+ 							<aside><p>((Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.4.4)</p></aside>
  							Find the eigenvalues and eigenvectors of the matrix <m>\begin{bmatrix}8 \amp 0 \amp 10 \\ -6 \amp -3 \amp -6 \\ -5 \amp 0 \amp -7\end{bmatrix}</m>.  Diagonalize if possible.
  						</statement>
  					</exercise></p>
 
  					 <p><exercise>
  						<statement>
- 							<aside> (Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.5.3)</aside>
+ 							<aside><p>((Source: <xref ref="ref-PS" />, Chapter 8, Exercise 8.5.3)</p></aside>
  							Let <m>A = \begin{bmatrix}1 \amp -2 \amp -1 \\ 2 \amp -1 \amp 1 \\ -2 \amp 3 \amp 1\end{bmatrix}</m>.  Find <m>A^{100}</m> by diagonalization.
  						</statement>
  					</exercise></p>
 
  					 <p><exercise>
  						<statement>
- 							<aside> (Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.12)</aside>
+ 							<aside><p>((Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.12)</p></aside>
  							Give an example of two diagonalizable matrices <m>A</m> and <m>B</m> whose sum <m>A+B</m> is not diagonalizable.
  						</statement>
  					</exercise></p>
 
  					<p><exercise>
  						<statement>
- 							<aside> (Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.12)</aside>
+ 							<aside><p>((Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.12)</p></aside>
  							If <m>A</m> is diagonalizable and <m>1</m> and <m>-1</m> are the only eigenvalues of <m>A</m>, show that <m>A^{-1} = A</m>.
  						</statement>
  						<solution>
