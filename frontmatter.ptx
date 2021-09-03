@@ -4,7 +4,7 @@
 					<personname>Christopher Eagle</personname>
 					<department>Mathematics and Statistics</department>
 					<institution>University of Victoria</institution>
-					<email>eaglec@uvic.ca</email>
+					<email>math110eagle@uvic.ca</email>
 				</author>
 				<date>September 2021</date>
 			</titlepage>
@@ -17,7 +17,7 @@
 				<p>This is a set of lecture notes, together with practice problems, for students taking Math 110 at the University of Victoria.</p>
 				<p>The lecture notes are based on the lectures given by Christopher Eagle. </p>
 				<p>The practice problems have been obtained from a variety of openly available textbooks (see <xref text="title" ref="ref-references"/>). </p>
-				<p>Each question provides a link to the original source of the question.  The hints, answers, and solutions are new: If you spot any errors, please contact <email>eaglec@uvic.ca</email> so we can correct them!</p>
+				<p>Each question provides a link to the original source of the question.  The hints, answers, and solutions are new: If you spot any errors, please contact <email>math110eagle@uvic.ca</email> so we can correct them!</p>
 			</introduction>
 			<colophon>	 
 				<copyright>
