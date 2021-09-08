@@ -201,7 +201,7 @@
 							Solve for the following system by back substitution.
 							<md>
 								<mrow>
-									x+3y -2x \amp =5
+									x+3y -2z \amp =5
 								</mrow>
 								<mrow>
 									y + 3z \amp =4
