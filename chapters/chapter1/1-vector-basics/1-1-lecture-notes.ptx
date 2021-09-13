@@ -267,7 +267,7 @@
 			The vector <m>\vec{w} = \begin{bmatrix}-1\\1\\5\end{bmatrix}</m> is a linear combination of the vectors <m>\vec{v_1} = \begin{bmatrix}1\\2\\1\end{bmatrix}</m> and <m>\vec{v_2} = \begin{bmatrix}-1\\-1\\1\end{bmatrix}</m>, because <m>\vec{w} = 2\vec{v}_1+3\vec{v}_2</m>.
 		</example>
 		<example>
-			Every vector in <m>\mathbb{R}^2</m> can be written as a linear combination of <m>\begin{bmatrix}1\\0\end{bmatrix}</m> and <m>\begin{bmatrix}0\\1\end{bmatrix}</m>, because for any <m>\begin{bmatrix}x\\y\end{bmatrix}</m> in <m>\mathbb{R}^2</m> we have <me>\begin{bmatrix}x\\y\end{bmatrix} = x\begin{bmatrix}0\\1\end{bmatrix} + y\begin{bmatrix}0\\1\end{bmatrix}.</me>
+			Every vector in <m>\mathbb{R}^2</m> can be written as a linear combination of <m>\begin{bmatrix}1\\0\end{bmatrix}</m> and <m>\begin{bmatrix}0\\1\end{bmatrix}</m>, because for any <m>\begin{bmatrix}x\\y\end{bmatrix}</m> in <m>\mathbb{R}^2</m> we have <me>\begin{bmatrix}x\\y\end{bmatrix} = x\begin{bmatrix}1\\0\end{bmatrix} + y\begin{bmatrix}0\\1\end{bmatrix}.</me>
 		</example>
 		<example xml:id="ex-linear-combination">
 			<p>Which vectors in <m>\mathbb{R}^3</m> can be expressed as linear combinations of <m>\vec{v_1} = \begin{bmatrix}1\\1\\-1\end{bmatrix}, \vec{v_2} = \begin{bmatrix}2\\-1\\0\end{bmatrix}, \vec{v_3} = \begin{bmatrix}3\\0\\-1\end{bmatrix}</m>?</p>
