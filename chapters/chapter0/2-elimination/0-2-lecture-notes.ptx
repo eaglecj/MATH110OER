@@ -152,7 +152,7 @@
 				A matrix is in <em>row echelon form</em> if it has all of the following properties:
 				<ul>
 					<li>If there are any rows where every entry is <m>0</m> then those rows occur below any rows with a non-zero entry.</li>
-					<li>In any row where not every entry is <m>0</m>, if we look at the leading entry then every number below it in the same column is <m>0</m>.</li>
+					<li>In any row where not every entry is <m>0</m>, if we look at the leading entry then every number below it in the same column or any column to the left of it is <m>0</m>.</li>
 				</ul>
 			</p>
 		</definition>
