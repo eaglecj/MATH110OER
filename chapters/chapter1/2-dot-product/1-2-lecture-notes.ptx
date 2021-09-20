@@ -158,7 +158,7 @@
 				</proof>
 			</theorem>
 
-			<p> Unfortunately, there is no way to calculate <m>\norm{\vec{v}+\vec{w}}</m> just from <m>\norm{v}</m> and <m>\norm{w}</m>.  For instance, if <m>\vec{v} = \begin{bmatrix}1\\0\end{bmatrix}</m>, <m>\vec{w} = \begin{bmatrix}1\\0\end{bmatrix}</m>, and <m>\vec{z} = \begin{bmatrix}1\\1\end{bmatrix}</m> then <m>\norm{\vec{v}} = \norm{\vec{w}} = \norm{\vec{z}} = 1</m>, but <m>\norm{\vec{v}+\vec{w}} = 2</m> while <m>\norm{\vec{v}+\vec{z}} = \sqrt{5}</m>.</p>
+			<p> Unfortunately, there is no way to calculate <m>\norm{\vec{v}+\vec{w}}</m> just from <m>\norm{v}</m> and <m>\norm{w}</m>.  For instance, if <m>\vec{v} = \begin{bmatrix}1\\0\end{bmatrix}</m>, <m>\vec{w} = \begin{bmatrix}0\\1\end{bmatrix}</m>, and <m>\vec{z} = \begin{bmatrix}-1\\0\end{bmatrix}</m> then <m>\norm{\vec{v}} = \norm{\vec{w}} = \norm{\vec{z}} = 1</m>, but <m>\norm{\vec{v}+\vec{w}} = \sqrt{2}</m> while <m>\norm{\vec{v}+\vec{z}} = 0</m>.</p>
 			<p> Although we don't have an exact calculation of <m>\norm{\vec{v}+\vec{w}}</m>, we do have two very useful inequalities, which we present here without proof.</p>
 			<theorem>
 				<title>Cauchy-Schwartz Inequality</title>
