@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-09-20T12:27:33-07:00       *-->
+<!--*       on 2021-09-30T11:29:09-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Since the last expression is a linear combination that does not use \(\vec{v_i}\text{,}\) the proof is complete.</p>
-<span class="incontext"><a href="sec-Span.html#p-665">in-context</a></span>
+<p>First suppose that \(\vec{v_1}, \ldots, \vec{v_k}\) are linearly dependent.  Then we can find scalars \(a_1, \ldots, a_k\text{,}\) not all zero, such that \(a_1\vec{v_1} + \cdots + a_k\vec{v_k} = 0\text{.}\)  Suppose that \(i\) is one of the indices such that \(a_i \neq 0\text{.}\)  Then we can rearrange the linear dependence relation to obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vec{v_i} = \frac{a_1}{a_i}\vec{v_1} + \cdots + \frac{a_{i-1}}{a_i}\vec{v_{i-1}} + \frac{a_{i+1}}{a_i}\vec{v_{i+1}} + \cdots + \frac{a_k}{a_i}\vec{v_k}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which shows that \(\vec{v_i}\) is in \(\span(\vec{v_1}, \ldots, \vec{v_{i-1}}, \vec{v_{i+1}}, \ldots, \vec{v_k})\text{.}\)</p>
+<span class="incontext"><a href="sec-LinearIndependence.html#p-665">in-context</a></span>
 </body>
 </html>

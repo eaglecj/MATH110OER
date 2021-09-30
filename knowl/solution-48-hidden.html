@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-09-20T12:27:30-07:00       *-->
+<!--*       on 2021-09-30T11:29:06-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,7 @@
 </head>
 <body><div class="solution solution-like">Since the plane contains the line, it in particular contains the point \(Q=(3,-1,2)\) (choose \(t=0\) in the line equation). Since \(P\) is assumed to be in the plane, we conclude that the line that goes through \(Q\) and \(P\text{,}\) whose vector form is given by <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\mbf{x}  =
+\vec{x}  =
 \vect{OQ}
 +
 s\vect{QP}
@@ -27,7 +27,7 @@ s\begin{bmatrix} -1 \\ 2 \\ -2 \end{bmatrix}
 \end{equation*}
 </div> is also contained in the plane. Since this second line's directional vector is not parallel to the first line's directional vector, we conclude that the plane is spanned by those two directional vectors and thus has vector form <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\mbf{x} 
+\vec{x} 
 =
 \begin{bmatrix} 3 \\ -1\\ 2 \end{bmatrix} 
 +
@@ -36,28 +36,9 @@ t\begin{bmatrix} 1 \\ 0\\ - 1 \end{bmatrix}
 s \begin{bmatrix} -1 \\ 2 \\ -2 \end{bmatrix}
 .
 \end{equation*}
-</div> In particular, the parametric equations are <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+</div> We can find a normal vector \(\vec{n}\) by setting \(\vec{n}\cdot\vec{d_1} = \vec{n}\cdot\vec{d_2} =0\) and solving the resulting system.  We find that one solution is <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-x_1 =  3 + t - s
-;
-x_2 =  -1 + 2s
-;
-x_3 =  2-t-2s.
-\end{equation*}
-</div> We can find a normal vector \(\mbf{n}\) by taking the cross product of the two directional vectors (see <a class="xref" data-knowl="./knowl/hint-def-cross-product-and-it-is-normal.html" title="Hint 1">Hint 1</a>): <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\mbf{n}
-=
-\begin{bmatrix} 1 \\ 0\\ - 1 \end{bmatrix}
-\times
-\begin{bmatrix} -1 \\ 2 \\ -2 \end{bmatrix}
-=
-\begin{bmatrix}
-0 \cdot (-2)-(-1) \cdot 2\\
-(-1) \cdot (-1) -1 \cdot (-2)\\
-1 \cdot 2-0\cdot (-1)
-\end{bmatrix})
-=
+\vec{n}=
 \begin{bmatrix}
 2\\
 3\\
@@ -65,7 +46,7 @@ x_3 =  2-t-2s.
 \end{bmatrix})
 .
 \end{equation*}
-</div> The normal equation of the plane is now given by \(\mbf{n}\cdot\vect{PX}=0\text{,}\) or more explicitly: <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+</div> The normal equation of the plane is now given by \(\vec{n}\cdot\vect{PX}=0\text{,}\) or more explicitly: <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
 \begin{bmatrix}
 2\\
@@ -74,7 +55,7 @@ x_3 =  2-t-2s.
 \end{bmatrix}
 \cdot
 \left(
-\mbf{x}
+\vec{x}
 -
 \begin{bmatrix}
 3 \\ -1\\ 2

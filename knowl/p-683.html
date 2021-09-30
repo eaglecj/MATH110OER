@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-09-20T12:27:34-07:00       *-->
+<!--*       on 2021-09-30T11:29:09-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,15 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Given any vectors \(\vec{v_1}, \ldots, \vec{v_k}\) if we let \(a_1 = a_2 = \cdots = a_k = 0\) then we certainly do get \(a_1\vec{v_1}+\cdots+a_k\vec{v_k} = \vec{0}\text{.}\)  We sometimes say that the expression \(0\vec{v_1} + \cdots + 0\vec{v_k}\) is the <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">trivial</em> way of obtaining \(\vec{0}\) as a linear combination of \(\vec{v_1}, \ldots, \vec{v_k}\text{.}\)  Saying that \(\vec{v_1}, \ldots, \vec{v_k}\) are linearly independent is saying that there is no <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">non-trivial</em> choice of scalars that will allow us to make a linear combination of \(\vec{v_1}, \ldots, \vec{v_k}\) be \(\vec{0}\text{.}\)</p>
-<span class="incontext"><a href="sec-LinearIndependence.html#p-683">in-context</a></span>
+<p>Suppose our system is \([A|\vec{b}]\text{.}\)  After row-reducing we see that the non-pivot columns of \(A\) correspond to free variables of the system, so</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\rank(A) + \amp \text{# of free variables of the system}\\
+\amp = \text{# of pivot columns of} A + \text{# of non-pivot columns of} A\\
+\amp = \text{# of columns of} A \\
+\amp = n\text{.}
+\end{align*}
+</div>
+<span class="incontext"><a href="sec-SLERevisted.html#p-683">in-context</a></span>
 </body>
 </html>

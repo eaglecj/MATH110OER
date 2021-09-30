@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-09-20T12:27:28-07:00       *-->
+<!--*       on 2021-09-30T11:29:05-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,21 +15,21 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>To find the normal form we need a normal vector, that is, a vector \(\vec{n}\) such that \(\vec{n}\cdot\vec{d_1} = 0\) and \(\vec{n}\cdot\vec{d_2} = 0\text{.}\)  If you are comfortable with the cross product, one solution is to take \(\vec{n} = \vec{d_1} \times \vec{d_2}\text{.}\) We are not teaching the cross product in this course, so we will find \(\vec{n}\) another way.  Suppose that \(\vec{n} = \begin{bmatrix}a\\b\\c\end{bmatrix}\text{.}\)  Then we need:</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\vect{AB}
-=
-\begin{bmatrix} 
-3 \\ -1\\ 5
-\end{bmatrix} 
--
-\begin{bmatrix} 
-1 \\ 1\\ 3
-\end{bmatrix} 
-=
-\begin{bmatrix} 
-2 \\ -2\\ 2
-\end{bmatrix} 
+0 = \vec{n}\cdot\vec{d_1} = \begin{bmatrix}a\\b\\c\end{bmatrix} \cdot\begin{bmatrix}-1\\0\\0\end{bmatrix} = -a
+\end{equation*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+0 = \vec{n}\cdot\vec{d_2} = \begin{bmatrix}a\\b\\c\end{bmatrix}\cdot\begin{bmatrix}-1\\1\\-6\end{bmatrix} = -a+b-6c\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We have here a system of two linear equations in three variables, and any solution to the system will give us a normal vector.  Solving the system using our usual techniques, we find that \(a=0, b=6, c=1\) is a solution, so we take \(\vec{n} = \begin{bmatrix}0\\6\\1\end{bmatrix}\text{.}\)  Then if we use the point \(A\) to define our normal equation, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{bmatrix}x\\y\\z\end{bmatrix} \cdot \begin{bmatrix}0\\6\\1\end{bmatrix} = \begin{bmatrix}2\\1\\3\end{bmatrix} \cdot \begin{bmatrix}0\\6\\1\end{bmatrix}\text{.}
 \end{equation*}
 </div>
 <span class="incontext"><a href="sec-Lines-and-Planes.html#p-491">in-context</a></span>
