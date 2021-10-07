@@ -1860,13 +1860,11 @@
 												8
 											\end{bmatrix}
 											\cdot
-											left(
 											\begin{bmatrix}
 												x_1 \\
 												x_2 \\
 												x_3 
 											\end{bmatrix}
-											\right)
 											=
 											11
 										</me></p>

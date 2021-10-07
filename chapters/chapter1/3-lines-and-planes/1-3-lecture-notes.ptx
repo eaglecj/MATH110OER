@@ -155,7 +155,7 @@
 				</md>
 			</example>
 			<example>
-				<p>In this example we will reverse what we did in example <xref ref="eg-dot-product-calculation" />.  Suppose that we are told that a line has general equations
+				<p>In this example we will reverse what we did in example <xref ref="eg-line-R3-normal" />.  Suppose that we are told that a line has general equations
 				<md>
 					<mrow> -x+y=1 </mrow>
 					<mrow> -x+z=2</mrow>
@@ -175,11 +175,11 @@
 							0 \amp 1 \amp -1 \amp -1
 						}
 				</me>
-				<p>That is, we have <m>x = z+2</m> and <m> y = z+1</m>.  Writing this as a vector, we have: </p>
-				<me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}z+2\\z+1\\z\end{bmatrix} = \begin{bmatrix}2\\1\\0\end{bmatrix} + z\begin{bmatrix}1\\1\\1\end{bmatrix}</me>.
+				<p>That is, we have <m>x-z=-2</m> (so <m>x=z-2</m>) and <m> y-z=-1</m> (so <m>y=z-1</m>).  Writing this as a vector, we have: </p>
+				<me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}z-2\\z-1\\z\end{bmatrix} = \begin{bmatrix}-2\\-1\\0\end{bmatrix} + z\begin{bmatrix}1\\1\\1\end{bmatrix}</me>.
 				<p>This is already a vector equation, but if we want to make it look more like the forms we have seen before we could choose to introduce a parameter <m>t</m>, set <m>z=t</m>, and obtain:</p>
-				<me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}2\\1\\0\end{bmatrix} + t\begin{bmatrix}1\\1\\1\end{bmatrix}</me>.
-				<p>It is worth noticing that we obtained the same direction vector that we found in <xref ref="eg-dot-product-calculation" />.  This time our equation used the point <m>\begin{bmatrix}2\\1\\0\end{bmatrix}</m>, but since the vector equation can use any point on the line this is not a problem.</p>
+				<me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}-2\\-1\\0\end{bmatrix} + t\begin{bmatrix}1\\1\\1\end{bmatrix}</me>.
+				<p>It is worth noticing that we obtained the same direction vector that we found in <xref ref="eg-line-R3-normal" />.  This time our equation used the point <m>\begin{bmatrix}-2\\-1\\0\end{bmatrix}</m>, but since the vector equation can use any point on the line this is not a problem.</p>
 			</example>
 			<p> In summary, a line in <m>\mathbb{R}^3</m> is described by a vector equation with <emph>one</emph> direction vector, or by <emph>two</emph> normal or general form equations, and we have seen how to translate between these forms. </p>
 		</subsection>
