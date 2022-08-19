@@ -1,0 +1,60 @@
+			<exercises>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							Which of the following matrices are orthogonally diagonalizable?
+							<ol>
+								<li><m>\begin{bmatrix}1 \amp 3 \amp 2 \\ 3 \amp -1 \amp 0 \\ 0 \amp 1 \amp 0\end{bmatrix}</m>.</li>
+								<li><m>\begin{bmatrix}3 \amp -2 \amp 5 \\ -2 \amp \pi \amp 0 \\ 5 \amp 0 \amp -3\end{bmatrix}</m>.</li>
+								<li><m>\begin{bmatrix}1 \amp 1 \amp 1 \amp 1 \amp 1 \\ 1 \amp 2 \amp 3 \amp -4 \amp 1 \\ 1 \amp 3 \amp 12 \amp 0 \amp 7 \\ 1 \amp -4 \amp 0 \amp 1 \amp 0 \\ 1 \amp 1 \amp 7 \amp 1 \amp 1\end{bmatrix}</m>.</li>
+							</ol>
+							<aside><p> (Source: None) </p></aside>
+						</statement>
+						<hint>
+							<p><xref ref="thm-spectral-thm" /> makes this something you can check without any calculations.</p>
+						</hint>
+						<solution>
+							<p>By <xref ref="thm-spectral-thm" /> a matrix is orthogonally diagonalizable if and only if it is symmetric.  The first and third matrices are not symmetric, but the second one is, so only the second one is orthogonally diagonalizable.</p>
+						</solution>
+						<answer><p>Only (b).</p></answer>
+					</exercise></p>	
+
+					<p><exercise>
+						<statement>
+							Find an orthogonal matrix <m>Q</m> and a diagonal matrix <m>D</m> such that <m>\begin{bmatrix}0 \amp -1 \amp 1 \\ -1 \amp 0 \amp 1 \\ 1 \amp 1 \amp 0\end{bmatrix} = QDQ^t</m>.
+							<aside><p>(Source: None)</p></aside>
+						</statement>
+						<hint>
+							<p>Start by diagonalizing as usual, but then use Gram-Schmid to convert the basis for each eigenspace into an orthonormal basis.</p>
+						</hint>
+						<solution>
+						</solution>
+						<answer>
+						</answer>
+					</exercise></p>
+
+					<p><exercise>
+						<statement>
+							Suppose that <m>A</m> and <m>B</m> are orthogonally diagonalizable, and that <m>AB=BA</m>.  Prove that <m>AB</m> is orthogonally diagonalizable.
+							<aside><p>(Source: None)</p></aside>
+						</statement>
+						<hint>
+							<p>Orthogonal diagonalizability is a hard property to work with, but <xref ref="thm-spectral-thm" /> can help.</p>
+						</hint>
+						<solution>
+							<p> By <xref ref="thm-spectral-thm" /> both <m>A</m> and <m>B</m> are symmetric.  Now we calculate: <me>(AB)^t = B^tA^t = BA = AB</me>.  Thus <m>AB</m> is symmetric, so by <xref ref="thm-spectral-thm" /> <m>AB</m> is orthogonally diagonalizable. </p>
+						</solution>
+					</exercise></p>
+
+					<p><exercise>
+						<statement>
+							Let <m>A = \begin{bmatrix}1 \amp 2 \\ 2 \amp 1\end{bmatrix}</m> and <m> B = \begin{bmatrix}1 \amp -1 \\ -1 \amp 0\end{bmatrix}</m>.  Show that <m>A</m> and <m>B</m> are orthogonally diagonalizable, but <m>AB</m> is not.
+							<aside><p>(Source: None)</p></aside>
+						</statement>
+						<hint>
+							<p>Once again, <xref ref="thm-spectral-thm" /> lets us convert this problem into a much easier one.</p>
+						</hint>
+						<solution>
+							<p>Both <m>A</m> and <m>B</m> are symmetric, so by <xref ref="thm-spectral-thm" /> they are orthogonally diagonalizable.  We calculate <me>AB = \begin{bmatrix}-1 \amp -1 \\ 1 \amp -2\end{bmatrix}</me>.  We see that <m>AB</m> is not symmetric, so it is not orthogonally diagonalizable (by <xref ref="thm-spectral-thm" />).</p>
+						</solution>
+					</exercise></p>
+			</exercises>

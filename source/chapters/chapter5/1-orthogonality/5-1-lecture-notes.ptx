@@ -1,0 +1,138 @@
+<section xml:id="sec-Ortho" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Orthogonality
+	</title>
+
+	<introduction>
+		<p> You might have noticed that in the past few chapters we have not used the dot product for anything.  In this chapter we explore how the new tools we have been developing interact with the dot product.  In this chapter we return to our previous convention that "scalar" means "real number". </p>
+		<p> You might want to take a moment to review the definition of the dot product, and the notion of orthogonality of vectors, from <xref ref="sec-DotProd"/>.</p>
+	</introduction>
+
+	<subsection>
+		<title>
+			Orthogonal and orthonormal bases
+		</title>
+
+		<definition>
+			<p> Let <m>X = \{\vec{v_1}, \ldots, \vec{v_k}\}</m> be a finite collection of vectors in <m>\mathbb{R}^n</m>. </p>
+			<p> The collection <m>X</m> is called an <em>orthogonal set</em> if whenever <m>i \neq j</m> we have <m>\vec{v_i} \cdot \vec{v_j} = 0</m>.</p>
+			<p> The collection <m>X</m> is called an <em>orthonormal set</em> if it is an orthogonal set, and for every <m>i</m> we also have <m>\norm{\vec{v_i}} = 1</m>. </p>
+		</definition>
+
+		<example>
+			<p>
+				<ul>
+					<li> The set <m>\left\{\begin{bmatrix}1\\1\\1\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}, \begin{bmatrix}0\\1\\-1\end{bmatrix}\right\}</m> is not an orthogonal set, because the dot product of the last two vectors is not <m>0</m>. </li>
+					<li> The set <m>\left\{\begin{bmatrix}1\\1\\1\end{bmatrix}, \begin{bmatrix}-2\\1\\1\end{bmatrix}, \begin{bmatrix}0\\-1\\1\end{bmatrix}\right\}</m> is an orthogonal set.  To verify this you need to calculate the dot product of every pair of vectors listed here, and see that they all give <m>0</m>.  This set is not orthonormal, because <m>\norm{\begin{bmatrix}1\\1\\1\end{bmatrix}} = \sqrt{3} \neq 1</m>.</li>
+					<li> The set <m>\left\{\begin{bmatrix}1/\sqrt{2} \\ -1\sqrt{2}\end{bmatrix}, \begin{bmatrix}1/\sqrt{2} \\ 1/\sqrt{2}\end{bmatrix}\right\}</m> is an orthonormal set.  To verify this you need to check that it is an orthogonal set, and that each vector in the set has length <m>1</m>, both of which are true. </li>
+				</ul>
+			</p>
+		</example>
+
+		<note><p>If <m>\vec{v_1}, \ldots, \vec{v_k}</m> are an orthogonal set of vectors, and none of them is <m>\vec{0}</m>, then <m>\frac{1}{\norm{\vec{v_1}}}\vec{v_1}, \ldots, \frac{1}{\norm{\vec{v_k}}}\vec{v_k}</m> is an orthonormal set with the same span as <m>\vec{v_1}, \ldots, \vec{v_k}</m>.</p></note>
+
+		<definition>
+			<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>.  An <em>orthogonal basis</em> for <m>S</m> is a basis for <m>S</m> that is also an orthogonal set.  An <em>orthonormal basis</em> for <m>S</m> is a basis for <m>S</m> that is also an orthonormal set.</p>
+		</definition>
+
+		<p> As this chapter develops we will see that if we have a subspace of <m>\mathbb{R}^n</m> then it is often more convenient to work with an orthonormal basis for that subspace than it is to work with an arbitrary basis.  In principle, to check that <m>B</m> is an orthogonal basis for a subspace <m>S</m> we need to check three things:
+			<ol>
+				<li><m>B</m> is an orthogonal set,</li>
+				<li><m>B</m> is a linearly independent set,</li>
+				<li><m>\SpanS(B) = S</m>.</li>
+			</ol>
+		Fortunately, our next result tells us that if we check (1) we do not also need to check (2). </p>
+
+		<theorem xml:id="thm-orthogonal-indep">
+			<statement>
+				<p> Let <m>X = \{\vec{v_1}, \ldots, \vec{v_k}\}</m> be an orthogonal set of vectors in <m>\mathbb{R}^n</m>.  Then <m>X</m> is linearly independent if and only if <m>\vec{v_j} \neq \vec{0}</m> for all <m>j</m>. </p>
+			</statement>
+			<proof>
+				<p> Suppose first that <m>X</m> is linearly independent.  Then <m>\vec{0}</m> cannot be in <m>X</m>, by <xref ref="ex-zero-dependent" />.  So <m>\vec{v_j} \neq \vec{0}</m> for all <m>j</m>.</p>
+				<p> Now for the harder direction, suppose that <m>\vec{v_j} \neq \vec{0}</m> for all <m>j</m>.  Suppose that we have scalars <m>c_1, \ldots, c_k</m> such that <m>c_1\vec{v_1} + \cdots + c_k\vec{v_k} = \vec{0}</m>.  Taking the dot product with <m>\vec{v_1}</m> on both sides of the equation we get:</p>
+				<md>
+					<mrow> 0 \amp = \vec{v_1} \cdot \vec{0} </mrow>
+					<mrow> \amp = \vec{v_1} \cdot (c_1\vec{v_1} + c_2\vec{v_2} + \cdots + c_k\vec{v_k}) </mrow>
+					<mrow> \amp = c_1(\vec{v_1}\cdot \vec{v_1}) + c_2(\vec{v_1}\cdot\vec{v_2}) + \cdots + c_k(\vec{v_1}\cdot\vec{v_k}) </mrow>
+					<mrow> \amp = c_1\norm{\vec{v_1}}^2 + c_2(0) + \cdots + c_k(0) </mrow>
+					<mrow> \amp = c_1\norm{\vec{v_1}}^2</mrow>
+				</md>
+				<p> In the calculation above the terms that became did so because of the assumption that <m>X</m> is an orthogonal set.  Now <m>\vec{v_1} \neq \vec{0}</m> implies that <m>\norm{\vec{v_1}}^2 \neq 0</m>, so we must have <m>c_1 = 0</m>.  Repeating this argument using the dot product with <m>\vec{v_2}</m> instead of <m>\vec{v_1}</m> shows that <m>c_2=0</m>, and so on.  Thus <m>c_1=c_2=\cdots = c_k = 0</m>, as required to show that <m>X</m> is a linearly independent set.</p>
+			</proof>
+		</theorem>
+
+		<p> Recall that if <m>\vec{v_1}, \ldots, \vec{v_k}</m> form a basis for a subspace <m>S</m>, and if <m>\vec{w}</m> is a vector in <m>S</m>, then there are unique scalars <m>c_1, \ldots, c_k</m> such that <m>\vec{w} = c_1\vec{v_1} + \cdots + c_k\vec{v_k}</m>.  In general, to find <m>c_1, \ldots, c_k</m> involves solving a system of linear equations.  When the basis is orthogonal there is an easier way. </p>
+
+		<theorem xml:id="thm-coordinates-orthogonal">
+			<statement>
+				<p> Let <m>S</m> be a subspace of <m>\mathbb{R}^n</m>, and suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> form an orthogonal basis for <m>S</m>.  Then for any vector <m>\vec{w}</m> in <m>S</m>, the unique way to write <m>\vec{w} = c_1\vec{v_1} + \cdots + c_k\vec{v_k}</m> is with, for each <m>j</m>, <m>c_j = \frac{\vec{w} \cdot \vec{v_j}}{\vec{v_j} \cdot \vec{v_j}}</m>. </p>
+			</statement>
+			<proof>
+				<p>The idea of the proof is very similar to the proof of <xref ref="thm-orthogonal-indep" />.  Suppose that we have written <m> \vec{w} = c_1\vec{v_1} + \cdots + c_k\vec{v_k}</m>.  If we consider any <m>j</m>, and take the dot product of both sides of the equation with <m>\vec{v_j}</m>, then we get:</p>
+				<md>
+					<mrow>\vec{w}\cdot\vec{v_j} \amp = \vec{v_j}\cdot(c_1\vec{v_1} + \cdots + c_k\vec{v_k}) </mrow>
+					<mrow> \amp = c_1(\vec{v_1}\cdot\vec{v_j}) + \cdots + c_k(\vec{v_k} \cdot \vec{v_j}) </mrow>
+					<mrow> \amp = c_j(\vec{v_j} \cdot \vec{v_j}) </mrow>
+				</md>
+				<p> All of the other terms in the calculation are <m>0</m> because the vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> are assumed to be orthogonal.  Now since <m>\vec{v_1}, \ldots, \vec{v_k}</m> are a basis for <m>S</m> they must be linearly independent, and in particular none of these vectors can be <m>\vec{0}</m>.  Thus <m>\vec{v_j} \cdot \vec{v_j} \neq 0</m>, so we can divide to conclude <m>c_j = \frac{\vec{w} \cdot \vec{v_j}}{\vec{v_j} \cdot \vec{v_j}}</m>, as desired. </p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p>
+				Let <m>\vec{v_1} = \begin{bmatrix}1\\0\\1\\0\end{bmatrix}</m>, <m>\vec{v_2} = \begin{bmatrix}1\\1\\-1\\0\end{bmatrix}</m>, and <m>\vec{v_3} = \begin{bmatrix}0\\0\\0\\1\end{bmatrix}</m>, and let <m>S = \SpanS(\vec{v_1}, \vec{v_2}, \vec{v_3})</m>.  Since <m>\{\vec{v_1}, \vec{v_2}, \vec{v_3}\}</m> is an orthogonal set of non-zero vectors, and it certainly spans <m>S</m>, by <xref ref="thm-orthogonal-indep" /> it is an orthogonal basis for <m>S</m>.
+			</p>
+			<p> Now consider the vector <m>\vec{w} = \begin{bmatrix}1\\-2\\5\\2\end{bmatrix}</m>.  For the purposes of this example, take it as a given fact that <m>\vec{w}</m> is in <m>S</m>.  Since <m>\vec{w}</m> is in <m>S</m> it is possible to write <me>\begin{bmatrix}1\\-2\\5\\2\end{bmatrix} = c_1\begin{bmatrix}1\\0\\1\\0\end{bmatrix} + c_2\begin{bmatrix}1\\1\\-1\\0\end{bmatrix} + c_3\begin{bmatrix}0\\0\\0\\1\end{bmatrix}</me>.  Without using anything about orthogonality we can find <m>c_1, c_2, c_3</m> by converting this vector equation into a system of four linear equations in variables <m>c_1, c_2, c_3</m>, and then solving.  Doing that, we have <me>\matr{ccc|c}{1 \amp 1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \amp -2 \\ 1 \amp -1 \amp 0 \amp 5 \\ 0 \amp 0 \amp 1 \amp 2} \to \matr{ccc|c}{1 \amp 0 \amp 0 \amp 3 \\ 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 0 \amp 1 \amp 2 \\ 0 \amp 0 \amp 0 \amp 0}</me>.  Thus we see that <m>c_1 = 3</m>, <m>c_2 = -2</m>, and <m>c_3 = 2</m>.</p>
+			<p>On the other hand, by <xref ref="thm-coordinates-orthogonal" />,
+			<md>
+				<mrow>c_1 \amp = \frac{\vec{w}\cdot\vec{v_1}}{\vec{v_1}\cdot\vec{v_1}} = \frac{6}{2} = 3</mrow>
+				<mrow>c_2 \amp = \frac{\vec{w}\cdot\vec{v_2}}{\vec{v_2}\cdot\vec{v_2}} = \frac{-6}{3} = -2</mrow>
+				<mrow>c_3 \amp = \frac{\vec{w}\cdot\vec{v_3}}{\vec{v_3}\cdot\vec{v_3}} = \frac{2}{1} = 2</mrow>
+			</md>
+			We obtained the same answer using very different techniques.  Which one is more appropriate in a particular situation depends on what data is given.  In this example both options work well.</p>
+		</example>
+
+		<note><p>If our basis <m>\vec{v_1}, \ldots, \vec{v_k}</m> is not just an orthogonal basis, but is actually an orthonormal basis, then the denominators in <xref ref="thm-coordinates-orthogonal" /> are all <m>1</m>, which makes the formulas for the coefficients in that case even simpler. </p></note>
+	</subsection>
+
+	<subsection>
+		<title>
+			The Gram-Schmidt algorithm
+		</title>
+		<p> Given a subspace <m>S</m> of <m>\mathbb{R}^n</m>, we know from <xref ref="thm-bases-exist" /> that there is a basis for <m>S</m>.  The next theorem gives us a method for transforming a basis for <m>S</m> into an orthogonal, or even orthonormal, basis for <m>S</m>.  We omit the proof, though you are encouraged to look back at the formulas in the algorithm after you read about orthogonal decompositions in <xref ref="sec-OrthoProj" />.</p>
+		<theorem xml:id="thm-Gram-Schmidt">
+			<title>Gram-Schmidt Algorithm</title>
+			<statement>
+				<p> Let <m>\vec{v_1}, \ldots, \vec{v_k}</m> be a linearly independent collection of vectors in <m>\mathbb{R}^n</m>.  Define new vectors as follows: </p>
+				<md>
+					<mrow>\vec{w_1} \amp = \vec{v_1}</mrow>
+					<mrow>\vec{w_2} \amp = \vec{v_2} - \proj_{\vec{w_1}}(\vec{v_2})</mrow><mrow> \amp = \vec{v_2} - \left(\frac{\vec{w_1}\cdot\vec{v_2}}{\vec{w_1}\cdot\vec{w_1}}\right)\vec{w_1} </mrow>
+					<mrow>\vec{w_3} \amp = \vec{v_3} - \proj_{\vec{w_1}}(\vec{v_3}) - \proj_{\vec{w_2}}(\vec{v_3}) </mrow><mrow>\amp = \vec{v_3} - \left(\frac{\vec{w_1}\cdot\vec{v_3}}{\vec{w_1}\cdot\vec{w_1}}\right)\vec{w_1} - \left(\frac{\vec{w_2}\cdot\vec{v_3}}{\vec{w_2}\cdot\vec{w_2}}\right)\vec{w_2}</mrow>
+					<mrow>\vdots</mrow>
+				</md>
+				<p>Then <m>\vec{w_1}, \ldots, \vec{w_k}</m> form an orthogonal set of vectors, and for every <m>j</m> we have <me>\SpanS(\vec{v_1}, \ldots, \vec{v_j}) = \SpanS(\vec{w_1}, \ldots, \vec{w_j})</me>.</p>
+				<p>In particular, if <m>\{\vec{v_1}, \ldots, \vec{v_k}\}</m> is a basis for a subspace <m>S</m>, then <m>\{\vec{w_1}, \ldots, \vec{w_k}\}</m> is an orthogonal basis for <m>S</m>, and <m>\left\{\frac{1}{\norm{\vec{w_1}}}\vec{w_1}, \ldots, \frac{1}{\norm{\vec{w_k}}}\vec{w_k}\right\}</m> is an orthonormal basis for <m>S</m>.</p>
+			</statement>
+		</theorem>
+
+		<example>
+			<p> Let <m>P</m> be the plane in <m>\mathbb{R}^3</m> with general equation <m>2x-y-z=0</m>.  Find an orthonormal basis for <m>P</m>.</p>
+			<solution>
+				<p> We start by finding any basis for <m>S</m>.  To do this, we solve for one of the variables, say writing <m>z = 2x-y</m>.  Thus vectors on the plane have the form <me>\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x\\y\\2x-y\end{bmatrix} = x\begin{bmatrix}1\\0\\2\end{bmatrix} + y\begin{bmatrix}0\\1\\-1\end{bmatrix}</me>.  Let <m>\vec{v_1} = \begin{bmatrix}1\\0\\2\end{bmatrix}</m> and <m>\vec{v_2} = \begin{bmatrix}0\\1\\-1\end{bmatrix}</m>.  So far we have that <m>\{\vec{v_1}, \vec{v_2}\}</m> is a basis for <m>P</m>. </p>
+				<p> Now we apply the Gram-Schmidt algorithm.  It begins by setting <m>\vec{w_1} = \vec{v_1} = \begin{bmatrix}1\\0\\2\end{bmatrix}</m>.  Next, we have 
+				<md>
+					<mrow> \vec{w_2} \amp = \vec{v_2} - \left(\frac{\vec{w_1}\cdot\vec{v_2}}{\vec{w_1}\cdot\vec{w_1}}\right)\vec{w_1} </mrow>
+					<mrow> \amp = \begin{bmatrix}0\\1\\-1\end{bmatrix} - \frac{\begin{bmatrix}0\\1\\-1\end{bmatrix}\cdot\begin{bmatrix}1\\0\\2\end{bmatrix}}{\begin{bmatrix}1\\0\\2\end{bmatrix}\cdot\begin{bmatrix}1\\0\\2\end{bmatrix}}\begin{bmatrix}1\\0\\2\end{bmatrix}</mrow>
+					<mrow> \amp = \begin{bmatrix}0\\1\\-1\end{bmatrix} - \frac{-2}{5}\begin{bmatrix}1\\0\\2\end{bmatrix}</mrow>
+					<mrow> \amp = \begin{bmatrix}2/5 \\ 1 \\ -1/5\end{bmatrix}</mrow>
+				</md>
+				Now <m>\{\vec{w_1}, \vec{w_2}\}</m> is an orthogonal basis for <m>P</m>.  It's slightly annoying to work with <m>\vec{w_2}</m> in its current form, and replacing a vector by a scalar multiple of that vector doesn't change anything about orthogonality, so there is no harm in replacing our original <m>\vec{w_2}</m> by a multiply of it to clear out fractions.  We therefore instead choose to take <m>\vec{w_2} = \begin{bmatrix}2\\5\\-1\end{bmatrix}</m>.</p>
+				<p> Finally, to obtain an orthonormal basis, just divide each vector in an orthogonal basis by its length.  We have <m>\norm{\vec{w_1}} = \sqrt{\vec{w_1} \cdot \vec{w_1}} = \sqrt{5}</m> and <m>\norm{\vec{w_2}} = \sqrt{30}</m>, so our final orthonormal basis is <me>\left\{\begin{bmatrix}1/\sqrt{5} \\ 0 \\ 2/\sqrt{5}\end{bmatrix}, \begin{bmatrix}2/\sqrt{30} \\ 5/\sqrt{30} \\ -1/\sqrt{30}\end{bmatrix}\right\}</me>.</p>
+			</solution>
+		</example>
+	</subsection>
+
+
+	<xi:include href="5-1-exercises.ptx" />
+</section>

@@ -1,0 +1,142 @@
+				<exercises>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 7, Exercise 7.1.9) </p></aside>
+						
+						Find the eigenvalues and eigenvectors of the matrix
+						<me> \begin{bmatrix} -6 \amp -92 \amp 12 \\ 0 \amp 0 \amp 0 \\ -2 \amp -31 \amp 4 \end{bmatrix} </me>.
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 7, Exercise 7.1.10) </p></aside>
+						Find the eigenvalues and eigenvectors of the matrix
+
+						<me> \begin{bmatrix} -2 \amp -17 \amp -6 \\ 0 \amp 0 \amp 0 \\ 1 \amp 9 \amp 3 \end{bmatrix} </me>.
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 7, Exercise 7.1.11) </p></aside>
+						Find the eigenvalues and eigenvectors of the matrix
+
+						<me> \begin{bmatrix} 9 \amp 2 \amp 8 \\ 2 \amp -6 \amp -2 \\ -8 \amp 2 \amp -5 \end{bmatrix} </me>.
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: None)</p></aside>
+						Without doing any explicit computation, find the eigenvalues of the matrix <me> B = \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix} </me>.
+						</statement>
+
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: None)</p></aside>
+						Without doing any explicit computation, explain why there are no real eigenvalues for the matrix <me> B = \begin{bmatrix}0 \amp 1 \\ -1 \amp 0\end{bmatrix}</me>.</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-RB" />, Eigenvalues, Eigenvectors, and Diagonalization, Exercise C19) </p></aside>
+							Find the eigenvalues and eigenspaces for the matrix below.
+							<me> \begin{bmatrix} -1 \amp 2 \\ -6 \amp 6 \end{bmatrix} </me>
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+						<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-RB" />, Eigenvalues, Eigenvectors, and Diagonalization, Exercise C20) </p></aside>
+							Find the eigenvalues and eigenspaces for the matrix below. 
+							<me> \begin{bmatrix} -12 \amp 30 \\ -5 \amp 13 \end{bmatrix} </me>
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KN" />, Chapter 3, Exercise 3.3.37) </p></aside>
+							Given <m>A = \begin{bmatrix} a \amp b \\ c \amp d\end{bmatrix}</m> show that :
+							<ol>
+								<li> <m> \chi_A(x) = x^2-tr(A)x+\det(A)</m> where <m>tr(A) = a+d </m> is called the <em> trace </em> of <m> A </m>. </li>
+								<li> The eigenvalues of <m>A</m> are <m> \frac{1}{2}[ (a+d) \pm \sqrt{(a-b)^2+4bc}]</m>. </li>
+							</ol>
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-JH" />, Eigenvalues and Eigenvectors, Exercise 3) </p></aside>
+						Find the characteristic equation, and the eigenvalues and associated eigenvectors for the matrix <m>\begin{bmatrix}-2 \amp -1 \\ 5 \amp 2\end{bmatrix}</m>.
+						</statement>      
+						 <hint> The eigenvalues are complex.
+						</hint> 
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					
+
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-JH" />, Eigenvalues and eigenvectors, Exercise 9) </p></aside>
+							Prove that the eigenvalues of a triangular matrix (upper or lower) are the entries on the diagonal.
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+
+
+
+
+					
+				</exercises>
+		

@@ -1,0 +1,75 @@
+			<exercises>
+ 					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 4, Exercise 4.11.2) </p></aside>
+						Determine whether the following set of vectors is orthogonal.  If it is orthogonal, determine whether it is also orthonormal.
+						<me> \begin{bmatrix}1 \\2 \\-1 \end{bmatrix}, \begin{bmatrix}1 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix}-1\\1\\1 \end{bmatrix} </me>
+						</statement>
+						
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 4, Exercise 4.11.3) </p></aside>
+						Determine whether the following set of vectors is orthogonal.  If it is orthogonal, determine whether it is also orthonormal.
+
+						<me> \begin{bmatrix}1 \\-1 \\ 1 \end{bmatrix}, \begin{bmatrix} 2 \\ 1 \\ -1 \end{bmatrix}, \begin{bmatrix}0\\1\\1 \end{bmatrix} </me>
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 4, Exercise 4.11.4) </p></aside>
+						Determine whether the following set of vectors is orthogonal.  If it is orthogonal, determine whether it is also orthonormal.
+
+						<me> \begin{bmatrix}1 \\-1 \\ 1 \end{bmatrix}, \begin{bmatrix} 2 \\ 1 \\ -1 \end{bmatrix}, \begin{bmatrix}1\\2\\1 \end{bmatrix} </me>
+						</statement>
+						
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-PS" />, Chapter 11, Exercise 11.2.6) </p></aside>
+						Suppose <m> B = \{\mathbf{u_1},\mathbf{u_2}, \mathbf{u_3}\} </m> is an orthogonal basis of <m> \mathbb{R}^3 </m>.  We have been told that 
+						<me> \mathbf{u_1} = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}, </me>
+						but it is not know what <m> \mathbf{u_2} </m> and <m> \mathbf{u_3} </m> are.  Find the first coordinate of the vector 
+						<me> \mathbf{v} = \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} </me> 
+						with respect to the basis <m> B </m>. 
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+					<p><exercise><!-- xml:id="ex-" -->
+						<statement>
+							<aside><p> (Source: <xref ref="ref-KK" />, Chapter 4, Example 4.125) </p></aside>
+						Consider the set of vectors given by 
+						<me> \{ \mathbf{u_1}, \mathbf{u_2}\}= \left\{ \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \begin{bmatrix}-1 \\ 1 \end{bmatrix}\right\}. </me>
+						Show that it is an othogonal set of vectors but not an orthonormal one.  Find an orthonormal set of vectors with the same span. 
+						</statement>
+						<!-- <hint>
+						</hint> -->
+						<!-- <solution>
+						</solution> -->
+						<!--<answer>
+						</answer> -->
+					</exercise></p>
+			</exercises>

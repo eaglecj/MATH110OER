@@ -1,0 +1,171 @@
+<section xml:id="sec-SLERevisted" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<title>
+		Systems of linear equations revisited
+	</title>
+	<introduction>
+		<p> We introduced techniques for solving systems of linear equations in <xref ref="sec-Elimination" />.  With the understanding of vectors that we have developed since then we are now ready to make a more detailed study of systems of linear equations. </p>
+	</introduction>
+
+	<subsection>
+		<title> Rank </title>
+
+		<definition>
+			<p>Let <m>A</m> be a matrix.  A <em>pivot column</em> of <m>A</m> is a column of <m>A</m> that corresponds to a column of <m>\RREF(A)</m> containing the leading <m>1</m> of some row.</p>
+			<p>The <em>rank</em> of <m>A</m>, written <m>\rank(A)</m>, is the number of pivot columns of <m>A</m>.</p>
+		</definition>
+		<example>
+			<p> Suppose that <m>A = \begin{bmatrix}1 \amp 3 \amp 0 \amp -2 \amp 4\\ 1 \amp 3 \amp 1 \amp 1 \amp 4\end{bmatrix}</m>.  Then <m>\RREF(A) = \begin{bmatrix}1 \amp 3 \amp 0 \amp -2 \amp 4\\ 0 \amp 0 \amp 1 \amp 3 \amp 0\end{bmatrix}</m>.  Columns <m>1</m> and <m>3</m> are pivot columns, while columns <m>2</m>, <m>4</m>, and <m>5</m> are not.  <m>\rank(A)  = 2</m>.</p>
+		</example>
+
+		<lemma xml:id="lem-pivot-nonzero-row">
+			<statement>
+				<p> Let <m>A</m> be a matrix.  Then <m>\rank(A)</m> is equal to the number of non-zero rows of <m>\RREF(A)</m>.</p>
+			</statement>
+			<proof>
+				<p> By definition of the reduced row echelon form, each non-zero row of <m>\RREF(A)</m> has a leading <m>1</m>, while of course the zero rows do not have leading <m>1</m>s, so there is a correspondence between pivot columns and non-zero rows of <m>\RREF(A)</m>.</p>
+			</proof>
+		</lemma>
+
+		<p>The reason for the word "nullity" in the name of the next theorem will be given in <xref ref="sec-Matrix-Subspaces" />.</p>
+
+		<theorem xml:id="thm-rank-nullity-version-1">
+			<title> Rank-Nullity Theorem </title>
+			<statement>
+				<p> In a consistent system of linear equations with <m>n</m> variables, if <m>A</m> is the coefficient matrix of the system, then <me>\rank(A) + \text{# of free variables of the system} = n</me>.</p>
+			</statement>
+			<proof>
+				<p> Suppose our system is <m>[A|\vec{b}]</m>.  After row-reducing we see that the non-pivot columns of <m>A</m> correspond to free variables of the system, so 
+				<md>
+					<mrow>\rank(A) + \amp \text{# of free variables of the system}</mrow>
+					<mrow> \amp = \text{# of pivot columns of} A + \text{# of non-pivot columns of} A</mrow>
+					<mrow> \amp = \text{# of columns of} A </mrow>
+					<mrow> \amp = n</mrow>
+				</md>.</p>
+			</proof>
+		</theorem>
+
+		<example>
+			<p> The rank-nullity theorem offers one explanation of why the number of direction vectors for a line or plane in <m>\mathbb{R}^3</m>, plus the number of general equations required to describe it, adds up to <m>3</m> (we first saw this phenomenon in <xref ref="sec-Lines-and-Planes" />).</p>
+			<p>Consider a line in <m>\mathbb{R}^3</m> with general equations <m>a_1x+b_1y+c_1z=d_1</m> and <m>a_2x+b_2y+c_2z=d_2</m>.  As long as these equations are not multiples of each other the coefficient matrix of the system, <m>\begin{bmatrix}a_1 \amp b_1 \amp c_1 \\ a_2 \amp b_2 \amp c_2\end{bmatrix}</m> will have rank <m>2</m>.  By the rank-nullity theorem the system of equations describing the line will therefore have <m>3-2 = 1</m> free variable, and (as we saw when we converted between the forms for a line in <xref ref="sec-Lines-and-Planes" />) that one free variable corresponds to one direction vector for the line. </p>
+			<p> Similarly, if we have a plane in <m>\mathbb{R}^3</m> it can be described by a single general equation.  If we think of that single equation as a system of one equation in three variables, we see that the system has rank <m>1</m> (as long as it is not the trivial equation <m>0x+0y+0z=0</m>).  By the rank-nullity theorem it therefore has <m>2</m> free variables, and those free variables correspond to the direction vectors of the plane.</p>
+		</example>
+
+		<corollary xml:id="cor-number-of-solutions-1">
+			<statement>
+				<p> Any system of linear equations has either no solution, exactly one solution, or infinitely many solutions. </p>
+			</statement>
+			<proof>
+				<p> Suppose that we have a system <m>[A|\vec{b}]</m>, where <m>A</m> is an <m>m \times n</m> matrix.  There are three possibilities:
+				<ul>
+					<li> The system is inconsistent.  In this case it has no solutions, by definition. </li>
+					<li> <p>The system is consistent and <m>\rank(A) = n</m>.  Then every column of <m>A</m> is a pivot column and (by <xref ref="lem-pivot-nonzero-row" />) there are exactly <m>n</m> non-zero rows of <m>\RREF(A)</m>, so the form of the reduced row echelon form of the system is <m>\matr{cccc|c}{1 \amp 0 \amp \cdots \amp 0 \amp c_1 \\ 0 \amp 1 \amp \cdots \amp 0 \amp c_2 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \\ 0 \amp 0 \amp \cdots \amp 1 \amp c_n \\ 0 \amp 0 \amp \cdots \amp 0 \amp 0 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \\ 0 \amp 0 \amp \cdots \amp 0 \amp 0}</m>.  </p><p>A system of this form has unique solution <m>x_1 = c_1, \ldots, x_n = c_n</m>.</p> </li>
+					<li> The system is consistent and <m>\rank(A) \lt n</m>.  Then by <xref ref="thm-rank-nullity-version-1" /> the system has at least one free variable, and since each value of the free variable gives rise to a solution the system has infinitely many solutions. </li>
+				</ul>
+				</p>
+			</proof>
+		</corollary>
+	</subsection>
+	<subsection>
+		<title> Homogeneous systems </title>
+		<definition>
+			<p> A system of linear equations is called <em>homogeneous</em> if all of the constants on the right of the equals signs are <m>0</m>.  That is, if the augmented matrix of the system has the form <m>[A|\vec{0}]</m>.</p>
+		</definition>
+		<note>
+			<p> Homogeneous systems are exactly the ones that arose in <xref ref="sec-LinearIndependence" /> when we tested whether or not a collection of vectors is linearly independent. </p>
+			<p> Every homogeneous system is consistent - just choose the values of all of the variables to be <m>0</m>.  There may or may not be other solutions, depending on the system.</p>
+		</note>
+		<theorem xml:id="thm-homogeneous-system-more-variables">
+			<statement>
+				<p> If a homogeneous system has more variables than equations then it has infinitely many solutions. </p>
+			</statement>
+			<proof>
+				<p> Suppose that the system <m>[A|\vec{0}]</m> has <m>n</m> variables and <m>m</m> equations (so <m>A</m> is an <m>m \times n</m> matrix), with <m>m \lt n</m>.  Then, by <xref ref="thm-rank-nullity-version-1" />,
+				<md>
+					<mrow>\text{# free variables} \amp = n - \rank(A)</mrow>
+					<mrow>\amp \geq n - m</mrow>
+					<mrow> \amp \gt 0</mrow>
+				</md>.  Thus the system has at least one free variable, so it has infinitely many solutions. </p>
+			</proof>
+		</theorem>
+
+		<theorem xml:id="thm-more-vectors-than-dimension">
+			<statement>
+				<p> If <m>k > n</m> then every collection of <m>k</m> distinct vectors in <m>\mathbb{R}^n</m> is linearly dependent.</p>
+			</statement>
+			<proof>
+				<p>Suppose that <m>\vec{v_1}, \ldots, \vec{v_k}</m> are distinct vectors in <m>\mathbb{R}^n</m>, with <m>k \geq n</m>, and let <m>A</m> be the matrix with columns <m>\vec{v_1}, \ldots, \vec{v_k}</m>.  Then the system <m>[A|\vec{0}]</m> is a homogeneous system with more variables (<m>k</m>) than equations (<m>n</m>), so by <xref ref="thm-homogeneous-system-more-variables" /> this system has infinitely many solutions.  In particular, it does not have a unique solution, so by <xref ref="thm-indep-iff-unique-solution" /> the vectors <m>\vec{v_1}, \ldots, \vec{v_k}</m> are linearly dependent.</p>
+			</proof>
+		</theorem>
+
+		<note>
+			<p> If we have a homogeneous system with <m>n</m> variables and <m>m</m> equations with <m>m \geq n</m> then <xref ref="thm-homogeneous-system-more-variables" /> does not apply.  The system could have exactly one solution or it could have infinitely many solutions, depending on the specific system. </p>
+			<p> Similarly, if we have <m>k</m> vectors in <m>\mathbb{R}^n</m> with <m>k \leq n</m> then <xref ref="thm-more-vectors-than-dimension" /> does not apply.  The vectors could be linearly dependent or linearly independent, depending on the specific vectors. </p>
+		</note>
+
+		<example>
+			<p> The vectors <m>\begin{bmatrix}1\\0\\2\\1\end{bmatrix}, \begin{bmatrix}-3\\ \pi \\ 1 \\ 1\end{bmatrix}, \begin{bmatrix}1 \\ 1\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}15 \\ -\sqrt{2} \\ 3 \\ 1\end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \\1\end{bmatrix}</m> form a linearly dependent set, because they are <m>5</m> vectors in <m>\mathbb{R}^4</m>.  If we wanted to actually find a non-trivial linear combination of these vectors that equals <m>\vec{0}</m> we could follow the methods from <xref ref="sec-LinearIndependence" />, but if all we need to know is that they are linearly dependent then no calculation is required. </p>
+			<p> By contrast, the vectors <m>\begin{bmatrix}1\\0\\2\\1\end{bmatrix}, \begin{bmatrix}-3\\ \pi \\ 1 \\ 1\end{bmatrix}, \begin{bmatrix}1 \\ 1\\ 1\\ 1\end{bmatrix}</m> might be linearly dependent or linearly independent - without doing any calculations there is no way to tell.  In fact, they are independent, as you can check. </p>
+		</example>
+	</subsection>
+
+	<subsection>
+		<title> The fundamental theorem </title>
+
+		<p> The next theorem is very important - so important that it is often called the "Fundamental Theorem of Linear Algebra".  As the course goes on we will be adding to this theorem, and it will eventually grow to touch nearly every topic of the course.  Before stating it we need one definition (which will reappear in <xref ref="sec-Multiplication" />).</p>
+		<definition>
+			<p> For any natural number <m>n</m>, the <em><m>n \times n</m> identity matrix</em> is the <m>n \times n</m> matrix <m>I_n = \begin{bmatrix}1 \amp 0 \amp 0 \amp \cdots \amp 0 \\ 0 \amp 1 \amp 0 \amp \cdots \amp 0 \\ 0 \amp 0 \amp 1 \amp \cdots \amp 0 \\ \vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp 0 \amp \cdots \amp 1\end{bmatrix}</m>.</p>
+		</definition>
+
+		<theorem xml:id="thm-fundamental-version-1">
+			<title> Fundamental Theorem - Version 1 </title>
+			<statement>
+				<p> Let <m>A</m> be an <m>n \times n</m> (non-augmented) matrix.  The following are equivalent: </p>
+				<ol>
+					<li> <m>\RREF(A) = I_n</m>.</li>
+					<li> The system <m>[A|\vec{0}]</m> has a unique solution. </li>
+					<li> For every vector <m>\vec{b}</m> in <m>\mathbb{R}^n</m>, the system <m>[A|\vec{b}]</m> has a unique solution.</li>
+					<li> The columns of <m>A</m> are linearly independent. </li>
+					<li> The span of the columns of <m>A</m> is <m>\mathbb{R}^n</m>. </li>
+					<li> <m>\rank(A) = n</m>.</li>
+				</ol>
+			</statement>
+			<proof>
+				<p> We will prove <m>1 \implies 3 \implies 2 \implies 6 \implies 1</m>, <m>2 \iff 4</m>, <m>3 \implies 5</m>, and <m>5 \implies 6</m> (take a moment to convince yourself that you can get from any number to any other in the diagram below). </p>
+				<figure>
+					<caption>A diagram of the implications to be proved.</caption>
+					<image>
+						<latex-image>
+							\begin{tikzpicture}
+								  \matrix[column sep={4em,between origins}, row sep={3em}] at (0,0) {
+								    \node(1) {$1$}; \amp \node{}; \amp \node(3) {$3$}; \\
+								     \node{}; \amp \node(5){$5$}; \amp \node{}; \\
+								    \node(6) {$6$}; \amp \node{}; \amp \node(2) {$2$}; \amp \node(4){$4$};\\
+								  };
+								  \draw[->] (1) -- (3);
+								  \draw[->] (3) -- (2);
+								  \draw[->] (2) -- (6);
+								  \draw[->] (6) -- (1);
+								  \draw[->] (3) -- (5);
+								  \draw[->] (5) -- (6);
+								  \draw[->] (2) -- (4);
+								  \draw[->] (4) -- (2);
+							\end{tikzpicture}
+						</latex-image>
+					</image>
+				</figure>
+				<p> <m>1 \implies 3</m>: Suppose that <m>\RREF(A) = I_n</m>.  When we do row operations to <m>[A|\vec{b}]</m> the augmented column will change to some other vector <m>\vec{c}</m>, so <m>[A|\vec{b}] \to [\RREF(A)|\vec{c}] = [I_n|\vec{c}]</m>.  That is, the reduced row echelon form of the system has the form <m>\matr{cccc|c}{1 \amp 0 \amp \cdots \amp 0 \amp c_1 \\ 0 \amp 1 \amp \cdots \amp 0 \amp c_2 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \\ 0 \amp 0 \amp \cdots \amp 1 \amp c_n}</m>, from which we see that the system <m>[A|\vec{b}]</m> has a unique solution (namely <m>x_1 = c_1, \ldots, x_n=c_n</m>).</p>
+				<p> <m>3 \implies 2</m>: Suppose that, for every <m>\vec{b}</m>, the system <m>[A|\vec{b}]</m> has a unique solution.  Then this is true in particular for <m>\vec{b}=\vec{0}</m>, so the system <m>[A|\vec{0}]</m> has a unique solution.</p>
+				<p> <m>2 \implies 6</m>: Suppose that the system <m>[A|\vec{b}]</m> has a unique solution.  Because the solution is unique this system has no free variables, so by the Rank-Nullity Theorem (<xref ref="thm-rank-nullity-version-1" />) we get <m>\rank(A) = n</m>. </p>
+				<p> <m>6 \implies 1</m>: Suppose that <m>\rank(A) = n</m>.  Then every column of <m>A</m> is a pivot column, and you can check that the only <m>n \times n</m> matrix in reduced row echelon form where every column is a pivot column is <m>I_n</m>.  Thus <m>\RREF(A) = I_n</m>.</p>
+				<p> <m>2 \iff 4</m>: We already proved this: <xref ref="thm-indep-iff-unique-solution" />. </p>
+				<p> <m>3 \implies 5</m>: Suppose that, for every <m>\vec{b}</m>, the system <m>[A|\vec{b}]</m> has a unique solution.  Then in particular the system <m>[A|\vec{b}]</m> is consistent, so by <xref ref="thm-checking-span" /> <m>\vec{b}</m> is in the span of the columns of <m>A</m>.  Since <m>\vec{b}</m> was arbitrary, the span of the columns of <m>A</m> is all of <m>\mathbb{R}^n</m>.</p>
+				<p> <m>5 \implies 6</m>: We prove this by <em>contrapositive</em>, that is, we prove that if <m>6</m> is false then <m>5</m> is also false.  So suppose that <m>\rank(A) \neq n</m>.  Then <m>\rank(A) \lt n</m>, so by <xref ref="lem-pivot-nonzero-row" /> the reduced row echelon form of <m>A</m> has at least one row that is all zero; in particular, by definition of the reduced row echelon form, this means that the bottom row of <m>\RREF(A)</m> is all zero.  Let <m>\vec{c} = \begin{bmatrix}0 \\ 0 \\ \vdots \\ 0 \\ 1\end{bmatrix}</m>.  Since <m>A</m> is row-equivalent to <m>\RREF(A)</m> there is some sequence of row operations that takes <m>\RREF(A)</m> to <m>A</m>.  Applying that sequence takes the augmented matrix <m>[\RREF(A) | \vec{c}]</m> to another augmented matrix <m>[A | \vec{b}]</m> for some <m>\vec{b}</m>.  Since the system <m>[\RREF(A) | \vec{c}]</m> is inconsistent, so is the system <m>[A | \vec{b}]</m>; by <xref ref="thm-checking-span" /> the vector <m>\vec{b}</m> is not in the span of the columns of <m>A</m>, so the span of the columns of <m>A</m> is not all of <m>\mathbb{R}^n</m> (i.e., statement <m>5</m> is false).</p>
+			</proof>
+		</theorem>
+	</subsection>
+
+
+
+	<xi:include href="2-1-exercises.ptx" />
+</section>

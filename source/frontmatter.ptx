@@ -1,0 +1,29 @@
+		<frontmatter>
+			<titlepage>
+				<author>
+					<personname>Christopher Eagle</personname>
+					<department>Mathematics and Statistics</department>
+					<institution>University of Victoria</institution>
+					<email>math110eagle@uvic.ca</email>
+				</author>
+				<date>September 2022</date>
+			</titlepage>
+
+			<acknowledgement>
+				<p>A tremendous amount of assistance in collecting problems and writing hints, answers, and solutions, was provided by Dina Buric and Anna Duwenig.</p>
+				<p>The creation of this resource was financially supported by the University of Victoria Open Educational Resources Grant.</p>
+			</acknowledgement>
+			<introduction>
+				<p>This book began as a set of lecture notes, together with practice problems, for students taking Math 110 at the University of Victoria.</p>
+				<p>The text of the book is based on the lectures given by Christopher Eagle. </p>
+				<p>The practice problems have been obtained from a variety of openly available textbooks (see <xref text="title" ref="ref-references"/>). </p>
+				<p>Each question provides a link to the original source of the question.  The hints, answers, and solutions are new: If you spot any errors, please contact <email>math110eagle@uvic.ca</email> so we can correct them!</p>
+			</introduction>
+			<colophon>	 
+				<copyright>
+					<holder>Christopher Eagle</holder>
+		 			<year>2020-2022</year>
+		 			<shortlicense>Creative Commons BY-SA-NC</shortlicense>
+				</copyright>
+		 	</colophon>
+		</frontmatter>
